@@ -5,7 +5,7 @@ import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
   "title": "Protect Your Mattress, Protect Your Investment",
-  "description": "A quality mattress deserves quality protection. At Snooze Mattress + Wellness in Brownsville, our premium mattress protectors safeguard your bed against spills, stains, allergens, and everyday wear—all while maintaining the comfort and feel you love.",
+  "description": "A quality mattress deserves quality protection. At Snooze Mattress + Wellness in McAllen, our premium mattress protectors safeguard your bed against spills, stains, allergens, and everyday wear—all while maintaining the comfort and feel you love.",
   "alternates": {
     "canonical": "/mattress-protectors",
     "languages": {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   "openGraph": {
     "title": "Protect Your Mattress, Protect Your Investment",
-    "description": "A quality mattress deserves quality protection. At Snooze Mattress + Wellness in Brownsville, our premium mattress protectors safeguard your bed against spills, stains, allergens, and everyday wear—all while maintaining the comfort and feel you love.",
+    "description": "A quality mattress deserves quality protection. At Snooze Mattress + Wellness in McAllen, our premium mattress protectors safeguard your bed against spills, stains, allergens, and everyday wear—all while maintaining the comfort and feel you love.",
     "url": "/mattress-protectors",
     "type": "website",
     "images": [

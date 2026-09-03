@@ -4,8 +4,8 @@ import { GhlPage } from '@/components/GhlPage';
 import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
-  "title": "Elevate Your Sleep with Premium Pillows in Brownsville",
-  "description": "The right pillow makes all the difference. At Snooze Mattress + Wellness, we offer Brownsville's finest selection of premium pillows designed to cradle your head, support your neck, and transform your nightly rest.",
+  "title": "Elevate Your Sleep with Premium Pillows in McAllen",
+  "description": "The right pillow makes all the difference. At Snooze Mattress + Wellness, we offer McAllen's finest selection of premium pillows designed to cradle your head, support your neck, and transform your nightly rest.",
   "alternates": {
     "canonical": "/pillows",
     "languages": {
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Elevate Your Sleep with Premium Pillows in Brownsville",
-    "description": "The right pillow makes all the difference. At Snooze Mattress + Wellness, we offer Brownsville's finest selection of premium pillows designed to cradle your head, support your neck, and transform your nightly rest.",
+    "title": "Elevate Your Sleep with Premium Pillows in McAllen",
+    "description": "The right pillow makes all the difference. At Snooze Mattress + Wellness, we offer McAllen's finest selection of premium pillows designed to cradle your head, support your neck, and transform your nightly rest.",
     "url": "/pillows",
     "type": "website",
     "images": [

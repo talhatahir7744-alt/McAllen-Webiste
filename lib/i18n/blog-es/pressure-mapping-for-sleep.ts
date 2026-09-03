@@ -4,10 +4,10 @@ import { IMG } from '@/lib/blog-images';
 export const POST_ES: BlogPost = {
   slug: 'pressure-mapping-for-sleep',
   title: 'Mapas de Presión para Dormir Mejor',
-  metaTitle: 'Mapeo de Presión para Dormir Mejor | Snooze Brownsville',
+  metaTitle: 'Mapeo de Presión para Dormir Mejor | Snooze McAllen',
   metaDescription:
-    'Lo que el mapeo de presión revela sobre tu postura al dormir, los materiales del colchón y tu peso, y cómo te ayuda a elegir el colchón ideal en Brownsville.',
-  keywords: ['mapeo de presión', 'colchón con mapa de presión', 'dormir mejor', 'alineación de la columna', 'colchón personalizado', 'Brownsville'],
+    'Lo que el mapeo de presión revela sobre tu postura al dormir, los materiales del colchón y tu peso, y cómo te ayuda a elegir el colchón ideal en McAllen.',
+  keywords: ['mapeo de presión', 'colchón con mapa de presión', 'dormir mejor', 'alineación de la columna', 'colchón personalizado', 'McAllen'],
   datePublished: '2025-01-25',
   dateDisplay: '25 de enero de 2025',
   readTime: '7 min de lectura',
@@ -26,7 +26,7 @@ export const POST_ES: BlogPost = {
         'El mapeo de presión consiste en colocar una colchoneta delgada con miles de sensores entre la persona y la superficie donde duerme. Estos sensores miden la fuerza que se ejerce en cada punto de contacto y generan una imagen a colores que muestra las zonas de mayor y menor presión. Los colores cálidos normalmente señalan puntos de presión concentrados, mientras que los colores fríos representan las áreas donde el cuerpo está bien sostenido y la presión se reparte de manera uniforme.',
         'Esta tecnología se ha vuelto una herramienta muy valiosa para investigadores, fabricantes y profesionales de la salud que buscan entender la relación tan compleja entre nuestro cuerpo y [las superficies donde dormimos](/es/blog/custom-mattresses-improving-health). Lo que hace tan poderoso al mapeo de presión es que convierte esa sensación subjetiva de comodidad en datos objetivos que se pueden medir.',
       ],
-      image: { ...IMG.mappingVisit, alt: 'Clientes en la estación de Mapeo de Presión dentro de Snooze Mattress Company Brownsville', caption: 'La estación de Mapeo de Presión en nuestra tienda de Brownsville.' },
+      image: { ...IMG.mappingVisit, alt: 'Clientes en la estación de Mapeo de Presión dentro de Snooze Mattress Company McAllen', caption: 'La estación de Mapeo de Presión en nuestra tienda de McAllen.' },
     },
     {
       heading: 'Qué Significan Realmente los Colores',

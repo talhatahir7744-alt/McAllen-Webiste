@@ -4,8 +4,8 @@ import { GhlPage } from '@/components/GhlPage';
 import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
-  "title": "Sillas de Masaje Infinity® en Brownsville",
-  "description": "Las sillas de masaje Infinity® de Snooze Mattress + Wellness en Brownsville ofrecen tecnología de masaje avanzada para relajarte, recuperarte y cuidar tu bienestar total. Con posición de gravedad cero, compresión de aire de cuerpo completo, terapia de calor y rodillos de masaje de precisión, las sillas Infinity te dan una experiencia de spa en la comodidad de tu casa.",
+  "title": "Sillas de Masaje Infinity® en McAllen",
+  "description": "Las sillas de masaje Infinity® de Snooze Mattress + Wellness en McAllen ofrecen tecnología de masaje avanzada para relajarte, recuperarte y cuidar tu bienestar total. Con posición de gravedad cero, compresión de aire de cuerpo completo, terapia de calor y rodillos de masaje de precisión, las sillas Infinity te dan una experiencia de spa en la comodidad de tu casa.",
   "alternates": {
     "canonical": "/es/massage-chairs",
     "languages": {
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Sillas de Masaje Infinity® en Brownsville",
-    "description": "Las sillas de masaje Infinity® de Snooze Mattress + Wellness en Brownsville ofrecen tecnología de masaje avanzada para relajarte, recuperarte y cuidar tu bienestar total. Con posición de gravedad cero, compresión de aire de cuerpo completo, terapia de calor y rodillos de masaje de precisión, las sillas Infinity te dan una experiencia de spa en la comodidad de tu casa.",
+    "title": "Sillas de Masaje Infinity® en McAllen",
+    "description": "Las sillas de masaje Infinity® de Snooze Mattress + Wellness en McAllen ofrecen tecnología de masaje avanzada para relajarte, recuperarte y cuidar tu bienestar total. Con posición de gravedad cero, compresión de aire de cuerpo completo, terapia de calor y rodillos de masaje de precisión, las sillas Infinity te dan una experiencia de spa en la comodidad de tu casa.",
     "url": "/es/massage-chairs",
     "type": "website",
     "images": [

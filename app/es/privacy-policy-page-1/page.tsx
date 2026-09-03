@@ -5,7 +5,7 @@ import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
   "title": "Política de Privacidad",
-  "description": "Snooze Mattress Company – Brownsville (“la Empresa”, “nosotros” o “nuestro”) respeta tu privacidad y se compromete a proteger tu información personal. Esta Política de Privacidad describe cómo recopilamos, usamos y compartimos la información cuando visitas nuestro sitio web, nos contactas o utilizas nuestros servicios.",
+  "description": "Snooze Mattress Company – McAllen (“la Empresa”, “nosotros” o “nuestro”) respeta tu privacidad y se compromete a proteger tu información personal. Esta Política de Privacidad describe cómo recopilamos, usamos y compartimos la información cuando visitas nuestro sitio web, nos contactas o utilizas nuestros servicios.",
   "alternates": {
     "canonical": "/es/privacy-policy-page-1",
     "languages": {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   "openGraph": {
     "title": "Política de Privacidad",
-    "description": "Snooze Mattress Company – Brownsville (“la Empresa”, “nosotros” o “nuestro”) respeta tu privacidad y se compromete a proteger tu información personal. Esta Política de Privacidad describe cómo recopilamos, usamos y compartimos la información cuando visitas nuestro sitio web, nos contactas o utilizas nuestros servicios.",
+    "description": "Snooze Mattress Company – McAllen (“la Empresa”, “nosotros” o “nuestro”) respeta tu privacidad y se compromete a proteger tu información personal. Esta Política de Privacidad describe cómo recopilamos, usamos y compartimos la información cuando visitas nuestro sitio web, nos contactas o utilizas nuestros servicios.",
     "url": "/es/privacy-policy-page-1",
     "type": "website",
     "images": [

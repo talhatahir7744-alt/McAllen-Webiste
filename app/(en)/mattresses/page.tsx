@@ -4,8 +4,8 @@ import { GhlPage } from '@/components/GhlPage';
 import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
-  "title": "Best Mattresses  in Brownsville",
-  "description": "Finding the perfect mattress in Brownsville doesn’t have to be overwhelming. At Snooze Mattress + Wellness, we make it simple and personal. From luxury comfort and advanced sleep technology to budget-friendly options, our Brownsville showroom offers mattresses for every sleep style and budget.",
+  "title": "Best Mattresses  in McAllen",
+  "description": "Finding the perfect mattress in McAllen doesn’t have to be overwhelming. At Snooze Mattress + Wellness, we make it simple and personal. From luxury comfort and advanced sleep technology to budget-friendly options, our McAllen showroom offers mattresses for every sleep style and budget.",
   "alternates": {
     "canonical": "/mattresses",
     "languages": {
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Best Mattresses  in Brownsville",
-    "description": "Finding the perfect mattress in Brownsville doesn’t have to be overwhelming. At Snooze Mattress + Wellness, we make it simple and personal. From luxury comfort and advanced sleep technology to budget-friendly options, our Brownsville showroom offers mattresses for every sleep style and budget.",
+    "title": "Best Mattresses  in McAllen",
+    "description": "Finding the perfect mattress in McAllen doesn’t have to be overwhelming. At Snooze Mattress + Wellness, we make it simple and personal. From luxury comfort and advanced sleep technology to budget-friendly options, our McAllen showroom offers mattresses for every sleep style and budget.",
     "url": "/mattresses",
     "type": "website",
     "images": [

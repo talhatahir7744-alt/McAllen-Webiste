@@ -5,7 +5,7 @@ import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
   "title": "Elevate Your Sleep with Adjustable Mattress Bases",
-  "description": "Adjustable mattress bases at Snooze Mattress + Wellness in Brownsville, are designed to enhance comfort, support, and overall sleep quality. With customizable head and foot positioning, adjustable bases help relieve pressure, reduce snoring, improve circulation, and support healthier sleep posture.",
+  "description": "Adjustable mattress bases at Snooze Mattress + Wellness in McAllen, are designed to enhance comfort, support, and overall sleep quality. With customizable head and foot positioning, adjustable bases help relieve pressure, reduce snoring, improve circulation, and support healthier sleep posture.",
   "alternates": {
     "canonical": "/adjustable-mattress-bases",
     "languages": {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   "openGraph": {
     "title": "Elevate Your Sleep with Adjustable Mattress Bases",
-    "description": "Adjustable mattress bases at Snooze Mattress + Wellness in Brownsville, are designed to enhance comfort, support, and overall sleep quality. With customizable head and foot positioning, adjustable bases help relieve pressure, reduce snoring, improve circulation, and support healthier sleep posture.",
+    "description": "Adjustable mattress bases at Snooze Mattress + Wellness in McAllen, are designed to enhance comfort, support, and overall sleep quality. With customizable head and foot positioning, adjustable bases help relieve pressure, reduce snoring, improve circulation, and support healthier sleep posture.",
     "url": "/adjustable-mattress-bases",
     "type": "website",
     "images": [

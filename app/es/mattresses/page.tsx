@@ -4,8 +4,8 @@ import { GhlPage } from '@/components/GhlPage';
 import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
-  "title": "Los Mejores Colchones en Brownsville",
-  "description": "Encontrar el colchón perfecto en Brownsville no tiene por qué ser complicado. En Snooze Mattress + Wellness lo hacemos simple y personal. Desde comodidad de lujo y tecnología de sueño avanzada hasta opciones económicas, nuestra tienda en Brownsville tiene colchones para cada estilo de descanso y presupuesto.",
+  "title": "Los Mejores Colchones en McAllen",
+  "description": "Encontrar el colchón perfecto en McAllen no tiene por qué ser complicado. En Snooze Mattress + Wellness lo hacemos simple y personal. Desde comodidad de lujo y tecnología de sueño avanzada hasta opciones económicas, nuestra tienda en McAllen tiene colchones para cada estilo de descanso y presupuesto.",
   "alternates": {
     "canonical": "/es/mattresses",
     "languages": {
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Los Mejores Colchones en Brownsville",
-    "description": "Encontrar el colchón perfecto en Brownsville no tiene por qué ser complicado. En Snooze Mattress + Wellness lo hacemos simple y personal. Desde comodidad de lujo y tecnología de sueño avanzada hasta opciones económicas, nuestra tienda en Brownsville tiene colchones para cada estilo de descanso y presupuesto.",
+    "title": "Los Mejores Colchones en McAllen",
+    "description": "Encontrar el colchón perfecto en McAllen no tiene por qué ser complicado. En Snooze Mattress + Wellness lo hacemos simple y personal. Desde comodidad de lujo y tecnología de sueño avanzada hasta opciones económicas, nuestra tienda en McAllen tiene colchones para cada estilo de descanso y presupuesto.",
     "url": "/es/mattresses",
     "type": "website",
     "images": [

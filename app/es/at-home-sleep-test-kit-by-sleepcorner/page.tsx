@@ -5,7 +5,7 @@ import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
   "title": "Descubre Qué Interrumpe tu Sueño, Desde Casa",
-  "description": "¿Batallas con ronquidos, cansancio o noches inquietas? El Kit de Prueba de Sueño en Casa de SleepCorner, disponible en Snooze Mattress + Wellness en Brownsville, te da respuestas sin la molestia de un laboratorio del sueño. Esta prueba fácil de usar y aprobada por la FDA monitorea tus patrones de sueño durante la noche y la revisan profesionales del sueño certificados para identificar posibles trastornos como la apnea del sueño.",
+  "description": "¿Batallas con ronquidos, cansancio o noches inquietas? El Kit de Prueba de Sueño en Casa de SleepCorner, disponible en Snooze Mattress + Wellness en McAllen, te da respuestas sin la molestia de un laboratorio del sueño. Esta prueba fácil de usar y aprobada por la FDA monitorea tus patrones de sueño durante la noche y la revisan profesionales del sueño certificados para identificar posibles trastornos como la apnea del sueño.",
   "alternates": {
     "canonical": "/es/at-home-sleep-test-kit-by-sleepcorner",
     "languages": {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   "openGraph": {
     "title": "Descubre Qué Interrumpe tu Sueño, Desde Casa",
-    "description": "¿Batallas con ronquidos, cansancio o noches inquietas? El Kit de Prueba de Sueño en Casa de SleepCorner, disponible en Snooze Mattress + Wellness en Brownsville, te da respuestas sin la molestia de un laboratorio del sueño. Esta prueba fácil de usar y aprobada por la FDA monitorea tus patrones de sueño durante la noche y la revisan profesionales del sueño certificados para identificar posibles trastornos como la apnea del sueño.",
+    "description": "¿Batallas con ronquidos, cansancio o noches inquietas? El Kit de Prueba de Sueño en Casa de SleepCorner, disponible en Snooze Mattress + Wellness en McAllen, te da respuestas sin la molestia de un laboratorio del sueño. Esta prueba fácil de usar y aprobada por la FDA monitorea tus patrones de sueño durante la noche y la revisan profesionales del sueño certificados para identificar posibles trastornos como la apnea del sueño.",
     "url": "/es/at-home-sleep-test-kit-by-sleepcorner",
     "type": "website",
     "images": [

@@ -6,12 +6,12 @@ export const POST_ES: BlogPost = {
   title: 'Colchones a tu Medida que Mejoran tu Salud',
   metaTitle: 'Colchones a tu Medida para Dormir Mejor | Snooze',
   metaDescription:
-    'Cómo un colchón ajustado a tu cuerpo alivia los puntos de presión, mejora tu descanso y cuida tu salud a largo plazo. Visita Snooze en Brownsville.',
-  keywords: ['colchón a la medida', 'dormir mejor', 'puntos de presión', 'colchón para el dolor de espalda', 'tienda de colchones en Brownsville'],
+    'Cómo un colchón ajustado a tu cuerpo alivia los puntos de presión, mejora tu descanso y cuida tu salud a largo plazo. Visita Snooze en McAllen.',
+  keywords: ['colchón a la medida', 'dormir mejor', 'puntos de presión', 'colchón para el dolor de espalda', 'tienda de colchones en McAllen'],
   datePublished: '2026-02-25',
   dateDisplay: '25 de febrero de 2026',
   readTime: '5 min de lectura',
-  featured: { ...IMG.specialists, alt: 'Especialistas en Sueño de Snooze ajustando un colchón a la medida de una clienta en la tienda de Brownsville' },
+  featured: { ...IMG.specialists, alt: 'Especialistas en Sueño de Snooze ajustando un colchón a la medida de una clienta en la tienda de McAllen' },
   excerpt: '¿Cuándo fue la última vez que te levantaste sintiéndote de verdad descansado? Si eres como mucha gente, la respuesta quizá sea "ya ni me acuerdo".',
   sections: [
     {
@@ -64,7 +64,7 @@ export const POST_ES: BlogPost = {
         'Dormir bien es la base de muchísimos aspectos del bienestar. Cuando atiendes esta necesidad fundamental, te preparas para que te vaya bien en un sinfín de otras cosas. No se trata solo de sentirte mejor mañana, sino de cuidar tu salud por muchos años. Tu sueño es demasiado importante como para dejarlo a la suerte o conformarte con una solución de talla única. Un colchón ajustado a tu medida es más que un lugar para recostar la cabeza: es un compromiso con tu salud, tu comodidad y tu calidad de vida en general.',
         'Desde apoyar la estructura única de tu cuerpo hasta ayudarte a respirar mejor y generar beneficios de bienestar duraderos, la superficie de descanso correcta puede transformar cómo te sientes todos los días. Si estás listo para vivir la diferencia que un confort de sueño verdaderamente personalizado puede hacer en tu vida, te invitamos a [comunicarte con nuestro equipo](/es/optin-page), que te tratará como familia mientras te ayuda a encontrar tu solución de descanso perfecta.',
       ],
-      image: { ...IMG.store, alt: 'Fachada de la tienda Snooze Mattress Company en Brownsville, Texas', caption: 'Snooze Mattress Company – Brownsville, 3831 Frontage Road, Suite 2.' },
+      image: { ...IMG.store, alt: 'Fachada de la tienda Snooze Mattress Company en McAllen, Texas', caption: 'Snooze Mattress Company – McAllen, 7913 North 10th Street, Suite 130.' },
     },
   ],
   faqs: [

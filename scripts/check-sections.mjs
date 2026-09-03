@@ -22,8 +22,8 @@ for (const [route, w] of [['/mattresses', 1366], ['/mattresses', 390], ['/pillow
     const hydrated = !!(document.querySelector('#__nuxt') && document.querySelector('#__nuxt').childElementCount) && !!document.querySelector('[data-v-app], #__nuxt [class]');
     const nuxtMounted = !!(window.useNuxtApp || window.__NUXT__ || document.querySelector('#__nuxt').__vue_app__);
     const btns = [...document.querySelectorAll('.c-button a.custom, .c-button button.custom')].filter(vis);
-    const cta = btns.filter((b) => !/Frontage|303-3666|^(Mattresses|Adjustable Mattress Bases|Massage Chairs|Pillows|Mattress Protectors|Premium Sheets|Sleep Recliner|At-Home Sleep Test Kit|About Us|Financing|Sales)$/.test(b.textContent.trim()));
-    const links = btns.filter((b) => /Frontage|303-3666|^(Mattresses|Pillows|About Us|Sales)$/.test(b.textContent.trim()));
+    const cta = btns.filter((b) => !/10th Street|586-5646|^(Mattresses|Adjustable Mattress Bases|Massage Chairs|Pillows|Mattress Protectors|Premium Sheets|Sleep Recliner|At-Home Sleep Test Kit|About Us|Financing|Sales)$/.test(b.textContent.trim()));
+    const links = btns.filter((b) => /10th Street|586-5646|^(Mattresses|Pillows|About Us|Sales)$/.test(b.textContent.trim()));
     const style = (b) => { const s = getComputedStyle(b); return { text: b.textContent.trim().slice(0, 26), bg: s.backgroundImage === 'none' ? s.backgroundColor : 'gradient', radius: s.borderRadius, border: s.borderTopWidth + ' ' + s.borderTopStyle, tt: s.textTransform, font: s.fontSize + '/' + s.fontWeight, pad: s.paddingTop + ' ' + s.paddingLeft, width: Math.round(b.getBoundingClientRect().width), height: Math.round(b.getBoundingClientRect().height), overflowsViewport: b.getBoundingClientRect().right > innerWidth + 1 }; };
     return {
       guaranteeCopies: guars.length, visibleGuarantee: !!g, guaranteeSectionId: gSec && gSec.id, order,

@@ -97,6 +97,7 @@
 .visit { display: flex; flex-direction: column; }
 .phone { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 8px; font: 700 1.1rem/1 var(--ui); color: var(--navy); transition: color 200ms; }
 .phone:hover { color: var(--orange); }
+.email { font-size: 0.93rem; font-weight: 600; word-break: break-all; }
 .phoneIcon { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 9px; background: rgba(245, 132, 51, 0.14); color: var(--orange); }
 .phoneIcon svg { width: 16px; height: 16px; }
 .hours { display: grid; gap: 2px; margin: 0 0 16px; font-size: 0.93rem; color: var(--ink-soft); }

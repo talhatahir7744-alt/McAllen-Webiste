@@ -5,7 +5,7 @@ import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
   "title": "Wrap Yourself in Luxury Every Night",
-  "description": "The right sheets can transform your sleep experience. At Snooze Mattress + Wellness in Brownsville, our premium sheet collection combines softness, breathability, and durability to create the ultimate sleep sanctuary.",
+  "description": "The right sheets can transform your sleep experience. At Snooze Mattress + Wellness in McAllen, our premium sheet collection combines softness, breathability, and durability to create the ultimate sleep sanctuary.",
   "alternates": {
     "canonical": "/premium-sheets",
     "languages": {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   "openGraph": {
     "title": "Wrap Yourself in Luxury Every Night",
-    "description": "The right sheets can transform your sleep experience. At Snooze Mattress + Wellness in Brownsville, our premium sheet collection combines softness, breathability, and durability to create the ultimate sleep sanctuary.",
+    "description": "The right sheets can transform your sleep experience. At Snooze Mattress + Wellness in McAllen, our premium sheet collection combines softness, breathability, and durability to create the ultimate sleep sanctuary.",
     "url": "/premium-sheets",
     "type": "website",
     "images": [

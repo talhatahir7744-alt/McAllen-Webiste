@@ -4,8 +4,8 @@ import { GhlPage } from '@/components/GhlPage';
 import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
-  "title": "Best Mattress Store in Brownsville, TX | Snooze Mattress Brownsville",
-  "description": "Our Dream Mapping technology, pinpoints the perfect mattress for your unique needs—in just 5 minutes! Visit us in Brownsville today!",
+  "title": "Best Mattress Store in McAllen, TX | Snooze Mattress McAllen",
+  "description": "Our Dream Mapping technology, pinpoints the perfect mattress for your unique needs—in just 5 minutes! Visit us in McAllen today!",
   "keywords": [
     "Snooze",
     "dream mapping",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "mattress shopping",
     "sleep technology",
     "pressure mapping",
-    "Brownsville mattresses",
+    "McAllen mattresses",
     "sleep solutions",
     "mattress recommendations",
     "sleep wellness",
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Best Mattress Store in Brownsville, TX | Snooze Mattress Brownsville",
-    "description": "Our Dream Mapping technology, pinpoints the perfect mattress for your unique needs—in just 5 minutes! Visit us in Brownsville today!",
+    "title": "Best Mattress Store in McAllen, TX | Snooze Mattress McAllen",
+    "description": "Our Dream Mapping technology, pinpoints the perfect mattress for your unique needs—in just 5 minutes! Visit us in McAllen today!",
     "url": "/",
     "type": "website",
     "images": [

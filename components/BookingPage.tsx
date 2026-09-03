@@ -25,7 +25,9 @@ const COPY = {
   },
 };
 
-export const BOOKING_CALENDAR_ID = '7oZZd8zPpnUYzsMS4VZM';
+/* McAllen Dream Mapping calendar (the client's embed: id = `<calendarId>_<timestamp>`) */
+export const BOOKING_CALENDAR_ID = 'lrAns7Z8j3vEJW3DC0Yr';
+const BOOKING_EMBED_ID = `${BOOKING_CALENDAR_ID}_1788459899479`;
 
 export function BookingPage({ locale = 'en' }: { locale?: Locale }) {
   const t = COPY[locale] || COPY.en;
@@ -50,7 +52,7 @@ export function BookingPage({ locale = 'en' }: { locale?: Locale }) {
         allow="payment"
         style={{ width: '100%', border: 'none', overflow: 'hidden' }}
         scrolling="no"
-        id={`${BOOKING_CALENDAR_ID}_1788451079887`}
+        id={BOOKING_EMBED_ID}
       />
       <br />
       <Script src="https://link.snoozesleep.com/js/form_embed.js" strategy="afterInteractive" />

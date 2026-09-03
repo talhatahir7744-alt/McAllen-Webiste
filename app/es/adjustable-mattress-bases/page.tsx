@@ -5,7 +5,7 @@ import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
   "title": "Mejora tu Descanso con Bases Ajustables para Colchón",
-  "description": "Las bases ajustables de Snooze Mattress + Wellness en Brownsville están diseñadas para mejorar la comodidad, el soporte y la calidad de tu sueño. Con posiciones ajustables de cabeza y pies, ayudan a aliviar la presión, reducir los ronquidos, mejorar la circulación y mantener una postura más saludable al dormir.",
+  "description": "Las bases ajustables de Snooze Mattress + Wellness en McAllen están diseñadas para mejorar la comodidad, el soporte y la calidad de tu sueño. Con posiciones ajustables de cabeza y pies, ayudan a aliviar la presión, reducir los ronquidos, mejorar la circulación y mantener una postura más saludable al dormir.",
   "alternates": {
     "canonical": "/es/adjustable-mattress-bases",
     "languages": {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   "openGraph": {
     "title": "Mejora tu Descanso con Bases Ajustables para Colchón",
-    "description": "Las bases ajustables de Snooze Mattress + Wellness en Brownsville están diseñadas para mejorar la comodidad, el soporte y la calidad de tu sueño. Con posiciones ajustables de cabeza y pies, ayudan a aliviar la presión, reducir los ronquidos, mejorar la circulación y mantener una postura más saludable al dormir.",
+    "description": "Las bases ajustables de Snooze Mattress + Wellness en McAllen están diseñadas para mejorar la comodidad, el soporte y la calidad de tu sueño. Con posiciones ajustables de cabeza y pies, ayudan a aliviar la presión, reducir los ronquidos, mejorar la circulación y mantener una postura más saludable al dormir.",
     "url": "/es/adjustable-mattress-bases",
     "type": "website",
     "images": [

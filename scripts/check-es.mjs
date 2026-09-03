@@ -28,7 +28,7 @@ for (const w of [1280, 390]) {
       const leftovers = [];
       for (const e of document.querySelectorAll('h1,h2,h3,h4,p,li,a,button,span,td')) {
         if (!vis(e) || e.children.length) continue; const t = (e.textContent || '').replace(/\s+/g, ' ').trim(); if (t.length < 8) continue;
-        if (/Snooze|Dream Mapping|Sleep Coach|Zcliner|SleepCorner|Infinity|Synchrony|Frontage|http|@|Beautyrest|Stearns|Tempur|Englander|King Koil|Spring Air|Puffy|Bedgear|Helix|DreamFit|BedTech|Sealy|Serta|Nectar/i.test(t)) continue;
+        if (/Snooze|Dream Mapping|Sleep Coach|Zcliner|SleepCorner|Infinity|Synchrony|10th Street|http|@|Beautyrest|Stearns|Tempur|Englander|King Koil|Spring Air|Puffy|Bedgear|Helix|DreamFit|BedTech|Sealy|Serta|Nectar/i.test(t)) continue;
         if (ENGLISH.test(t)) leftovers.push(t.slice(0, 80));
       }
       const sw = [...document.querySelectorAll('header a[hreflang]')].map((a) => a.getAttribute('href') + (a.getAttribute('aria-current') ? '*' : ''));

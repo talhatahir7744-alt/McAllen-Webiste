@@ -5,7 +5,7 @@ import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
   "title": "Envuélvete en Lujo Cada Noche",
-  "description": "Las sábanas correctas pueden transformar tu descanso. En Snooze Mattress + Wellness en Brownsville, nuestra colección de sábanas premium combina suavidad, frescura y durabilidad para crear el santuario de sueño perfecto.",
+  "description": "Las sábanas correctas pueden transformar tu descanso. En Snooze Mattress + Wellness en McAllen, nuestra colección de sábanas premium combina suavidad, frescura y durabilidad para crear el santuario de sueño perfecto.",
   "alternates": {
     "canonical": "/es/premium-sheets",
     "languages": {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   "openGraph": {
     "title": "Envuélvete en Lujo Cada Noche",
-    "description": "Las sábanas correctas pueden transformar tu descanso. En Snooze Mattress + Wellness en Brownsville, nuestra colección de sábanas premium combina suavidad, frescura y durabilidad para crear el santuario de sueño perfecto.",
+    "description": "Las sábanas correctas pueden transformar tu descanso. En Snooze Mattress + Wellness en McAllen, nuestra colección de sábanas premium combina suavidad, frescura y durabilidad para crear el santuario de sueño perfecto.",
     "url": "/es/premium-sheets",
     "type": "website",
     "images": [

@@ -5,7 +5,7 @@ import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
   "title": "Flexible Mattress Payment Plans at Snooze Mattress Company",
-  "description": "At Snooze Mattress Company – Brownsville, we make it easy to upgrade your sleep with flexible mattress payment options. Whether you’re purchasing a new mattress, adjustable base, or full sleep system, we offer financing solutions designed to fit a wide range of budgets and credit profiles. Better sleep shouldn’t wait.",
+  "description": "At Snooze Mattress Company – McAllen, we make it easy to upgrade your sleep with flexible mattress payment options. Whether you’re purchasing a new mattress, adjustable base, or full sleep system, we offer financing solutions designed to fit a wide range of budgets and credit profiles. Better sleep shouldn’t wait.",
   "alternates": {
     "canonical": "/mattress-financing",
     "languages": {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   "openGraph": {
     "title": "Flexible Mattress Payment Plans at Snooze Mattress Company",
-    "description": "At Snooze Mattress Company – Brownsville, we make it easy to upgrade your sleep with flexible mattress payment options. Whether you’re purchasing a new mattress, adjustable base, or full sleep system, we offer financing solutions designed to fit a wide range of budgets and credit profiles. Better sleep shouldn’t wait.",
+    "description": "At Snooze Mattress Company – McAllen, we make it easy to upgrade your sleep with flexible mattress payment options. Whether you’re purchasing a new mattress, adjustable base, or full sleep system, we offer financing solutions designed to fit a wide range of budgets and credit profiles. Better sleep shouldn’t wait.",
     "url": "/mattress-financing",
     "type": "website",
     "images": [

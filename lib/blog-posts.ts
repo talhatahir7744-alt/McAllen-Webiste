@@ -47,12 +47,12 @@ export const POSTS: BlogPost[] = [
     title: 'Custom Mattresses Improving Health',
     metaTitle: 'Custom Mattresses for Better Health & Sleep | Snooze',
     metaDescription:
-      'How a custom mattress fitted to your body relieves pressure points, improves sleep quality and supports long-term health. Visit Snooze in Brownsville.',
-    keywords: ['custom mattress', 'better sleep', 'pressure points', 'mattress for back pain relief', 'Brownsville mattress store'],
+      'How a custom mattress fitted to your body relieves pressure points, improves sleep quality and supports long-term health. Visit Snooze in McAllen.',
+    keywords: ['custom mattress', 'better sleep', 'pressure points', 'mattress for back pain relief', 'McAllen mattress store'],
     datePublished: '2026-02-25',
     dateDisplay: 'February 25, 2026',
     readTime: '5 min read',
-    featured: { ...IMG.specialists, alt: 'Snooze sleep specialists fitting a customer for a custom mattress in the Brownsville showroom' },
+    featured: { ...IMG.specialists, alt: 'Snooze sleep specialists fitting a customer for a custom mattress in the McAllen showroom' },
     excerpt: "When was the last time you woke up feeling truly refreshed? If you're like many people, the answer might be \"I can't remember.\"",
     sections: [
       {
@@ -105,7 +105,7 @@ export const POSTS: BlogPost[] = [
           "Good sleep is foundational to so many aspects of wellness. When you address this fundamental need, you're setting yourself up for success in countless other ways. It's not just about feeling better tomorrow—it's about supporting your health for years to come. Your sleep is too important to leave to chance or compromise on a one-size-fits-all solution. A custom-fit mattress represents more than just a place to rest your head—it's a commitment to your health, comfort, and overall quality of life.",
           "From supporting your unique body structure to promoting better breathing and creating lasting wellness benefits, the right sleep surface can transform how you feel every single day. If you're ready to experience the difference that truly personalized sleep comfort can make in your life, we invite you to [connect with our team](/optin-page), who will treat you like family while helping you find your perfect sleep solution.",
         ],
-        image: { ...IMG.store, alt: 'Snooze Mattress Company showroom exterior in Brownsville, Texas', caption: 'Snooze Mattress Company – Brownsville, 3831 Frontage Road, Suite 2.' },
+        image: { ...IMG.store, alt: 'Snooze Mattress Company showroom exterior in McAllen, Texas', caption: 'Snooze Mattress Company – McAllen, 7913 North 10th Street, Suite 130.' },
       },
     ],
     faqs: [
@@ -126,10 +126,10 @@ export const POSTS: BlogPost[] = [
   {
     slug: 'pressure-mapping-for-sleep',
     title: 'Pressure Maps For Sleep',
-    metaTitle: 'Pressure Mapping for Better Sleep | Snooze Brownsville',
+    metaTitle: 'Pressure Mapping for Better Sleep | Snooze McAllen',
     metaDescription:
-      'What pressure mapping reveals about sleep positions, mattress materials and body weight, and how it helps you choose the right mattress in Brownsville.',
-    keywords: ['pressure mapping', 'pressure map mattress', 'better sleep', 'spinal alignment', 'custom mattress', 'Brownsville'],
+      'What pressure mapping reveals about sleep positions, mattress materials and body weight, and how it helps you choose the right mattress in McAllen.',
+    keywords: ['pressure mapping', 'pressure map mattress', 'better sleep', 'spinal alignment', 'custom mattress', 'McAllen'],
     datePublished: '2025-01-25',
     dateDisplay: 'January 25, 2025',
     readTime: '7 min read',
@@ -148,7 +148,7 @@ export const POSTS: BlogPost[] = [
           'Pressure mapping involves placing a thin mat containing thousands of sensors between a person and their sleep surface. These sensors measure the force exerted at each point of contact, creating a color-coded visualization that shows areas of high and low pressure. Warmer colors typically indicate concentrated pressure points, while cooler colors represent areas where the body is well-supported and pressure is evenly distributed.',
           'This technology has become an invaluable tool for researchers, manufacturers, and healthcare professionals seeking to understand the complex relationship between our bodies and [the surfaces we sleep on](/blog/custom-mattresses-improving-health). What makes pressure mapping particularly powerful is its ability to translate subjective feelings of comfort into objective, measurable data.',
         ],
-        image: { ...IMG.mappingVisit, alt: 'Customers at the Pressure Mapping station inside Snooze Mattress Company Brownsville', caption: 'The Pressure Mapping station at our Brownsville showroom.' },
+        image: { ...IMG.mappingVisit, alt: 'Customers at the Pressure Mapping station inside Snooze Mattress Company McAllen', caption: 'The Pressure Mapping station at our McAllen showroom.' },
       },
       {
         heading: 'What the Colors Really Mean',
@@ -238,8 +238,8 @@ export const POSTS: BlogPost[] = [
     title: 'Mattresses That Relieve Aches',
     metaTitle: 'Mattresses for Back Pain Relief & Aches | Snooze',
     metaDescription:
-      'Wake up without aches: how the right mattress supports your spine, relieves pressure points and matches your sleep position. Try one at Snooze Brownsville.',
-    keywords: ['mattress for back pain relief', 'mattress aches and pains', 'sleep position support', 'better sleep', 'Brownsville mattress store'],
+      'Wake up without aches: how the right mattress supports your spine, relieves pressure points and matches your sleep position. Try one at Snooze McAllen.',
+    keywords: ['mattress for back pain relief', 'mattress aches and pains', 'sleep position support', 'better sleep', 'McAllen mattress store'],
     datePublished: '2026-02-25',
     dateDisplay: 'February 25, 2026',
     readTime: '6 min read',
@@ -273,7 +273,7 @@ export const POSTS: BlogPost[] = [
           "The beauty of today's options lies in the variety available. Some constructions combine different technologies in layers, attempting to balance the benefits of multiple approaches. Others focus on a single methodology refined to excel in specific ways. [When you visit a mattress store](/about-us), you'll encounter these different technologies, each designed with particular sleep styles and comfort preferences in mind.",
           "What matters most is how a particular construction feels to your specific body. Your friend's favorite sleeping surface might not work for you at all, and that's perfectly normal. Your body weight, preferred sleep positions, and where you typically experience discomfort all influence which type of support system will serve you best.",
         ],
-        image: { ...IMG.coaches, alt: 'Snooze Sleep Coaches beside the Dream Mapping display in the Brownsville store', caption: 'Our Snooze Sleep Coaches help you compare comfort technologies side by side.' },
+        image: { ...IMG.coaches, alt: 'Snooze Sleep Coaches beside the Dream Mapping display in the McAllen store', caption: 'Our Snooze Sleep Coaches help you compare comfort technologies side by side.' },
       },
       {
         heading: 'Matching Support to Your Sleep Position',
@@ -296,7 +296,7 @@ export const POSTS: BlogPost[] = [
           "Give yourself time when exploring different options. Lie down in your natural sleep positions and notice how your body feels after several minutes. Pay attention to whether you feel pressure building anywhere or if you need to adjust your position to find comfort. Trust your body's feedback rather than trying to convince yourself that something feels right when it doesn't quite match your needs.",
           "Your journey toward pain-free mornings and truly restorative sleep starts with understanding how your body interacts with your sleep surface. By recognizing the signs of poor support, exploring different comfort technologies, and taking the time to find what works specifically for your body, you can transform your nights and wake up feeling genuinely refreshed. Remember that [investing in your sleep](/mattress-financing) is investing in your overall health and daily quality of life. If you're ready to discover which sleep solution can help you wake without aches and pains, [reach out to connect with our team](/optin-page), who treats every person like family and is passionate about helping you achieve better health through quality rest.",
         ],
-        image: { ...IMG.store, alt: 'Snooze Mattress Company storefront in Brownsville where you can test mattresses for aches and pains', caption: 'Come lie down and test for yourself at 3831 Frontage Road, Suite 2, Brownsville.' },
+        image: { ...IMG.store, alt: 'Snooze Mattress Company storefront in McAllen where you can test mattresses for aches and pains', caption: 'Come lie down and test for yourself at 7913 North 10th Street, Suite 130, McAllen.' },
       },
     ],
     faqs: [

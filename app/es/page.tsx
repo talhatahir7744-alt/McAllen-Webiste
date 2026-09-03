@@ -4,8 +4,8 @@ import { GhlPage } from '@/components/GhlPage';
 import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
-  "title": "La Mejor Tienda de Colchones en Brownsville, TX | Snooze Mattress Brownsville",
-  "description": "Nuestra tecnología Dream Mapping encuentra el colchón perfecto para tus necesidades, ¡en solo 5 minutos! Visítanos hoy en Brownsville.",
+  "title": "La Mejor Tienda de Colchones en McAllen, TX | Snooze Mattress McAllen",
+  "description": "Nuestra tecnología Dream Mapping encuentra el colchón perfecto para tus necesidades, ¡en solo 5 minutos! Visítanos hoy en McAllen.",
   "keywords": [
     "Snooze",
     "dream mapping",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "mattress shopping",
     "sleep technology",
     "pressure mapping",
-    "Brownsville mattresses",
+    "McAllen mattresses",
     "sleep solutions",
     "mattress recommendations",
     "sleep wellness",
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "La Mejor Tienda de Colchones en Brownsville, TX | Snooze Mattress Brownsville",
-    "description": "Nuestra tecnología Dream Mapping encuentra el colchón perfecto para tus necesidades, ¡en solo 5 minutos! Visítanos hoy en Brownsville.",
+    "title": "La Mejor Tienda de Colchones en McAllen, TX | Snooze Mattress McAllen",
+    "description": "Nuestra tecnología Dream Mapping encuentra el colchón perfecto para tus necesidades, ¡en solo 5 minutos! Visítanos hoy en McAllen.",
     "url": "/es",
     "type": "website",
     "images": [

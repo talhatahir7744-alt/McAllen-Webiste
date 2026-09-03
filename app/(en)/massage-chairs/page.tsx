@@ -4,8 +4,8 @@ import { GhlPage } from '@/components/GhlPage';
 import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
-  "title": "Infinity® Massage Chairs in Brownsville",
-  "description": "Infinity® Massage Chairs at Snooze Mattress + Wellness in Brownsville deliver advanced massage technology designed to promote relaxation, recovery, and total-body wellness. Featuring zero-gravity positioning, full-body air compression, heated therapy, and precision massage rollers, Infinity massage chairs provide a spa-quality experience in the comfort of your home.",
+  "title": "Infinity® Massage Chairs in McAllen",
+  "description": "Infinity® Massage Chairs at Snooze Mattress + Wellness in McAllen deliver advanced massage technology designed to promote relaxation, recovery, and total-body wellness. Featuring zero-gravity positioning, full-body air compression, heated therapy, and precision massage rollers, Infinity massage chairs provide a spa-quality experience in the comfort of your home.",
   "alternates": {
     "canonical": "/massage-chairs",
     "languages": {
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Infinity® Massage Chairs in Brownsville",
-    "description": "Infinity® Massage Chairs at Snooze Mattress + Wellness in Brownsville deliver advanced massage technology designed to promote relaxation, recovery, and total-body wellness. Featuring zero-gravity positioning, full-body air compression, heated therapy, and precision massage rollers, Infinity massage chairs provide a spa-quality experience in the comfort of your home.",
+    "title": "Infinity® Massage Chairs in McAllen",
+    "description": "Infinity® Massage Chairs at Snooze Mattress + Wellness in McAllen deliver advanced massage technology designed to promote relaxation, recovery, and total-body wellness. Featuring zero-gravity positioning, full-body air compression, heated therapy, and precision massage rollers, Infinity massage chairs provide a spa-quality experience in the comfort of your home.",
     "url": "/massage-chairs",
     "type": "website",
     "images": [

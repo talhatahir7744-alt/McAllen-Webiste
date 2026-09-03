@@ -5,7 +5,7 @@ import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
   "title": "Sleep Better, Recline Smarter with the Zcliner®",
-  "description": "Discover a new way to rest with the SleepRecliner (Zcliner®) by Flexsteel, exclusively available at Snooze Mattress + Wellness in Brownsville. More than just a recliner, the Zcliner® combines advanced comfort technology with therapeutic positioning to deliver restorative sleep and superior support.",
+  "description": "Discover a new way to rest with the SleepRecliner (Zcliner®) by Flexsteel, exclusively available at Snooze Mattress + Wellness in McAllen. More than just a recliner, the Zcliner® combines advanced comfort technology with therapeutic positioning to deliver restorative sleep and superior support.",
   "alternates": {
     "canonical": "/sleep-recliner",
     "languages": {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   "openGraph": {
     "title": "Sleep Better, Recline Smarter with the Zcliner®",
-    "description": "Discover a new way to rest with the SleepRecliner (Zcliner®) by Flexsteel, exclusively available at Snooze Mattress + Wellness in Brownsville. More than just a recliner, the Zcliner® combines advanced comfort technology with therapeutic positioning to deliver restorative sleep and superior support.",
+    "description": "Discover a new way to rest with the SleepRecliner (Zcliner®) by Flexsteel, exclusively available at Snooze Mattress + Wellness in McAllen. More than just a recliner, the Zcliner® combines advanced comfort technology with therapeutic positioning to deliver restorative sleep and superior support.",
     "url": "/sleep-recliner",
     "type": "website",
     "images": [

@@ -36,7 +36,7 @@ export type UiStrings = {
   drawerBook: string;
   footer: {
     about: string; book: string; contact: string; products: string; company: string; visit: string; hours1: string; hours2: string; location: string; directions: string; openMaps: string; mapTitle: string;
-    rights: string; madeWith: string; terms: string; privacy: string; facebook: string; instagram: string;
+    rights: string; madeWith: string; terms: string; privacy: string; facebook: string; instagram: string; youtube: string;
     companyLinks: Array<[label: string, href: string]>;
   };
   blog: {
@@ -66,24 +66,24 @@ const en: UiStrings = {
   feature: { eyebrow: 'Dream Mapping', title: 'Find your perfect mattress in about 5 minutes', cta: 'Book a free fitting' },
   drawerBook: 'Book Free Dream Mapping Appointment',
   footer: {
-    about: 'Locally owned and operated in Brownsville. We treat every person who walks through our door like family, and we are passionate about better health through better sleep.',
+    about: 'Locally owned and operated in McAllen. We treat every person who walks through our door like family, and we are passionate about better health through better sleep.',
     book: 'Book Your Dream Mapping Appointment!', contact: 'Get In Touch With Us', products: 'Our Products', company: 'Company', visit: 'Visit Us',
     hours1: 'Mon – Sat 10 AM – 7 PM', hours2: 'Sunday 12 – 6 PM', location: 'Our Location', directions: 'Get Directions', openMaps: 'Open Maps',
-    mapTitle: 'Map to Snooze Mattress Company, 3831 Frontage Rd Ste 2, Brownsville, TX 78520',
-    rights: 'Snooze Mattress Brownsville. All Rights Reserved', madeWith: 'Made with', terms: 'Terms & Conditions', privacy: 'Privacy Policy',
-    facebook: 'Snooze Brownsville on Facebook', instagram: 'Snooze Brownsville on Instagram',
+    mapTitle: 'Map to Snooze Mattress Company, 7913 North 10th Street, Suite 130, McAllen, TX 78504',
+    rights: 'Snooze Mattress McAllen. All Rights Reserved', madeWith: 'Made with', terms: 'Terms & Conditions', privacy: 'Privacy Policy',
+    facebook: 'Snooze McAllen on Facebook', instagram: 'Snooze McAllen on Instagram', youtube: 'Snooze McAllen on YouTube',
     companyLinks: [['About Us', '/about-us'], ['Financing', '/mattress-financing'], ['Sales', '/mattress-sales'], ['Sleep Blog', '/blog'], ['Book a Dream Mapping Appointment', '/booking'], ['Get In Touch', '/optin-page']],
   },
   blog: {
     eyebrow: 'Snooze Sleep Blog', indexTitle: 'Better Sleep Starts Here',
-    indexIntro: 'Custom mattresses, pressure mapping and pain-free mornings — straight from the sleep specialists at Snooze Mattress Company in Brownsville.',
+    indexIntro: 'Custom mattresses, pressure mapping and pain-free mornings — straight from the sleep specialists at Snooze Mattress Company in McAllen.',
     home: 'Home', blogCrumb: 'Sleep Blog', readArticle: 'Read article', read: (t) => `Read: ${t}`, faq: 'Frequently Asked Questions', related: 'Related Posts',
     ctaEyebrow: 'Real People. Real Results. Real Sleep.', ctaTitle: 'Visit Our Showroom',
-    ctaText: 'Talk to our Sleep Specialists in Brownsville. Get pressure-mapped, try the mattresses that fit your body, and ask about 0% financing — we treat every person who walks through our door like family.',
-    ctaBook: 'Book Your Dream Mapping Appointment', ctaCall: (p) => `Call ${p}`, ctaAddr: '3831 Frontage Road, Suite 2, Brownsville, TX 78520 · Mon – Sat 10 AM – 7 PM · Sunday 12 – 6 PM',
-    indexMetaTitle: 'Sleep Blog | Snooze Mattress Company Brownsville',
-    indexMetaDesc: 'Sleep tips from Snooze Mattress Company in Brownsville: custom mattresses, pressure mapping and how the right mattress relieves aches and pains.',
-    ogDesc: 'Custom mattresses, pressure mapping and better sleep — from the Snooze team in Brownsville.', section: 'Sleep & Wellness', org: 'Snooze Mattress Company – Brownsville',
+    ctaText: 'Talk to our Sleep Specialists in McAllen. Get pressure-mapped, try the mattresses that fit your body, and ask about 0% financing — we treat every person who walks through our door like family.',
+    ctaBook: 'Book Your Dream Mapping Appointment', ctaCall: (p) => `Call ${p}`, ctaAddr: '7913 North 10th Street, Suite 130, McAllen, TX 78504 · Mon – Sat 10 AM – 7 PM · Sunday 12 – 6 PM',
+    indexMetaTitle: 'Sleep Blog | Snooze Mattress Company McAllen',
+    indexMetaDesc: 'Sleep tips from Snooze Mattress Company in McAllen: custom mattresses, pressure mapping and how the right mattress relieves aches and pains.',
+    ogDesc: 'Custom mattresses, pressure mapping and better sleep — from the Snooze team in McAllen.', section: 'Sleep & Wellness', org: 'Snooze Mattress Company – McAllen',
   },
 };
 
@@ -104,24 +104,24 @@ const es: UiStrings = {
   feature: { eyebrow: 'Dream Mapping', title: 'Encuentra tu colchón perfecto en unos 5 minutos', cta: 'Reserva tu cita de Dream Mapping' },
   drawerBook: 'Reserva tu cita de Dream Mapping',
   footer: {
-    about: 'Negocio local de Brownsville, de la familia para la familia. Tratamos a cada persona que entra por nuestra puerta como si fuera de casa, y nos apasiona mejorar tu salud a través de un mejor sueño.',
+    about: 'Negocio local de McAllen, de la familia para la familia. Tratamos a cada persona que entra por nuestra puerta como si fuera de casa, y nos apasiona mejorar tu salud a través de un mejor sueño.',
     book: 'Reserva tu cita de Dream Mapping', contact: 'Contáctanos', products: 'Nuestros Productos', company: 'Empresa', visit: 'Visítanos',
     hours1: 'Lun – Sáb 10 AM – 7 PM', hours2: 'Domingo 12 – 6 PM', location: 'Nuestra Ubicación', directions: 'Cómo Llegar', openMaps: 'Abrir en Maps',
-    mapTitle: 'Mapa para llegar a Snooze Mattress Company, 3831 Frontage Rd Ste 2, Brownsville, TX 78520',
-    rights: 'Snooze Mattress Brownsville. Todos los derechos reservados', madeWith: 'Hecho con', terms: 'Términos y Condiciones', privacy: 'Política de Privacidad',
-    facebook: 'Snooze Brownsville en Facebook', instagram: 'Snooze Brownsville en Instagram',
+    mapTitle: 'Mapa para llegar a Snooze Mattress Company, 7913 North 10th Street, Suite 130, McAllen, TX 78504',
+    rights: 'Snooze Mattress McAllen. Todos los derechos reservados', madeWith: 'Hecho con', terms: 'Términos y Condiciones', privacy: 'Política de Privacidad',
+    facebook: 'Snooze McAllen en Facebook', instagram: 'Snooze McAllen en Instagram', youtube: 'Snooze McAllen en YouTube',
     companyLinks: [['Nosotros', '/about-us'], ['Financiamiento', '/mattress-financing'], ['Ofertas', '/mattress-sales'], ['Blog del Sueño', '/blog'], ['Reserva tu cita de Dream Mapping', '/booking'], ['Contáctanos', '/optin-page']],
   },
   blog: {
     eyebrow: 'Blog del Sueño de Snooze', indexTitle: 'Dormir Mejor Empieza Aquí',
-    indexIntro: 'Colchones a tu medida, mapeo de presión y mañanas sin dolor, directo de los Especialistas en Sueño de Snooze Mattress Company en Brownsville.',
+    indexIntro: 'Colchones a tu medida, mapeo de presión y mañanas sin dolor, directo de los Especialistas en Sueño de Snooze Mattress Company en McAllen.',
     home: 'Inicio', blogCrumb: 'Blog del Sueño', readArticle: 'Leer artículo', read: (t) => `Leer: ${t}`, faq: 'Preguntas Frecuentes', related: 'Artículos Relacionados',
     ctaEyebrow: 'Gente Real. Resultados Reales. Sueño Real.', ctaTitle: 'Visita Nuestra Tienda',
-    ctaText: 'Platica con nuestros Especialistas en Sueño en Brownsville. Hazte tu mapeo de presión, prueba los colchones que le quedan a tu cuerpo y pregunta por el financiamiento al 0%. Aquí tratamos a cada persona que entra por nuestra puerta como familia.',
-    ctaBook: 'Reserva tu cita de Dream Mapping', ctaCall: (p) => `Llama al ${p}`, ctaAddr: '3831 Frontage Road, Suite 2, Brownsville, TX 78520 · Lun – Sáb 10 AM – 7 PM · Domingo 12 – 6 PM',
-    indexMetaTitle: 'Blog del Sueño | Snooze Mattress Company Brownsville',
-    indexMetaDesc: 'Consejos para dormir mejor de Snooze Mattress Company en Brownsville: colchones a tu medida, mapeo de presión y cómo el colchón correcto alivia dolores y molestias.',
-    ogDesc: 'Colchones a tu medida, mapeo de presión y mejor sueño, del equipo de Snooze en Brownsville.', section: 'Sueño y Bienestar', org: 'Snooze Mattress Company – Brownsville',
+    ctaText: 'Platica con nuestros Especialistas en Sueño en McAllen. Hazte tu mapeo de presión, prueba los colchones que le quedan a tu cuerpo y pregunta por el financiamiento al 0%. Aquí tratamos a cada persona que entra por nuestra puerta como familia.',
+    ctaBook: 'Reserva tu cita de Dream Mapping', ctaCall: (p) => `Llama al ${p}`, ctaAddr: '7913 North 10th Street, Suite 130, McAllen, TX 78504 · Lun – Sáb 10 AM – 7 PM · Domingo 12 – 6 PM',
+    indexMetaTitle: 'Blog del Sueño | Snooze Mattress Company McAllen',
+    indexMetaDesc: 'Consejos para dormir mejor de Snooze Mattress Company en McAllen: colchones a tu medida, mapeo de presión y cómo el colchón correcto alivia dolores y molestias.',
+    ogDesc: 'Colchones a tu medida, mapeo de presión y mejor sueño, del equipo de Snooze en McAllen.', section: 'Sueño y Bienestar', org: 'Snooze Mattress Company – McAllen',
   },
 };
 

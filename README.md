@@ -1,4 +1,4 @@
-# Brownsville Snooze — Next.js conversion
+# McAllen Snooze — Next.js conversion
 
 Next.js 15 (App Router, TypeScript) rendering of the static wget clone of
 `https://brownsville.snoozemattresscompany.com/` (a GoHighLevel / LeadConnector funnel).
@@ -23,26 +23,26 @@ npm run verify                    # routes, network capture, forbidden-host grep
 | `/es/at-home-sleep-test-kit-by-sleepcorner` | `at-home-sleep-test-kit-by-sleepcorner.html` | Descubre Qué Interrumpe tu Sueño, Desde Casa |
 | `/dream/map/thank/you` | `dream/map/thank/you.html` | Thank You for Scheduling Your  Dream Mapping Appointment! |
 | `/es/dream/map/thank/you` | `dream/map/thank/you.html` | ¡Gracias por Agendar tu Cita de Dream Mapping! |
-| `/home-page` | `home-page.html` | Best Mattress Store in Brownsville, TX \| Snooze Mattress Brownsville |
-| `/es/home-page` | `home-page.html` | La Mejor Tienda de Colchones en Brownsville, TX \| Snooze Mattress Brownsville |
-| `/` | `index.html` | Best Mattress Store in Brownsville, TX \| Snooze Mattress Brownsville |
-| `/es` | `index.html` | La Mejor Tienda de Colchones en Brownsville, TX \| Snooze Mattress Brownsville |
-| `/main-page` | `main-page.html` | Best Mattress Store in Brownsville, TX \| Snooze Mattress Brownsville |
-| `/es/main-page` | `main-page.html` | La Mejor Tienda de Colchones en Brownsville, TX \| Snooze Mattress Brownsville |
-| `/massage-chairs` | `massage-chairs.html` | Infinity® Massage Chairs in Brownsville |
-| `/es/massage-chairs` | `massage-chairs.html` | Sillas de Masaje Infinity® en Brownsville |
+| `/home-page` | `home-page.html` | Best Mattress Store in McAllen, TX \| Snooze Mattress McAllen |
+| `/es/home-page` | `home-page.html` | La Mejor Tienda de Colchones en McAllen, TX \| Snooze Mattress McAllen |
+| `/` | `index.html` | Best Mattress Store in McAllen, TX \| Snooze Mattress McAllen |
+| `/es` | `index.html` | La Mejor Tienda de Colchones en McAllen, TX \| Snooze Mattress McAllen |
+| `/main-page` | `main-page.html` | Best Mattress Store in McAllen, TX \| Snooze Mattress McAllen |
+| `/es/main-page` | `main-page.html` | La Mejor Tienda de Colchones en McAllen, TX \| Snooze Mattress McAllen |
+| `/massage-chairs` | `massage-chairs.html` | Infinity® Massage Chairs in McAllen |
+| `/es/massage-chairs` | `massage-chairs.html` | Sillas de Masaje Infinity® en McAllen |
 | `/mattress-financing` | `mattress-financing.html` | Flexible Mattress Payment Plans at Snooze Mattress Company |
 | `/es/mattress-financing` | `mattress-financing.html` | Planes de Pago Flexibles para Colchones en Snooze Mattress Company |
 | `/mattress-protectors` | `mattress-protectors.html` | Protect Your Mattress, Protect Your Investment |
 | `/es/mattress-protectors` | `mattress-protectors.html` | Protege tu Colchón, Protege tu Inversión |
 | `/mattress-sales` | `mattress-sales.html` | Sleep Better. Save More. Shop Local. |
 | `/es/mattress-sales` | `mattress-sales.html` | Duerme Mejor. Ahorra Más. Compra Local. |
-| `/mattresses` | `mattresses.html` | Best Mattresses  in Brownsville |
-| `/es/mattresses` | `mattresses.html` | Los Mejores Colchones en Brownsville |
+| `/mattresses` | `mattresses.html` | Best Mattresses  in McAllen |
+| `/es/mattresses` | `mattresses.html` | Los Mejores Colchones en McAllen |
 | `/optin-page` | `optin-page.html` | Contact Us |
 | `/es/optin-page` | `optin-page.html` | Contáctanos |
-| `/pillows` | `pillows.html` | Elevate Your Sleep with Premium Pillows in Brownsville |
-| `/es/pillows` | `pillows.html` | Mejora tu Descanso con Almohadas Premium en Brownsville |
+| `/pillows` | `pillows.html` | Elevate Your Sleep with Premium Pillows in McAllen |
+| `/es/pillows` | `pillows.html` | Mejora tu Descanso con Almohadas Premium en McAllen |
 | `/premium-sheets` | `premium-sheets.html` | Wrap Yourself in Luxury Every Night |
 | `/es/premium-sheets` | `premium-sheets.html` | Envuélvete en Lujo Cada Noche |
 | `/privacy-policy-page-1` | `privacy-policy-page-1.html` | Privacy Policy |
@@ -110,6 +110,7 @@ Custom-code elements whose content matches a rule in `overrides/overrides.json` 
 - **trust-ticker** → `overrides/trust-ticker.html` on about-us.html (2 elements)
 - **store-experience-timeline** → `overrides/store-experience-timeline.html` on about-us.html, mattress-financing.html (4 elements)
 - **our-promise-guarantee** → `overrides/our-promise-guarantee.html` on about-us.html, adjustable-mattress-bases.html, at-home-sleep-test-kit-by-sleepcorner.html, home-page.html, index.html, main-page.html, massage-chairs.html, mattress-financing.html, mattress-protectors.html, mattress-sales.html, mattresses.html, pillows.html, premium-sheets.html, sleep-recliner.html (2 elements)
+- **remove-giveaway-popup** → `overrides/empty.html` on home-page.html, index.html, main-page.html (1 element)
 - **dream-map-timeline** → `overrides/dream-map-timeline.html` on home-page.html, index.html, main-page.html (2 elements)
 - **logo-marquee** → `overrides/logo-marquee.html` on home-page.html, index.html, main-page.html, mattresses.html (1 element)
 - **logo-marquee-mobile** → `overrides/logo-marquee.html` on home-page.html, index.html, main-page.html, mattresses.html (2 elements)
@@ -144,8 +145,8 @@ The reviews widget iframe is sized by a `message` listener in `public/ghl-offlin
 
 The LeadConnector form, booking-calendar and review-widget elements are rendered as the client's white-label embeds (`link.snoozesleep.com`, `reputationhub.site`) configured in `overrides/overrides.json` → `widgets`. These iframes talk to the client's CRM on their own; the page itself still makes no request to leadconnectorhq.com (its API base URLs point at `/ghl-stub/api/…`, which returns 404):
 
-- **review-widget** × 56 on 14 pages: live reviews embed (6a721a99bae62cba6f021c61).
-- **form** × 20 on 9 pages: live form embed (cUKX8RzffonzLORrzIhS).
+- **review-widget** × 56 on 14 pages: live reviews embed (67f5847f79c4ab793baf0087).
+- **form** × 20 on 9 pages: live form embed (0BTnYKylVR6OcWJug3r8).
 
 There is no chat widget in the page code itself; the LeadConnector chat widget (`widgets.leadconnectorhq.com`) was loaded by the Google Tag Manager container, which is removed.
 
@@ -168,4 +169,4 @@ Removed external scripts:
 - Fonts, images, CSS and the GoHighLevel runtime (Nuxt bundle + 1292 asset files) are served locally.
 - 45 referenced file(s) did not exist in the clone and now resolve to a local 404 instead of the CDN (see conversion-report.json → missingReferenced).
 
-Generated 2026-09-03T16:25:44.413Z from `C:/clones`.
+Generated 2026-09-03T18:31:51.243Z from `C:/clones`.

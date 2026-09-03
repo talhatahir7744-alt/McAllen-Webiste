@@ -1,7 +1,7 @@
 {
   "_comment": "Hand-provided section code and live widget embeds applied by scripts/convert.mjs. `rules` match a GoHighLevel custom-code element by substrings of its current HTML (so desktop + mobile copies are both replaced) and swap in `file`; {{custom_values.*}} merge tags are filled from `vars`.",
   "vars": {
-    "custom_values.new_store_city_location": "Brownsville",
+    "custom_values.new_store_city_location": "McAllen",
     "custom_values.store_image_url": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577099a9c7792ea578a2c.jpeg",
     "custom_values.5th_image": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577049a9c7792ea57899a.png"
   },
@@ -52,22 +52,33 @@
       ],
       "file": "logo-marquee.html",
       "_comment": "the client's phone brand slider squeezed a 14999px sprite into the viewport (logos ~4x compressed); the seamless marquee replaces it on phones too"
+    },
+    {
+      "name": "remove-giveaway-popup",
+      "match": [
+        "snzModal"
+      ],
+      "file": "empty.html",
+      "_comment": "the 'Win a Free Cooling Pillow' popup + red 'Enter to Win' ticker (one custom-code element on the home pages) is removed; the emptied element is hidden by overrides/site.css"
     }
   ],
   "widgets": {
     "form": {
       "file": "widgets/form.html",
-      "defaultFormId": "cUKX8RzffonzLORrzIhS",
-      "formName": "Optin"
+      "formId": "0BTnYKylVR6OcWJug3r8",
+      "defaultFormId": "0BTnYKylVR6OcWJug3r8",
+      "formName": "Optin",
+      "_comment": "formId (McAllen) overrides the form id carried by every clone element; defaultFormId is the fallback for elements without one"
     },
     "calendar": {
       "file": "widgets/calendar.html",
-      "defaultCalendarId": "7oZZd8zPpnUYzsMS4VZM"
+      "calendarId": "lrAns7Z8j3vEJW3DC0Yr",
+      "defaultCalendarId": "lrAns7Z8j3vEJW3DC0Yr"
     },
     "reviews": {
       "file": "widgets/reviews.html",
-      "locationId": "BljrSmLCnm4gF9LpsTRZ",
-      "widgetId": "6a721a99bae62cba6f021c61"
+      "locationId": "ARD47WoZpqaZSQ9MSxLD",
+      "widgetId": "67f5847f79c4ab793baf0087"
     }
   },
   "removeElements": [
@@ -77,8 +88,8 @@
     "section-zTxb2Wa9Nv"
   ],
   "site": {
-    "phone": "(956) 303-3666",
-    "phoneHref": "tel:+19563033666",
+    "phone": "(956) 586-5646",
+    "phoneHref": "tel:+19565865646",
     "logoUrl": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/qR8peonBlnjGI3ZuLHQP/media/8d16458d-661d-4d16-bec0-14dea766bf45.webp",
     "logoAlt": "Snooze Mattress + Wellness",
     "featureImageUrl": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/695fbfed-24ba-4132-b604-2e6042bbb83f.jpeg"

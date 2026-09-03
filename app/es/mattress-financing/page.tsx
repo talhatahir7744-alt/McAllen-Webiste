@@ -5,7 +5,7 @@ import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
   "title": "Planes de Pago Flexibles para Colchones en Snooze Mattress Company",
-  "description": "En Snooze Mattress Company – Brownsville te facilitamos mejorar tu descanso con opciones de pago flexibles. Ya sea que compres un colchón nuevo, una base ajustable o un sistema de sueño completo, tenemos soluciones de financiamiento pensadas para todo tipo de presupuestos e historiales de crédito. Dormir mejor no debería esperar.",
+  "description": "En Snooze Mattress Company – McAllen te facilitamos mejorar tu descanso con opciones de pago flexibles. Ya sea que compres un colchón nuevo, una base ajustable o un sistema de sueño completo, tenemos soluciones de financiamiento pensadas para todo tipo de presupuestos e historiales de crédito. Dormir mejor no debería esperar.",
   "alternates": {
     "canonical": "/es/mattress-financing",
     "languages": {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   "openGraph": {
     "title": "Planes de Pago Flexibles para Colchones en Snooze Mattress Company",
-    "description": "En Snooze Mattress Company – Brownsville te facilitamos mejorar tu descanso con opciones de pago flexibles. Ya sea que compres un colchón nuevo, una base ajustable o un sistema de sueño completo, tenemos soluciones de financiamiento pensadas para todo tipo de presupuestos e historiales de crédito. Dormir mejor no debería esperar.",
+    "description": "En Snooze Mattress Company – McAllen te facilitamos mejorar tu descanso con opciones de pago flexibles. Ya sea que compres un colchón nuevo, una base ajustable o un sistema de sueño completo, tenemos soluciones de financiamiento pensadas para todo tipo de presupuestos e historiales de crédito. Dormir mejor no debería esperar.",
     "url": "/es/mattress-financing",
     "type": "website",
     "images": [

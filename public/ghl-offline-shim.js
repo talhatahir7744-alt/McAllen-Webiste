@@ -15,38 +15,8 @@
   } catch (err) {}
   // motion system: the reveal-hidden state (overrides/motion.css) only exists while <html class="js"> is set
   try { if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) document.documentElement.classList.add('js'); } catch (err) {}
-  // LeadConnector reviews widget: the vendor helper (review-widget.js) only applies the iframe's height message
-  // once it has loaded, and the iframe often posts before that, leaving a 1px frame. This listener is installed
-  // before anything else runs and applies the same message shape, so the widget always gets its height.
-  window.addEventListener('message', function (e) {
-    try {
-      var d = e.data;
-      if (!Array.isArray(d) || (d[0] !== 'lc.setHeight' && d[0] !== 'lc.setFlashHeight') || !d[1] || d[1].id !== 'lc_reviews_widget' || !d[1].height) return;
-      // Only the iframe that sent the message is resized: the page carries a desktop and a mobile copy of the
-      // widget, and the hidden copy (laid out at zero width) reports a much taller height for the same widgetId.
-      var all = document.querySelectorAll('.lc_reviews_widget'), frames = [];
-      for (var k = 0; k < all.length; k++) if (e.source && all[k].contentWindow === e.source) frames.push(all[k]);
-      if (!frames.length) for (var k2 = 0; k2 < all.length; k2++) frames.push(all[k2]);
-      for (var i = 0; i < frames.length; i++) {
-        var f = frames[i], wid = null;
-        try { wid = new URL(f.src).searchParams.get('widgetId'); } catch (err) {}
-        if (d[1].widgetId && wid && wid !== d[1].widgetId) continue;
-        var wrap = f.parentNode && f.parentNode.classList && f.parentNode.classList.contains('snz-reviews') ? f.parentNode : null;
-        var known = f.getAttribute('data-snz-height');
-        if (d[1].height <= 60) {
-          // The widget posts a 1px "collapse" a moment after every real height and only restores it on its
-          // next tick ~5 s later; honouring it would blank the reviews, so once a real height is known the
-          // collapses are ignored.
-          if (known) continue;
-          f.style.transition = ''; f.height = d[1].height; f.style.height = d[1].height + 'px';
-          continue;
-        }
-        f.style.transition = 'height 0.5s'; f.height = d[1].height; f.style.height = d[1].height + 'px';
-        f.setAttribute('data-snz-height', String(d[1].height));
-        if (wrap) { wrap.style.height = d[1].height + 'px'; wrap.classList.add('snz-reviews--loaded'); }
-      }
-    } catch (err) {}
-  }, false);
+  // LeadConnector reviews widget: the client's exact embed (overrides/widgets/reviews.html) is used as-is, with no
+  // wrapper and no sizing of our own; the vendor helper review-widget.js it ships with sizes the iframe.
   // LeadConnector booking calendar: the widget posts ['highlevel.setHeight', {height, id:'msgsndr-calendar'}] and the
   // vendor helper (form_embed.js) looks for an iframe by that id, which the GoHighLevel embed does not carry, so the
   // frame stays at the browser's 150px default and the calendar is cut off. Size the iframe that sent the message.

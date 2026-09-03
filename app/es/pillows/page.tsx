@@ -4,8 +4,8 @@ import { GhlPage } from '@/components/GhlPage';
 import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
-  "title": "Mejora tu Descanso con Almohadas Premium en Brownsville",
-  "description": "La almohada correcta hace toda la diferencia. En Snooze Mattress + Wellness tenemos la mejor selección de almohadas premium de Brownsville, diseñadas para acunar tu cabeza, dar soporte a tu cuello y transformar tu descanso cada noche.",
+  "title": "Mejora tu Descanso con Almohadas Premium en McAllen",
+  "description": "La almohada correcta hace toda la diferencia. En Snooze Mattress + Wellness tenemos la mejor selección de almohadas premium de McAllen, diseñadas para acunar tu cabeza, dar soporte a tu cuello y transformar tu descanso cada noche.",
   "alternates": {
     "canonical": "/es/pillows",
     "languages": {
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Mejora tu Descanso con Almohadas Premium en Brownsville",
-    "description": "La almohada correcta hace toda la diferencia. En Snooze Mattress + Wellness tenemos la mejor selección de almohadas premium de Brownsville, diseñadas para acunar tu cabeza, dar soporte a tu cuello y transformar tu descanso cada noche.",
+    "title": "Mejora tu Descanso con Almohadas Premium en McAllen",
+    "description": "La almohada correcta hace toda la diferencia. En Snooze Mattress + Wellness tenemos la mejor selección de almohadas premium de McAllen, diseñadas para acunar tu cabeza, dar soporte a tu cuello y transformar tu descanso cada noche.",
     "url": "/es/pillows",
     "type": "website",
     "images": [

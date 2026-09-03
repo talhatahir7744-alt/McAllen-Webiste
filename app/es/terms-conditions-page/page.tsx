@@ -5,7 +5,7 @@ import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
   "title": "Términos y Condiciones",
-  "description": "Bienvenido a Snooze Mattress + Wellness – Brownsville (“la Empresa”, “nosotros” o “nuestro”). Al acceder o usar este sitio web (“Sitio Web”), aceptas los siguientes Términos y Condiciones. Si no estás de acuerdo, por favor no utilices el Sitio Web.",
+  "description": "Bienvenido a Snooze Mattress + Wellness – McAllen (“la Empresa”, “nosotros” o “nuestro”). Al acceder o usar este sitio web (“Sitio Web”), aceptas los siguientes Términos y Condiciones. Si no estás de acuerdo, por favor no utilices el Sitio Web.",
   "alternates": {
     "canonical": "/es/terms-conditions-page",
     "languages": {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   "openGraph": {
     "title": "Términos y Condiciones",
-    "description": "Bienvenido a Snooze Mattress + Wellness – Brownsville (“la Empresa”, “nosotros” o “nuestro”). Al acceder o usar este sitio web (“Sitio Web”), aceptas los siguientes Términos y Condiciones. Si no estás de acuerdo, por favor no utilices el Sitio Web.",
+    "description": "Bienvenido a Snooze Mattress + Wellness – McAllen (“la Empresa”, “nosotros” o “nuestro”). Al acceder o usar este sitio web (“Sitio Web”), aceptas los siguientes Términos y Condiciones. Si no estás de acuerdo, por favor no utilices el Sitio Web.",
     "url": "/es/terms-conditions-page",
     "type": "website",
     "images": [

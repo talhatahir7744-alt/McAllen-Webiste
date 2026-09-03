@@ -122,7 +122,7 @@ const checks = [
   ['/about-us', () => ({ 'store-experience timeline steps': document.querySelectorAll('.pm-section .pm-step').length, 'guarantee section': document.querySelectorAll('.guar-section').length, 'guarantee cards': document.querySelectorAll('.guar-card').length, 'reviews embed': document.querySelectorAll('iframe.lc_reviews_widget').length, 'merge tags left': (document.body.innerHTML.match(/\{\{custom_values/g) || []).length })],
   ['/mattress-financing', () => ({ 'store-experience timeline steps': document.querySelectorAll('.pm-section .pm-step').length, 'merge tags left': (document.body.innerHTML.match(/\{\{custom_values/g) || []).length })],
   ['/booking', () => ({ 'calendar embed': document.querySelectorAll('iframe[src*="link.snoozesleep.com/widget/booking/"]').length })],
-  ['/optin-page', () => ({ 'opt-in form embed': document.querySelectorAll('iframe[src*="link.snoozesleep.com/widget/form/cUKX8RzffonzLORrzIhS"]').length })],
+  ['/optin-page', () => ({ 'opt-in form embed': document.querySelectorAll('iframe[src*="link.snoozesleep.com/widget/form/0BTnYKylVR6OcWJug3r8"]').length })],
 ];
 for (const [route, fn] of checks) {
   const { page } = await open(BASE + route, 1366);

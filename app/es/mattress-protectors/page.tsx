@@ -5,7 +5,7 @@ import { HEAD_HTML, BODY_HTML, SCRIPTS } from './content';
 
 export const metadata: Metadata = {
   "title": "Protege tu Colchón, Protege tu Inversión",
-  "description": "Un colchón de calidad merece protección de calidad. En Snooze Mattress + Wellness en Brownsville, nuestros protectores de colchón premium cuidan tu cama contra derrames, manchas, alérgenos y el desgaste diario, sin perder la comodidad y la sensación que tanto te gusta.",
+  "description": "Un colchón de calidad merece protección de calidad. En Snooze Mattress + Wellness en McAllen, nuestros protectores de colchón premium cuidan tu cama contra derrames, manchas, alérgenos y el desgaste diario, sin perder la comodidad y la sensación que tanto te gusta.",
   "alternates": {
     "canonical": "/es/mattress-protectors",
     "languages": {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   "openGraph": {
     "title": "Protege tu Colchón, Protege tu Inversión",
-    "description": "Un colchón de calidad merece protección de calidad. En Snooze Mattress + Wellness en Brownsville, nuestros protectores de colchón premium cuidan tu cama contra derrames, manchas, alérgenos y el desgaste diario, sin perder la comodidad y la sensación que tanto te gusta.",
+    "description": "Un colchón de calidad merece protección de calidad. En Snooze Mattress + Wellness en McAllen, nuestros protectores de colchón premium cuidan tu cama contra derrames, manchas, alérgenos y el desgaste diario, sin perder la comodidad y la sensación que tanto te gusta.",
     "url": "/es/mattress-protectors",
     "type": "website",
     "images": [
