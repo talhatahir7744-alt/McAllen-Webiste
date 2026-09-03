@@ -48,6 +48,7 @@ export function BookingPage({ locale = 'en' }: { locale?: Locale }) {
       </header>
 
       <iframe
+        className={styles.calendar}
         src={`https://link.snoozesleep.com/widget/booking/${BOOKING_CALENDAR_ID}`}
         allow="payment"
         style={{ width: '100%', border: 'none', overflow: 'hidden' }}

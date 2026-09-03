@@ -193,3 +193,34 @@ html { scroll-behavior: smooth; scroll-padding-top: 96px; }
 /* Steps-timeline sections: the timeline code's drifting "ambient orb" shapes (soft radial-gradient discs behind the
    content) read as a stray semi-circle on the new background. Off at every width; the section image is untouched. */
 .hl_page-preview--content .steps-bg-faded .pm-orb { display: none !important; }
+
+/* McAllen desktop hero photos (overrides.json → heroBackgrounds; Home, About Us, Financing): the builder emits
+   `background: url(...)` (size cover, centred) but leaves the default repeat; pinned explicitly. These sections are
+   desktop-only, the phone heroes are separate sections and untouched. */
+@media (min-width: 768px) {
+  .hl_page-preview--content .bg-section-aEXJsrtqRn, .hl_page-preview--content .bg-section-75V_31us8, .hl_page-preview--content .bg-section-kBnk6LAhgo {
+    background-size: cover !important; background-position: center center !important; background-repeat: no-repeat !important;
+  }
+}
+
+/* Home hero headline, three lines on tablet/desktop in both languages: "McAllen, Get / Custom-Fit for / Your Perfect
+   Mattress" ("McAllen, Consigue un / Ajuste a tu Medida para / Tu Colchón Perfecto"). The shorter city name let the
+   first line run on and the browser then broke inside "Custom-Fit" at the hyphen. The break is forced after the first
+   span; the highlighted phrase never wraps at its hyphen at any width. Phones keep their own flow. */
+.hl_page-preview--content .cheading-yMj0fYz3M- h1 > span:nth-child(2),
+.hl_page-preview--content .cheading-yMj0fYz3M- h1 > span:nth-child(3) { white-space: nowrap; }
+@media (min-width: 768px) {
+  .hl_page-preview--content .cheading-yMj0fYz3M- h1:first-child > span:first-child::after { content: "\A"; white-space: pre; }
+  /* the desktop copy was a fixed 65px; from 768 to 1279px the column is narrower than "Your Perfect Mattress" at
+     that size, so the type scales with the viewport and reaches 65px at 1275px (the Spanish rule above keeps its own size) */
+  html[lang="en"] .hl_page-preview--content .cheading-yMj0fYz3M- h1 { font-size: min(65px, 5.1vw) !important; }
+}
+/* Phone copy of the same hero (heading-g47b3UHIU-): the same three lines, "McAllen, Get / Custom-Fit for / Your Perfect
+   Mattress" (the city name is added by scripts/relocate.mjs); the size scales so the last line fits a 375px screen. */
+@media (max-width: 767px) {
+  html[lang="en"] .hl_page-preview--content .cheading-g47b3UHIU- h1 { font-size: min(32px, 7.8vw) !important; }
+  html[lang="es"] .hl_page-preview--content .cheading-g47b3UHIU- h1 { font-size: min(32px, 6.5vw) !important; }
+  .hl_page-preview--content .cheading-g47b3UHIU- h1:first-child > span:first-child::after { content: "\A"; white-space: pre; }
+  .hl_page-preview--content .cheading-g47b3UHIU- h1 > span:nth-child(2),
+  .hl_page-preview--content .cheading-g47b3UHIU- h1 > span:nth-child(3) { white-space: nowrap; }
+}

@@ -105,6 +105,17 @@ export const RULES = [
   lit('7oZZd8zPpnUYzsMS4VZM', 'lrAns7Z8j3vEJW3DC0Yr'), // Dream Mapping booking calendar
   lit('6a721a99bae62cba6f021c61', '67f5847f79c4ab793baf0087'), // reviews widget
 
+  // ---- home hero, phone copy: the city name, like the desktop copy ("McAllen, Get / Custom-Fit for / …"); markup and
+  //      payload encodings of the heading HTML (the desktop copy already starts with "McAllen, " and is not matched)
+  [/(>|\\u003E)Get (<\/span>|\\u003C\/span>)(?=(?:<|\\u003C)span[^>]*>Custom-Fit)/g, `$1${NEW.city}, Get $2`],
+  [/(>|\\u003E)Recibe (<\/span>|\\u003C\/span>)(?=(?:<|\\u003C)span[^>]*>Ajuste a tu Medida)/g, `$1${NEW.city}, Recibe $2`],
+
+  // ---- live domain (canonicals, sitemap, robots, JSON-LD, the Privacy Policy link on the Terms pages)
+  lit('brownsville-webiste.vercel.app', 'mcallen.snoozemattresscompany.com'),
+  // the client's copy linked the Rockwall store (Terms → Privacy Policy, and a "Snooze Mattress Company" link on every
+  // page); slashes may be JSON-escaped (/) inside the payload
+  [/https:(\/\/|\\\\u002F\\\\u002F|\\u002F\\u002F)rockwall\.snoozemattresscompany\.com/g, 'https:$1mcallen.snoozemattresscompany.com'],
+
   // ---- project name
   lit('"name": "brownsville-next"', '"name": "mcallen-next"'),
 ];

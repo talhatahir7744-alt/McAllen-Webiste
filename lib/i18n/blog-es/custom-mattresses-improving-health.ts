@@ -64,7 +64,7 @@ export const POST_ES: BlogPost = {
         'Dormir bien es la base de muchísimos aspectos del bienestar. Cuando atiendes esta necesidad fundamental, te preparas para que te vaya bien en un sinfín de otras cosas. No se trata solo de sentirte mejor mañana, sino de cuidar tu salud por muchos años. Tu sueño es demasiado importante como para dejarlo a la suerte o conformarte con una solución de talla única. Un colchón ajustado a tu medida es más que un lugar para recostar la cabeza: es un compromiso con tu salud, tu comodidad y tu calidad de vida en general.',
         'Desde apoyar la estructura única de tu cuerpo hasta ayudarte a respirar mejor y generar beneficios de bienestar duraderos, la superficie de descanso correcta puede transformar cómo te sientes todos los días. Si estás listo para vivir la diferencia que un confort de sueño verdaderamente personalizado puede hacer en tu vida, te invitamos a [comunicarte con nuestro equipo](/es/optin-page), que te tratará como familia mientras te ayuda a encontrar tu solución de descanso perfecta.',
       ],
-      image: { ...IMG.store, alt: 'Fachada de la tienda Snooze Mattress Company en McAllen, Texas', caption: 'Snooze Mattress Company – McAllen, 7913 North 10th Street, Suite 130.' },
+      image: { ...IMG.store, alt: 'Tienda Snooze Mattress + Wellness en McAllen', caption: 'Snooze Mattress Company – McAllen, 7913 North 10th Street, Suite 130.' },
     },
   ],
   faqs: [

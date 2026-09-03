@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { POSTS } from '@/lib/blog-posts';
 import { localizeHref } from '@/lib/i18n';
 
-const SITE_URL = 'https://brownsville-webiste.vercel.app';
+const SITE_URL = 'https://mcallen.snoozemattresscompany.com';
 
 /* Public pages of the converted site (hand-maintained; regeneration keeps this file). Every page exists in
    English and Spanish (/es/...); each sitemap entry lists both as hreflang alternates. */

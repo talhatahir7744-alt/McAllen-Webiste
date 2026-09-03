@@ -5,7 +5,7 @@ import type { Locale } from '@/lib/i18n';
 /* Site-wide LocalBusiness schema, rendered by the footer on every route (both locales). The converted
    GoHighLevel pages carry their own per-page schema inside the Nuxt payload; this one is the canonical,
    complete record (geo, e-mail, social profiles, hours) for the McAllen store. */
-const SITE_URL = 'https://brownsville-webiste.vercel.app';
+const SITE_URL = 'https://mcallen.snoozemattresscompany.com';
 
 export function LocalBusinessJsonLd({ locale = 'en' }: { locale?: Locale }) {
   const L = LOCATION;

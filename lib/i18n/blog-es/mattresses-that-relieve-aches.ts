@@ -64,7 +64,7 @@ export const POST_ES: BlogPost = {
         'Tómate tu tiempo cuando estés probando diferentes opciones. Acuéstate en tus posiciones naturales para dormir y fíjate cómo se siente tu cuerpo después de varios minutos. Presta atención a si sientes que se acumula presión en alguna parte o si necesitas acomodarte para estar a gusto. Confía en lo que te dice tu cuerpo en lugar de tratar de convencerte de que algo se siente bien cuando en realidad no encaja con lo que necesitas.',
         'Tu camino hacia mañanas sin dolor y un sueño verdaderamente reparador empieza por entender cómo interactúa tu cuerpo con la superficie donde duermes. Al reconocer las señales de un mal soporte, conocer las diferentes tecnologías de confort y tomarte el tiempo para encontrar lo que funciona específicamente para tu cuerpo, puedes transformar tus noches y despertar sintiéndote de verdad renovado. Recuerda que [invertir en tu sueño](/es/mattress-financing) es invertir en tu salud y en tu calidad de vida de todos los días. Si estás listo para descubrir qué solución de descanso puede ayudarte a despertar sin dolores ni molestias, [comunícate con nuestro equipo](/es/optin-page), que trata a cada persona como familia y le apasiona ayudarte a lograr una mejor salud a través de un buen descanso.',
       ],
-      image: { ...IMG.store, alt: 'Fachada de la tienda Snooze Mattress Company en McAllen donde puedes probar colchones para dolores y molestias', caption: 'Ven, acuéstate y compruébalo tú mismo en 7913 North 10th Street, Suite 130, McAllen.' },
+      image: { ...IMG.store, alt: 'Tienda Snooze Mattress + Wellness en McAllen', caption: 'Ven, acuéstate y compruébalo tú mismo en 7913 North 10th Street, Suite 130, McAllen.' },
     },
   ],
   faqs: [

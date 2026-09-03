@@ -30,7 +30,7 @@ import { relocate } from './relocate.mjs';
 const ROOT = path.resolve(import.meta.dirname, '..');
 const CLONE = (process.env.CLONE_ROOT || 'C:/clones').replace(/\\/g, '/').replace(/\/+$/, '');
 const SITE_HOST = 'brownsville.snoozemattresscompany.com';
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://brownsville-webiste.vercel.app').replace(/\/+$/, '');
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://mcallen.snoozemattresscompany.com').replace(/\/+$/, '');
 const SITE_DIR = `${CLONE}/${SITE_HOST}`;
 const PUBLIC = path.join(ROOT, 'public');
 const APP = path.join(ROOT, 'app');
@@ -260,7 +260,15 @@ function noteMissing(url) { report.missingReferenced.add(url); }
 function noteExternal(host) { report.externalHostsLeft[host] = (report.externalHostsLeft[host] || 0) + 1; }
 
 /** Map an absolute URL to its local replacement. Returns null when it should be left alone. */
+// overrides.json → imageReplacements: { "<old mediaPath>": "<new mediaPath>" } swaps a client image everywhere it is
+// referenced (bare CDN URL, every images.leadconnectorhq.com resize variant, relative clone paths, payload strings)
+// for a new file that was added to the clone tree with scripts/image-variants.mjs
+function replaceMedia(s) {
+  for (const [from, to] of Object.entries(OVR.imageReplacements || {})) if (from !== '_comment' && s.includes(from)) s = s.split(from).join(to);
+  return s;
+}
 function mapAbsolute(url) {
+  url = replaceMedia(url);
   const m = /^(https?:)\/\/([^/?#]+)(\/[^?#]*)?(\?[^#]*)?(#.*)?$/i.exec(url); if (!m) return null;
   const host = m[2].toLowerCase(); const pathname = m[3] || '/'; const query = m[4] || ''; const hash = m[5] || '';
   const segs = pathname.replace(/^\//, '').split('/');
@@ -319,6 +327,8 @@ function mapUrl(raw, pageDir) {
   const lr = localRelFromRelative(ref, pageDir);
   if (!lr) return raw;
   if (lr === SITE_HOST || lr.startsWith(SITE_HOST + '/')) { report.rewrittenUrls++; return routeForSitePath(lr.slice(SITE_HOST.length)) + suffix; }
+  const lrNew = replaceMedia(lr); // replaced client image: the same resize variant of the new file, when the clone has it
+  if (lrNew !== lr && assetMap.has(lrNew)) { report.rewrittenUrls++; return assetMap.get(lrNew) + suffix; }
   if (assetMap.has(lr)) { report.rewrittenUrls++; return assetMap.get(lr) + suffix; }
   noteMissing(ref); return raw;
 }
@@ -390,6 +400,16 @@ function transformPayload(json, pageDir, ctx) {
     nodes.forEach((n, i) => { if (dict(i) && removeIds.has(str(n.id))) collect(i); });
     for (let i = 0; i < nodes.length; i++) if (Array.isArray(nodes[i]) && nodes[i].some((x) => typeof x === 'number' && drop.has(x))) nodes[i] = nodes[i].filter((x) => !(typeof x === 'number' && drop.has(x)));
     for (const i of drop) { const id = str(nodes[i].id); if (id && removeIds.has(id)) ctx.removed.push(id); }
+  }
+  // 2b. alt text for client image elements that carry none (overrides.json → imageAlt); the runtime re-renders the
+  //     <img> from imageProperties after hydration, so the markup alt (step 2c of convertPage) alone would not stick
+  const imageAlt = Object.entries(OVR.imageAlt || {}).filter(([k]) => k !== '_comment');
+  if (imageAlt.length) for (const n of nodes) {
+    if (!n || typeof n !== 'object' || Array.isArray(n)) continue;
+    let ip = dict(n.imageProperties); if (ip && !('url' in ip) && 'value' in ip) ip = dict(ip.value); // imageProperties → { value } → { url, altText, … }
+    const url = ip && str(ip.url); if (!url) continue;
+    const hit = imageAlt.find(([needle]) => url.includes(needle));
+    if (hit && !(str(ip.altText) || '').trim()) ip.altText = push(hit[1]);
   }
   // 3. hand-provided section code: custom-code elements whose current HTML matches an override rule get the new HTML
   for (const n of nodes) {
@@ -594,6 +614,12 @@ function convertPage(rel, loc = null) {
     const id = ($(el).attr('id') || '').replace(/__custom-code$/, '');
     if (!ctx.overridden.has(id)) { ctx.overridden.set(id, rule.name); report.overrides.push({ page: rel, id, rule: rule.name, file: rule.file }); }
   });
+
+  // ---- 2c. alt text for client images that carry none (overrides.json → imageAlt: { "<media id>": "<alt>" }; the
+  //      Spanish text comes from the dictionary like any other alt attribute)
+  for (const [needle, alt] of Object.entries(OVR.imageAlt || {})) {
+    $('img').each((_, el) => { const src = $(el).attr('src') || ''; if (src.includes(needle) && !($(el).attr('alt') || '').trim()) $(el).attr('alt', alt); });
+  }
 
   // ---- 2d. steps-timeline sections get one shared class (background image + white overlay in overrides/site.css)
   $('.c-section').filter((_, el) => $(el).find('.pm-section').length > 0).addClass('steps-bg-faded');

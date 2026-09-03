@@ -6,7 +6,7 @@ The whole project is **generated** by [`scripts/convert.mjs`](scripts/convert.mj
 
 ```bash
 npm install
-CLONE_ROOT=C:/clones NEXT_PUBLIC_SITE_URL=https://brownsville-webiste.vercel.app npm run convert
+CLONE_ROOT=C:/clones NEXT_PUBLIC_SITE_URL=https://mcallen.snoozemattresscompany.com npm run convert
 npm run build && npm run start   # http://localhost:3000
 npm run verify                    # routes, network capture, forbidden-host grep, screenshots
 ```
@@ -73,7 +73,7 @@ npm run verify                    # routes, network capture, forbidden-host grep
 
    Proxied image variants (`images.leadconnectorhq.com/image/f_webp/q_80/r_<size>/u_https://assets.cdn.filesafe.space/<id>`) live under
    `/assets/lcimg/image/…/u/filesafe/<id>`. Google Fonts CSS and the `fonts.gstatic.com` woff2 files are served from `public/`, so the app makes no external font requests.
-2. **Pages** — for each HTML page one route is generated (`app/<slug>/page.tsx` + `content.ts`). `<title>`, description, keywords, robots, og:* and twitter:* tags become `export const metadata`; canonical/og:url point at `https://brownsville-webiste.vercel.app`.
+2. **Pages** — for each HTML page one route is generated (`app/<slug>/page.tsx` + `content.ts`). `<title>`, description, keywords, robots, og:* and twitter:* tags become `export const metadata`; canonical/og:url point at `https://mcallen.snoozemattresscompany.com`.
    The `<head>` stylesheet/style sequence (external `<link rel="stylesheet">`, the data-URI custom-font stylesheet and every inline `<style>`) is emitted **verbatim and in the original order** in front of the `<body>` markup, both rendered through `dangerouslySetInnerHTML` in a server component (`components/GhlPage.tsx`). This keeps the builder's cascade order exactly; importing the stylesheets through `globals.css` would have moved the page-specific inline styles after the external sheets.
 3. **Scripts** — every `<script src>` and executable inline script is re-emitted through `next/script` (`strategy="afterInteractive"`) in the original order; the Nuxt JSON payload (`#__NUXT_DATA__`) and the JSON-LD block are data blocks and stay inline. Because `afterInteractive` scripts run after `DOMContentLoaded`, the site's own `document.addEventListener("DOMContentLoaded", fn)` calls were rewritten to `window.__ghlOnReady(fn)` (defined in `public/ghl-offline-shim.js`).
 4. **URL rewriting** — HTML attributes, inline CSS `url()`, the Nuxt payload strings, the Nuxt runtime config (`window.__NUXT__.config`: `cdnURL`, `IMAGE_CDN`, storage/API URLs) and the copied JS bundles (`public/assets/lcstatic/_preview/*.js`) were rewritten so nothing points at `snoozemattresscompany.com`, `filesafe.space`, `leadconnectorhq.com` or `msgsndr.com`. `public/ghl-offline-shim.js` is a runtime safety net that rewrites any such URL the GHL runtime still builds at hydration time, and `middleware.ts` maps the Google Fonts stylesheet URLs the runtime assembles (`…/gfonts-css/css?family=…`) onto the local copies.
@@ -166,7 +166,7 @@ Removed external scripts:
 
 - Third-party embeds that are not the client's CRM are kept as-is and still load from their own hosts: Google Maps embeds (`maps.google.com`), social links.
 - The reviews widget, popup form and booking calendar show placeholders instead of live CRM content.
-- Fonts, images, CSS and the GoHighLevel runtime (Nuxt bundle + 1292 asset files) are served locally.
-- 45 referenced file(s) did not exist in the clone and now resolve to a local 404 instead of the CDN (see conversion-report.json → missingReferenced).
+- Fonts, images, CSS and the GoHighLevel runtime (Nuxt bundle + 1301 asset files) are served locally.
+- 49 referenced file(s) did not exist in the clone and now resolve to a local 404 instead of the CDN (see conversion-report.json → missingReferenced).
 
-Generated 2026-09-03T18:31:51.243Z from `C:/clones`.
+Generated 2026-09-03T19:15:06.676Z from `C:/clones`.

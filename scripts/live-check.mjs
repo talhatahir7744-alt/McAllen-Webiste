@@ -2,7 +2,7 @@
 // ticker, the mobile timeline reveal and forbidden-host requests. Usage: node scripts/live-check.mjs [baseUrl]
 import puppeteer from 'puppeteer-core';
 
-const BASE = process.argv[2] || 'https://brownsville-webiste.vercel.app';
+const BASE = process.argv[2] || 'https://mcallen.snoozemattresscompany.com';
 const EDGE = 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe';
 const FORBIDDEN = /snoozemattresscompany\.com|filesafe\.space|leadconnectorhq\.com|msgsndr\.com/i;
 const routes = ['/', '/about-us', '/mattress-financing', '/mattress-sales', '/mattresses', '/booking', '/blog', '/blog/custom-mattresses-improving-health', '/blog/pressure-mapping-for-sleep', '/blog/mattresses-that-relieve-aches', '/sitemap.xml', '/robots.txt'];

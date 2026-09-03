@@ -29,3 +29,10 @@
   background: repeating-linear-gradient(135deg, #f58433 0 14px, #e6772e 14px 28px);
   color: #fff; font-size: 14px; font-weight: 700; font-style: italic; letter-spacing: 0.01em;
 }
+
+/* Booking calendar iframe (the client's embed, no wrapper: form_embed.js sets its height). Tablet/desktop only:
+   capped and centred so the appointment info, calendar and time slots sit together as one card instead of being
+   spread across the whole viewport, with room under the sticky header and before the footer. Phones untouched. */
+@media (min-width: 768px) {
+  .calendar { display: block; max-width: 1080px; margin: 32px auto 72px; }
+}

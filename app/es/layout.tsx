@@ -6,7 +6,7 @@ import { PageLoader } from '@/components/PageLoader';
 import '../../overrides/global.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://brownsville-webiste.vercel.app"),
+  metadataBase: new URL("https://mcallen.snoozemattresscompany.com"),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -17,10 +17,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader locale="es" />
         {children}
         <SiteFooter locale="es" />
-        <Script src="/snz-motion.js?v=mtlv3115" strategy="afterInteractive" />
+        <Script src="/snz-motion.js?v=mtlwmt51" strategy="afterInteractive" />
         {/* Safety net: rewrites any asset URL the GHL runtime still builds against the original CDNs to the
             local copies, and provides window.__ghlOnReady for the site's own DOMContentLoaded scripts. */}
-        <Script src="/ghl-offline-shim.js?v=mtlv3115" strategy="beforeInteractive" />
+        <Script src="/ghl-offline-shim.js?v=mtlwmt51" strategy="beforeInteractive" />
       </body>
     </html>
   );

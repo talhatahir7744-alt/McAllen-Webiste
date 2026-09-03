@@ -105,7 +105,7 @@ export const POSTS: BlogPost[] = [
           "Good sleep is foundational to so many aspects of wellness. When you address this fundamental need, you're setting yourself up for success in countless other ways. It's not just about feeling better tomorrow—it's about supporting your health for years to come. Your sleep is too important to leave to chance or compromise on a one-size-fits-all solution. A custom-fit mattress represents more than just a place to rest your head—it's a commitment to your health, comfort, and overall quality of life.",
           "From supporting your unique body structure to promoting better breathing and creating lasting wellness benefits, the right sleep surface can transform how you feel every single day. If you're ready to experience the difference that truly personalized sleep comfort can make in your life, we invite you to [connect with our team](/optin-page), who will treat you like family while helping you find your perfect sleep solution.",
         ],
-        image: { ...IMG.store, alt: 'Snooze Mattress Company showroom exterior in McAllen, Texas', caption: 'Snooze Mattress Company – McAllen, 7913 North 10th Street, Suite 130.' },
+        image: { ...IMG.store, alt: 'Snooze Mattress + Wellness McAllen storefront', caption: 'Snooze Mattress Company – McAllen, 7913 North 10th Street, Suite 130.' },
       },
     ],
     faqs: [
@@ -296,7 +296,7 @@ export const POSTS: BlogPost[] = [
           "Give yourself time when exploring different options. Lie down in your natural sleep positions and notice how your body feels after several minutes. Pay attention to whether you feel pressure building anywhere or if you need to adjust your position to find comfort. Trust your body's feedback rather than trying to convince yourself that something feels right when it doesn't quite match your needs.",
           "Your journey toward pain-free mornings and truly restorative sleep starts with understanding how your body interacts with your sleep surface. By recognizing the signs of poor support, exploring different comfort technologies, and taking the time to find what works specifically for your body, you can transform your nights and wake up feeling genuinely refreshed. Remember that [investing in your sleep](/mattress-financing) is investing in your overall health and daily quality of life. If you're ready to discover which sleep solution can help you wake without aches and pains, [reach out to connect with our team](/optin-page), who treats every person like family and is passionate about helping you achieve better health through quality rest.",
         ],
-        image: { ...IMG.store, alt: 'Snooze Mattress Company storefront in McAllen where you can test mattresses for aches and pains', caption: 'Come lie down and test for yourself at 7913 North 10th Street, Suite 130, McAllen.' },
+        image: { ...IMG.store, alt: 'Snooze Mattress + Wellness McAllen storefront', caption: 'Come lie down and test for yourself at 7913 North 10th Street, Suite 130, McAllen.' },
       },
     ],
     faqs: [

@@ -2,8 +2,17 @@
   "_comment": "Hand-provided section code and live widget embeds applied by scripts/convert.mjs. `rules` match a GoHighLevel custom-code element by substrings of its current HTML (so desktop + mobile copies are both replaced) and swap in `file`; {{custom_values.*}} merge tags are filled from `vars`.",
   "vars": {
     "custom_values.new_store_city_location": "McAllen",
-    "custom_values.store_image_url": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577099a9c7792ea578a2c.jpeg",
+    "custom_values.store_image_url": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/69a1d3acb617a750cec56a9b.jpg",
     "custom_values.5th_image": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577049a9c7792ea57899a.png"
+  },
+  "imageReplacements": {
+    "_comment": "old media path -> new media path, applied to every reference (bare CDN URL, resize variants, payload). The new file and its r_320…r_1200 variants are added to the clone tree with `node scripts/image-variants.mjs <file> <mediaPath>`.",
+    "BljrSmLCnm4gF9LpsTRZ/media/6a7577099a9c7792ea578a2c.jpeg": "ARD47WoZpqaZSQ9MSxLD/media/69a1d3acb617a750cec56a9b.jpg"
+  },
+  "imageAlt": {
+    "_comment": "alt text for client images that carry none, matched by media id; translated through overrides/i18n/es.extra.json",
+    "69a1d3acb617a750cec56a9b": "Snooze Mattress + Wellness McAllen storefront",
+    "6a7577099a9c7792ea578a2c": "Snooze Mattress + Wellness McAllen storefront"
   },
   "rules": [
     {
@@ -129,23 +138,23 @@
   ],
   "heroBackgrounds": {
     "index.html": {
-      "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577e59994d35aa0c4ea2f.png",
+      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/699c969010bc9c1e4d659063.png",
       "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
     },
     "home-page.html": {
-      "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577e59994d35aa0c4ea2f.png",
+      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/699c969010bc9c1e4d659063.png",
       "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
     },
     "main-page.html": {
-      "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577e59994d35aa0c4ea2f.png",
+      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/699c969010bc9c1e4d659063.png",
       "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
     },
     "mattress-financing.html": {
-      "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577ea9994d35aa0c4eb46.png",
+      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/69a1cbdf917b4b217201b5ff.png",
       "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
     },
     "about-us.html": {
-      "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577ea78cdd940a08094b9.png",
+      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/69a601e75a52f4e92a27dcf5.png",
       "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
     },
     "mattresses.html": {
