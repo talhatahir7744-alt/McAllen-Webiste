@@ -1,0 +1,243 @@
+<!-- ============================================================
+   SNOOZE — ENDLESS LOGO MARQUEE  (v2.2 — real background removal)
+   What changed vs v1:
+   • No more random blank gaps: images now load eagerly (lazy-loading
+     breaks inside an animated marquee) and any logo whose file fails
+     to load auto-hides itself in BOTH sets, so the loop stays seamless.
+   • No more greyish boxes: a small script now erases the grey/white
+     background baked into each logo file right in the browser
+     (flood-fill inward from the image edges, so light details
+     INSIDE a logo are kept). If the CDN blocks pixel access, a
+     stronger CSS whitening filter kicks in as the fallback.
+   Paste this entire block into its own GHL Custom HTML element,
+   replacing the old marquee block.
+   ============================================================ -->
+
+<style>
+  .snz-logo-marquee {
+    /* ── Tune everything here ── */
+    --lm-w:     170px;                 /* every image box: width    */
+    --lm-h:     80px;                  /* every image box: height   */
+    --lm-gapx:  28px;                  /* half the distance between images (28 = 56px gap) */
+    --lm-speed: 45s;                   /* lower = faster            */
+    --lm-hover-scale: 1.15;            /* how big a logo grows on hover (1.15 = +15%) */
+
+    position: relative;
+    width: 100%;
+    background: #FFFFFF;
+    overflow: hidden;
+    padding: 26px 0;
+    /* Soft left/right edge fade, same as the ticker */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  }
+  .snz-logo-marquee * { box-sizing: border-box; }
+
+  .snz-logo-marquee__track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    animation: snzLogoScroll var(--lm-speed) linear infinite;
+  }
+  .snz-logo-marquee:hover .snz-logo-marquee__track { animation-play-state: paused; }
+
+  .snz-logo-marquee__set {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  /* Identical box for every image = identical size + identical spacing */
+  .snz-logo-marquee__item {
+    position: relative;
+    width: var(--lm-w);
+    height: var(--lm-h);
+    margin: 0 var(--lm-gapx);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .snz-logo-marquee__item img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    /* Blends white / light-grey backgrounds inside the logo files
+       into the white strip — no grey boxes, no shadowed cards */
+    mix-blend-mode: multiply;
+    filter: brightness(1.12) contrast(1.16); /* fallback whitening — replaced by real pixel cleanup once the script runs */
+    transition: transform .3s ease;
+    will-change: transform;
+    transform-origin: center;
+  }
+  /* Hover grow (desktop pointers only, so touch devices never get a stuck hover state): transform only,
+     so neighbours never shift; the hovered item rises above its neighbours; the strip's own vertical
+     padding gives the enlarged logo room. */
+  @media (hover: hover) and (pointer: fine) {
+    .snz-logo-marquee__item:hover { z-index: 5; }
+    .snz-logo-marquee__item:hover img { transform: scale(var(--lm-hover-scale)); }
+  }
+  /* Once the script has truly erased a logo's background, drop the
+     whitening filter so its brand colors render exactly */
+  .snz-logo-marquee__item img.snz-scrubbed {
+    mix-blend-mode: normal;
+    filter: none;
+  }
+
+  @keyframes snzLogoScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @media (max-width: 600px) {
+    .snz-logo-marquee { --lm-w: 118px; --lm-h: 56px; --lm-gapx: 17px; padding: 18px 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .snz-logo-marquee__track { animation: none; }
+    .snz-logo-marquee__item img { transition: none; }
+    .snz-logo-marquee__item:hover img { transform: none; }
+  }
+</style>
+
+
+<div class="snz-logo-marquee" role="marquee" aria-label="Brands we carry">
+  <div class="snz-logo-marquee__track">
+
+    <!-- ── SET 1 ── -->
+    <div class="snz-logo-marquee__set">
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f503a84abba640bb0b486.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f5039dc6b0a15e53bc0be.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f503999074f5ef6d34d4b.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f5039255b571c8e272951.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f5039fe4291bd1091759a.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f5039cf50f900f2814ec2.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f5039fe4291bd109175a0.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f50372b48e84b4fa8ae5d.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f50378921ecbd9ca94ef7.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f5037a6a03cda06a1d795.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f50378921ecbd9ca94ef2.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f5037f762745222a0f1d5.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f5037f762745222a0f1da.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f502ddc6b0a15e53b8cba.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f502da6a03cda06a1aa88.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f502df762745222a0f105.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f502da6a03cda06a1aa99.webp" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+    </div>
+
+    <!-- ── SET 2 (exact clone — creates the seamless endless loop) ── -->
+    <div class="snz-logo-marquee__set" aria-hidden="true">
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f503a84abba640bb0b486.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f5039dc6b0a15e53bc0be.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f503999074f5ef6d34d4b.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f5039255b571c8e272951.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f5039fe4291bd1091759a.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f5039cf50f900f2814ec2.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f5039fe4291bd109175a0.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f50372b48e84b4fa8ae5d.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f50378921ecbd9ca94ef7.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f5037a6a03cda06a1d795.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f50378921ecbd9ca94ef2.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f5037f762745222a0f1d5.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f5037f762745222a0f1da.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f502ddc6b0a15e53b8cba.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f502da6a03cda06a1aa88.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f502df762745222a0f105.png" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+      <div class="snz-logo-marquee__item"><img src="https://assets.cdn.filesafe.space/gsqZfpbY5MmVessxREvK/media/6a7f502da6a03cda06a1aa99.webp" alt="" loading="eager" decoding="async" draggable="false" onerror="this.closest('.snz-logo-marquee__item').style.display='none'"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* ── True background removal ──────────────────────────────────
+   Redraws each logo on a canvas and erases its background:
+   flood-fills inward from the image edges, deleting connected
+   pixels that are light AND grey-ish. White/grey boxes vanish,
+   while light details enclosed inside a logo are preserved.
+   If the CDN blocks pixel access (CORS), that logo just keeps
+   the CSS whitening fallback — nothing breaks. */
+(function () {
+  var LIGHT  = 192; // edge pixels brighter than this (per channel) count as background — lower it (e.g. 170) to catch darker grey boxes
+  var DESAT  = 32;  // ...but only if grey-ish: max−min channel gap ≤ this
+  var MAXDIM = 800; // downscale very large files before processing
+
+  var cache = {};
+  function scrub(url) {
+    if (!cache[url]) cache[url] = new Promise(function (resolve, reject) {
+      var im = new Image();
+      im.crossOrigin = 'anonymous';
+      im.onload = function () {
+        try {
+          var sc = Math.min(1, MAXDIM / Math.max(im.naturalWidth || 1, im.naturalHeight || 1));
+          var w = Math.max(1, Math.round(im.naturalWidth * sc));
+          var h = Math.max(1, Math.round(im.naturalHeight * sc));
+          var cv = document.createElement('canvas');
+          cv.width = w; cv.height = h;
+          var cx = cv.getContext('2d', { willReadFrequently: true });
+          cx.drawImage(im, 0, 0, w, h);
+          var id = cx.getImageData(0, 0, w, h), d = id.data;
+          function isBg(i) {
+            var a = d[i + 3];
+            if (a === 0) return true;
+            var r = d[i], g = d[i + 1], b = d[i + 2];
+            var mx = Math.max(r, g, b), mn = Math.min(r, g, b);
+            return (mx - mn) <= DESAT && mn >= LIGHT;
+          }
+          var seen = new Uint8Array(w * h), stack = [], changed = 0;
+          for (var x = 0; x < w; x++) { stack.push(x); stack.push(x + (h - 1) * w); }
+          for (var y = 0; y < h; y++) { stack.push(y * w); stack.push(w - 1 + y * w); }
+          while (stack.length) {
+            var p = stack.pop();
+            if (p < 0 || p >= w * h || seen[p]) continue;
+            seen[p] = 1;
+            var i4 = p * 4;
+            if (!isBg(i4)) continue;
+            if (d[i4 + 3] !== 0) { d[i4 + 3] = 0; changed++; }
+            var px = p % w;
+            if (px > 0) stack.push(p - 1);
+            if (px < w - 1) stack.push(p + 1);
+            stack.push(p - w); stack.push(p + w);
+          }
+          if (!changed) { resolve(null); return; } // already clean — keep the original file
+          cx.putImageData(id, 0, 0);
+          resolve(cv.toDataURL('image/png'));
+        } catch (e) { reject(e); } // tainted canvas → CSS fallback stays on
+      };
+      im.onerror = function () { reject(new Error('no-cors')); };
+      // fresh request so the browser doesn't reuse a cached non-CORS copy
+      im.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'snzscrub=1';
+    });
+    return cache[url];
+  }
+
+  var imgs = document.querySelectorAll('.snz-logo-marquee img');
+  Array.prototype.forEach.call(imgs, function (img) {
+    var url = img.getAttribute('src');
+    if (!url || url.indexOf('data:') === 0) return;
+    scrub(url).then(function (dataUrl) {
+      if (!dataUrl) return;
+      img.src = dataUrl;
+      img.classList.add('snz-scrubbed');
+    }).catch(function () { /* CDN blocked pixel access — whitening filter stays on */ });
+  });
+})();
+</script>
+
+<!--
+═══════════════════════════════════════════════
+  HOW TO CUSTOMIZE (all in the variables at the top):
+  • Image size   → --lm-w and --lm-h (every image sits in this same box)
+  • Spacing      → --lm-gapx (28px = a 56px gap between every image)
+  • Speed        → --lm-speed (lower = faster)
+  • Hover size   → --lm-hover-scale (1.22 = grows 22% on hover)
+  • Grey boxes   → erased automatically by the script (it deletes
+                   light grey-ish pixels connected to the image edge).
+                   If one logo still shows a darker grey box, lower
+                   LIGHT in the script from 192 to ~170 — or best of
+                   all, re-upload that one logo with a transparent bg.
+  • Keep SET 1 and SET 2 identical for a seamless loop
+═══════════════════════════════════════════════
+-->

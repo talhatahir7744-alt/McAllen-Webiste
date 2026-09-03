@@ -1,0 +1,1 @@
+import{a0 as n,L as i,M as a,af as t,ak as o}from"./DwnOYecr.js";const s={class:"hl-pricing-table-ribbon-container"},c={class:"hl-pricing-table-ribbon column-highlight-label"},r=n({__name:"PricingTableRibbon",props:{text:{}},setup(l){return(e,b)=>(i(),a("div",s,[t("div",c,o(e.text),1)]))}}),p=Object.assign(r,{__name:"PreviewElementsPricingTableRibbon"});export{p as default};

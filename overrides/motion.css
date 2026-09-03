@@ -1,0 +1,52 @@
+/* =====================================================================================
+   Motion system — scroll reveals + micro-interactions. Data-attribute driven:
+     <div data-animate="fade-up" data-delay="120">
+   Variants: fade-up | fade-down | fade-left | fade-right | zoom-in | fade
+   The hidden state only exists while <html class="js"> is present (set by public/ghl-offline-shim.js
+   before first paint, never under prefers-reduced-motion), so content is visible without JavaScript.
+   public/snz-motion.js adds .is-in once (IntersectionObserver, threshold 0.15). Transform + opacity only.
+   ===================================================================================== */
+
+html.js [data-animate] {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition-delay: var(--snz-delay, 0ms);
+  will-change: opacity, transform;
+}
+html.js [data-animate="fade-up"]    { transform: translate3d(0, 26px, 0); }
+html.js [data-animate="fade-down"]  { transform: translate3d(0, -26px, 0); }
+html.js [data-animate="fade-left"]  { transform: translate3d(-30px, 0, 0); } /* enters from the left */
+html.js [data-animate="fade-right"] { transform: translate3d(30px, 0, 0); }  /* enters from the right */
+html.js [data-animate="zoom-in"]    { transform: scale(0.94); }
+html.js [data-animate="fade"]       { transform: none; }
+html.js [data-animate].is-in        { opacity: 1; transform: none; will-change: auto; }
+
+/* ---- micro-interactions (transform / opacity / shadow only) ---- */
+
+/* primary hero CTA: slow, soft pulse that pauses on hover */
+.snz-pulse { animation: snzPulse 2.8s ease-in-out infinite; }
+.snz-pulse:hover, .snz-pulse:focus-visible { animation-play-state: paused; }
+@keyframes snzPulse {
+  0%, 100% { box-shadow: 0 4px 15px rgba(217, 106, 26, 0.35); }
+  50%      { box-shadow: 0 8px 28px rgba(217, 106, 26, 0.55), 0 0 0 9px rgba(245, 132, 51, 0.12); }
+}
+
+/* cards: slight lift + shadow on hover (timeline step cards) */
+.pm-section .pm-card { transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.35s ease; }
+@media (hover: hover) and (pointer: fine) {
+  .pm-section .pm-card:hover { transform: translateY(-4px); box-shadow: 0 18px 48px rgba(0, 20, 137, 0.16), 0 4px 12px rgba(0, 20, 137, 0.08); }
+}
+
+
+/* phones: horizontal variants become a vertical rise so a hidden element near the viewport edge never adds
+   horizontal scrollable overflow before it reveals */
+@media (max-width: 767px) {
+  html.js [data-animate="fade-left"], html.js [data-animate="fade-right"] { transform: translate3d(0, 26px, 0); }
+  html.js [data-animate].is-in { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-animate] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .snz-pulse { animation: none; }
+  .pm-section .pm-card { transition: none; }
+}

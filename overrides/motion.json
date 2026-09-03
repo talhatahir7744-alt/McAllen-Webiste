@@ -1,0 +1,114 @@
+{
+  "_comment": "Scroll-reveal tags applied by scripts/convert.mjs to the server-rendered markup. Rules: selector (cheerio), animate variant, delay (ms), stagger (ms per matched element), alternate (variants cycled per element), class (extra class). '*' rules apply to every page. Custom-code sections (timelines, guarantee, tickers, marquee) keep their own animations and are not tagged.",
+  "pages": {
+    "*": [
+      {
+        "selector": ".c-section .c-heading",
+        "animate": "fade-up"
+      },
+      {
+        "selector": ".c-section .c-sub-heading",
+        "animate": "fade-up",
+        "delay": 100
+      },
+      {
+        "selector": ".c-section .c-paragraph",
+        "animate": "fade-up",
+        "delay": 160
+      },
+      {
+        "selector": ".c-section .c-button",
+        "animate": "fade-up",
+        "delay": 260
+      },
+      {
+        "selector": ".c-section .c-image",
+        "animate": "fade-up",
+        "delay": 120
+      },
+      {
+        "selector": ".c-section .c-review-widget, .c-section .c-custom-code:has(.snz-reviews)",
+        "animate": "fade-up",
+        "delay": 160
+      },
+      {
+        "selector": ".c-section .c-faq.c-wrapper",
+        "animate": "fade-up",
+        "delay": 120
+      }
+    ],
+    "index.html": [
+      {
+        "selector": "#heading-yMj0fYz3M-, #heading-g47b3UHIU-",
+        "animate": "fade-up",
+        "delay": 0
+      },
+      {
+        "selector": "#paragraph-lb3ZqRjwmU, #paragraph-Z222h5UOOF",
+        "animate": "fade-up",
+        "delay": 140
+      },
+      {
+        "selector": "#paragraph-lb3ZqRjwmU li, #paragraph-Z222h5UOOF li, #paragraph-lb3ZqRjwmU p:nth-of-type(n+2), #paragraph-Z222h5UOOF p:nth-of-type(n+2)",
+        "animate": "fade-up",
+        "delay": 260,
+        "stagger": 100
+      },
+      {
+        "selector": "#image-aQ1-vBo5n2, #image-j5WGS6fWqY",
+        "animate": "fade-right",
+        "delay": 200
+      },
+      {
+        "selector": "#button-x0nbGNExMP, #button-VSb3GfsasZ",
+        "animate": "fade-up",
+        "delay": 600
+      },
+      {
+        "selector": "#button-x0nbGNExMP a.custom, #button-VSb3GfsasZ a.custom",
+        "class": "snz-pulse"
+      },
+      {
+        "selector": "#section-JpFf_S-Fhv .c-column",
+        "animate": "fade-up",
+        "stagger": 120
+      },
+      {
+        "selector": "#sub-heading-ehfBdVG2NT, #sub-heading-j1RmPOmDxB, #sub-heading-3F8u4Duazc",
+        "animate": "zoom-in",
+        "delay": 80
+      },
+      {
+        "selector": "#sub-heading-V1qu1iafHT",
+        "animate": "zoom-in",
+        "delay": 120
+      },
+      {
+        "selector": "#heading-8vY8Nbiwut",
+        "animate": "fade-up",
+        "delay": 40
+      },
+      {
+        "selector": "#section-3zREM4j5wa .c-image, #section-eC_eoiXfK_ .c-image",
+        "animate": "fade-right",
+        "delay": 200
+      },
+      {
+        "selector": "#section-lxdFBigBFX .c-image, #section-Wfl7S7wh4g .c-image",
+        "alternate": [
+          "fade-left",
+          "fade-right"
+        ],
+        "delay": 120
+      },
+      {
+        "selector": "#section-lxdFBigBFX .c-paragraph, #section-Wfl7S7wh4g .c-paragraph",
+        "animate": "fade-up",
+        "delay": 120,
+        "stagger": 60
+      }
+    ],
+    "home-page.html": "index.html",
+    "main-page.html": "index.html"
+  }
+}

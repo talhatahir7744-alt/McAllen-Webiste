@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pressure Mapping Section</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   SNOOZE — 4-STEP DREAM MAP TIMELINE (enhanced)
+   Signature: a glowing rail that fills as you scroll, with a
+   traveling spark — each step node "ignites" as you reach it.
+   All copy + image sources are unchanged. Scoped to .pm-section.
+============================================================ */
+
+  .pm-section * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pm-section {
+    font-family: 'Montserrat', sans-serif !important;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+      radial-gradient(900px 520px at 10% 2%, rgba(245,132,51,.10), transparent 60%),
+      radial-gradient(1050px 640px at 92% 98%, rgba(0,34,204,.10), transparent 62%),
+      linear-gradient(180deg, #f4f6ff 0%, #e9edff 52%, #f2f5ff 100%);
+    padding: 64px 16px 84px;
+    width: 100%;
+  }
+
+  /* soft dot grid, faded at the edges */
+  .pm-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(rgba(0,20,137,.13) 1px, transparent 1.45px) 0 0 / 26px 26px;
+    -webkit-mask-image: radial-gradient(85% 75% at 50% 42%, #000 40%, transparent 100%);
+    mask-image: radial-gradient(85% 75% at 50% 42%, #000 40%, transparent 100%);
+    opacity: .55;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* film-grain texture */
+  .pm-section::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+    opacity: .035;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* drifting ambient orbs (pure gradients — no filters, cheap on mobile) */
+  .pm-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .pm-orb--a {
+    width: 460px; height: 460px; top: -140px; right: -120px;
+    background: radial-gradient(circle at 38% 38%, rgba(245,132,51,.18), rgba(245,132,51,0) 62%);
+    animation: pmDriftA 20s ease-in-out infinite alternate;
+  }
+  .pm-orb--b {
+    width: 560px; height: 560px; bottom: -180px; left: -160px;
+    background: radial-gradient(circle at 62% 42%, rgba(0,34,204,.15), rgba(0,34,204,0) 62%);
+    animation: pmDriftB 26s ease-in-out infinite alternate;
+  }
+  @keyframes pmDriftA { from { transform: translate(0,0); }    to { transform: translate(-46px, 40px); } }
+  @keyframes pmDriftB { from { transform: translate(0,0); }    to { transform: translate(52px, -36px); } }
+
+  .pm-section .pm-wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .pm-section .pm-steps {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  /* ---------- the glowing rail (positioned by JS between first & last node) ---------- */
+  .pm-rail {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    border-radius: 3px;
+    background: rgba(0,20,137,.10);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .pm-rail-fill {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 0;
+    border-radius: inherit;
+    background: linear-gradient(to bottom, #ffb26b, #f58433);
+    box-shadow: 0 0 12px rgba(245,132,51,.55);
+  }
+  .pm-spark {
+    position: absolute;
+    left: 50%; top: 0;
+    width: 12px; height: 12px;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 10px 3px rgba(245,132,51,.95), 0 0 28px 9px rgba(245,132,51,.4);
+    opacity: 0;
+    transition: opacity .3s ease;
+    pointer-events: none;
+  }
+
+  /* ---------- step rows ---------- */
+  .pm-section .pm-step {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 72px 1fr;
+    align-items: center;
+  }
+
+  /* scroll-triggered reveal: odd rows drift in from the right, even from the left */
+  .pm-section .pm-step {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .85s ease, transform .85s cubic-bezier(.19,1,.22,1);
+  }
+  .pm-section .pm-step:nth-child(odd)  { transform: translate(36px, 26px); }
+  .pm-section .pm-step:nth-child(even) { transform: translate(-36px, 26px); }
+  .pm-section .pm-step.pm-in { opacity: 1; transform: translate(0,0); }
+
+  .pm-section .pm-step:nth-child(odd)  .pm-step-image   { order: 1; }
+  .pm-section .pm-step:nth-child(odd)  .pm-step-spine   { order: 2; }
+  .pm-section .pm-step:nth-child(odd)  .pm-step-content { order: 3; }
+
+  .pm-section .pm-step:nth-child(even) .pm-step-content { order: 1; }
+  .pm-section .pm-step:nth-child(even) .pm-step-spine   { order: 2; }
+  .pm-section .pm-step:nth-child(even) .pm-step-image   { order: 3; }
+
+  .pm-section .pm-step-spine {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ---------- nodes: navy at rest, ignited orange when the rail reaches them ---------- */
+  .pm-section .pm-node {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #001489 0%, #0022cc 100%);
+    border: 3px solid #f58433;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+    color: #f58433;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 0 6px rgba(245,132,51,0.15), 0 8px 24px rgba(0,20,137,0.28);
+    transition: transform .45s cubic-bezier(.34,1.56,.64,1), background .4s ease,
+                color .4s ease, border-color .4s ease, box-shadow .4s ease;
+  }
+  .pm-section .pm-node.pm-lit {
+    background: linear-gradient(135deg, #f58433 0%, #ff9d4d 100%);
+    border-color: #ffffff;
+    color: #ffffff;
+    transform: scale(1.08);
+    box-shadow: 0 0 0 7px rgba(245,132,51,.18), 0 10px 28px rgba(245,132,51,.42);
+  }
+  /* breathing halo on the most-recent lit node */
+  .pm-section .pm-node.pm-current::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 2px solid rgba(245,132,51,.65);
+    animation: pmPulse 2s ease-out infinite;
+  }
+  @keyframes pmPulse {
+    0%   { transform: scale(1);    opacity: .8; }
+    100% { transform: scale(1.75); opacity: 0; }
+  }
+  .pm-section .pm-node:hover { transform: scale(1.14); }
+
+  /* ---------- IMAGE ---------- */
+  .pm-section .pm-step-image {
+    position: relative;
+    padding: 12px 8px;
+  }
+
+  /* soft glow blob behind each photo */
+  .pm-section .pm-step-image::before {
+    content: '';
+    position: absolute;
+    inset: 4% 0;
+    border-radius: 32px;
+    background: radial-gradient(60% 60% at 50% 55%, rgba(245,132,51,.22), rgba(0,20,137,.10) 62%, transparent 78%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .pm-section .pm-img-frame {
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 24px 60px rgba(0,20,137,0.22), 0 4px 14px rgba(0,20,137,.10);
+    background: #001489;
+    transition: transform .55s cubic-bezier(.19,1,.22,1), box-shadow .45s ease;
+  }
+  /* playful alternating tilt that straightens on hover */
+  .pm-section .pm-step:nth-child(odd)  .pm-img-frame { transform: rotate(-1.4deg); }
+  .pm-section .pm-step:nth-child(even) .pm-img-frame { transform: rotate(1.4deg); }
+  .pm-section .pm-step .pm-img-frame:hover {
+    transform: rotate(0deg) translateY(-4px);
+    box-shadow: 0 30px 70px rgba(0,20,137,0.28), 0 0 0 1px rgba(245,132,51,.25);
+  }
+
+  .pm-section .pm-img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+
+  .pm-section .pm-img-frame:hover img {
+    transform: scale(1.07);
+  }
+
+  .pm-section .pm-img-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,20,137,0.18) 0%, rgba(245,132,51,0.08) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .pm-section .pm-img-frame::after {
+    content: '';
+    position: absolute;
+    inset: 10px;
+    background:
+      linear-gradient(to right, #f58433 2px, transparent 2px) 0 0 / 22px 22px no-repeat,
+      linear-gradient(to bottom, #f58433 2px, transparent 2px) 0 0 / 22px 22px no-repeat,
+      linear-gradient(to left, #f58433 2px, transparent 2px) 100% 100% / 22px 22px no-repeat,
+      linear-gradient(to top, #f58433 2px, transparent 2px) 100% 100% / 22px 22px no-repeat;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* ---------- CONTENT CARD ---------- */
+  .pm-section .pm-step-content { padding: 10px 8px; }
+
+  .pm-section .pm-card {
+    background: linear-gradient(165deg, #ffffff 0%, #f8faff 100%);
+    border-radius: 22px;
+    padding: 30px 26px;
+    box-shadow: 0 10px 44px rgba(0,20,137,0.10), 0 2px 8px rgba(0,20,137,.05);
+    border: 1.5px solid rgba(0,20,137,0.07);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color .35s ease;
+  }
+
+  .pm-section .pm-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(245,132,51,.35);
+    box-shadow: 0 20px 56px rgba(0,20,137,0.16), 0 0 0 1px rgba(245,132,51,.18), 0 0 30px rgba(245,132,51,.10);
+  }
+
+  /* orange accent bar — grows in when the step reveals */
+  .pm-section .pm-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #f58433, rgba(245,132,51,0.2));
+    border-radius: 22px 0 0 22px;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform .9s cubic-bezier(.19,1,.22,1) .25s;
+  }
+  .pm-section .pm-step.pm-in .pm-card::before { transform: scaleY(1); }
+
+  .pm-section .pm-step:nth-child(even) .pm-card::before {
+    left: auto; right: 0;
+    border-radius: 0 22px 22px 0;
+  }
+
+  /* giant ghost step number inside each card */
+  .pm-section .pm-ghost {
+    position: absolute;
+    top: -12px; right: 10px;
+    font-family: 'Visby CF','VisbyCF','Visby','visby-cf','Montserrat',sans-serif;
+    font-size: 96px;
+    font-weight: 900;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(0,20,137,.09);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .pm-section .pm-step:nth-child(even) .pm-ghost { right: auto; left: 10px; }
+  .pm-section .pm-card > *:not(.pm-ghost) { position: relative; z-index: 1; }
+
+  .pm-section .pm-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #f58433;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .pm-section .pm-label::before {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #f58433;
+    border-radius: 2px;
+    display: inline-block;
+    transition: width .7s cubic-bezier(.19,1,.22,1) .35s;
+  }
+  .pm-section .pm-step.pm-in .pm-label::before { width: 18px; }
+
+  .pm-section .pm-title {
+    font-family: 'Visby CF','VisbyCF','Visby','visby-cf','Montserrat',sans-serif;
+    font-size: 26px !important;
+    font-weight: 900;
+    color: #001489;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    letter-spacing: -0.2px;
+    font-style: normal !important;
+  }
+
+  .pm-section .pm-title .pm-highlight {
+    color: #f58433;
+    font-style: normal !important;
+  }
+  /* shimmering gradient on the highlight word (graceful fallback above) */
+  @supports (-webkit-background-clip: text) {
+    .pm-section .pm-title .pm-highlight {
+      background: linear-gradient(100deg, #f58433 15%, #ffc38a 45%, #f58433 80%);
+      background-size: 220% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      animation: pmShimmer 5.5s ease-in-out infinite;
+    }
+  }
+  @keyframes pmShimmer {
+    0%, 100% { background-position: 0% 0; }
+    50%      { background-position: 100% 0; }
+  }
+
+  .pm-section .pm-body {
+    font-size: 16px !important;
+    color: #4a5a99;
+    line-height: 1.75;
+    font-weight: 500;
+    font-style: normal !important;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* ---------- BENEFITS — cascade in one by one when the step reveals ---------- */
+  .pm-section .pm-benefits {
+    list-style: none !important;
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 !important;
+  }
+
+  .pm-section .pm-benefits li {
+    font-size: 16px !important;
+    color: #001489;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none !important;
+    font-family: 'Montserrat', sans-serif;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .55s ease, transform .55s cubic-bezier(.19,1,.22,1);
+  }
+  .pm-section .pm-step.pm-in .pm-benefits li { opacity: 1; transform: translateY(0); }
+  .pm-section .pm-step.pm-in .pm-benefits li:nth-child(1) { transition-delay: .30s; }
+  .pm-section .pm-step.pm-in .pm-benefits li:nth-child(2) { transition-delay: .38s; }
+  .pm-section .pm-step.pm-in .pm-benefits li:nth-child(3) { transition-delay: .46s; }
+  .pm-section .pm-step.pm-in .pm-benefits li:nth-child(4) { transition-delay: .54s; }
+  .pm-section .pm-step.pm-in .pm-benefits li:nth-child(5) { transition-delay: .62s; }
+  .pm-section .pm-step.pm-in .pm-benefits li:nth-child(6) { transition-delay: .70s; }
+
+  .pm-section .pm-chk {
+    width: 22px; height: 22px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f58433, #ffaa55);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 3px 8px rgba(245,132,51,0.35);
+  }
+
+  .pm-section .pm-step:nth-child(even) .pm-card { text-align: right; }
+  .pm-section .pm-step:nth-child(even) .pm-label { flex-direction: row-reverse; }
+  .pm-section .pm-step:nth-child(even) .pm-label::before { display: none; }
+  .pm-section .pm-step:nth-child(even) .pm-label::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #f58433;
+    border-radius: 2px;
+    display: inline-block;
+    transition: width .7s cubic-bezier(.19,1,.22,1) .35s;
+  }
+  .pm-section .pm-step:nth-child(even).pm-in .pm-label::after { width: 18px; }
+  .pm-section .pm-step:nth-child(even) .pm-benefits li { flex-direction: row-reverse; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 640px) {
+    .pm-section { padding: 52px 14px 68px; }
+    .pm-section .pm-steps { gap: 20px; }
+
+    .pm-rail { left: 29px; transform: none; }
+
+    .pm-section .pm-step {
+      grid-template-columns: 58px 1fr;
+      grid-template-rows: auto auto;
+    }
+    .pm-section .pm-step .pm-step-spine   { order: 1 !important; grid-row: 1 / 3; align-items: flex-start; padding-top: 14px; }
+    .pm-section .pm-step .pm-step-image   { order: 2 !important; grid-column: 2; }
+    .pm-section .pm-step .pm-step-content { order: 3 !important; grid-column: 2; }
+
+    /* on phones everything rises straight up */
+    .pm-section .pm-step:nth-child(odd),
+    .pm-section .pm-step:nth-child(even) { transform: translate(0, 26px); }
+    .pm-section .pm-step.pm-in { transform: translate(0,0); }
+
+    /* no photo tilt in the narrow column */
+    .pm-section .pm-step:nth-child(odd)  .pm-img-frame,
+    .pm-section .pm-step:nth-child(even) .pm-img-frame { transform: rotate(0deg); }
+
+    .pm-section .pm-step:nth-child(even) .pm-card { text-align: left; }
+    .pm-section .pm-step:nth-child(even) .pm-label { flex-direction: row; }
+    .pm-section .pm-step:nth-child(even) .pm-label::after { display: none; }
+    .pm-section .pm-step:nth-child(even) .pm-label::before { display: inline-block; }
+    .pm-section .pm-step:nth-child(even).pm-in .pm-label::before { width: 18px; }
+    .pm-section .pm-step:nth-child(even) .pm-benefits li { flex-direction: row; }
+    .pm-section .pm-step:nth-child(even) .pm-ghost { left: auto; right: 6px; }
+
+    .pm-section .pm-node { width: 46px; height: 46px; font-size: .85rem; border-width: 2.5px; }
+    .pm-section .pm-ghost { font-size: 64px; top: -8px; right: 6px; }
+
+    .pm-section .pm-card { padding: 24px 20px; border-radius: 18px; }
+    .pm-section .pm-title { font-size: 20px !important; }
+    .pm-section .pm-body  { font-size: 14px !important; }
+    .pm-section .pm-benefits li { font-size: 14px !important; }
+
+    .pm-orb--a { width: 320px; height: 320px; }
+    .pm-orb--b { width: 380px; height: 380px; }
+  }
+
+  /* ---------- reduced motion ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    .pm-orb, .pm-title .pm-highlight, .pm-node.pm-current::after { animation: none !important; }
+    .pm-section .pm-step, .pm-img-frame, .pm-card::before, .pm-label::before, .pm-label::after,
+    .pm-section .pm-benefits li { transition: none !important; }
+    .pm-section .pm-step { opacity: 1 !important; transform: none !important; }
+    .pm-section .pm-benefits li { opacity: 1 !important; transform: none !important; }
+    .pm-section .pm-card::before { transform: scaleY(1) !important; }
+    .pm-section .pm-label::before, .pm-section .pm-step:nth-child(even) .pm-label::after { width: 18px !important; }
+    .pm-section .pm-step:nth-child(odd) .pm-img-frame,
+    .pm-section .pm-step:nth-child(even) .pm-img-frame { transform: none !important; }
+    .pm-spark { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ✅ Everything scoped inside .pm-section — safe for GHL -->
+<div class="pm-section">
+  <div class="pm-orb pm-orb--a" aria-hidden="true"></div>
+  <div class="pm-orb pm-orb--b" aria-hidden="true"></div>
+
+  <div class="pm-wrapper">
+    <div class="pm-steps">
+
+      <!-- 01 -->
+      <div class="pm-step">
+        <div class="pm-step-image">
+          <div class="pm-img-frame">
+            <img src="https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/11c4f704-6266-4eea-8702-295bb6974c13.png" alt="Personalized Sleep Map Profile">
+          </div>
+        </div>
+        <div class="pm-step-spine">
+          <div class="pm-node">01</div>
+        </div>
+        <div class="pm-step-content">
+          <div class="pm-card">
+            <div class="pm-ghost" aria-hidden="true">01</div>
+            <div class="pm-label">Step One</div>
+            <h3 class="pm-title"><span class="pm-highlight">Create</span> Your Personalized Sleep Map Profile</h3>
+            <p class="pm-body">Using our cutting-edge technology, we analyze your individual pressure points and create a personalized sleep profile in less than 5 minutes.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="pm-step">
+        <div class="pm-step-content">
+          <div class="pm-card">
+            <div class="pm-ghost" aria-hidden="true">02</div>
+            <div class="pm-label">Step Two</div>
+            <h3 class="pm-title"><span class="pm-highlight">Review</span> Your Dream Map Results</h3>
+            <p class="pm-body">Based on the Dream Map, we will explain your score to show you the ideal support and comfort levels you need for restful sleep.</p>
+          </div>
+        </div>
+        <div class="pm-step-spine">
+          <div class="pm-node">02</div>
+        </div>
+        <div class="pm-step-image">
+          <div class="pm-img-frame">
+            <img src="https://assets.cdn.filesafe.space/SUCPzRcq7b6NGJH7gv9A/media/679361e8c21e373058b2232d.jpeg" alt="Review Dream Map Results">
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="pm-step">
+        <div class="pm-step-image">
+          <div class="pm-img-frame">
+            <img src="https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/695fbfed-24ba-4132-b604-2e6042bbb83f.jpeg" alt="Discover the Perfect Sleep Solution">
+          </div>
+        </div>
+        <div class="pm-step-spine">
+          <div class="pm-node">03</div>
+        </div>
+        <div class="pm-step-content">
+          <div class="pm-card">
+            <div class="pm-ghost" aria-hidden="true">03</div>
+            <div class="pm-label">Step Three</div>
+            <h3 class="pm-title"><span class="pm-highlight">Discover</span> the Perfect Sleep Solution</h3>
+            <p class="pm-body">Our Snooze Coaches show you exactly which mattresses suits your profile. We'll explain your results and introduce you to options that meet your specific sleep needs.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="pm-step">
+        <div class="pm-step-content">
+          <div class="pm-card">
+            <div class="pm-ghost" aria-hidden="true">04</div>
+            <div class="pm-label">Step Four</div>
+            <h3 class="pm-title">Start <span class="pm-highlight">Sleeping</span> Better</h3>
+            <p class="pm-body">Walk away with confidence, clarity, and real solutions built just for your body and lifestyle:</p>
+            <ul class="pm-benefits">
+              <li><span class="pm-chk"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5 8.5 2.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Relieve Aches &amp; Pains</li>
+              <li><span class="pm-chk"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5 8.5 2.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sleep up to 10 degrees Cooler</li>
+              <li><span class="pm-chk"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5 8.5 2.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Reduce Tossing &amp; Turning</li>
+              <li><span class="pm-chk"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5 8.5 2.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Improve Spinal Alignment</li>
+              <li><span class="pm-chk"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5 8.5 2.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Reduce Snoring &amp; Swelling</li>
+              <li><span class="pm-chk"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5 8.5 2.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Improve Circulation &amp; Digestion</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pm-step-spine">
+          <div class="pm-node">04</div>
+        </div>
+        <div class="pm-step-image">
+          <div class="pm-img-frame">
+            <img src="https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/1871b85e-a9ee-4965-9e56-f7b289ce90fa.jpeg" alt="Start Sleeping Better">
+          </div>
+        </div>
+      </div>
+
+      <div class="pm-rail" aria-hidden="true">
+        <div class="pm-rail-fill"></div>
+        <div class="pm-spark"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  /* Adapted for this site: the section exists twice (desktop + mobile copy), so every .pm-section is
+     initialised — a single querySelector would only animate the hidden desktop copy on phones. */
+  function initPm(root){
+  if(!root || root.__pmInit) return; root.__pmInit = true;
+
+  var steps    = [].slice.call(root.querySelectorAll('.pm-step'));
+  var nodes    = [].slice.call(root.querySelectorAll('.pm-node'));
+  var stepsBox = root.querySelector('.pm-steps');
+  var rail     = root.querySelector('.pm-rail');
+  var fill     = root.querySelector('.pm-rail-fill');
+  var spark    = root.querySelector('.pm-spark');
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- scroll-reveal for each step ---- */
+  if(reduceMotion || !('IntersectionObserver' in window)){
+    steps.forEach(function(el){ el.classList.add('pm-in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('pm-in'); io.unobserve(en.target); }
+      });
+    }, {threshold:.16, rootMargin:'0px 0px -6% 0px'});
+    steps.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---- glowing rail: measure, then fill with scroll ---- */
+  var railTopAbs = 0, railLen = 0, centers = [], ticking = false;
+
+  function measure(){
+    if(!rail || !stepsBox || !nodes.length) return;
+    var boxTop = stepsBox.getBoundingClientRect().top + window.pageYOffset;
+    var fr = nodes[0].getBoundingClientRect();
+    var lr = nodes[nodes.length-1].getBoundingClientRect();
+    var top    = fr.top + fr.height/2 + window.pageYOffset - boxTop;
+    var bottom = lr.top + lr.height/2 + window.pageYOffset - boxTop;
+    rail.style.top    = top + 'px';
+    rail.style.height = Math.max(0, bottom - top) + 'px';
+    railTopAbs = top + boxTop;
+    railLen    = Math.max(1, bottom - top);
+    centers = nodes.map(function(n){
+      var r = n.getBoundingClientRect();
+      return r.top + r.height/2 + window.pageYOffset;
+    });
+    update();
+  }
+
+  function update(){
+    if(!fill) return;
+    if(reduceMotion){
+      fill.style.height = railLen + 'px';
+      nodes.forEach(function(n){ n.classList.add('pm-lit'); n.classList.remove('pm-current'); });
+      if(spark) spark.style.opacity = '0';
+      return;
+    }
+    var focus = window.pageYOffset + window.innerHeight * 0.55;
+    var p = Math.max(0, Math.min(railLen, focus - railTopAbs));
+    fill.style.height = p + 'px';
+    if(spark){
+      spark.style.top = p + 'px';
+      spark.style.opacity = (p > 4 && p < railLen - 4) ? '1' : '0';
+    }
+    var current = -1;
+    for(var i = 0; i < nodes.length; i++){
+      if(centers[i] <= focus + 8){ nodes[i].classList.add('pm-lit'); current = i; }
+      else { nodes[i].classList.remove('pm-lit'); }
+    }
+    for(var j = 0; j < nodes.length; j++){
+      nodes[j].classList.toggle('pm-current', j === current);
+    }
+  }
+
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ update(); ticking = false; });
+  }
+
+  var rT;
+  function onResize(){ clearTimeout(rT); rT = setTimeout(measure, 120); }
+
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onResize);
+  window.addEventListener('load', measure);
+
+  /* re-measure as images finish loading (they change row heights) */
+  [].slice.call(root.querySelectorAll('img')).forEach(function(img){
+    if(img.complete) return;
+    img.addEventListener('load', measure);
+    img.addEventListener('error', measure);
+  });
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(measure); }
+  if('ResizeObserver' in window){
+    new ResizeObserver(onResize).observe(stepsBox);
+  }
+
+  measure();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.pm-section'), initPm);
+})();
+</script>
+
+<!--
+═══════════════════════════════════════════════════════════════
+  HOW TO CUSTOMIZE:
+  • Rail trigger point → change "0.55" in the script (0.5 = mid-screen,
+    lower number = nodes ignite earlier as you scroll)
+  • Colors → orange #f58433 / navy #001489 throughout
+  • Photo tilt → change "1.4deg" on the .pm-img-frame rules (0 = flat)
+  • Benefit cascade → the transition-delay values on .pm-benefits li
+  • Spark → delete the .pm-spark div to remove the traveling dot
+  • Ghost numbers → delete the .pm-ghost divs if you want cleaner cards
+  • Keep the .pm-rail div as the LAST child of .pm-steps
+    (moving it first would flip the left/right alternation)
+  • All copy, checklist items, and image URLs are untouched
+═══════════════════════════════════════════════════════════════
+-->
+
+</body>
+</html>

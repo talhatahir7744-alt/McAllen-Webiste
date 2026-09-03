@@ -1,0 +1,1 @@
+import{a0 as a,a as s,cA as e,L as r,M as c,N as n}from"./DwnOYecr.js";const l=a({__name:"form",setup(o){return s({script:[{src:e.IFRAME_RESIZE,async:!0,type:"text/javascript"},{src:e.IFRAME_PIXEL,async:!0,type:"text/javascript"}]}),(t,p)=>(r(),c("div",null,[n(t.$slots,"default")]))}});export{l as default};

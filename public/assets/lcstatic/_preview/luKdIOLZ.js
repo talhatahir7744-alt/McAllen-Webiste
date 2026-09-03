@@ -1,0 +1,1 @@
+import{_ as n,L as t,M as s,N as o}from"./DwnOYecr.js";const r={},a={class:"child-container"};function c(e,i){return t(),s("div",a,[o(e.$slots,"default")])}const l=Object.assign(n(r,[["render",c]]),{__name:"PreviewChildContainer"});export{l as default};

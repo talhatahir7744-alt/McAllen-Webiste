@@ -1,0 +1,15 @@
+/* Imported by the generated app/layout.tsx, so it applies to every route (converted GHL pages and the blog). */
+
+html {
+  scroll-behavior: smooth;
+  /* in-page anchors land below the sticky header */
+  scroll-padding-top: 96px;
+}
+
+@media (max-width: 1024px) {
+  html { scroll-padding-top: 80px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

@@ -1,0 +1,71 @@
+<!-- "0% Financing Available" ribbon banner, coded (no image): navy body with folded ends, dotted inner border, white
+     logo above the headline. scripts/convert.mjs swaps every image element that used the old ribbon PNG for this
+     markup; the headline text node is translated like any other text ("Financiamiento al 0% Disponible" on /es).
+     The wrapper is centred, spans the content column up to 620px, sits flush on the section's top edge on every
+     page and breakpoint (see the script), and scales its type with the viewport. -->
+<style>
+  .snz-ribbon {
+    --rb-navy: #0a1a93; --rb-navy-dark: #000b4a; --rb-ear: 7%;
+    position: relative; z-index: 2; width: min(100%, 620px); margin: 0 auto clamp(26px, 7vw, 40px); pointer-events: none; /* bottom margin = space between the ribbon and the headline */
+    transform: translateY(var(--snz-ribbon-shift, 0px));
+    font-family: var(--headlinefont, 'Montserrat', 'Poppins', sans-serif);
+  }
+  /* folded ends: dark tabs at the top corners, wide at the top and tapering down the outer side */
+  .snz-ribbon::before, .snz-ribbon::after {
+    content: ""; position: absolute; top: 0; width: calc(var(--rb-ear) + 2px); height: 42%;
+    background: linear-gradient(180deg, var(--rb-navy-dark), #001489);
+  }
+  .snz-ribbon::before { left: 0; clip-path: polygon(0 0, 100% 0, 100% 100%); }
+  .snz-ribbon::after { right: 0; clip-path: polygon(0 0, 100% 0, 0 100%); }
+  .snz-ribbon__body {
+    position: relative; margin: 0 var(--rb-ear); background: linear-gradient(180deg, #0d1f9e 0%, #00146f 100%);
+    border-radius: 0 0 clamp(22px, 6vw, 44px) clamp(22px, 6vw, 44px);
+    padding: clamp(8px, 2vw, 12px) clamp(10px, 2.5vw, 14px) clamp(10px, 2.4vw, 14px);
+    box-shadow: 0 10px 26px -14px rgba(0, 10, 60, 0.6);
+  }
+  .snz-ribbon__inner {
+    border: 2px dotted rgba(255, 255, 255, 0.9); border-top: 0;
+    border-radius: 0 0 clamp(16px, 4.6vw, 34px) clamp(16px, 4.6vw, 34px);
+    padding: clamp(2px, 1vw, 6px) clamp(12px, 3vw, 22px) clamp(10px, 2.6vw, 16px);
+    text-align: center; color: #fff;
+  }
+  .snz-ribbon__logo { display: block; width: clamp(64px, 16vw, 104px); height: auto; margin: 0 auto clamp(2px, 0.8vw, 6px); filter: brightness(0) invert(1); }
+  .snz-ribbon__text { display: block; font-weight: 800; font-size: clamp(17px, 4.9vw, 32px); line-height: 1.15; letter-spacing: -0.01em; text-wrap: balance; }
+  @media (max-width: 767px) {
+    /* phones: use the whole column (the custom-code container pads 10px each side) */
+    .snz-ribbon { width: calc(100% + 20px); max-width: calc(100vw - 20px); margin-left: -10px; margin-right: -10px; margin-bottom: 30px; }
+  }
+</style>
+<div class="snz-ribbon">
+  <div class="snz-ribbon__body">
+    <div class="snz-ribbon__inner">
+      <img class="snz-ribbon__logo" src="{{logo}}" alt="" width="252" height="80" decoding="async" loading="lazy">
+      <span class="snz-ribbon__text">0% Financing Available</span>
+    </div>
+  </div>
+</div>
+<script>
+  (function () {
+    if (window.__snzRibbonReady) return;
+    window.__snzRibbonReady = true;
+    // the ribbon's top edge sits exactly on its section's top edge (folds on the orange, nothing hanging into the white above)
+    var overlap = function () { return 0; };
+    function place() {
+      var all = document.querySelectorAll('.snz-ribbon');
+      for (var i = 0; i < all.length; i++) {
+        var el = all[i]; var sec = el.closest('.c-section'); if (!sec) continue;
+        var r = el.getBoundingClientRect(); if (!r.width) continue;
+        var current = parseFloat(el.style.getPropertyValue('--snz-ribbon-shift')) || 0;
+        var natural = r.top - current;
+        var shift = Math.round(sec.getBoundingClientRect().top - overlap() - natural);
+        if (shift !== current) el.style.setProperty('--snz-ribbon-shift', shift + 'px');
+      }
+    }
+    var t = null; function queue() { if (t) return; t = setTimeout(function () { t = null; place(); }, 80); }
+    place(); window.addEventListener('resize', queue); window.addEventListener('load', queue);
+    if ('MutationObserver' in window) new MutationObserver(queue).observe(document.body, { childList: true, subtree: true });
+    if ('ResizeObserver' in window) { var ro = new ResizeObserver(queue); ro.observe(document.body); var secs = document.querySelectorAll('.snz-ribbon'); for (var j = 0; j < secs.length; j++) { var sc = secs[j].closest('.c-section'); if (sc) ro.observe(sc); } }
+    setTimeout(queue, 1500); setTimeout(queue, 4000);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(queue);
+  })();
+</script>

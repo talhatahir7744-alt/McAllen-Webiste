@@ -1,0 +1,198 @@
+/* Site-wide page fixes injected after every page stylesheet (see scripts/convert.mjs).
+
+   Steps-timeline sections (dream map / store experience), class .steps-bg-faded added by scripts/convert.mjs to every
+   GoHighLevel section that holds a timeline (Pressure Mapping on Home, financing steps on Financing / About Us; both
+   languages). One background image on the section's own background layer, headline through the last step, covered
+   and centred, under a white wash that fades toward the top and bottom edges so the section blends into the white
+   sections around it. The timeline block itself is transparent. Swap the image by changing --steps-bg. */
+.hl_page-preview--content .steps-bg-faded { --steps-bg: url("/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a98aa870ba3728cefe0c326.png"); background-color: #ffffff !important; }
+.hl_page-preview--content .steps-bg-faded > .bg {
+  background: var(--steps-bg) center center / cover no-repeat !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+/* no wash: the PNG is used as-is (a very light one can be re-enabled here if a page lacks contrast) */
+.hl_page-preview--content .steps-bg-faded > .bg::before { content: none; }
+.hl_page-preview--content .steps-bg-faded .pm-section { background: transparent !important; box-shadow: none; border: 0; }
+.hl_page-preview--content .steps-bg-faded .pm-section::before,
+.hl_page-preview--content .steps-bg-faded .pm-section::after { display: none; }
+
+/* Home page promo popup (#snzModal, the client's custom code): once closed it fades to opacity 0 but its
+   embedded LeadConnector form iframe kept capturing clicks (form_embed.js re-enables pointer events on it),
+   so links underneath — the footer, for one — were dead on the home page. Closed = fully inert. */
+.snz-modal:not(.is-open),
+.snz-modal:not(.is-open) * { pointer-events: none !important; }
+.snz-modal:not(.is-open) { visibility: hidden !important; }
+
+/* Timelines (dream map / store experience) on phones: the supplied code leaves 68–84px of empty strip under the
+   last card, on top of the section's own spacing. Tightened so the next section follows closely. */
+@media (max-width: 767px) {
+  .pm-section { padding-bottom: 20px !important; }
+  .pm-section .pm-steps { padding-bottom: 0 !important; }
+}
+@media (max-width: 767px) {
+  /* the financing band that follows the timelines: no extra top margin on phones, just room for the ribbon overhang */
+  #section-KI-fCuyF5S, #section-eC_eoiXfK_ { margin-top: 0 !important; padding-top: 30px !important; }
+}
+
+/* =====================================================================================
+   Responsive pass (2026-09-02): layout, spacing and contrast only. Copy, fonts, imagery unchanged.
+   ===================================================================================== */
+
+/* media never overflows its container; images keep their intrinsic ratio (width/height attributes) */
+.hl_page-preview--content img, .hl_page-preview--content video, .hl_page-preview--content iframe { max-width: 100%; }
+.hl_page-preview--content img { height: auto; }
+
+/* One horizontal gutter for every content row: 20px on phones, 32px on tablets. Rows that hold the full-bleed
+   tickers / marquees keep their own layout. Column side padding is folded into the row gutter so nested
+   columns do not add a second, inconsistent inset. */
+@media (max-width: 767px) {
+  .hl_page-preview--content .c-section > .inner > .c-row:not(:has(.snz-logo-marquee, [id="ghl-trust-ticker"], .snooze-ticker-bar, .custom-brand-slider, .guar-section)):not(.snz-card) { padding-left: 20px !important; padding-right: 20px !important; }
+  .hl_page-preview--content .c-section > .inner > .c-row:not(:has(.snz-logo-marquee, [id="ghl-trust-ticker"], .snooze-ticker-bar, .custom-brand-slider, .guar-section)) > .inner > .c-column:not(.snz-card) { padding-left: 0 !important; padding-right: 0 !important; }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hl_page-preview--content .c-section > .inner > .c-row:not(:has(.snz-logo-marquee, [id="ghl-trust-ticker"], .snooze-ticker-bar, .custom-brand-slider, .guar-section)):not(.snz-card) { padding-left: 32px !important; padding-right: 32px !important; }
+}
+
+/* Timelines on phones: one column, the card centred with equal gutters (the left rail/spine column was
+   pushing it right), the "05" watermark kept inside the card, decorative blobs off, tighter type. */
+@media (max-width: 767px) {
+  .pm-section .pm-step { grid-template-columns: 1fr !important; }
+  .pm-section .pm-step .pm-step-spine, .pm-section .pm-rail, .pm-section .pm-spark { display: none !important; }
+  .pm-section .pm-step .pm-step-image, .pm-section .pm-step .pm-step-content { grid-column: 1 !important; }
+  .pm-section .pm-step-content { padding: 6px 0 0 !important; }
+  .pm-section .pm-card { overflow: hidden; }
+  .pm-section .pm-ghost { top: 6px !important; right: 12px !important; left: auto !important; font-size: 54px !important; }
+  .pm-section .pm-title { font-size: 19px !important; line-height: 1.25 !important; }
+  .pm-section .pm-body { font-size: 14px !important; line-height: 1.6 !important; }
+  .pm-orb { display: none !important; }
+}
+
+/* Financing band ("Sleep Better Now. Pay Over Time."): the orange is a background image with rounded corners
+   baked in, so a matching colour sits behind it (no white slivers, full bleed on every width); the image is
+   darkened slightly and the body copy set large + semibold so white text meets WCAG AA (large text, 3:1). */
+#section-FVn4UvdYfr, #section-KI-fCuyF5S, #section-yWefy4dO1- { background-color: #d96a1a !important; }
+#section-FVn4UvdYfr > .bg, #section-KI-fCuyF5S > .bg, #section-yWefy4dO1- > .bg { filter: brightness(0.86); }
+#section-FVn4UvdYfr .c-paragraph p, #section-KI-fCuyF5S .c-paragraph p, #section-yWefy4dO1- .c-paragraph p,
+#section-FVn4UvdYfr .c-paragraph p span, #section-KI-fCuyF5S .c-paragraph p span, #section-yWefy4dO1- .c-paragraph p span { font-size: max(18.67px, 1em); font-weight: 600; }
+#section-FVn4UvdYfr .c-paragraph strong, #section-KI-fCuyF5S .c-paragraph strong, #section-yWefy4dO1- .c-paragraph strong { font-weight: 800; }
+
+/* Orange address / phone strips (class added by the converter): deeper brand orange so the 14px white text
+   reaches 4.5:1, and a touch heavier weight. */
+.snz-orange-strip { background-color: #bc5810 !important; }
+.snz-orange-strip .c-button a.custom { font-weight: 600 !important; }
+
+/* Booking calendar embed: a sensible height until the widget reports its own (see the shim's highlevel.setHeight listener) */
+/* the booking iframe sizes itself (see the shim); no max height / overflow rules on it or its parents. Phone safety net:
+   even if no height report ever arrived, the whole details form and submit button fit and the page scrolls to them. */
+
+
+/* Tablet (768–1024): two GoHighLevel elements carry desktop-only negative right margins that push them past the
+   viewport edge once the row gutter is 32px (mattresses hero heading, sleep-test-kit info column). */
+@media (min-width: 768px) and (max-width: 1024px) {
+  #heading-eJ3XGetn61, #col-op6s-rSgeu { margin-right: 0 !important; }
+}
+
+/* Navy rounded cards with the orange border (class added by scripts/convert.mjs, step 1f): on phones the card keeps a
+   16px margin from the screen edge and gets one comfortable inner padding; bullet lines the author split into two
+   paragraphs flow as one sentence. Tablet/desktop keep the GoHighLevel spacing. */
+@media (max-width: 767px) {
+  /* outer margin: the section already pads 20px, so a card row adds none; a card that is itself the row sits in a 16px section */
+  .hl_page-preview--content .c-section > .inner > .c-row:has(> .inner > .snz-card):not(.snz-card) { padding-left: 0 !important; padding-right: 0 !important; }
+  .hl_page-preview--content .c-section:has(> .inner > .snz-card) { padding-left: 16px !important; padding-right: 16px !important; }
+  .hl_page-preview--content .snz-card { padding: 1.875rem 1.5rem !important; margin-left: 0 !important; margin-right: 0 !important; width: 100% !important; max-width: 100% !important; box-sizing: border-box; }
+  .hl_page-preview--content .snz-card .c-bullet-list li > p { display: inline; }
+  .hl_page-preview--content .snz-card .c-bullet-list li > p + p::before { content: ' '; }
+}
+
+/* Location card ("Location / Phone / Hours" with the storefront photo) on phones: one shared left edge for the
+   photo, icons, headings and text (GoHighLevel padded the first block 20px further in), uniform 40px white
+   icon badges, the same icon > heading > text rhythm in every block and equal 28px gaps between blocks.
+   Desktop untouched. */
+@media (max-width: 767px) {
+  .hl_page-preview--content .snz-card.c-row .c-column { margin-top: 0 !important; margin-bottom: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; }
+  .hl_page-preview--content .snz-card.c-row .c-column + .c-column { margin-top: 28px !important; }
+  .hl_page-preview--content .snz-card.c-row .c-image, .hl_page-preview--content .snz-card.c-row .c-heading, .hl_page-preview--content .snz-card.c-row .c-sub-heading, .hl_page-preview--content .snz-card.c-row .c-paragraph { margin-top: 0 !important; margin-bottom: 0 !important; }
+  .hl_page-preview--content .snz-card.c-row .image-container, .hl_page-preview--content .snz-card.c-row .c-heading .text-output, .hl_page-preview--content .snz-card.c-row .c-sub-heading .text-output, .hl_page-preview--content .snz-card.c-row .c-paragraph .text-output { padding-left: 0 !important; padding-right: 0 !important; }
+  .hl_page-preview--content .snz-card.c-row .c-column:first-child .image-container { padding: 0 !important; }
+  .hl_page-preview--content .snz-card.c-row .c-column:first-child img { width: 100% !important; height: auto !important; border-radius: 14px; }
+  .hl_page-preview--content .snz-card.c-row .c-column + .c-column .image-container { padding: 0 0 10px !important; text-align: left !important; }
+  .hl_page-preview--content .snz-card.c-row .c-column + .c-column .image-container > div { width: 40px !important; height: 40px !important; }
+  .hl_page-preview--content .snz-card.c-row .c-column + .c-column .image-container img { display: block; box-sizing: border-box; width: 40px !important; height: 40px !important; max-width: none !important; padding: 7px; border-radius: 50%; background: #fff; object-fit: contain; }
+  .hl_page-preview--content .snz-card.c-row .c-column + .c-column .c-heading h1, .hl_page-preview--content .snz-card.c-row .c-column + .c-column .c-heading h2 { margin: 0 0 6px !important; }
+  .hl_page-preview--content .snz-card.c-row .c-column + .c-column .c-sub-heading h2, .hl_page-preview--content .snz-card.c-row .c-column + .c-column .c-sub-heading p { margin: 0 !important; }
+}
+
+/* Location card on tablet/desktop: the same white round badges as on phones (uniform 56px) and the three blocks
+   top-aligned (GoHighLevel centred each column vertically, so icons, headings and text sat at different heights) */
+@media (min-width: 768px) {
+  .hl_page-preview--content .snz-card.c-row > .inner { align-items: flex-start !important; }
+  .hl_page-preview--content .snz-card.c-row .c-column + .c-column > .inner { justify-content: flex-start !important; }
+  .hl_page-preview--content .snz-card.c-row .c-column + .c-column .image-container img { box-sizing: border-box; width: 56px !important; height: 56px !important; padding: 10px; border-radius: 50%; background: #fff; object-fit: contain; }
+}
+
+/* Financing band headline: the Spanish text carries a line break ("Duerme mejor ahora." / "Paga a plazos."); the
+   English heading has none, so this is a no-op there */
+#heading-VlHaVbN6j2 .text-output, #heading-w4G14wephb .text-output { white-space: pre-line; }
+
+/* Hero sections with the client's hero image (overrides.json -> heroBackgrounds; class added by scripts/convert.mjs):
+   the image covers the whole hero (no gaps, no tiling, no distortion) and a navy overlay sits between the image
+   and the content so headings and buttons stay readable. */
+.hl_page-preview--content .snz-hero > .bg { background-size: cover !important; background-position: center center !important; background-repeat: no-repeat !important; }
+.hl_page-preview--content .snz-hero > .bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 20, 137, 0.3) 0%, rgba(0, 20, 137, 0.2) 100%); pointer-events: none; } /* the image is a dark navy graphic already; a light overlay keeps it visible */
+
+/* Price-match headline on Spanish pages (desktop copy #heading-JQfUWePMYv, reused on every page): the translation
+   carries a line break after the dash so tablet/desktop show exactly two lines; the phone copy has no such rule and
+   keeps its natural wrapping. English text has no break, so English pages are unaffected. */
+@media (min-width: 768px) {
+  html[lang="es"] #heading-JQfUWePMYv .text-output { white-space: pre-line; container-type: inline-size; }
+  html[lang="es"] #heading-JQfUWePMYv h1 { max-width: none; font-size: min(46px, 5.6cqw) !important; } /* sized to its own column so the 30-character second line always fits */
+}
+
+/* Spanish home hero headline on tablet/desktop: three lines like the English one ("Brownsville, Consigue un /
+   Ajuste a tu Medida para / Tu Colchón Perfecto"); the longer Spanish words need a slightly smaller size. Phones untouched. */
+@media (min-width: 768px) {
+  html[lang="es"] #section-aEXJsrtqRn .c-heading h1 { font-size: min(52px, 4.1vw) !important; }
+}
+
+/* Two-column text-card + photo sections (navy card with the orange border, photo column overlapping it by 100px
+   through the two columns' negative margins): the card's inner text used to run under the photo. Tablet/desktop:
+   the text area ends 24px before the photo column begins (the overlap is a fixed 100px at every width), and bullet
+   lines the author split into two paragraphs flow as one sentence. Phones stack the columns and are untouched. */
+@media (min-width: 768px) {
+  /* the photo column begins 100px inside the card; text ends 46px before the photo */
+  .hl_page-preview--content .snz-card.c-column { padding-right: 144px !important; }
+  /* the paragraphs carried their own 100px right padding (the client's old way of dodging the photo), which
+     wrapped them 128px short of it; the card boundary above is the single limit now */
+  .hl_page-preview--content .snz-card.c-column .c-paragraph .text-output,
+  .hl_page-preview--content .snz-card.c-column .c-heading .text-output,
+  .hl_page-preview--content .snz-card.c-column .c-sub-heading .text-output,
+  .hl_page-preview--content .snz-card.c-column .c-bullet-list .text-output { padding-right: 0 !important; }
+  .hl_page-preview--content .snz-card .c-bullet-list li > p { display: inline; }
+  .hl_page-preview--content .snz-card .c-bullet-list li > p + p::before { content: ' '; }
+}
+
+/* Smooth scrolling (base rules in overrides/global.css). The GoHighLevel page CSS loads after global.css and sets
+   scroll-behavior itself, so the header offsets and the reduced-motion fallback are restated here, after it. */
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+@media (max-width: 1024px) { html { scroll-padding-top: 80px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } }
+
+/* Orange financing band ("Sleep Better Now. Pay Over Time." — desktop + phone copies, every page, both languages):
+   its CTA is navy so it stands out on the orange instead of blending in. Same size, padding, radius, arrow and
+   font as every other button; hover shifts to a slightly lighter blue with the shared lift + shadow. */
+#section-FVn4UvdYfr .c-button a.custom, #section-KI-fCuyF5S .c-button a.custom, #section-yWefy4dO1- .c-button a.custom {
+  background: linear-gradient(135deg, #001489 0%, #0b2aa8 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 15px rgba(0, 20, 137, 0.35) !important;
+}
+#section-FVn4UvdYfr .c-button a.custom:hover, #section-KI-fCuyF5S .c-button a.custom:hover, #section-yWefy4dO1- .c-button a.custom:hover,
+#section-FVn4UvdYfr .c-button a.custom:focus-visible, #section-KI-fCuyF5S .c-button a.custom:focus-visible, #section-yWefy4dO1- .c-button a.custom:focus-visible {
+  background: linear-gradient(135deg, #0b2aa8 0%, #1d3fd0 100%) !important;
+  box-shadow: 0 6px 20px rgba(0, 20, 137, 0.55) !important;
+}
+#section-FVn4UvdYfr .c-button a.custom:active, #section-KI-fCuyF5S .c-button a.custom:active, #section-yWefy4dO1- .c-button a.custom:active { box-shadow: 0 2px 10px rgba(0, 20, 137, 0.4) !important; }
+
+/* Steps-timeline sections: the timeline code's drifting "ambient orb" shapes (soft radial-gradient discs behind the
+   content) read as a stray semi-circle on the new background. Off at every width; the section image is untouched. */
+.hl_page-preview--content .steps-bg-faded .pm-orb { display: none !important; }

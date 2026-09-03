@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================================
+   TRUST TICKER — SEAMLESS MARQUEE
+   Fully scoped to #ghl-trust-ticker; will NOT affect other GHL sections.
+   How the loop works: the track holds FOUR identical copies of the item row
+   (every item followed by its dot, so spacing is identical across the copy
+   boundary). It slides from translateX(0) to translateX(-50%) — exactly two
+   copies — so the frame after the reset is pixel-identical to the frame
+   before it. Speed: --marquee-speed.
+================================ */
+
+#ghl-trust-ticker,
+#ghl-trust-ticker * {
+  box-sizing: border-box;
+}
+
+#ghl-trust-ticker {
+  --marquee-speed: 30s;        /* one full loop (two copies of the row) */
+  --marquee-fade: 120px;       /* width of the soft edge masks */
+  background: #ffffff;
+  padding: 18px 0;
+  overflow: hidden;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  border-top: 1px solid rgba(0,20,137,0.06);
+  border-bottom: 1px solid rgba(0,20,137,0.06);
+  /* soft fade masks on both edges (falls back to the white gradients below) */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--marquee-fade), #000 calc(100% - var(--marquee-fade)), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 var(--marquee-fade), #000 calc(100% - var(--marquee-fade)), transparent 100%);
+}
+
+/* Fade edges (kept for browsers without mask support) */
+#ghl-trust-ticker::before,
+#ghl-trust-ticker::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--marquee-fade);
+  z-index: 5;
+  pointer-events: none;
+}
+
+#ghl-trust-ticker::before {
+  left: 0;
+  background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0) 100%);
+}
+
+#ghl-trust-ticker::after {
+  right: 0;
+  background: linear-gradient(to left, #ffffff 0%, rgba(255,255,255,0) 100%);
+}
+
+/* Track: a flex row of identical copies, animated with transform only */
+#ghl-trust-ticker .ticker-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: ghlTickerScroll var(--marquee-speed) linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+#ghl-trust-ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+/* one copy of the row */
+#ghl-trust-ticker .ticker-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Animation: 0 → -50% of the 4-copy track = exactly two copies, so the restart is invisible */
+@keyframes ghlTickerScroll {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* Item */
+#ghl-trust-ticker .ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 40px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Icon */
+#ghl-trust-ticker .ticker-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f58433 0%, #ffaa55 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(245,132,51,0.35);
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease;
+  position: relative;
+}
+
+#ghl-trust-ticker .ticker-item:hover .ticker-icon {
+  transform: scale(1.2) rotate(8deg);
+  box-shadow: 0 8px 28px rgba(245,132,51,0.55);
+}
+
+/* Pulse ring */
+#ghl-trust-ticker .ticker-icon::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid rgba(245,132,51,0.5);
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+#ghl-trust-ticker .ticker-item:hover .ticker-icon::after {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+#ghl-trust-ticker .ticker-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Text */
+#ghl-trust-ticker .ticker-label {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #001489;
+  letter-spacing: 0.01em;
+  transition: color 0.25s;
+}
+
+#ghl-trust-ticker .ticker-item:hover .ticker-label {
+  color: #f58433;
+}
+
+/* Dot — placed after EVERY item, so the gap is identical across the copy boundary */
+#ghl-trust-ticker .ticker-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f58433, #ffaa55);
+  flex-shrink: 0;
+  opacity: 0.45;
+  margin: 0 8px;
+}
+
+/* Reduced motion: static strip, no animation */
+@media (prefers-reduced-motion: reduce) {
+  #ghl-trust-ticker .ticker-track {
+    animation: none;
+    transform: none;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div id="ghl-trust-ticker" aria-label="Why Brownsville chooses Snooze">
+  <div class="ticker-track">
+
+    <!-- Copy 1 (read by screen readers) -->
+    <div class="ticker-group">
+      <div class="ticker-item">
+        <div class="ticker-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>
+          </svg>
+        </div>
+        <span class="ticker-label">Sleep Comfort Guarantee</span>
+      </div>
+      <div class="ticker-dot"></div>
+
+      <div class="ticker-item">
+        <div class="ticker-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/><path d="M6 15h4"/>
+          </svg>
+        </div>
+        <span class="ticker-label">Flexible Financing</span>
+      </div>
+      <div class="ticker-dot"></div>
+
+      <div class="ticker-item">
+        <div class="ticker-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 13l4 4L19 7"/>
+          </svg>
+        </div>
+        <span class="ticker-label">Price Match Promise</span>
+      </div>
+      <div class="ticker-dot"></div>
+
+      <div class="ticker-item">
+        <div class="ticker-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        </div>
+        <span class="ticker-label">Brownsville's Top Rated Mattress Store</span>
+      </div>
+      <div class="ticker-dot"></div>
+    </div>
+
+    <!-- Copies 2–4: identical, hidden from assistive tech. Four copies keep the strip full even on
+         very wide screens; the animation shifts exactly two of them. -->
+    <div class="ticker-group" aria-hidden="true">
+      <div class="ticker-item"><div class="ticker-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><span class="ticker-label">Sleep Comfort Guarantee</span></div><div class="ticker-dot"></div>
+      <div class="ticker-item"><div class="ticker-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/><path d="M6 15h4"/></svg></div><span class="ticker-label">Flexible Financing</span></div><div class="ticker-dot"></div>
+      <div class="ticker-item"><div class="ticker-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div><span class="ticker-label">Price Match Promise</span></div><div class="ticker-dot"></div>
+      <div class="ticker-item"><div class="ticker-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><span class="ticker-label">Brownsville's Top Rated Mattress Store</span></div><div class="ticker-dot"></div>
+    </div>
+    <div class="ticker-group" aria-hidden="true">
+      <div class="ticker-item"><div class="ticker-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><span class="ticker-label">Sleep Comfort Guarantee</span></div><div class="ticker-dot"></div>
+      <div class="ticker-item"><div class="ticker-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/><path d="M6 15h4"/></svg></div><span class="ticker-label">Flexible Financing</span></div><div class="ticker-dot"></div>
+      <div class="ticker-item"><div class="ticker-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div><span class="ticker-label">Price Match Promise</span></div><div class="ticker-dot"></div>
+      <div class="ticker-item"><div class="ticker-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><span class="ticker-label">Brownsville's Top Rated Mattress Store</span></div><div class="ticker-dot"></div>
+    </div>
+    <div class="ticker-group" aria-hidden="true">
+      <div class="ticker-item"><div class="ticker-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><span class="ticker-label">Sleep Comfort Guarantee</span></div><div class="ticker-dot"></div>
+      <div class="ticker-item"><div class="ticker-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/><path d="M6 15h4"/></svg></div><span class="ticker-label">Flexible Financing</span></div><div class="ticker-dot"></div>
+      <div class="ticker-item"><div class="ticker-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div><span class="ticker-label">Price Match Promise</span></div><div class="ticker-dot"></div>
+      <div class="ticker-item"><div class="ticker-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><span class="ticker-label">Brownsville's Top Rated Mattress Store</span></div><div class="ticker-dot"></div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

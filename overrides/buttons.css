@@ -1,0 +1,152 @@
+/* ============================================================================
+   SITE-WIDE BUTTON STYLE — the client's ".waitlist-button" look on every button.
+   Injected after each page's own stylesheets by scripts/convert.mjs, which also
+   replaces {{not}} with a per-page chain of :not(.cbutton-ID) selectors for the
+   transparent, borderless "buttons" GoHighLevel uses as plain text links (the
+   address / phone strips and the footer product list), so those keep their look.
+   !important is used where GHL utilities (noBorder, borderFull, radius15…) or
+   inline styles also use it — the whole point is one identical style everywhere.
+   ============================================================================ */
+
+.c-button a.custom{{not}},
+.c-button button.custom{{not}} {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  box-sizing: border-box;
+  max-width: 100%;
+  background: linear-gradient(135deg, #d96a1a 0%, #e6772e 100%) !important; /* AA: white large text >= 3:1 across the gradient */
+  color: #fff !important;
+  border: none !important;
+  padding: 14px 32px !important;
+  font-family: var(--poppins, 'Poppins', 'Montserrat', sans-serif);
+  font-size: 18.67px; /* 14pt bold = WCAG large text */
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-shadow: none;
+  white-space: normal;
+  cursor: pointer;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px rgba(239, 124, 50, 0.4);
+  transition: all 0.3s ease;
+}
+
+/* shine sweep */
+.c-button a.custom{{not}}::before,
+.c-button a.custom{{not}}::after,
+.c-button button.custom{{not}}::before,
+.c-button button.custom{{not}}::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+  animation: snzShine 3s infinite;
+  pointer-events: none;
+}
+.c-button a.custom{{not}}::after,
+.c-button button.custom{{not}}::after {
+  animation-delay: 1.5s;
+}
+@keyframes snzShine {
+  100% { left: 100%; }
+}
+
+.c-button a.custom{{not}}:hover,
+.c-button button.custom{{not}}:hover {
+  background: linear-gradient(135deg, #c85f14 0%, #d96a1a 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 6px 20px rgba(239, 124, 50, 0.6);
+  transform: translateY(-2px);
+  animation: none; /* GHL's buttonElevate hover animation would fight the lift */
+}
+.c-button a.custom{{not}}:active,
+.c-button button.custom{{not}}:active {
+  transform: translateY(1px) scale(0.985);
+  transition-duration: 0.12s;
+  box-shadow: 0 2px 10px rgba(239, 124, 50, 0.4);
+}
+.c-button a.custom{{not}}:focus-visible,
+.c-button button.custom{{not}}:focus-visible {
+  outline: 2px solid #001489;
+  outline-offset: 3px;
+}
+
+/* text and icon spans inside GHL buttons follow the button style */
+.c-button a.custom{{not}} .main-heading-button,
+.c-button button.custom{{not}} .main-heading-button {
+  display: inline;
+  font-size: 18.67px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+.c-button a.custom{{not}} .sub-heading-button,
+.c-button button.custom{{not}} .sub-heading-button {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+.c-button a.custom{{not}} .button-icon-start,
+.c-button a.custom{{not}} .button-icon-end,
+.c-button button.custom{{not}} .button-icon-start,
+.c-button button.custom{{not}} .button-icon-end {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 18px;
+  line-height: 1;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+.c-button a.custom{{not}} .button-icon-start,
+.c-button button.custom{{not}} .button-icon-start { margin-right: 8px; }
+.c-button a.custom{{not}} .button-icon-end,
+.c-button button.custom{{not}} .button-icon-end { margin-left: 8px; }
+
+/* phones: compact, wraps cleanly, icon stays inline with the label */
+@media (max-width: 767px) {
+  .c-button a.custom{{not}},
+  .c-button button.custom{{not}} {
+    padding: 12px 16px !important;
+    font-size: 18.67px;
+    line-height: 1.2;
+    letter-spacing: 0.2px;
+    box-shadow: 0 3px 10px rgba(239, 124, 50, 0.35);
+  }
+  .c-button a.custom{{not}} .main-heading-button,
+  .c-button button.custom{{not}} .main-heading-button {
+    font-size: 18.67px;
+    letter-spacing: 0.2px;
+  }
+  .c-button a.custom{{not}} .button-icon-start,
+  .c-button a.custom{{not}} .button-icon-end,
+  .c-button button.custom{{not}} .button-icon-start,
+  .c-button button.custom{{not}} .button-icon-end {
+    font-size: 16px;
+  }
+  .c-button a.custom{{not}} .button-icon-start,
+  .c-button button.custom{{not}} .button-icon-start { margin-right: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-button a.custom{{not}}::before,
+  .c-button a.custom{{not}}::after,
+  .c-button button.custom{{not}}::before,
+  .c-button button.custom{{not}}::after { animation: none; display: none; }
+  .c-button a.custom{{not}}:hover,
+  .c-button button.custom{{not}}:hover { transform: none; }
+}

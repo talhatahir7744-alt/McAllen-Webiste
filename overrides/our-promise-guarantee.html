@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guarantee Section — Snooze Mattress + Wellness</title>
+</head>
+<body>
+
+<!-- ============================================================
+     SNOOZE — "OUR PROMISE" GUARANTEE SECTION
+     Paste this entire block (style + section + script) into a
+     custom HTML/code element. Fully self-contained.
+============================================================ -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+/* HEADLINES USE VISBY CF EXTRABOLD.
+   Visby isn't on Google Fonts — if your site already loads it (theme font
+   settings or Adobe Fonts), the stack below picks it up automatically.
+   If not, un-comment this block and point src to your uploaded font file:
+
+@font-face{
+  font-family:'Visby CF';
+  src:url('YOUR-FONT-FILE-URL/VisbyCF-ExtraBold.woff2') format('woff2');
+  font-weight:800; font-style:normal; font-display:swap;
+}
+*/
+
+.guar-section{
+  position:relative;
+  overflow:hidden;
+  background-color:#000a30;
+  padding:clamp(90px,10vw,130px) 24px clamp(96px,10vw,136px);
+  font-family:'Montserrat',sans-serif;
+  isolation:isolate;
+}
+
+/* ---------- photo background + cinematic overlay ---------- */
+.guar-bg{
+  position:absolute; inset:-5%;
+  background:url('https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/699783f58d5b5a537e938d83.jpg') center/cover no-repeat #000a30;
+  animation:guarKen 34s ease-in-out infinite alternate;
+  will-change:transform;
+  z-index:0;
+}
+@keyframes guarKen{
+  from{transform:scale(1.03) translate(0,0);}
+  to{transform:scale(1.13) translate(-1.6%,-1.2%);}
+}
+.guar-overlay{
+  position:absolute; inset:0; z-index:1;
+  background:
+    radial-gradient(1000px 560px at 80% 14%, rgba(245,132,51,.15), transparent 62%),
+    linear-gradient(to top, rgba(0,6,32,.92), rgba(0,6,32,0) 34%),
+    linear-gradient(100deg, rgba(0,8,44,.97) 0%, rgba(0,17,112,.85) 42%, rgba(0,10,52,.55) 74%, rgba(0,8,44,.84) 100%);
+}
+.guar-noise{
+  position:absolute; inset:0; z-index:2; pointer-events:none; opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size:180px 180px;
+}
+.guar-section::before{ /* ember hairline, top edge */
+  content:""; position:absolute; top:0; left:0; right:0; height:1px; z-index:6;
+  background:linear-gradient(90deg, transparent 8%, rgba(245,132,51,.65) 50%, transparent 92%);
+}
+.guar-section::after{ /* faint hairline, bottom edge */
+  content:""; position:absolute; bottom:0; left:0; right:0; height:1px; z-index:6;
+  background:linear-gradient(90deg, transparent 12%, rgba(255,255,255,.14) 50%, transparent 88%);
+}
+
+/* ---------- twinkling night-sky stars ---------- */
+.guar-stars{position:absolute; inset:0; z-index:2; pointer-events:none;}
+.guar-star{
+  position:absolute; border-radius:50%; background:#fff; opacity:0;
+  box-shadow:0 0 6px rgba(255,255,255,.85), 0 0 14px rgba(160,190,255,.4);
+  animation:guarTwinkle 3s ease-in-out infinite;
+}
+@keyframes guarTwinkle{
+  0%,100%{opacity:.04; transform:scale(.7);}
+  50%{opacity:.75; transform:scale(1);}
+}
+
+/* ---------- giant drifting outline headline ---------- */
+.guar-marquee{
+  position:absolute; top:clamp(10px,3vw,30px); left:0; right:0;
+  overflow:hidden; z-index:1; pointer-events:none;
+}
+.guar-marquee-track{display:flex; width:max-content; animation:guarMarquee 60s linear infinite; will-change:transform;}
+.guar-marquee-track span{
+  white-space:nowrap; text-transform:uppercase;
+  font-family:'Visby CF','VisbyCF','Visby','visby-cf','Montserrat',sans-serif;
+  font-weight:800; font-size:clamp(4.2rem,11vw,9rem); letter-spacing:.02em;
+  color:transparent; -webkit-text-stroke:1px rgba(255,255,255,.07);
+  padding-right:.6em;
+}
+@keyframes guarMarquee{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+
+/* ---------- layout ---------- */
+.guar-inner{
+  position:relative; z-index:4;
+  max-width:1180px; margin:0 auto;
+  display:grid; grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr);
+  gap:clamp(44px,5vw,80px); align-items:center;
+}
+
+/* ---------- left column: the promise ---------- */
+.guar-label{
+  display:inline-flex; align-items:center; gap:12px;
+  font-size:.7rem; font-weight:800; letter-spacing:.26em;
+  text-transform:uppercase; color:#f58433; margin-bottom:22px;
+}
+.guar-label::before, .guar-label::after{
+  content:""; height:2px; border-radius:2px; background:#f58433;
+  width:0; transition:width .8s cubic-bezier(.19,1,.22,1) .25s;
+}
+.guar-label.guar-in::before, .guar-label.guar-in::after{width:30px;}
+
+.guar-title{
+  margin:0 0 26px;
+  font-family:'Visby CF','VisbyCF','Visby','visby-cf','Montserrat',sans-serif;
+  font-size:clamp(2.1rem,4vw,3.15rem);
+  font-weight:800; color:#fff; line-height:1.16; letter-spacing:-.5px;
+}
+.guar-line{
+  display:inline-block; vertical-align:bottom; overflow:hidden;
+  padding-bottom:.2em; margin-bottom:-.14em; margin-right:.24em;
+}
+.guar-line:last-child{margin-right:0;}
+.guar-line-in{
+  display:inline-block; white-space:nowrap; transform:translateY(120%);
+  transition:transform 1s cubic-bezier(.19,1,.22,1);
+}
+.guar-title .guar-line:nth-of-type(1) .guar-line-in{transition-delay:.12s;}
+.guar-title .guar-line:nth-of-type(2) .guar-line-in{transition-delay:.24s;}
+.guar-title .guar-line:nth-of-type(3) .guar-line-in{transition-delay:.36s;}
+.guar-title.guar-in .guar-line-in{transform:translateY(0);}
+
+.guar-em{
+  position:relative; display:inline-block;
+  font-weight:800; padding-right:.02em;
+  background:linear-gradient(100deg,#f58433 10%,#ffc98f 45%,#f58433 85%);
+  background-size:220% 100%;
+  -webkit-background-clip:text; background-clip:text;
+  color:transparent; -webkit-text-fill-color:transparent;
+  animation:guarShimmer 5.5s ease-in-out infinite;
+}
+@keyframes guarShimmer{
+  0%,100%{background-position:0% 0;}
+  50%{background-position:100% 0;}
+}
+.guar-underline{
+  position:absolute; left:0; bottom:-.12em; width:100%; height:.34em;
+  overflow:visible; pointer-events:none;
+}
+.guar-underline path{
+  fill:none; stroke:#f58433; stroke-width:5; stroke-linecap:round;
+  stroke-dasharray:260; stroke-dashoffset:260;
+  transition:stroke-dashoffset 1.1s ease .95s;
+}
+.guar-title.guar-in .guar-underline path{stroke-dashoffset:0;}
+
+.guar-body{
+  margin:0; max-width:560px;
+  font-size:1.02rem; font-weight:500; line-height:1.9;
+  color:rgba(255,255,255,.78);
+}
+
+/* ---------- right column: guarantee cards ---------- */
+.guar-cards-wrap{position:relative;}
+.guar-cards{
+  display:grid; grid-template-columns:repeat(2,1fr); gap:18px;
+  max-width:440px; margin-left:auto;
+}
+.guar-card{
+  position:relative; overflow:hidden;
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  padding:30px 20px 26px; border-radius:22px;
+  background:linear-gradient(160deg, rgba(255,255,255,.11), rgba(255,255,255,.03));
+  border:1px solid rgba(255,255,255,.15);
+  -webkit-backdrop-filter:blur(12px) saturate(1.25);
+  backdrop-filter:blur(12px) saturate(1.25);
+  box-shadow:0 14px 34px rgba(0,4,22,.35);
+  -webkit-tap-highlight-color:transparent;
+  transition:transform .45s cubic-bezier(.19,1,.22,1), border-color .35s, box-shadow .45s, background .35s;
+}
+.guar-card::after{ /* light sweep on hover */
+  content:""; position:absolute; top:-60%; left:-90%; width:55%; height:220%;
+  transform:rotate(22deg);
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
+  pointer-events:none;
+}
+@keyframes guarShine{from{left:-90%;} to{left:150%;}}
+
+/* hover states only on devices that can actually hover */
+@media (hover:hover) and (pointer:fine){
+  .guar-card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(245,132,51,.55);
+    background:linear-gradient(160deg, rgba(245,132,51,.12), rgba(255,255,255,.04));
+    box-shadow:0 22px 48px rgba(0,4,22,.5), 0 0 0 1px rgba(245,132,51,.22), 0 0 34px rgba(245,132,51,.16);
+  }
+  .guar-card:hover::after{animation:guarShine .85s ease;}
+  .guar-card:hover .guar-icon{transform:scale(1.12) rotate(-7deg); color:#ffc98f;}
+}
+/* tap feedback on touch devices */
+@media (hover:none){
+  .guar-card{transition:transform .25s ease, border-color .25s ease;}
+  .guar-card:active{
+    transform:scale(.97);
+    border-color:rgba(245,132,51,.5);
+  }
+}
+
+.guar-icon{
+  width:62px; height:62px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  color:#ffb26b;
+  background:radial-gradient(circle at 32% 28%, rgba(245,132,51,.3), rgba(245,132,51,.05));
+  border:1px solid rgba(245,132,51,.45);
+  box-shadow:0 0 22px rgba(245,132,51,.18), inset 0 0 14px rgba(245,132,51,.12);
+  transition:transform .5s cubic-bezier(.34,1.56,.64,1), color .35s;
+}
+.guar-icon svg{width:27px; height:27px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round;}
+
+/* readable fallback where backdrop-filter isn't supported (older Android WebView etc.) */
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .guar-card{background:linear-gradient(160deg, rgba(8,18,66,.82), rgba(4,10,42,.78));}
+}
+
+.guar-card-text{
+  margin-top:16px;
+  font-size:.86rem; font-weight:700; line-height:1.5;
+  color:rgba(255,255,255,.92); letter-spacing:.01em;
+}
+
+/* ---------- rotating seal of promise ---------- */
+.guar-seal{
+  position:absolute; top:-52px; left:-58px; z-index:5;
+  width:148px; height:148px;
+}
+@keyframes guarBob{0%,100%{transform:translateY(0);} 50%{transform:translateY(-9px);}}
+.guar-seal-ring{
+  position:absolute; inset:0; width:100%; height:100%;
+  animation:guarSpin 22s linear infinite;
+  filter:drop-shadow(0 12px 26px rgba(0,4,22,.55));
+}
+@keyframes guarSpin{to{transform:rotate(360deg);}}
+.guar-seal-disc{fill:rgba(0,10,52,.82); stroke:rgba(245,132,51,.4); stroke-width:1;}
+.guar-seal-text{
+  fill:rgba(255,255,255,.85);
+  font-family:'Montserrat',sans-serif; font-weight:700;
+  font-size:9px; letter-spacing:1.6px; text-transform:uppercase;
+}
+.guar-seal-moon{
+  position:absolute; top:50%; left:50%; width:34px; height:34px;
+  transform:translate(-50%,-50%);
+  stroke:#f58433; fill:rgba(245,132,51,.12); stroke-width:1.7;
+  stroke-linecap:round; stroke-linejoin:round;
+  filter:drop-shadow(0 0 10px rgba(245,132,51,.45));
+}
+
+/* ---------- scroll-reveal orchestration ---------- */
+.guar-reveal{
+  opacity:0; transform:translateY(30px); filter:blur(7px);
+  transition:opacity .9s ease var(--d,0s), transform .9s cubic-bezier(.19,1,.22,1) var(--d,0s), filter .9s ease var(--d,0s);
+}
+.guar-reveal.guar-in{opacity:1; transform:translateY(0); filter:blur(0);}
+.guar-title.guar-reveal{transform:none;} /* the line masks handle the motion */
+.guar-seal.guar-reveal{transform:scale(.72); filter:none;}
+.guar-seal.guar-in{transform:scale(1); filter:none; animation:guarBob 6s ease-in-out 1.2s infinite;}
+
+/* ---------- responsive ---------- */
+
+/* Tablet & below: single centered column */
+@media (max-width:980px){
+  .guar-inner{grid-template-columns:1fr; gap:52px; text-align:center;}
+  .guar-marquee-track span{font-size:clamp(3.2rem,7.5vw,5rem);}
+  .guar-body{margin:0 auto;}
+  .guar-cards{margin:0 auto;}
+  .guar-seal{position:static; margin:0 auto 30px; width:128px; height:128px;}
+  .guar-cards-wrap{display:flex; flex-direction:column; align-items:center; width:100%;}
+}
+
+/* Tablets (700–980px): guarantees become one confident 4-across row */
+@media (min-width:700px) and (max-width:980px){
+  .guar-cards{grid-template-columns:repeat(4,1fr); max-width:860px; gap:16px; width:100%;}
+  .guar-card{padding:26px 14px 22px;}
+  .guar-card-text{font-size:.8rem;}
+  .guar-title{font-size:clamp(2.6rem,6.2vw,3.4rem);}
+}
+
+/* Phones */
+@media (max-width:560px){
+  .guar-section{padding:88px 16px 84px;}
+  .guar-marquee{top:14px;}
+  .guar-marquee-track span{font-size:3rem; -webkit-text-stroke:1px rgba(255,255,255,.08);}
+  .guar-title{
+    margin-bottom:22px;
+    font-size:clamp(1.5rem, calc((100vw - 36px)/13), 2.5rem);
+  }
+  .guar-body{font-size:.95rem; line-height:1.85;}
+  .guar-cards{gap:12px; max-width:400px; width:100%;}
+  .guar-card{
+    padding:24px 12px 20px; border-radius:18px;
+    -webkit-backdrop-filter:blur(9px) saturate(1.2);
+    backdrop-filter:blur(9px) saturate(1.2);
+  }
+  .guar-card-text{font-size:.78rem; margin-top:13px;}
+  .guar-icon{width:54px; height:54px;}
+  .guar-icon svg{width:23px; height:23px;}
+  .guar-seal{width:112px; height:112px; margin-bottom:24px;}
+  /* cheaper reveals on phones: skip the blur filter, keep fade + rise */
+  .guar-reveal{
+    filter:none;
+    transform:translateY(24px);
+    transition:opacity .75s ease var(--d,0s), transform .75s cubic-bezier(.19,1,.22,1) var(--d,0s);
+  }
+  .guar-reveal.guar-in{filter:none;}
+  .guar-title.guar-reveal{transform:none;}
+  .guar-seal.guar-reveal{transform:scale(.72);}
+}
+
+/* Small phones (≤370px) */
+@media (max-width:370px){
+  .guar-section{padding:80px 12px 76px;}
+  .guar-title{font-size:clamp(1.4rem, calc((100vw - 22px)/13), 2rem); letter-spacing:-.3px;}
+  .guar-cards{gap:10px;}
+  .guar-card{padding:20px 8px 17px; border-radius:16px;}
+  .guar-card-text{font-size:.73rem;}
+  .guar-icon{width:48px; height:48px;}
+  .guar-icon svg{width:21px; height:21px;}
+  .guar-seal{width:100px; height:100px;}
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  .guar-bg,.guar-marquee-track,.guar-seal-ring,.guar-seal,.guar-em,.guar-star{animation:none !important;}
+  .guar-reveal,.guar-line-in,.guar-label::before,.guar-label::after{transition:none !important;}
+  .guar-reveal,.guar-line-in{opacity:1 !important; transform:none !important; filter:none !important;}
+  .guar-label::before,.guar-label::after{width:30px !important;}
+  .guar-underline path{stroke-dashoffset:0 !important; transition:none !important;}
+}
+</style>
+
+<section class="guar-section">
+  <div class="guar-bg" aria-hidden="true"></div>
+  <div class="guar-overlay" aria-hidden="true"></div>
+  <div class="guar-noise" aria-hidden="true"></div>
+  <div class="guar-stars" aria-hidden="true"></div>
+
+  <div class="guar-marquee" aria-hidden="true">
+    <div class="guar-marquee-track">
+      <span>Sleep Comfort Guarantee&ensp;&mdash;&ensp;Sleep Comfort Guarantee&ensp;&mdash;&ensp;</span>
+      <span>Sleep Comfort Guarantee&ensp;&mdash;&ensp;Sleep Comfort Guarantee&ensp;&mdash;&ensp;</span>
+    </div>
+  </div>
+
+  <div class="guar-inner">
+
+    <!-- The promise -->
+    <div class="guar-copy">
+      <div class="guar-label guar-reveal">Our Promise</div>
+
+      <h2 class="guar-title guar-reveal" style="--d:.1s"><span class="guar-line"><span class="guar-line-in">We Stand Behind</span></span><br><span class="guar-line"><span class="guar-line-in">Every <em class="guar-em">Single Night's<svg class="guar-underline" viewBox="0 0 240 14" preserveAspectRatio="none" aria-hidden="true"><path d="M4 10 C 70 3, 172 3, 236 8"/></svg></em></span></span><br><span class="guar-line"><span class="guar-line-in">Sleep.</span></span></h2>
+
+      <p class="guar-body guar-reveal" style="--d:.4s">We're not just selling mattresses. We're building a long-term relationship with your sleep health. That's why every purchase at Snooze Mattress + Wellness comes backed by our Sleep Comfort Guarantee - because we only win when you wake up feeling great.</p>
+    </div>
+
+    <!-- The guarantees -->
+    <div class="guar-cards-wrap">
+
+      <div class="guar-seal guar-reveal" style="--d:.55s" aria-hidden="true">
+        <svg class="guar-seal-ring" viewBox="0 0 140 140">
+          <defs>
+            <path id="guarSealPath" d="M70,70 m-57,0 a57,57 0 1,1 114,0 a57,57 0 1,1 -114,0"/>
+          </defs>
+          <circle class="guar-seal-disc" cx="70" cy="70" r="69"></circle>
+          <text class="guar-seal-text">
+            <textPath href="#guarSealPath" startOffset="0">Sleep Comfort Guarantee &#8226; Snooze Wellness &#8226;</textPath>
+          </text>
+        </svg>
+        <svg class="guar-seal-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </div>
+
+      <div class="guar-cards">
+        <div class="guar-card guar-reveal" style="--d:.2s">
+          <div class="guar-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <div class="guar-card-text">Sleep Comfort<br>Guarantee</div>
+        </div>
+
+        <div class="guar-card guar-reveal" style="--d:.32s">
+          <div class="guar-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+          </div>
+          <div class="guar-card-text">Price Match<br>Promise</div>
+        </div>
+
+        <div class="guar-card guar-reveal" style="--d:.44s">
+          <div class="guar-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+          </div>
+          <div class="guar-card-text">Free Delivery<br>&amp; Setup</div>
+        </div>
+
+        <div class="guar-card guar-reveal" style="--d:.56s">
+          <div class="guar-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5"/><path d="M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12"/><path d="m14 16-3 3 3 3"/><path d="M8.293 13.596 7.196 9.5 3.1 10.598"/><path d="m9.344 5.811 1.093-1.892A1.83 1.83 0 0 1 11.985 3a1.784 1.784 0 0 1 1.546.888l3.943 6.843"/><path d="m13.378 9.633 4.096 1.097 1.097-4.096"/></svg>
+          </div>
+          <div class="guar-card-text">Old Mattress<br>Haul Away</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  /* Adapted for this site: the section exists as a desktop and a mobile copy, and the page framework can
+     re-render a copy after hydration (which throws away anything a script added). So every .guar-section
+     is initialised on its own, a marker records that, and a MutationObserver re-initialises copies whose
+     DOM was replaced. */
+  var observerSupported = 'IntersectionObserver' in window;
+
+  function initSection(root){
+    if(!root || root.getAttribute('data-guar-init')) return;
+    root.setAttribute('data-guar-init', '1');
+
+    /* scroll-reveal orchestration */
+    var els = root.querySelectorAll('.guar-reveal');
+    if(!observerSupported){
+      Array.prototype.forEach.call(els, function(el){ el.classList.add('guar-in'); });
+    } else {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){ en.target.classList.add('guar-in'); io.unobserve(en.target); }
+        });
+      }, {threshold:.18, rootMargin:'0px 0px -8% 0px'});
+      Array.prototype.forEach.call(els, function(el){ io.observe(el); });
+    }
+
+    /* headline auto-fit: if a line would overflow its column, shrink the size instead of wrapping */
+    var title = root.querySelector('.guar-title');
+    function guarFit(){
+      if(!title || !title.isConnected) return;
+      title.style.fontSize = '';
+      var fs = parseFloat(window.getComputedStyle(title).fontSize), guard = 0;
+      while(title.scrollWidth > title.clientWidth + 1 && fs > 16 && guard++ < 48){
+        fs -= 1;
+        title.style.fontSize = fs + 'px';
+      }
+    }
+    guarFit();
+    var guarRT;
+    window.addEventListener('resize', function(){ clearTimeout(guarRT); guarRT = setTimeout(guarFit, 120); });
+    if(document.fonts && document.fonts.ready){ document.fonts.ready.then(guarFit); }
+
+    /* scatter the night-sky stars */
+    var sky = root.querySelector('.guar-stars');
+    if(sky && !sky.childElementCount){
+      for(var i=0;i<16;i++){
+        var s = document.createElement('span');
+        s.className = 'guar-star';
+        s.style.left = (Math.random()*100).toFixed(2)+'%';
+        s.style.top  = (Math.random()*68).toFixed(2)+'%';
+        var sz = (1.4+Math.random()*1.8).toFixed(1);
+        s.style.width = sz+'px'; s.style.height = sz+'px';
+        s.style.animationDuration = (2.4+Math.random()*3).toFixed(2)+'s';
+        s.style.animationDelay = (Math.random()*4).toFixed(2)+'s';
+        sky.appendChild(s);
+      }
+    }
+  }
+
+  function initAll(){ Array.prototype.forEach.call(document.querySelectorAll('.guar-section'), initSection); }
+  initAll();
+  if('MutationObserver' in window){
+    var pending = null;
+    new MutationObserver(function(){
+      if(pending) return;
+      pending = setTimeout(function(){ pending = null; if(document.querySelector('.guar-section:not([data-guar-init])')) initAll(); }, 50);
+    }).observe(document.body, {childList:true, subtree:true});
+  }
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,4716 @@
+{
+  "siteUrl": "https://brownsville-webiste.vercel.app",
+  "insertPacks": [
+    {
+      "name": "our-promise-everywhere",
+      "from": "about-us.html",
+      "sections": [
+        {
+          "id": "section-M5tpHLzMnQ",
+          "nodes": 4,
+          "htmlBytes": 5900,
+          "cssBytes": 3458
+        },
+        {
+          "id": "section-C-evR3KLo_",
+          "nodes": 4,
+          "htmlBytes": 5911,
+          "cssBytes": 3947
+        }
+      ]
+    },
+    {
+      "name": "location-faq-about",
+      "from": "index.html",
+      "sections": [
+        {
+          "id": "section-tpWh2qZzTP",
+          "nodes": 24,
+          "htmlBytes": 26700,
+          "cssBytes": 28064
+        },
+        {
+          "id": "section-wUF9nf9pjV",
+          "nodes": 24,
+          "htmlBytes": 26694,
+          "cssBytes": 30267
+        }
+      ]
+    }
+  ],
+  "insertedSections": [
+    {
+      "page": "about-us.html",
+      "name": "location-faq-about",
+      "anchors": {
+        "section-tpWh2qZzTP": "section-Tz5qqcTbil"
+      },
+      "sections": [
+        "section-tpWh2qZzTP"
+      ]
+    },
+    {
+      "page": "about-us.html",
+      "name": "location-faq-about",
+      "anchors": {
+        "section-tpWh2qZzTP": "section-Tz5qqcTbil"
+      },
+      "sections": [
+        "section-tpWh2qZzTP"
+      ]
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "home-page.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "home-page.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "index.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "index.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "main-page.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "main-page.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "massage-chairs.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "massage-chairs.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "mattress-financing.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "mattress-financing.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "mattress-protectors.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "mattress-protectors.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "mattress-sales.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "mattress-sales.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "mattresses.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "mattresses.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "pillows.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "pillows.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "premium-sheets.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "premium-sheets.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "sleep-recliner.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    },
+    {
+      "page": "sleep-recliner.html",
+      "name": "our-promise-everywhere",
+      "anchors": {
+        "section-M5tpHLzMnQ": "section-Tz5qqcTbil",
+        "section-C-evR3KLo_": "section-A59XvHbWVM"
+      },
+      "sections": [
+        "section-M5tpHLzMnQ",
+        "section-C-evR3KLo_"
+      ]
+    }
+  ],
+  "heroBackgrounds": [
+    {
+      "page": "about-us.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577ea78cdd940a08094b9.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-75V_31us8",
+      "mobile": "section-rSRNXnBvcv"
+    },
+    {
+      "page": "about-us.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577ea78cdd940a08094b9.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-75V_31us8",
+      "mobile": "section-rSRNXnBvcv"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/697bd240d5b65e6fefba8139.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-sAzZo6q9Zh",
+      "mobile": "section-iuz3a-mnwq"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/697bd240d5b65e6fefba8139.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-sAzZo6q9Zh",
+      "mobile": "section-iuz3a-mnwq"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6998cc589df4c153d0a468bf.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-aM9CpddEW",
+      "mobile": "section-u51uVXW93h"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6998cc589df4c153d0a468bf.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-aM9CpddEW",
+      "mobile": "section-u51uVXW93h"
+    },
+    {
+      "page": "home-page.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577e59994d35aa0c4ea2f.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-aEXJsrtqRn",
+      "mobile": "section-EKHUaSKRzf"
+    },
+    {
+      "page": "home-page.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577e59994d35aa0c4ea2f.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-aEXJsrtqRn",
+      "mobile": "section-EKHUaSKRzf"
+    },
+    {
+      "page": "index.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577e59994d35aa0c4ea2f.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-aEXJsrtqRn",
+      "mobile": "section-EKHUaSKRzf"
+    },
+    {
+      "page": "index.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577e59994d35aa0c4ea2f.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-aEXJsrtqRn",
+      "mobile": "section-EKHUaSKRzf"
+    },
+    {
+      "page": "main-page.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577e59994d35aa0c4ea2f.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-aEXJsrtqRn",
+      "mobile": "section-EKHUaSKRzf"
+    },
+    {
+      "page": "main-page.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577e59994d35aa0c4ea2f.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-aEXJsrtqRn",
+      "mobile": "section-EKHUaSKRzf"
+    },
+    {
+      "page": "massage-chairs.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/697a4541f215daeb1a4c3c11.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-7cDtZ77JB",
+      "mobile": "section--ljUqY7lmJ"
+    },
+    {
+      "page": "massage-chairs.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/697a4541f215daeb1a4c3c11.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-7cDtZ77JB",
+      "mobile": "section--ljUqY7lmJ"
+    },
+    {
+      "page": "mattress-financing.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577ea9994d35aa0c4eb46.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-kBnk6LAhgo",
+      "mobile": "section-drSDC9oDjl"
+    },
+    {
+      "page": "mattress-financing.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577ea9994d35aa0c4eb46.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-kBnk6LAhgo",
+      "mobile": "section-drSDC9oDjl"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6994d3d085759585d4e579dc.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-yCMtxbtAE",
+      "mobile": "section-LIKnOoXEGd"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6994d3d085759585d4e579dc.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-yCMtxbtAE",
+      "mobile": "section-LIKnOoXEGd"
+    },
+    {
+      "page": "mattress-sales.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/69a605e6abd0593098698c8b.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-CaKLDTKpp",
+      "mobile": "section-mjbWbTM8eI"
+    },
+    {
+      "page": "mattress-sales.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/69a605e6abd0593098698c8b.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-CaKLDTKpp",
+      "mobile": "section-mjbWbTM8eI"
+    },
+    {
+      "page": "mattresses.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/697b9143d5b65e763eacc4cd.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-kf_6WOkjs6",
+      "mobile": "section-bGIWDW9sTp"
+    },
+    {
+      "page": "mattresses.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/697b9143d5b65e763eacc4cd.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-kf_6WOkjs6",
+      "mobile": "section-bGIWDW9sTp"
+    },
+    {
+      "page": "pillows.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/69822f77cf8ac07e786583a9.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-TOUen8LXC",
+      "mobile": "section-QqaZs0h8vY"
+    },
+    {
+      "page": "pillows.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/69822f77cf8ac07e786583a9.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-TOUen8LXC",
+      "mobile": "section-QqaZs0h8vY"
+    },
+    {
+      "page": "premium-sheets.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6994d95854da044f3c95c763.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-s0J_3UzX8",
+      "mobile": "section-SfqGwXYWBH"
+    },
+    {
+      "page": "premium-sheets.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6994d95854da044f3c95c763.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-s0J_3UzX8",
+      "mobile": "section-SfqGwXYWBH"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6998cd2220c03538d469a1f8.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-ebl7T-Bpk",
+      "mobile": "section-hZhmZn7lyT"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "image": {
+        "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6998cd2220c03538d469a1f8.png",
+        "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+      },
+      "desktop": "section-ebl7T-Bpk",
+      "mobile": "section-hZhmZn7lyT"
+    }
+  ],
+  "motion": [
+    {
+      "page": "about-us.html",
+      "tagged": 121
+    },
+    {
+      "page": "about-us.html",
+      "tagged": 121
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "tagged": 58
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "tagged": 58
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "tagged": 54
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "tagged": 54
+    },
+    {
+      "page": "dream/map/thank/you.html",
+      "tagged": 18
+    },
+    {
+      "page": "dream/map/thank/you.html",
+      "tagged": 18
+    },
+    {
+      "page": "home-page.html",
+      "tagged": 135
+    },
+    {
+      "page": "home-page.html",
+      "tagged": 135
+    },
+    {
+      "page": "index.html",
+      "tagged": 135
+    },
+    {
+      "page": "index.html",
+      "tagged": 135
+    },
+    {
+      "page": "main-page.html",
+      "tagged": 135
+    },
+    {
+      "page": "main-page.html",
+      "tagged": 135
+    },
+    {
+      "page": "massage-chairs.html",
+      "tagged": 65
+    },
+    {
+      "page": "massage-chairs.html",
+      "tagged": 65
+    },
+    {
+      "page": "mattress-financing.html",
+      "tagged": 105
+    },
+    {
+      "page": "mattress-financing.html",
+      "tagged": 105
+    },
+    {
+      "page": "mattress-protectors.html",
+      "tagged": 62
+    },
+    {
+      "page": "mattress-protectors.html",
+      "tagged": 62
+    },
+    {
+      "page": "mattress-sales.html",
+      "tagged": 98
+    },
+    {
+      "page": "mattress-sales.html",
+      "tagged": 98
+    },
+    {
+      "page": "mattresses.html",
+      "tagged": 139
+    },
+    {
+      "page": "mattresses.html",
+      "tagged": 139
+    },
+    {
+      "page": "optin-page.html",
+      "tagged": 6
+    },
+    {
+      "page": "optin-page.html",
+      "tagged": 6
+    },
+    {
+      "page": "pillows.html",
+      "tagged": 61
+    },
+    {
+      "page": "pillows.html",
+      "tagged": 61
+    },
+    {
+      "page": "premium-sheets.html",
+      "tagged": 62
+    },
+    {
+      "page": "premium-sheets.html",
+      "tagged": 62
+    },
+    {
+      "page": "privacy-policy-page-1.html",
+      "tagged": 2
+    },
+    {
+      "page": "privacy-policy-page-1.html",
+      "tagged": 2
+    },
+    {
+      "page": "privacy-policy-page.html",
+      "tagged": 2
+    },
+    {
+      "page": "privacy-policy-page.html",
+      "tagged": 2
+    },
+    {
+      "page": "sleep-recliner.html",
+      "tagged": 64
+    },
+    {
+      "page": "sleep-recliner.html",
+      "tagged": 64
+    },
+    {
+      "page": "terms-conditions-page.html",
+      "tagged": 2
+    },
+    {
+      "page": "terms-conditions-page.html",
+      "tagged": 2
+    },
+    {
+      "page": "terms-conditions.html",
+      "tagged": 2
+    },
+    {
+      "page": "terms-conditions.html",
+      "tagged": 2
+    },
+    {
+      "page": "thank/you.html",
+      "tagged": 6
+    },
+    {
+      "page": "thank/you.html",
+      "tagged": 6
+    }
+  ],
+  "pages": [
+    {
+      "route": "/about-us",
+      "locale": "en",
+      "source": "about-us.html",
+      "title": "Stop Guessing. Start Sleeping Better Tonight.",
+      "scripts": 10,
+      "headParts": 76,
+      "bodyBytes": 861176,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "trust-ticker",
+        "trust-ticker",
+        "store-experience-timeline",
+        "store-experience-timeline",
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget"
+      ]
+    },
+    {
+      "route": "/es/about-us",
+      "locale": "es",
+      "source": "about-us.html",
+      "title": "Deja de Adivinar. Empieza a Dormir Mejor Esta Noche.",
+      "scripts": 10,
+      "headParts": 76,
+      "bodyBytes": 864046,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "trust-ticker",
+        "trust-ticker",
+        "store-experience-timeline",
+        "store-experience-timeline",
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget"
+      ]
+    },
+    {
+      "route": "/adjustable-mattress-bases",
+      "locale": "en",
+      "source": "adjustable-mattress-bases.html",
+      "title": "Elevate Your Sleep with Adjustable Mattress Bases",
+      "scripts": 8,
+      "headParts": 70,
+      "bodyBytes": 511383,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget",
+        "form"
+      ]
+    },
+    {
+      "route": "/es/adjustable-mattress-bases",
+      "locale": "es",
+      "source": "adjustable-mattress-bases.html",
+      "title": "Mejora tu Descanso con Bases Ajustables para Colchón",
+      "scripts": 8,
+      "headParts": 70,
+      "bodyBytes": 513137,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget",
+        "form"
+      ]
+    },
+    {
+      "route": "/at-home-sleep-test-kit-by-sleepcorner",
+      "locale": "en",
+      "source": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "title": "Discover What's Disrupting Your Sleep—From Home",
+      "scripts": 6,
+      "headParts": 68,
+      "bodyBytes": 475480,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget",
+        "form"
+      ]
+    },
+    {
+      "route": "/es/at-home-sleep-test-kit-by-sleepcorner",
+      "locale": "es",
+      "source": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "title": "Descubre Qué Interrumpe tu Sueño, Desde Casa",
+      "scripts": 6,
+      "headParts": 68,
+      "bodyBytes": 477197,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget",
+        "form"
+      ]
+    },
+    {
+      "route": "/dream/map/thank/you",
+      "locale": "en",
+      "source": "dream/map/thank/you.html",
+      "title": "Thank You for Scheduling Your  Dream Mapping Appointment!",
+      "scripts": 2,
+      "headParts": 57,
+      "bodyBytes": 146716,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-zTxb2Wa9Nv",
+        "section-ghjYZIxTU2"
+      ],
+      "overrides": [],
+      "widgets": []
+    },
+    {
+      "route": "/es/dream/map/thank/you",
+      "locale": "es",
+      "source": "dream/map/thank/you.html",
+      "title": "¡Gracias por Agendar tu Cita de Dream Mapping!",
+      "scripts": 2,
+      "headParts": 57,
+      "bodyBytes": 146956,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-zTxb2Wa9Nv",
+        "section-ghjYZIxTU2"
+      ],
+      "overrides": [],
+      "widgets": []
+    },
+    {
+      "route": "/home-page",
+      "locale": "en",
+      "source": "home-page.html",
+      "title": "Best Mattress Store in Brownsville, TX | Snooze Mattress Brownsville",
+      "scripts": 13,
+      "headParts": 83,
+      "bodyBytes": 1019679,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-zTxb2Wa9Nv",
+        "section-ghjYZIxTU2"
+      ],
+      "overrides": [
+        "dream-map-timeline",
+        "dream-map-timeline",
+        "logo-marquee",
+        "logo-marquee-mobile",
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget"
+      ]
+    },
+    {
+      "route": "/es/home-page",
+      "locale": "es",
+      "source": "home-page.html",
+      "title": "La Mejor Tienda de Colchones en Brownsville, TX | Snooze Mattress Brownsville",
+      "scripts": 13,
+      "headParts": 83,
+      "bodyBytes": 1022681,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-zTxb2Wa9Nv",
+        "section-ghjYZIxTU2"
+      ],
+      "overrides": [
+        "dream-map-timeline",
+        "dream-map-timeline",
+        "logo-marquee",
+        "logo-marquee-mobile",
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget"
+      ]
+    },
+    {
+      "route": "/",
+      "locale": "en",
+      "source": "index.html",
+      "title": "Best Mattress Store in Brownsville, TX | Snooze Mattress Brownsville",
+      "scripts": 13,
+      "headParts": 83,
+      "bodyBytes": 1019683,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-zTxb2Wa9Nv",
+        "section-ghjYZIxTU2"
+      ],
+      "overrides": [
+        "dream-map-timeline",
+        "dream-map-timeline",
+        "logo-marquee",
+        "logo-marquee-mobile",
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget"
+      ]
+    },
+    {
+      "route": "/es",
+      "locale": "es",
+      "source": "index.html",
+      "title": "La Mejor Tienda de Colchones en Brownsville, TX | Snooze Mattress Brownsville",
+      "scripts": 13,
+      "headParts": 83,
+      "bodyBytes": 1022687,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-zTxb2Wa9Nv",
+        "section-ghjYZIxTU2"
+      ],
+      "overrides": [
+        "dream-map-timeline",
+        "dream-map-timeline",
+        "logo-marquee",
+        "logo-marquee-mobile",
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget"
+      ]
+    },
+    {
+      "route": "/main-page",
+      "locale": "en",
+      "source": "main-page.html",
+      "title": "Best Mattress Store in Brownsville, TX | Snooze Mattress Brownsville",
+      "scripts": 13,
+      "headParts": 83,
+      "bodyBytes": 1019692,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-zTxb2Wa9Nv",
+        "section-ghjYZIxTU2"
+      ],
+      "overrides": [
+        "dream-map-timeline",
+        "dream-map-timeline",
+        "logo-marquee",
+        "logo-marquee-mobile",
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget"
+      ]
+    },
+    {
+      "route": "/es/main-page",
+      "locale": "es",
+      "source": "main-page.html",
+      "title": "La Mejor Tienda de Colchones en Brownsville, TX | Snooze Mattress Brownsville",
+      "scripts": 13,
+      "headParts": 83,
+      "bodyBytes": 1022697,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-zTxb2Wa9Nv",
+        "section-ghjYZIxTU2"
+      ],
+      "overrides": [
+        "dream-map-timeline",
+        "dream-map-timeline",
+        "logo-marquee",
+        "logo-marquee-mobile",
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget"
+      ]
+    },
+    {
+      "route": "/massage-chairs",
+      "locale": "en",
+      "source": "massage-chairs.html",
+      "title": "Infinity® Massage Chairs in Brownsville",
+      "scripts": 8,
+      "headParts": 70,
+      "bodyBytes": 526900,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget",
+        "form"
+      ]
+    },
+    {
+      "route": "/es/massage-chairs",
+      "locale": "es",
+      "source": "massage-chairs.html",
+      "title": "Sillas de Masaje Infinity® en Brownsville",
+      "scripts": 8,
+      "headParts": 70,
+      "bodyBytes": 528726,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget",
+        "form"
+      ]
+    },
+    {
+      "route": "/mattress-financing",
+      "locale": "en",
+      "source": "mattress-financing.html",
+      "title": "Flexible Mattress Payment Plans at Snooze Mattress Company",
+      "scripts": 10,
+      "headParts": 83,
+      "bodyBytes": 861638,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "store-experience-timeline",
+        "store-experience-timeline",
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget"
+      ]
+    },
+    {
+      "route": "/es/mattress-financing",
+      "locale": "es",
+      "source": "mattress-financing.html",
+      "title": "Planes de Pago Flexibles para Colchones en Snooze Mattress Company",
+      "scripts": 10,
+      "headParts": 83,
+      "bodyBytes": 865613,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "store-experience-timeline",
+        "store-experience-timeline",
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget"
+      ]
+    },
+    {
+      "route": "/mattress-protectors",
+      "locale": "en",
+      "source": "mattress-protectors.html",
+      "title": "Protect Your Mattress, Protect Your Investment",
+      "scripts": 8,
+      "headParts": 70,
+      "bodyBytes": 516718,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget",
+        "form"
+      ]
+    },
+    {
+      "route": "/es/mattress-protectors",
+      "locale": "es",
+      "source": "mattress-protectors.html",
+      "title": "Protege tu Colchón, Protege tu Inversión",
+      "scripts": 8,
+      "headParts": 70,
+      "bodyBytes": 518373,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget",
+        "form"
+      ]
+    },
+    {
+      "route": "/mattress-sales",
+      "locale": "en",
+      "source": "mattress-sales.html",
+      "title": "Sleep Better. Save More. Shop Local.",
+      "scripts": 8,
+      "headParts": 71,
+      "bodyBytes": 576696,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget"
+      ]
+    },
+    {
+      "route": "/es/mattress-sales",
+      "locale": "es",
+      "source": "mattress-sales.html",
+      "title": "Duerme Mejor. Ahorra Más. Compra Local.",
+      "scripts": 8,
+      "headParts": 71,
+      "bodyBytes": 578500,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget"
+      ]
+    },
+    {
+      "route": "/mattresses",
+      "locale": "en",
+      "source": "mattresses.html",
+      "title": "Best Mattresses  in Brownsville",
+      "scripts": 8,
+      "headParts": 87,
+      "bodyBytes": 964500,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "logo-marquee",
+        "logo-marquee-mobile",
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget",
+        "form"
+      ]
+    },
+    {
+      "route": "/es/mattresses",
+      "locale": "es",
+      "source": "mattresses.html",
+      "title": "Los Mejores Colchones en Brownsville",
+      "scripts": 8,
+      "headParts": 87,
+      "bodyBytes": 968608,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "logo-marquee",
+        "logo-marquee-mobile",
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget",
+        "form"
+      ]
+    },
+    {
+      "route": "/optin-page",
+      "locale": "en",
+      "source": "optin-page.html",
+      "title": "Contact Us",
+      "scripts": 5,
+      "headParts": 79,
+      "bodyBytes": 142684,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [],
+      "widgets": [
+        "form",
+        "form"
+      ]
+    },
+    {
+      "route": "/es/optin-page",
+      "locale": "es",
+      "source": "optin-page.html",
+      "title": "Contáctanos",
+      "scripts": 5,
+      "headParts": 79,
+      "bodyBytes": 142786,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [],
+      "widgets": [
+        "form",
+        "form"
+      ]
+    },
+    {
+      "route": "/pillows",
+      "locale": "en",
+      "source": "pillows.html",
+      "title": "Elevate Your Sleep with Premium Pillows in Brownsville",
+      "scripts": 6,
+      "headParts": 70,
+      "bodyBytes": 491076,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget",
+        "form"
+      ]
+    },
+    {
+      "route": "/es/pillows",
+      "locale": "es",
+      "source": "pillows.html",
+      "title": "Mejora tu Descanso con Almohadas Premium en Brownsville",
+      "scripts": 6,
+      "headParts": 70,
+      "bodyBytes": 492485,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget",
+        "form"
+      ]
+    },
+    {
+      "route": "/premium-sheets",
+      "locale": "en",
+      "source": "premium-sheets.html",
+      "title": "Wrap Yourself in Luxury Every Night",
+      "scripts": 8,
+      "headParts": 70,
+      "bodyBytes": 517485,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget",
+        "form"
+      ]
+    },
+    {
+      "route": "/es/premium-sheets",
+      "locale": "es",
+      "source": "premium-sheets.html",
+      "title": "Envuélvete en Lujo Cada Noche",
+      "scripts": 8,
+      "headParts": 70,
+      "bodyBytes": 519249,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget",
+        "form"
+      ]
+    },
+    {
+      "route": "/privacy-policy-page-1",
+      "locale": "en",
+      "source": "privacy-policy-page-1.html",
+      "title": "Privacy Policy",
+      "scripts": 2,
+      "headParts": 57,
+      "bodyBytes": 176097,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [],
+      "widgets": []
+    },
+    {
+      "route": "/es/privacy-policy-page-1",
+      "locale": "es",
+      "source": "privacy-policy-page-1.html",
+      "title": "Política de Privacidad",
+      "scripts": 2,
+      "headParts": 57,
+      "bodyBytes": 177673,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [],
+      "widgets": []
+    },
+    {
+      "route": "/privacy-policy-page",
+      "locale": "en",
+      "source": "privacy-policy-page.html",
+      "title": "Privacy Policy",
+      "scripts": 2,
+      "headParts": 57,
+      "bodyBytes": 176116,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [],
+      "widgets": []
+    },
+    {
+      "route": "/es/privacy-policy-page",
+      "locale": "es",
+      "source": "privacy-policy-page.html",
+      "title": "Política de Privacidad",
+      "scripts": 2,
+      "headParts": 57,
+      "bodyBytes": 177695,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [],
+      "widgets": []
+    },
+    {
+      "route": "/sleep-recliner",
+      "locale": "en",
+      "source": "sleep-recliner.html",
+      "title": "Sleep Better, Recline Smarter with the Zcliner®",
+      "scripts": 8,
+      "headParts": 70,
+      "bodyBytes": 527869,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget",
+        "form"
+      ]
+    },
+    {
+      "route": "/es/sleep-recliner",
+      "locale": "es",
+      "source": "sleep-recliner.html",
+      "title": "Duerme Mejor y Reclínate con Inteligencia con el Zcliner®",
+      "scripts": 8,
+      "headParts": 70,
+      "bodyBytes": 529653,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [
+        "our-promise-guarantee",
+        "our-promise-guarantee"
+      ],
+      "widgets": [
+        "review-widget",
+        "review-widget",
+        "form"
+      ]
+    },
+    {
+      "route": "/terms-conditions-page",
+      "locale": "en",
+      "source": "terms-conditions-page.html",
+      "title": "Terms & Conditions",
+      "scripts": 2,
+      "headParts": 57,
+      "bodyBytes": 168486,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [],
+      "widgets": []
+    },
+    {
+      "route": "/es/terms-conditions-page",
+      "locale": "es",
+      "source": "terms-conditions-page.html",
+      "title": "Términos y Condiciones",
+      "scripts": 2,
+      "headParts": 57,
+      "bodyBytes": 170035,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [],
+      "widgets": []
+    },
+    {
+      "route": "/terms-conditions",
+      "locale": "en",
+      "source": "terms-conditions.html",
+      "title": "Terms & Conditions",
+      "scripts": 2,
+      "headParts": 57,
+      "bodyBytes": 168451,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [],
+      "widgets": []
+    },
+    {
+      "route": "/es/terms-conditions",
+      "locale": "es",
+      "source": "terms-conditions.html",
+      "title": "Términos y Condiciones",
+      "scripts": 2,
+      "headParts": 57,
+      "bodyBytes": 169997,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-ghjYZIxTU2",
+        "section-zTxb2Wa9Nv"
+      ],
+      "overrides": [],
+      "widgets": []
+    },
+    {
+      "route": "/thank/you",
+      "locale": "en",
+      "source": "thank/you.html",
+      "title": "Thank You",
+      "scripts": 2,
+      "headParts": 57,
+      "bodyBytes": 116416,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-zTxb2Wa9Nv",
+        "section-ghjYZIxTU2"
+      ],
+      "overrides": [],
+      "widgets": []
+    },
+    {
+      "route": "/es/thank/you",
+      "locale": "es",
+      "source": "thank/you.html",
+      "title": "Gracias",
+      "scripts": 2,
+      "headParts": 57,
+      "bodyBytes": 116520,
+      "removed": [
+        "section-n2EJ48xJKc",
+        "section-EZ3DGo6-8h",
+        "section-zTxb2Wa9Nv",
+        "section-ghjYZIxTU2"
+      ],
+      "overrides": [],
+      "widgets": []
+    }
+  ],
+  "assets": {
+    "copied": 608,
+    "bytes": 436641417,
+    "skippedUnchanged": 684,
+    "collisions": 0,
+    "bundlesPatched": 26,
+    "bundleReplacements": {
+      "https:\\/\\/fonts\\.googleapis\\.com": 10,
+      "https:\\/\\/stcdn\\.leadconnectorhq\\.com\\/": 128,
+      "leadconnectorhq\\.com": 5,
+      "https:\\/\\/images(?:-staging)?\\.leadconnectorhq\\.com": 6,
+      "https:\\/\\/(?:[a-z0-9-]+\\.)*leadconnectorhq\\.com": 74,
+      "https:\\/\\/(?:[a-z0-9-]+\\.)*apisystem\\.tech": 5,
+      "https:\\/\\/(?:assets\\.)?cdn\\.(?:filesafe\\.space|msgsndr\\.com)": 10,
+      "filesafe\\.space": 16,
+      "msgsndr\\.com": 16,
+      "https:\\/\\/stcdn\\.leadconnectorhq\\.com": 3,
+      "https:\\/\\/fonts\\.gstatic\\.com": 3
+    }
+  },
+  "missingImages": [],
+  "missingReferenced": [
+    "LEFTOVER about-us.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER adjustable-mattress-bases.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER at-home-sleep-test-kit-by-sleepcorner.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER dream/map/thank/you.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER home-page.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER index.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER main-page.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER massage-chairs.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER mattress-financing.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER mattress-protectors.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER mattress-sales.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER mattresses.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER optin-page.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER pillows.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER premium-sheets.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER privacy-policy-page-1.html: http://tfrench.snoozemattresscompany.com/",
+    "LEFTOVER privacy-policy-page-1.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER privacy-policy-page-1.html: http://tfrench.snoozemattresscompany.com/\\u003Cbr>(956",
+    "LEFTOVER privacy-policy-page-1.html: http://tfrench.snoozemattresscompany.com/\\u003C/span>\\u003C/h2>",
+    "LEFTOVER privacy-policy-page-1.html: https://tfrench.snoozemattresscompany.com/",
+    "LEFTOVER privacy-policy-page.html: http://tfrench.snoozemattresscompany.com/",
+    "LEFTOVER privacy-policy-page.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER privacy-policy-page.html: http://tfrench.snoozemattresscompany.com/\\u003Cbr>(956",
+    "LEFTOVER privacy-policy-page.html: http://tfrench.snoozemattresscompany.com/\\u003C/span>\\u003C/h2>",
+    "LEFTOVER privacy-policy-page.html: https://tfrench.snoozemattresscompany.com/",
+    "LEFTOVER sleep-recliner.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER terms-conditions-page.html: https://mcallen.snoozemattresscompany.com/",
+    "LEFTOVER terms-conditions-page.html: http://tfrench.snoozemattresscompany.com/",
+    "LEFTOVER terms-conditions-page.html: https://rockwall.snoozemattresscompany.com/privacy-policy-page",
+    "LEFTOVER terms-conditions-page.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER terms-conditions-page.html: https://mcallen.snoozemattresscompany.com/\\",
+    "LEFTOVER terms-conditions-page.html: http://tfrench.snoozemattresscompany.com/\\u003C/span>\\u003C/h2>",
+    "LEFTOVER terms-conditions-page.html: https://rockwall.snoozemattresscompany.com/privacy-policy-page\\",
+    "LEFTOVER terms-conditions-page.html: https://rockwall.snoozemattresscompany.com/privacy-policy-page\\u003C/em>\\u003C/strong>\\u003C/a>\\u003C/h2>\\u003Ch2>\\u003C/h2>\\u003Ch2>\\u003Cstrong>\\u003Cspan",
+    "LEFTOVER terms-conditions-page.html: https://rockwall.snoozemattresscompany.com/privacy-policy-page\\n\\n13.",
+    "LEFTOVER terms-conditions.html: https://mcallen.snoozemattresscompany.com/",
+    "LEFTOVER terms-conditions.html: http://tfrench.snoozemattresscompany.com/",
+    "LEFTOVER terms-conditions.html: https://rockwall.snoozemattresscompany.com/privacy-policy-page",
+    "LEFTOVER terms-conditions.html: https://rockwall.snoozemattresscompany.com/",
+    "LEFTOVER terms-conditions.html: https://mcallen.snoozemattresscompany.com/\\",
+    "LEFTOVER terms-conditions.html: http://tfrench.snoozemattresscompany.com/\\u003C/span>\\u003C/h2>",
+    "LEFTOVER terms-conditions.html: https://rockwall.snoozemattresscompany.com/privacy-policy-page\\",
+    "LEFTOVER terms-conditions.html: https://rockwall.snoozemattresscompany.com/privacy-policy-page\\u003C/em>\\u003C/strong>\\u003C/a>\\u003C/h2>\\u003Ch2>\\u003C/h2>\\u003Ch2>\\u003Cstrong>\\u003Cspan",
+    "LEFTOVER terms-conditions.html: https://rockwall.snoozemattresscompany.com/privacy-policy-page\\n\\n13.",
+    "LEFTOVER thank/you.html: https://rockwall.snoozemattresscompany.com/"
+  ],
+  "removedTrackers": [
+    {
+      "page": "about-us.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "about-us.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "about-us.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "about-us.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "about-us.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "about-us.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "about-us.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "about-us.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "about-us.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "about-us.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "dream/map/thank/you.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "dream/map/thank/you.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "dream/map/thank/you.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "dream/map/thank/you.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "dream/map/thank/you.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "dream/map/thank/you.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "dream/map/thank/you.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "dream/map/thank/you.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "dream/map/thank/you.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "dream/map/thank/you.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "home-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "home-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "home-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "home-page.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "home-page.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "home-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "home-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "home-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "home-page.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "home-page.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "index.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "index.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "index.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "index.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "index.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "index.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "index.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "index.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "index.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "index.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "main-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "main-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "main-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "main-page.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "main-page.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "main-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "main-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "main-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "main-page.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "main-page.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "massage-chairs.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "massage-chairs.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "massage-chairs.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "massage-chairs.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "massage-chairs.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "massage-chairs.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "massage-chairs.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "massage-chairs.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "massage-chairs.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "massage-chairs.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "mattress-financing.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "mattress-financing.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "mattress-financing.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "mattress-financing.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "mattress-financing.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "mattress-financing.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "mattress-financing.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "mattress-financing.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "mattress-financing.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "mattress-financing.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "mattress-protectors.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "mattress-protectors.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "mattress-sales.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "mattress-sales.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "mattress-sales.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "mattress-sales.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "mattress-sales.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "mattress-sales.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "mattress-sales.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "mattress-sales.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "mattress-sales.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "mattress-sales.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "mattresses.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "mattresses.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "mattresses.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "mattresses.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "mattresses.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "mattresses.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "mattresses.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "mattresses.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "mattresses.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "mattresses.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "optin-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "optin-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "optin-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "optin-page.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "optin-page.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "optin-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "optin-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "optin-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "optin-page.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "optin-page.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "pillows.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "pillows.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "pillows.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "pillows.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "pillows.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "pillows.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "pillows.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "pillows.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "pillows.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "pillows.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "premium-sheets.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "premium-sheets.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "premium-sheets.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "premium-sheets.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "premium-sheets.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "premium-sheets.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "premium-sheets.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "premium-sheets.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "premium-sheets.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "premium-sheets.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "privacy-policy-page-1.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "privacy-policy-page-1.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "privacy-policy-page-1.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "privacy-policy-page-1.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "privacy-policy-page-1.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "privacy-policy-page-1.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "privacy-policy-page-1.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "privacy-policy-page-1.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "privacy-policy-page-1.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "privacy-policy-page-1.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "privacy-policy-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "privacy-policy-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "privacy-policy-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "privacy-policy-page.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "privacy-policy-page.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "privacy-policy-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "privacy-policy-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "privacy-policy-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "privacy-policy-page.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "privacy-policy-page.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "sleep-recliner.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "sleep-recliner.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "terms-conditions-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "terms-conditions-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "terms-conditions-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "terms-conditions-page.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "terms-conditions-page.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "terms-conditions-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "terms-conditions-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "terms-conditions-page.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "terms-conditions-page.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "terms-conditions-page.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "terms-conditions.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "terms-conditions.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "terms-conditions.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "terms-conditions.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "terms-conditions.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "terms-conditions.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "terms-conditions.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "terms-conditions.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "terms-conditions.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "terms-conditions.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "thank/you.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "thank/you.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "thank/you.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "thank/you.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "thank/you.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    },
+    {
+      "page": "thank/you.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
+    },
+    {
+      "page": "thank/you.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
+    },
+    {
+      "page": "thank/you.html",
+      "where": "payload.globalHeadTrackingCode",
+      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
+    },
+    {
+      "page": "thank/you.html",
+      "where": "payload.globalBodyTrackingCode",
+      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
+    },
+    {
+      "page": "thank/you.html",
+      "where": "body noscript",
+      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
+    }
+  ],
+  "removedScripts": [
+    {
+      "page": "about-us.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "about-us.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "home-page.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "home-page.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "index.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "index.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "main-page.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "main-page.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "massage-chairs.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "massage-chairs.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "mattress-financing.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "mattress-financing.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "mattress-sales.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "mattress-sales.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "mattresses.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "mattresses.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "pillows.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "pillows.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "premium-sheets.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "premium-sheets.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "src": "https://apisystem.tech/js/reviews_widget.js",
+      "reason": "GoHighLevel reviews-widget loader (CRM widget)"
+    }
+  ],
+  "stubs": [],
+  "overrides": [
+    {
+      "page": "about-us.html",
+      "id": "custom-code-TndR1y5QXV",
+      "rule": "trust-ticker",
+      "file": "trust-ticker.html"
+    },
+    {
+      "page": "about-us.html",
+      "id": "custom-code-rP6Qk-1_z6",
+      "rule": "trust-ticker",
+      "file": "trust-ticker.html"
+    },
+    {
+      "page": "about-us.html",
+      "id": "custom-code-P_JPGQaX0Cs",
+      "rule": "store-experience-timeline",
+      "file": "store-experience-timeline.html"
+    },
+    {
+      "page": "about-us.html",
+      "id": "custom-code-ra_PXxpp9D",
+      "rule": "store-experience-timeline",
+      "file": "store-experience-timeline.html"
+    },
+    {
+      "page": "about-us.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "about-us.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "about-us.html",
+      "id": "custom-code-TndR1y5QXV",
+      "rule": "trust-ticker",
+      "file": "trust-ticker.html"
+    },
+    {
+      "page": "about-us.html",
+      "id": "custom-code-rP6Qk-1_z6",
+      "rule": "trust-ticker",
+      "file": "trust-ticker.html"
+    },
+    {
+      "page": "about-us.html",
+      "id": "custom-code-P_JPGQaX0Cs",
+      "rule": "store-experience-timeline",
+      "file": "store-experience-timeline.html"
+    },
+    {
+      "page": "about-us.html",
+      "id": "custom-code-ra_PXxpp9D",
+      "rule": "store-experience-timeline",
+      "file": "store-experience-timeline.html"
+    },
+    {
+      "page": "about-us.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "about-us.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "home-page.html",
+      "id": "custom-code-HLVM8l3CzV",
+      "rule": "dream-map-timeline",
+      "file": "dream-map-timeline.html"
+    },
+    {
+      "page": "home-page.html",
+      "id": "custom-code-PlS5urY9jK",
+      "rule": "dream-map-timeline",
+      "file": "dream-map-timeline.html"
+    },
+    {
+      "page": "home-page.html",
+      "id": "custom-code-0cm2bUgwgQ",
+      "rule": "logo-marquee",
+      "file": "logo-marquee.html"
+    },
+    {
+      "page": "home-page.html",
+      "id": "custom-code-zgFs1jFVuS",
+      "rule": "logo-marquee-mobile",
+      "file": "logo-marquee.html"
+    },
+    {
+      "page": "home-page.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "home-page.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "home-page.html",
+      "id": "custom-code-HLVM8l3CzV",
+      "rule": "dream-map-timeline",
+      "file": "dream-map-timeline.html"
+    },
+    {
+      "page": "home-page.html",
+      "id": "custom-code-PlS5urY9jK",
+      "rule": "dream-map-timeline",
+      "file": "dream-map-timeline.html"
+    },
+    {
+      "page": "home-page.html",
+      "id": "custom-code-0cm2bUgwgQ",
+      "rule": "logo-marquee",
+      "file": "logo-marquee.html"
+    },
+    {
+      "page": "home-page.html",
+      "id": "custom-code-zgFs1jFVuS",
+      "rule": "logo-marquee-mobile",
+      "file": "logo-marquee.html"
+    },
+    {
+      "page": "home-page.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "home-page.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "index.html",
+      "id": "custom-code-HLVM8l3CzV",
+      "rule": "dream-map-timeline",
+      "file": "dream-map-timeline.html"
+    },
+    {
+      "page": "index.html",
+      "id": "custom-code-PlS5urY9jK",
+      "rule": "dream-map-timeline",
+      "file": "dream-map-timeline.html"
+    },
+    {
+      "page": "index.html",
+      "id": "custom-code-0cm2bUgwgQ",
+      "rule": "logo-marquee",
+      "file": "logo-marquee.html"
+    },
+    {
+      "page": "index.html",
+      "id": "custom-code-zgFs1jFVuS",
+      "rule": "logo-marquee-mobile",
+      "file": "logo-marquee.html"
+    },
+    {
+      "page": "index.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "index.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "index.html",
+      "id": "custom-code-HLVM8l3CzV",
+      "rule": "dream-map-timeline",
+      "file": "dream-map-timeline.html"
+    },
+    {
+      "page": "index.html",
+      "id": "custom-code-PlS5urY9jK",
+      "rule": "dream-map-timeline",
+      "file": "dream-map-timeline.html"
+    },
+    {
+      "page": "index.html",
+      "id": "custom-code-0cm2bUgwgQ",
+      "rule": "logo-marquee",
+      "file": "logo-marquee.html"
+    },
+    {
+      "page": "index.html",
+      "id": "custom-code-zgFs1jFVuS",
+      "rule": "logo-marquee-mobile",
+      "file": "logo-marquee.html"
+    },
+    {
+      "page": "index.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "index.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "main-page.html",
+      "id": "custom-code-HLVM8l3CzV",
+      "rule": "dream-map-timeline",
+      "file": "dream-map-timeline.html"
+    },
+    {
+      "page": "main-page.html",
+      "id": "custom-code-PlS5urY9jK",
+      "rule": "dream-map-timeline",
+      "file": "dream-map-timeline.html"
+    },
+    {
+      "page": "main-page.html",
+      "id": "custom-code-0cm2bUgwgQ",
+      "rule": "logo-marquee",
+      "file": "logo-marquee.html"
+    },
+    {
+      "page": "main-page.html",
+      "id": "custom-code-zgFs1jFVuS",
+      "rule": "logo-marquee-mobile",
+      "file": "logo-marquee.html"
+    },
+    {
+      "page": "main-page.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "main-page.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "main-page.html",
+      "id": "custom-code-HLVM8l3CzV",
+      "rule": "dream-map-timeline",
+      "file": "dream-map-timeline.html"
+    },
+    {
+      "page": "main-page.html",
+      "id": "custom-code-PlS5urY9jK",
+      "rule": "dream-map-timeline",
+      "file": "dream-map-timeline.html"
+    },
+    {
+      "page": "main-page.html",
+      "id": "custom-code-0cm2bUgwgQ",
+      "rule": "logo-marquee",
+      "file": "logo-marquee.html"
+    },
+    {
+      "page": "main-page.html",
+      "id": "custom-code-zgFs1jFVuS",
+      "rule": "logo-marquee-mobile",
+      "file": "logo-marquee.html"
+    },
+    {
+      "page": "main-page.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "main-page.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "massage-chairs.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "massage-chairs.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "massage-chairs.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "massage-chairs.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "mattress-financing.html",
+      "id": "custom-code-Vf-lStT0QK",
+      "rule": "store-experience-timeline",
+      "file": "store-experience-timeline.html"
+    },
+    {
+      "page": "mattress-financing.html",
+      "id": "custom-code-ns0wwaulvP",
+      "rule": "store-experience-timeline",
+      "file": "store-experience-timeline.html"
+    },
+    {
+      "page": "mattress-financing.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "mattress-financing.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "mattress-financing.html",
+      "id": "custom-code-Vf-lStT0QK",
+      "rule": "store-experience-timeline",
+      "file": "store-experience-timeline.html"
+    },
+    {
+      "page": "mattress-financing.html",
+      "id": "custom-code-ns0wwaulvP",
+      "rule": "store-experience-timeline",
+      "file": "store-experience-timeline.html"
+    },
+    {
+      "page": "mattress-financing.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "mattress-financing.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "mattress-sales.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "mattress-sales.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "mattress-sales.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "mattress-sales.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "mattresses.html",
+      "id": "custom-code-0cm2bUgwgQ",
+      "rule": "logo-marquee",
+      "file": "logo-marquee.html"
+    },
+    {
+      "page": "mattresses.html",
+      "id": "custom-code-Ukk047yQsV",
+      "rule": "logo-marquee-mobile",
+      "file": "logo-marquee.html"
+    },
+    {
+      "page": "mattresses.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "mattresses.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "mattresses.html",
+      "id": "custom-code-0cm2bUgwgQ",
+      "rule": "logo-marquee",
+      "file": "logo-marquee.html"
+    },
+    {
+      "page": "mattresses.html",
+      "id": "custom-code-Ukk047yQsV",
+      "rule": "logo-marquee-mobile",
+      "file": "logo-marquee.html"
+    },
+    {
+      "page": "mattresses.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "mattresses.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "pillows.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "pillows.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "pillows.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "pillows.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "premium-sheets.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "premium-sheets.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "premium-sheets.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "premium-sheets.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "id": "custom-code-dCeYHBjpLQ",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "id": "custom-code--Z49jxWaM_",
+      "rule": "our-promise-guarantee",
+      "file": "our-promise-guarantee.html"
+    }
+  ],
+  "widgets": [
+    {
+      "page": "about-us.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "about-us.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "about-us.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "about-us.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "kind": "form",
+      "id": "form-KpfZLJqS81",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "kind": "form",
+      "id": "form-KpfZLJqS81",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "kind": "form",
+      "id": "form-tZ9pP0uI5x",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "kind": "form",
+      "id": "form-tZ9pP0uI5x",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "home-page.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "home-page.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "home-page.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "home-page.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "index.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "index.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "index.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "index.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "main-page.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "main-page.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "main-page.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "main-page.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "massage-chairs.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "massage-chairs.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "massage-chairs.html",
+      "kind": "form",
+      "id": "form-tZ9pP0uI5x",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "massage-chairs.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "massage-chairs.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "massage-chairs.html",
+      "kind": "form",
+      "id": "form-tZ9pP0uI5x",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "mattress-financing.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "mattress-financing.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "mattress-financing.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "mattress-financing.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "kind": "form",
+      "id": "form-tZ9pP0uI5x",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "kind": "form",
+      "id": "form-tZ9pP0uI5x",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "mattress-sales.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "mattress-sales.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "mattress-sales.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "mattress-sales.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "mattresses.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "mattresses.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "mattresses.html",
+      "kind": "form",
+      "id": "form-FleNFYdV_4",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "mattresses.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "mattresses.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "mattresses.html",
+      "kind": "form",
+      "id": "form-FleNFYdV_4",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "optin-page.html",
+      "kind": "form",
+      "id": "form-LdEqCfwc_Z",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "optin-page.html",
+      "kind": "form",
+      "id": "form-nMu5CMbxh2",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "optin-page.html",
+      "kind": "form",
+      "id": "form-LdEqCfwc_Z",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "optin-page.html",
+      "kind": "form",
+      "id": "form-nMu5CMbxh2",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "pillows.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "pillows.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "pillows.html",
+      "kind": "form",
+      "id": "form-tZ9pP0uI5x",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "pillows.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "pillows.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "pillows.html",
+      "kind": "form",
+      "id": "form-tZ9pP0uI5x",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "premium-sheets.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "premium-sheets.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "premium-sheets.html",
+      "kind": "form",
+      "id": "form-tZ9pP0uI5x",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "premium-sheets.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "premium-sheets.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "premium-sheets.html",
+      "kind": "form",
+      "id": "form-tZ9pP0uI5x",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "kind": "form",
+      "id": "form-tZ9pP0uI5x",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "kind": "review-widget",
+      "id": "review-widget-Oun-uuvE6g",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "kind": "review-widget",
+      "id": "review-widget-PkDLJbVUS6",
+      "how": "live reviews embed (6a721a99bae62cba6f021c61)"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "kind": "form",
+      "id": "form-tZ9pP0uI5x",
+      "how": "live form embed (cUKX8RzffonzLORrzIhS)"
+    }
+  ],
+  "faqs": [
+    {
+      "page": "about-us.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "about-us.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "about-us.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "about-us.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "home-page.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "home-page.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "home-page.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "home-page.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "index.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "index.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "index.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "index.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "main-page.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "main-page.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "main-page.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "main-page.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "massage-chairs.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "massage-chairs.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "massage-chairs.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "massage-chairs.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "mattress-financing.html",
+      "id": "faq-Q3g4z_5iPC",
+      "items": 11
+    },
+    {
+      "page": "mattress-financing.html",
+      "id": "faq-t0BB_OV2Hr",
+      "items": 11
+    },
+    {
+      "page": "mattress-financing.html",
+      "id": "faq-Q3g4z_5iPC",
+      "items": 11
+    },
+    {
+      "page": "mattress-financing.html",
+      "id": "faq-t0BB_OV2Hr",
+      "items": 11
+    },
+    {
+      "page": "mattress-protectors.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "mattress-protectors.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "mattress-protectors.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "mattress-protectors.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "mattress-sales.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "mattress-sales.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "mattress-sales.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "mattress-sales.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "mattresses.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "mattresses.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "mattresses.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "mattresses.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "pillows.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "pillows.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "pillows.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "pillows.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "premium-sheets.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "premium-sheets.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "premium-sheets.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "premium-sheets.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "sleep-recliner.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "sleep-recliner.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    },
+    {
+      "page": "sleep-recliner.html",
+      "id": "faq-YdObIMsBDl",
+      "items": 8
+    },
+    {
+      "page": "sleep-recliner.html",
+      "id": "faq-37T80l-ZI1",
+      "items": 8
+    }
+  ],
+  "ribbons": [
+    {
+      "page": "about-us.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "about-us.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "about-us.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "about-us.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "home-page.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "home-page.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "home-page.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "home-page.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "index.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "index.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "index.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "index.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "main-page.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "main-page.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "main-page.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "main-page.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "massage-chairs.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "massage-chairs.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "massage-chairs.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "massage-chairs.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "mattress-financing.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "mattress-financing.html",
+      "id": "image-8c9wTbT6Ko"
+    },
+    {
+      "page": "mattress-financing.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "mattress-financing.html",
+      "id": "image-8c9wTbT6Ko"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "mattress-protectors.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "mattress-sales.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "mattress-sales.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "mattress-sales.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "mattress-sales.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "premium-sheets.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "premium-sheets.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "premium-sheets.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "premium-sheets.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "id": "image-ORa905z0zs"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "id": "image-yDT6lfSQQ3"
+    },
+    {
+      "page": "sleep-recliner.html",
+      "id": "image-ORa905z0zs"
+    }
+  ],
+  "i18n": [
+    {
+      "page": "about-us.html",
+      "locale": "es",
+      "route": "/es/about-us",
+      "translated": 307,
+      "payloadStrings": 102,
+      "missing": []
+    },
+    {
+      "page": "adjustable-mattress-bases.html",
+      "locale": "es",
+      "route": "/es/adjustable-mattress-bases",
+      "translated": 184,
+      "payloadStrings": 56,
+      "missing": []
+    },
+    {
+      "page": "at-home-sleep-test-kit-by-sleepcorner.html",
+      "locale": "es",
+      "route": "/es/at-home-sleep-test-kit-by-sleepcorner",
+      "translated": 160,
+      "payloadStrings": 60,
+      "missing": []
+    },
+    {
+      "page": "dream/map/thank/you.html",
+      "locale": "es",
+      "route": "/es/dream/map/thank/you",
+      "translated": 24,
+      "payloadStrings": 14,
+      "missing": []
+    },
+    {
+      "page": "home-page.html",
+      "locale": "es",
+      "route": "/es/home-page",
+      "translated": 328,
+      "payloadStrings": 110,
+      "missing": []
+    },
+    {
+      "page": "index.html",
+      "locale": "es",
+      "route": "/es",
+      "translated": 328,
+      "payloadStrings": 110,
+      "missing": []
+    },
+    {
+      "page": "main-page.html",
+      "locale": "es",
+      "route": "/es/main-page",
+      "translated": 328,
+      "payloadStrings": 110,
+      "missing": []
+    },
+    {
+      "page": "massage-chairs.html",
+      "locale": "es",
+      "route": "/es/massage-chairs",
+      "translated": 186,
+      "payloadStrings": 58,
+      "missing": []
+    },
+    {
+      "page": "mattress-financing.html",
+      "locale": "es",
+      "route": "/es/mattress-financing",
+      "translated": 400,
+      "payloadStrings": 172,
+      "missing": []
+    },
+    {
+      "page": "mattress-protectors.html",
+      "locale": "es",
+      "route": "/es/mattress-protectors",
+      "translated": 189,
+      "payloadStrings": 56,
+      "missing": []
+    },
+    {
+      "page": "mattress-sales.html",
+      "locale": "es",
+      "route": "/es/mattress-sales",
+      "translated": 184,
+      "payloadStrings": 79,
+      "missing": []
+    },
+    {
+      "page": "mattresses.html",
+      "locale": "es",
+      "route": "/es/mattresses",
+      "translated": 353,
+      "payloadStrings": 120,
+      "missing": []
+    },
+    {
+      "page": "optin-page.html",
+      "locale": "es",
+      "route": "/es/optin-page",
+      "translated": 11,
+      "payloadStrings": 10,
+      "missing": []
+    },
+    {
+      "page": "pillows.html",
+      "locale": "es",
+      "route": "/es/pillows",
+      "translated": 162,
+      "payloadStrings": 57,
+      "missing": []
+    },
+    {
+      "page": "premium-sheets.html",
+      "locale": "es",
+      "route": "/es/premium-sheets",
+      "translated": 189,
+      "payloadStrings": 57,
+      "missing": []
+    },
+    {
+      "page": "privacy-policy-page-1.html",
+      "locale": "es",
+      "route": "/es/privacy-policy-page-1",
+      "translated": 246,
+      "payloadStrings": 7,
+      "missing": []
+    },
+    {
+      "page": "privacy-policy-page.html",
+      "locale": "es",
+      "route": "/es/privacy-policy-page",
+      "translated": 246,
+      "payloadStrings": 7,
+      "missing": []
+    },
+    {
+      "page": "sleep-recliner.html",
+      "locale": "es",
+      "route": "/es/sleep-recliner",
+      "translated": 192,
+      "payloadStrings": 57,
+      "missing": []
+    },
+    {
+      "page": "terms-conditions-page.html",
+      "locale": "es",
+      "route": "/es/terms-conditions-page",
+      "translated": 204,
+      "payloadStrings": 7,
+      "missing": []
+    },
+    {
+      "page": "terms-conditions.html",
+      "locale": "es",
+      "route": "/es/terms-conditions",
+      "translated": 204,
+      "payloadStrings": 7,
+      "missing": []
+    },
+    {
+      "page": "thank/you.html",
+      "locale": "es",
+      "route": "/es/thank/you",
+      "translated": 8,
+      "payloadStrings": 7,
+      "missing": []
+    }
+  ],
+  "embedScripts": [
+    {
+      "page": "optin-page.html",
+      "src": "https://link.snoozesleep.com/js/form_embed.js"
+    },
+    {
+      "page": "optin-page.html",
+      "src": "https://link.snoozesleep.com/js/form_embed.js"
+    }
+  ],
+  "droppedHints": 212,
+  "rewrittenUrls": 13150,
+  "externalHostsLeft": {
+    "medicineshoppemeadowlark.ca": 42,
+    "www.medicineshoppemeadowlark.ca": 42,
+    "rockwall.snoozemattresscompany.com": 62,
+    "storage.googleapis.com": 84,
+    "www.w3.org": 112,
+    "share.google": 176,
+    "maps.google.com": 126,
+    "www.facebook.com": 42,
+    "www.instagram.com": 42,
+    "schema.org": 288,
+    "maps.app.goo.gl": 26,
+    "reputationhub.site": 112,
+    "jstest.authorize.net": 42,
+    "js.authorize.net": 42,
+    "secure.safewebservices.com": 42,
+    "link.snoozesleep.com": 74,
+    "images.unsplash.com": 24,
+    "www.synchrony.com": 6,
+    "msgsndr-private.storage.googleapis.com": 2,
+    "tools.google.com": 32,
+    "adssettings.google.com": 32,
+    "optout.aboutads.info": 32,
+    "optout.networkadvertising.org": 32,
+    "tfrench.snoozemattresscompany.com": 60,
+    "mcallen.snoozemattresscompany.com": 16
+  },
+  "cards": 100,
+  "textLinkButtons": 0,
+  "imageDimsAdded": 536
+}

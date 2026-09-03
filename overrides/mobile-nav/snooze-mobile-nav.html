@@ -1,0 +1,343 @@
+<!-- ============================================================
+     SNOOZE — MOBILE NAVIGATION (≤ 767px only)  ·  prefix: snzm-
+     Hamburger → slide-in drawer (transform/opacity only) → blurred overlay →
+     close (X) → links with staggered reveal → collapsible "Our Products"
+     (animated chevron, smooth height) → CTA at the bottom.
+     Extras: hamburger morphs into an X, focus trap + focus restore, full ARIA,
+     swipe-right-to-close, current page highlighted, closes on link / overlay /
+     X / Escape, body scroll lock (iOS-safe) restored on close.
+     Vanilla JS, no dependencies. Everything is scoped to (max-width: 767px);
+     the desktop header is untouched. Paste the whole block into one Custom
+     HTML/code element.
+     ============================================================ -->
+
+<style>
+  /* hidden everywhere by default — only the mobile media query turns it on */
+  .snzm-hamburger, .snzm-overlay, .snzm-drawer { display: none; }
+
+  @media (max-width: 767px) {
+    .snzm-nav-root {
+      --snzm-navy: #001489;
+      --snzm-ink: #1d2b64;
+      --snzm-orange: #f58433;
+      --snzm-orange-deep: #d96f27;
+      --snzm-muted: #5b6690;
+      --snzm-line: rgba(0, 20, 137, .10);
+      --snzm-tint: #fff5ee;
+      --snzm-ease: cubic-bezier(.2, .7, .2, 1);
+      font-family: 'Montserrat', 'Poppins', Arial, Helvetica, sans-serif;
+    }
+    .snzm-nav-root *, .snzm-nav-root *::before, .snzm-nav-root *::after { box-sizing: border-box; }
+
+    /* ── hamburger (place it in your mobile header bar) ── */
+    .snzm-hamburger {
+      display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+      width: 46px; height: 46px; padding: 0; margin: 0;
+      border: 0; border-radius: 12px; background: transparent; cursor: pointer;
+      -webkit-tap-highlight-color: transparent; position: relative; z-index: 10002;
+    }
+    .snzm-hamburger span {
+      display: block; width: 22px; height: 2px; border-radius: 2px; background: var(--snzm-navy);
+      transition: transform 280ms var(--snzm-ease), opacity 200ms var(--snzm-ease), background-color 200ms;
+    }
+    .snzm-hamburger.snzm-is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: var(--snzm-orange); }
+    .snzm-hamburger.snzm-is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .snzm-hamburger.snzm-is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: var(--snzm-orange); }
+    .snzm-hamburger:focus-visible { outline: 2px solid var(--snzm-orange); outline-offset: 3px; }
+
+    /* ── overlay ── */
+    .snzm-overlay {
+      display: block; position: fixed; inset: 0; z-index: 10000;
+      background: rgba(0, 10, 52, .5);
+      -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 260ms var(--snzm-ease), visibility 0s linear 260ms;
+    }
+    .snzm-overlay.snzm-open { opacity: 1; visibility: visible; pointer-events: auto; transition-delay: 0s; }
+
+    /* ── drawer ── */
+    .snzm-drawer {
+      display: flex; flex-direction: column;
+      position: fixed; top: 0; right: 0; bottom: 0; z-index: 10001;
+      width: min(86vw, 380px); height: 100dvh;
+      background: #ffffff; border-radius: 22px 0 0 22px;
+      box-shadow: -20px 0 50px -20px rgba(0, 20, 137, .35);
+      transform: translateX(104%); visibility: hidden; will-change: transform;
+      transition: transform 300ms var(--snzm-ease), visibility 0s linear 300ms;
+      overflow: hidden; touch-action: pan-y;
+    }
+    .snzm-drawer.snzm-open { transform: translateX(0); visibility: visible; transition-delay: 0s; }
+    .snzm-drawer.snzm-dragging { transition: none; }
+
+    .snzm-head {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px; padding: 0 12px 0 20px; border-bottom: 1px solid var(--snzm-line); flex: 0 0 auto;
+    }
+    .snzm-brand { display: inline-flex; align-items: center; min-height: 44px; }
+    .snzm-brand img { display: block; width: 132px; height: auto; }
+    .snzm-close {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px; border: 0; border-radius: 50%; background: transparent;
+      color: var(--snzm-navy); cursor: pointer; transition: background-color 200ms, color 200ms;
+    }
+    .snzm-close:hover, .snzm-close:focus-visible { background: var(--snzm-tint); color: var(--snzm-orange); }
+    .snzm-close svg { width: 20px; height: 20px; }
+
+    .snzm-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; padding: 12px 8px 20px; }
+    .snzm-list { list-style: none; margin: 0; padding: 0; }
+    .snzm-item {
+      border-bottom: 1px solid rgba(0, 20, 137, .06);
+      opacity: 0; transform: translateX(18px);
+      transition: opacity 260ms var(--snzm-ease), transform 320ms var(--snzm-ease);
+    }
+    /* staggered reveal once the drawer is open */
+    .snzm-drawer.snzm-open .snzm-item { opacity: 1; transform: none; transition-delay: calc(70ms + var(--i, 0) * 45ms); }
+    .snzm-item > a, .snzm-toggle {
+      display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 54px;
+      padding: 0 14px; border: 0; border-radius: 12px; background: transparent;
+      color: var(--snzm-navy); font: 600 15px/1.2 inherit; letter-spacing: .04em; text-decoration: none; text-align: left;
+      cursor: pointer; transition: background-color 200ms, color 200ms; -webkit-tap-highlight-color: transparent;
+    }
+    .snzm-item > a:hover, .snzm-toggle:hover, .snzm-item > a:focus-visible, .snzm-toggle:focus-visible { background: var(--snzm-tint); color: var(--snzm-orange); outline: none; }
+    .snzm-item.snzm-active > a, .snzm-item.snzm-active > .snzm-toggle { color: var(--snzm-orange); }
+    .snzm-toggle .snzm-chevron { width: 18px; height: 18px; flex: 0 0 auto; transition: transform 260ms var(--snzm-ease); }
+    .snzm-toggle[aria-expanded="true"] .snzm-chevron { transform: rotate(180deg); }
+
+    /* submenu: smooth height via grid rows (no instant jump) */
+    .snzm-sub { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 300ms var(--snzm-ease); }
+    .snzm-has-sub.snzm-sub-open > .snzm-sub { grid-template-rows: 1fr; }
+    .snzm-sub-inner { min-height: 0; overflow: hidden; }
+    .snzm-group { margin: 10px 0 4px 28px; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--snzm-muted); }
+    .snzm-sub a {
+      display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 0 14px 0 28px; border-radius: 12px;
+      color: var(--snzm-ink); font: 500 14.5px/1.2 inherit; text-decoration: none; transition: background-color 200ms, color 200ms;
+    }
+    .snzm-sub a:hover, .snzm-sub a:focus-visible { background: var(--snzm-tint); color: var(--snzm-orange); outline: none; }
+    .snzm-sub a.snzm-active { color: var(--snzm-orange); font-weight: 600; }
+    .snzm-sub-pad { height: 8px; }
+
+    .snzm-foot { flex: 0 0 auto; padding: 14px 16px calc(16px + env(safe-area-inset-bottom)); border-top: 1px solid var(--snzm-line); background: #fbfbfe; }
+    .snzm-cta {
+      display: flex; align-items: center; justify-content: center; gap: 10px; height: 54px;
+      border: 2px solid var(--snzm-navy); border-radius: 15px;
+      background-color: var(--snzm-navy); background-image: linear-gradient(135deg, #ef7c32 0%, #ff9d5c 100%);
+      color: #fff; font: 600 16px/1 'Poppins', 'Montserrat', Arial, sans-serif; text-decoration: none;
+      transition: background-image 220ms var(--snzm-ease), box-shadow 220ms var(--snzm-ease);
+    }
+    .snzm-cta:hover, .snzm-cta:focus-visible { background-image: linear-gradient(135deg, #d86a28 0%, #ef7c32 100%); box-shadow: 0 8px 5px -5px rgba(0, 0, 0, .25); outline: none; }
+    .snzm-cta svg { width: 18px; height: 18px; }
+    .snzm-book { display: flex; align-items: center; justify-content: center; min-height: 44px; margin-top: 6px; font-size: 13px; font-weight: 600; color: var(--snzm-navy); text-decoration: none; border-radius: 10px; }
+    .snzm-book:hover, .snzm-book:focus-visible { color: var(--snzm-orange); outline: none; }
+
+    /* body lock (class added by the script) */
+    body.snzm-locked { position: fixed; width: 100%; overflow: hidden; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .snzm-drawer, .snzm-overlay, .snzm-item, .snzm-sub, .snzm-toggle .snzm-chevron, .snzm-hamburger span { transition: none !important; }
+    }
+  }
+</style>
+
+<div class="snzm-nav-root">
+  <!-- ── HAMBURGER (put this inside your mobile header bar, right side) ── -->
+  <button class="snzm-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="snzm-drawer">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- ── OVERLAY ── -->
+  <div class="snzm-overlay" aria-hidden="true"></div>
+
+  <!-- ── DRAWER ── -->
+  <aside class="snzm-drawer" id="snzm-drawer" role="dialog" aria-modal="true" aria-label="Site menu" tabindex="-1">
+    <div class="snzm-head">
+      <a class="snzm-brand" href="/" aria-label="Snooze Mattress + Wellness — home">
+        <img src="/assets/lcimg/image/f_webp/q_80/r_1200/u/filesafe/qR8peonBlnjGI3ZuLHQP/media/8d16458d-661d-4d16-bec0-14dea766bf45.webp" alt="Snooze Mattress + Wellness" width="132" height="37">
+      </a>
+      <button class="snzm-close" type="button" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="snzm-body">
+      <ul class="snzm-list">
+        <li class="snzm-item" style="--i:0"><a href="/">Home</a></li>
+        <li class="snzm-item" style="--i:1"><a href="/about-us">About Us</a></li>
+        <li class="snzm-item snzm-has-sub" style="--i:2">
+          <button class="snzm-toggle" type="button" aria-expanded="false" aria-controls="snzm-sub-products">
+            Our Products
+            <svg class="snzm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="snzm-sub" id="snzm-sub-products">
+            <div class="snzm-sub-inner">
+              <p class="snzm-group">Products</p>
+              <a href="/mattresses">Mattresses</a>
+              <a href="/adjustable-mattress-bases">Adjustable Mattress Bases</a>
+              <a href="/massage-chairs">Massage Chairs</a>
+              <a href="/pillows">Pillows</a>
+              <p class="snzm-group">Sleep Accessories</p>
+              <a href="/mattress-protectors">Mattress Protectors</a>
+              <a href="/premium-sheets">Premium Sheets</a>
+              <a href="/sleep-recliner">Sleep Recliner</a>
+              <a href="/at-home-sleep-test-kit-by-sleepcorner">At-Home Sleep Test Kit</a>
+              <div class="snzm-sub-pad"></div>
+            </div>
+          </div>
+        </li>
+        <li class="snzm-item" style="--i:3"><a href="/mattress-financing">Financing</a></li>
+        <li class="snzm-item" style="--i:4"><a href="/mattress-sales">Sales</a></li>
+        <li class="snzm-item snzm-has-sub" style="--i:5">
+          <button class="snzm-toggle" type="button" aria-expanded="false" aria-controls="snzm-sub-blog">
+            Blog
+            <svg class="snzm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="snzm-sub" id="snzm-sub-blog">
+            <div class="snzm-sub-inner">
+              <a href="/blog">All articles</a>
+              <p class="snzm-group">Latest</p>
+              <a href="/blog/custom-mattresses-improving-health">Custom Mattresses Improving Health</a>
+              <a href="/blog/pressure-mapping-for-sleep">Pressure Maps For Sleep</a>
+              <a href="/blog/mattresses-that-relieve-aches">Mattresses That Relieve Aches</a>
+              <div class="snzm-sub-pad"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="snzm-foot">
+      <a class="snzm-cta" href="tel:+19563033666">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+        (956) 303-3666
+      </a>
+      <a class="snzm-book" href="/booking">Book Free Dream Mapping Appointment</a>
+    </div>
+  </aside>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var mq = window.matchMedia("(max-width: 767px)");
+  var root      = document.querySelector(".snzm-nav-root");
+  var hamburger = document.querySelector(".snzm-hamburger");
+  var drawer    = document.querySelector(".snzm-drawer");
+  var overlay   = document.querySelector(".snzm-overlay");
+  var closeBtn  = document.querySelector(".snzm-close");
+  if (!root || !hamburger || !drawer || !overlay) return;
+
+  var isOpen = false, lastFocus = null, scrollY = 0;
+  var FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+  function lockBody() {
+    scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+    document.body.style.top = -scrollY + "px";
+    document.body.classList.add("snzm-locked");
+  }
+  function unlockBody() {
+    document.body.classList.remove("snzm-locked");
+    document.body.style.top = "";
+    window.scrollTo(0, scrollY);
+  }
+
+  function openMenu() {
+    if (isOpen || !mq.matches) return;
+    isOpen = true;
+    lastFocus = document.activeElement;
+    drawer.classList.add("snzm-open");
+    overlay.classList.add("snzm-open");
+    hamburger.classList.add("snzm-is-open");
+    hamburger.setAttribute("aria-expanded", "true");
+    hamburger.setAttribute("aria-label", "Close menu");
+    lockBody();
+    window.setTimeout(function () { if (closeBtn) closeBtn.focus(); else drawer.focus(); }, 80);
+  }
+
+  function closeMenu() {
+    if (!isOpen) return;
+    isOpen = false;
+    drawer.classList.remove("snzm-open", "snzm-dragging");
+    drawer.style.transform = "";
+    overlay.classList.remove("snzm-open");
+    overlay.style.opacity = "";
+    hamburger.classList.remove("snzm-is-open");
+    hamburger.setAttribute("aria-expanded", "false");
+    hamburger.setAttribute("aria-label", "Open menu");
+    unlockBody();
+    if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus(); else hamburger.focus();
+  }
+
+  hamburger.addEventListener("click", function (e) { e.stopPropagation(); isOpen ? closeMenu() : openMenu(); });
+  if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
+
+  /* submenu toggles: one open at a time, chevron + height animate through CSS */
+  Array.prototype.forEach.call(document.querySelectorAll(".snzm-toggle"), function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var li = btn.closest(".snzm-has-sub"); if (!li) return;
+      var willOpen = !li.classList.contains("snzm-sub-open");
+      Array.prototype.forEach.call(document.querySelectorAll(".snzm-has-sub.snzm-sub-open"), function (el) {
+        if (el !== li) { el.classList.remove("snzm-sub-open"); var t = el.querySelector(".snzm-toggle"); if (t) t.setAttribute("aria-expanded", "false"); }
+      });
+      li.classList.toggle("snzm-sub-open", willOpen);
+      btn.setAttribute("aria-expanded", String(willOpen));
+    });
+  });
+
+  /* current page highlight (also opens the products group when a product page is current) */
+  var cur = window.location.pathname.replace(/\/+$/, "") || "/";
+  Array.prototype.forEach.call(drawer.querySelectorAll(".snzm-item > a, .snzm-sub a"), function (link) {
+    try {
+      var p = new URL(link.getAttribute("href"), location.href).pathname.replace(/\/+$/, "") || "/";
+      var match = p === cur || (p === "/" && (cur === "/home-page" || cur === "/main-page"));
+      if (!match) return;
+      link.classList.add("snzm-active");
+      var item = link.closest(".snzm-item"); if (item) item.classList.add("snzm-active");
+      var sub = link.closest(".snzm-has-sub");
+      if (sub) { sub.classList.add("snzm-sub-open"); var t = sub.querySelector(".snzm-toggle"); if (t) t.setAttribute("aria-expanded", "true"); }
+    } catch (err) {}
+  });
+
+  /* close on any link click (navigation continues) */
+  Array.prototype.forEach.call(drawer.querySelectorAll("a[href]"), function (link) { link.addEventListener("click", closeMenu); });
+
+  /* keyboard: Escape closes, Tab is trapped inside the drawer */
+  document.addEventListener("keydown", function (e) {
+    if (!isOpen) return;
+    if (e.key === "Escape") { e.preventDefault(); closeMenu(); return; }
+    if (e.key !== "Tab") return;
+    var items = Array.prototype.filter.call(drawer.querySelectorAll(FOCUSABLE), function (el) { return el.offsetParent !== null; });
+    if (!items.length) return;
+    var first = items[0], last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+
+  /* swipe right to close (drawer follows the finger, snaps back if the swipe is short) */
+  var startX = 0, startY = 0, dx = 0, dragging = false, startT = 0;
+  drawer.addEventListener("touchstart", function (e) {
+    if (!isOpen || e.touches.length !== 1) return;
+    startX = e.touches[0].clientX; startY = e.touches[0].clientY; dx = 0; dragging = false; startT = Date.now();
+  }, { passive: true });
+  drawer.addEventListener("touchmove", function (e) {
+    if (!isOpen || e.touches.length !== 1) return;
+    var mx = e.touches[0].clientX - startX, my = e.touches[0].clientY - startY;
+    if (!dragging) { if (Math.abs(mx) < 8 || Math.abs(mx) < Math.abs(my)) return; dragging = true; drawer.classList.add("snzm-dragging"); }
+    dx = Math.max(0, mx);
+    drawer.style.transform = "translateX(" + dx + "px)";
+    overlay.style.opacity = String(Math.max(0, 1 - dx / drawer.offsetWidth));
+  }, { passive: true });
+  function endDrag() {
+    if (!dragging) return;
+    dragging = false;
+    drawer.classList.remove("snzm-dragging");
+    var fast = dx > 40 && (Date.now() - startT) < 250;
+    if (dx > drawer.offsetWidth * 0.35 || fast) closeMenu();
+    else { drawer.style.transform = ""; overlay.style.opacity = ""; }
+  }
+  drawer.addEventListener("touchend", endDrag);
+  drawer.addEventListener("touchcancel", endDrag);
+
+  /* leaving the mobile breakpoint closes the drawer so nothing lingers on desktop */
+  if (mq.addEventListener) mq.addEventListener("change", function () { if (!mq.matches) closeMenu(); });
+});
+</script>

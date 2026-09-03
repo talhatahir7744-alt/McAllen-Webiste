@@ -1,0 +1,1 @@
+import{a0 as o,ae as l,a as n,d4 as r,L as u,M as c,af as a,ah as m,ag as d,N as p,aI as g}from"./DwnOYecr.js";const b=o({__name:"page",setup(f){const{locale:s}=l();n({htmlAttrs:{lang:s}});const e=r()?.backgroundSettingsClass;return(t,_)=>(u(),c(g,null,[a("div",{class:m(["bg-fixed",d(e)])},null,2),a("div",null,[p(t.$slots,"default")])],64))}});export{b as default};

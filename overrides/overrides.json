@@ -1,0 +1,177 @@
+{
+  "_comment": "Hand-provided section code and live widget embeds applied by scripts/convert.mjs. `rules` match a GoHighLevel custom-code element by substrings of its current HTML (so desktop + mobile copies are both replaced) and swap in `file`; {{custom_values.*}} merge tags are filled from `vars`.",
+  "vars": {
+    "custom_values.new_store_city_location": "Brownsville",
+    "custom_values.store_image_url": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577099a9c7792ea578a2c.jpeg",
+    "custom_values.5th_image": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577049a9c7792ea57899a.png"
+  },
+  "rules": [
+    {
+      "name": "dream-map-timeline",
+      "match": [
+        "pm-section",
+        "Personalized Sleep Map Profile"
+      ],
+      "file": "dream-map-timeline.html"
+    },
+    {
+      "name": "store-experience-timeline",
+      "match": [
+        "pm-section",
+        "Apply for Financing In-Store"
+      ],
+      "file": "store-experience-timeline.html"
+    },
+    {
+      "name": "our-promise-guarantee",
+      "match": [
+        "guar-section",
+        "We Stand Behind"
+      ],
+      "file": "our-promise-guarantee.html"
+    },
+    {
+      "name": "logo-marquee",
+      "match": [
+        "ENDLESS LOGO MARQUEE"
+      ],
+      "file": "logo-marquee.html"
+    },
+    {
+      "name": "trust-ticker",
+      "match": [
+        "ghl-trust-ticker",
+        "Price Match Promise"
+      ],
+      "file": "trust-ticker.html"
+    },
+    {
+      "name": "logo-marquee-mobile",
+      "match": [
+        "custom-brand-slider"
+      ],
+      "file": "logo-marquee.html",
+      "_comment": "the client's phone brand slider squeezed a 14999px sprite into the viewport (logos ~4x compressed); the seamless marquee replaces it on phones too"
+    }
+  ],
+  "widgets": {
+    "form": {
+      "file": "widgets/form.html",
+      "defaultFormId": "cUKX8RzffonzLORrzIhS",
+      "formName": "Optin"
+    },
+    "calendar": {
+      "file": "widgets/calendar.html",
+      "defaultCalendarId": "7oZZd8zPpnUYzsMS4VZM"
+    },
+    "reviews": {
+      "file": "widgets/reviews.html",
+      "locationId": "BljrSmLCnm4gF9LpsTRZ",
+      "widgetId": "6a721a99bae62cba6f021c61"
+    }
+  },
+  "removeElements": [
+    "section-n2EJ48xJKc",
+    "section-EZ3DGo6-8h",
+    "section-ghjYZIxTU2",
+    "section-zTxb2Wa9Nv"
+  ],
+  "site": {
+    "phone": "(956) 303-3666",
+    "phoneHref": "tel:+19563033666",
+    "logoUrl": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/qR8peonBlnjGI3ZuLHQP/media/8d16458d-661d-4d16-bec0-14dea766bf45.webp",
+    "logoAlt": "Snooze Mattress + Wellness",
+    "featureImageUrl": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/695fbfed-24ba-4132-b604-2e6042bbb83f.jpeg"
+  },
+  "insertSections": [
+    {
+      "name": "our-promise-everywhere",
+      "from": {
+        "page": "about-us.html",
+        "match": [
+          "guar-section",
+          "We Stand Behind"
+        ]
+      },
+      "before": {
+        "textMatch": "Some of Our Happy Customers"
+      },
+      "skipPages": []
+    },
+    {
+      "name": "location-faq-about",
+      "from": {
+        "page": "index.html",
+        "sectionIds": [
+          "section-tpWh2qZzTP",
+          "section-wUF9nf9pjV"
+        ]
+      },
+      "after": {
+        "textMatch": "Some of Our Happy Customers"
+      },
+      "onlyPages": [
+        "about-us.html"
+      ],
+      "_comment": "Location card + FAQ section from Home after the reviews on About Us (the phone copy was already there; the desktop copy was missing)"
+    }
+  ],
+  "heroBackgrounds": {
+    "index.html": {
+      "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577e59994d35aa0c4ea2f.png",
+      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+    },
+    "home-page.html": {
+      "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577e59994d35aa0c4ea2f.png",
+      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+    },
+    "main-page.html": {
+      "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577e59994d35aa0c4ea2f.png",
+      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+    },
+    "mattress-financing.html": {
+      "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577ea9994d35aa0c4eb46.png",
+      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+    },
+    "about-us.html": {
+      "desktop": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577ea78cdd940a08094b9.png",
+      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+    },
+    "mattresses.html": {
+      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/697b9143d5b65e763eacc4cd.png",
+      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+    },
+    "adjustable-mattress-bases.html": {
+      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/697bd240d5b65e6fefba8139.png",
+      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+    },
+    "massage-chairs.html": {
+      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/697a4541f215daeb1a4c3c11.png",
+      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+    },
+    "pillows.html": {
+      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/69822f77cf8ac07e786583a9.png",
+      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+    },
+    "mattress-protectors.html": {
+      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6994d3d085759585d4e579dc.png",
+      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+    },
+    "premium-sheets.html": {
+      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6994d95854da044f3c95c763.png",
+      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+    },
+    "sleep-recliner.html": {
+      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6998cd2220c03538d469a1f8.png",
+      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+    },
+    "at-home-sleep-test-kit-by-sleepcorner.html": {
+      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6998cc589df4c153d0a468bf.png",
+      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+    },
+    "mattress-sales.html": {
+      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/69a605e6abd0593098698c8b.png",
+      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+    }
+  }
+}

@@ -1,0 +1,2 @@
+/* Global reset for the blog routes only (the converted GHL pages ship their own). */
+body { margin: 0; }

@@ -1,0 +1,65 @@
+<!-- FAQ accordion (same design as the blog FAQ). scripts/convert.mjs turns every GoHighLevel FAQ element into a
+     custom-code element carrying this markup, with that element's own questions and answers ({{items}}).
+     One delegated click handler serves every copy (desktop + mobile) and survives hydration re-renders. -->
+<style>
+  /* the GoHighLevel FAQ container class kept a 2px border; the accordion draws its own */
+  .custom-code-container[class*="cfaq-"] { border: 0 !important; padding: 0 !important; background: transparent !important; box-shadow: none !important; }
+  .snz-faq { display: grid; gap: 12px; width: 100%; --snz-faq-navy: #001489; --snz-faq-orange: #f58433; }
+  .snz-faq__item {
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.72);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 20, 137, 0.09);
+    box-shadow: 0 10px 30px -22px rgba(0, 20, 137, 0.35);
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+  .snz-faq__item:hover, .snz-faq__item.is-open { border-color: rgba(245, 132, 51, 0.45); box-shadow: 0 18px 40px -24px rgba(0, 20, 137, 0.45); }
+  .snz-faq__q { margin: 0; font-size: inherit; line-height: inherit; }
+  .snz-faq__btn {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    width: 100%; padding: 18px 20px; border: 0; background: transparent; cursor: pointer; text-align: left;
+    font-family: var(--headlinefont, 'Montserrat', sans-serif); font-weight: 800; font-size: 1.08rem; line-height: 1.35; color: var(--snz-faq-navy);
+    border-radius: 18px; -webkit-appearance: none; appearance: none;
+  }
+  .snz-faq__btn:hover { color: #d96f27; }
+  .snz-faq__btn:focus-visible { outline: 2px solid var(--snz-faq-orange); outline-offset: -4px; }
+  .snz-faq__chevron { flex: 0 0 auto; width: 22px; height: 22px; color: var(--snz-faq-orange); transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1); }
+  .snz-faq__item.is-open .snz-faq__chevron { transform: rotate(180deg); }
+  .snz-faq__panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.34s cubic-bezier(0.22, 0.61, 0.36, 1); }
+  .snz-faq__item.is-open .snz-faq__panel { grid-template-rows: 1fr; }
+  .snz-faq__inner { min-height: 0; overflow: hidden; }
+  .snz-faq__a { padding: 0 20px 20px; font-family: var(--contentfont, 'Montserrat', sans-serif); font-size: 1rem; line-height: 1.8; color: #3f4460; }
+  .snz-faq__a p { margin: 0 0 0.6em; }
+  .snz-faq__a p:last-child { margin-bottom: 0; }
+  .snz-faq__a a { color: var(--snz-faq-navy); text-decoration: underline; }
+  @media (max-width: 767px) {
+    .snz-faq__btn { padding: 16px; font-size: 1rem; }
+    .snz-faq__a { padding: 0 16px 16px; font-size: 0.95rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .snz-faq__chevron, .snz-faq__panel, .snz-faq__item { transition: none; }
+  }
+</style>
+<div class="snz-faq" data-snz-faq="{{id}}">
+{{items}}
+</div>
+<script>
+  (function () {
+    if (window.__snzFaqReady) return;
+    window.__snzFaqReady = true;
+    document.addEventListener('click', function (e) {
+      var btn = e.target && e.target.closest ? e.target.closest('.snz-faq__btn') : null;
+      if (!btn) return;
+      var item = btn.closest('.snz-faq__item'); var list = btn.closest('.snz-faq');
+      if (!item || !list) return;
+      var open = !item.classList.contains('is-open');
+      var items = list.querySelectorAll('.snz-faq__item');
+      for (var i = 0; i < items.length; i++) {
+        var it = items[i]; var b = it.querySelector('.snz-faq__btn'); var on = open && it === item;
+        it.classList.toggle('is-open', on);
+        if (b) b.setAttribute('aria-expanded', on ? 'true' : 'false');
+      }
+    }, false);
+  })();
+</script>
