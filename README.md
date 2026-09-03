@@ -167,6 +167,6 @@ Removed external scripts:
 - Third-party embeds that are not the client's CRM are kept as-is and still load from their own hosts: Google Maps embeds (`maps.google.com`), social links.
 - The reviews widget, popup form and booking calendar show placeholders instead of live CRM content.
 - Fonts, images, CSS and the GoHighLevel runtime (Nuxt bundle + 1301 asset files) are served locally.
-- 49 referenced file(s) did not exist in the clone and now resolve to a local 404 instead of the CDN (see conversion-report.json → missingReferenced).
+- 51 referenced file(s) did not exist in the clone and now resolve to a local 404 instead of the CDN (see conversion-report.json → missingReferenced).
 
-Generated 2026-09-03T19:15:06.676Z from `C:/clones`.
+Generated 2026-09-03T19:41:47.550Z from `C:/clones`.

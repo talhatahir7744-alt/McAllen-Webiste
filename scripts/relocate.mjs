@@ -55,8 +55,9 @@ const lit = (from, to) => [new RegExp(esc(from), 'g'), to];
 
 /** Ordered: specific patterns first, the bare city name last. */
 export const RULES = [
-  // ---- phone
+  // ---- phone (every tel: link dials the E.164 number)
   [/tel:\+19563033666/g, `tel:+1${NEW.phoneDigits}`],
+  [/tel:\(956\) (?:30[36]-3666|586-5646)/g, `tel:+1${NEW.phoneDigits}`],
   [/\+1 956-30[36]-3666/g, NEW.phoneIntl],
   [/9563033666/g, NEW.phoneDigits],
   [/\(956\) 30[36]-3666/g, NEW.phone],
@@ -80,6 +81,9 @@ export const RULES = [
   lit(encPayload(`${OLD_EMAIL_PLACEHOLDER}<br>`), encPayload(`${mailto}<br>`)),
   lit(encMarkup(`${OLD_EMAIL_PLACEHOLDER}<br>`), encMarkup(`${mailto}<br>`)),
   lit(OLD_EMAIL_PLACEHOLDER, NEW.email),
+  // a bare e-mail left in the legal copy (the Spanish dictionary already carries the address) becomes a mailto link too
+  [new RegExp(`((?:>|Email: |Correo: ))${esc(NEW.email)}(?=<(?:br|/span))`, 'g'), `$1${encMarkup(mailto)}`],
+  [new RegExp(`((?:>|Email: |Correo: ))${esc(NEW.email)}(?=\\\\\\\\u003C(?:br|/span))`, 'g'), `$1${encPayload(mailto)}`],
   lit('https://tfrench.snoozemattresscompany.com/', `${OLD_SITE_URL}/`),
 
   // ---- social profiles
@@ -126,7 +130,7 @@ export const LEFTOVER = /brownsville|303-3666|3033666|306-3666|3831 Frontage|383
 export const LEFTOVER_OK = /brownsville-webiste|brownsville\.snoozemattresscompany\.com|C:\/clones\/brownsville|unsplash\.com\/photo-1597852075012/;
 
 const SKIP_DIRS = new Set(['node_modules', '.next', '.git', '.vercel', 'verify-out', 'public']);
-const SKIP_FILES = new Set(['relocate.mjs', 'asset-map.json', 'conversion-report.json', 'tsconfig.tsbuildinfo']);
+const SKIP_FILES = new Set(['relocate.mjs', 'audit-location.mjs', 'asset-map.json', 'conversion-report.json', 'tsconfig.tsbuildinfo']);
 const TEXT = /\.(ts|tsx|mjs|js|json|html|css|md)$/;
 const DICT = /^es(\.part-\d+|\.extra)\.json$/; // overrides/i18n dictionaries: values only
 
@@ -153,6 +157,9 @@ function relocateFile(file, check) {
   if (DICT.test(path.basename(file)) && rel.startsWith('overrides/i18n/')) {
     const dict = JSON.parse(src);
     for (const k of Object.keys(dict)) if (typeof dict[k] === 'string') dict[k] = applyRules(dict[k]);
+    // the hand-provided override templates (overrides/*.html) are relocated too, so their English text now reads
+    // "McAllen …"; every key that changes under the rules gets a relocated twin so those segments still translate
+    for (const k of Object.keys(dict)) { const nk = applyRules(k); if (nk !== k && !(nk in dict) && typeof dict[k] === 'string') dict[nk] = dict[k]; }
     const indent = (src.match(/^\{\r?\n(\s+)"/) || [, ' '])[1].length;
     next = JSON.stringify(dict, null, indent) + (src.endsWith('\n') ? '\n' : '');
   } else if (rel.startsWith('overrides/i18n/')) {

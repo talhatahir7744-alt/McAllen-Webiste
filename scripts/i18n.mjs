@@ -66,17 +66,26 @@ export function translateDom($, root, loc, stats, siteHosts) {
 
 const LOOKS_HTML = /<[a-z][^>]*>/i;
 const LOOKS_CSS = /[{};]\s*[a-z-]+\s*:/i;
+const HAS_ELEMENTS = /<(div|span|section|p|h[1-6]|ul|ol|li|a|img|button|nav|header|footer|article)\b[^>]*>/i;
 /** Translate a payload string: markup is parsed and translated node by node, plain text is looked up whole, bare page paths get the prefix. */
 export function translateString(s, loc, stats, siteHosts) {
   if (!loc || typeof s !== 'string' || !s) return s;
-  if (LOOKS_HTML.test(s) && !LOOKS_CSS.test(s) && !s.includes('@import')) {
+  // markup is parsed node by node; a custom-code block that ships its own <style>/<script> (the hand-provided section
+  // templates) is markup too: translateDom skips style/script contents, and cheerio keeps them byte-identical (CRLF aside)
+  if (LOOKS_HTML.test(s) && (HAS_ELEMENTS.test(s) || (!LOOKS_CSS.test(s) && !s.includes('@import')))) {
     const $ = cheerio.load(s, null, false);
     const before = stats.hits;
     translateDom($, $.root()[0], loc, stats, siteHosts);
     return stats.hits === before && !/href=/.test(s) ? s : $.html();
   }
   if (/^(https?:\/\/[^\s"'<>]+|\/[a-z0-9\-/]*)$/i.test(s)) return localizeHref(s, loc, siteHosts);
-  if (s.length > 1200 || /[{}<>]/.test(s)) return s;
-  const t = tr(s, loc, null); if (t !== s && stats) stats.hits++;
-  return t;
+  if (s.length > 4000 || /[{}<>]/.test(s)) return s; // long plain strings (page schema descriptions) are still exact dictionary lookups
+  const t = tr(s, loc, null); if (t !== s) { if (stats) stats.hits++; return t; }
+  // no whole-string entry (the page schema descriptions join several sentences the dictionary knows one by one):
+  // translate sentence by sentence, but only when every sentence is known
+  const parts = s.split(/(?<=[.!?])\s+/); if (parts.length < 2) return s;
+  const out = parts.map((p) => tr(p, loc, null));
+  if (out.some((p, i) => p === parts[i] && /[A-Za-z]{2,}/.test(parts[i]))) return s;
+  if (stats) stats.hits++;
+  return out.join(' ');
 }

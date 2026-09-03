@@ -418,7 +418,8 @@ function transformPayload(json, pageDir, ctx) {
     if (!val || typeof val.rawCustomCode !== 'number') continue;
     const html = str(val.rawCustomCode); if (typeof html !== 'string') continue;
     const rule = ruleFor(html); if (!rule) continue;
-    val.rawCustomCode = push(applyVars(ovrFile(rule.file)).trim()); // an empty file empties the element (hidden via overrides/site.css)
+    // replaced in place (not pushed as a new string): the old code would otherwise stay in the payload as dead data
+    nodes[val.rawCustomCode] = applyVars(ovrFile(rule.file)).trim(); // an empty file empties the element (hidden via overrides/site.css)
     const id = str(n.id) || '?';
     if (!ctx.overridden.has(id)) { ctx.overridden.set(id, rule.name); report.overrides.push({ page: ctx.rel, id, rule: rule.name, file: rule.file }); }
   }
