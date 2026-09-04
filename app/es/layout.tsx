@@ -12,15 +12,21 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
+      <head>
+        {/* Safety net: rewrites any asset URL the GHL runtime still builds against the original CDNs to the
+            local copies, provides window.__ghlOnReady for the site's own DOMContentLoaded scripts, and filters the
+            review widget's height messages. A plain parser-blocking script on purpose: next/script's
+            "beforeInteractive" runs after the page's own inline scripts (the review-widget.js embed among them),
+            and the message filter must register before the vendor's listener. */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script src="/ghl-offline-shim.js?v=mtnkeeal" />
+      </head>
       <body>
         <PageLoader locale="es" />
         <SiteHeader locale="es" />
         {children}
         <SiteFooter locale="es" />
-        <Script src="/snz-motion.js?v=mtndbsf9" strategy="afterInteractive" />
-        {/* Safety net: rewrites any asset URL the GHL runtime still builds against the original CDNs to the
-            local copies, and provides window.__ghlOnReady for the site's own DOMContentLoaded scripts. */}
-        <Script src="/ghl-offline-shim.js?v=mtndbsf9" strategy="beforeInteractive" />
+        <Script src="/snz-motion.js?v=mtnkeeal" strategy="afterInteractive" />
       </body>
     </html>
   );

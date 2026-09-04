@@ -846,15 +846,21 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang=${JSON.stringify(l.htmlLang)}>
+      <head>
+        {/* Safety net: rewrites any asset URL the GHL runtime still builds against the original CDNs to the
+            local copies, provides window.__ghlOnReady for the site's own DOMContentLoaded scripts, and filters the
+            review widget's height messages. A plain parser-blocking script on purpose: next/script's
+            "beforeInteractive" runs after the page's own inline scripts (the review-widget.js embed among them),
+            and the message filter must register before the vendor's listener. */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script src="/ghl-offline-shim.js?v=${BUILD_STAMP}" />
+      </head>
       <body>
         <PageLoader locale=${JSON.stringify(l.code)} />
         <SiteHeader locale=${JSON.stringify(l.code)} />
         {children}
         <SiteFooter locale=${JSON.stringify(l.code)} />
         <Script src="/snz-motion.js?v=${BUILD_STAMP}" strategy="afterInteractive" />
-        {/* Safety net: rewrites any asset URL the GHL runtime still builds against the original CDNs to the
-            local copies, and provides window.__ghlOnReady for the site's own DOMContentLoaded scripts. */}
-        <Script src="/ghl-offline-shim.js?v=${BUILD_STAMP}" strategy="beforeInteractive" />
       </body>
     </html>
   );
@@ -977,7 +983,20 @@ function shimSource() {
   // motion system: the reveal-hidden state (overrides/motion.css) only exists while <html class="js"> is set
   try { if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) document.documentElement.classList.add('js'); } catch (err) {}
   // LeadConnector reviews widget: the client's exact embed (overrides/widgets/reviews.html) is used as-is, with no
-  // wrapper and no sizing of our own; the vendor helper review-widget.js it ships with sizes the iframe.
+  // wrapper and no sizing of our own; the vendor helper review-widget.js it ships with sizes the iframe. The page
+  // carries a desktop-only and a mobile-only copy of the widget, and the vendor helper applies every height message
+  // to every .lc_reviews_widget iframe, so the hidden copy (no layout, reports 1px) kept collapsing the visible one.
+  // Height messages that come from a copy without layout are stopped here (capture listener: runs before the
+  // vendor's bubble listener even on the same target), so the visible copy is sized from its own content only.
+  window.addEventListener('message', function (e) {
+    try {
+      var d = e.data;
+      if (!Array.isArray(d) || (d[0] !== 'lc.setHeight' && d[0] !== 'lc.setFlashHeight') || !e.source) return;
+      var all = document.querySelectorAll('iframe.lc_reviews_widget'), from = null;
+      for (var i = 0; i < all.length; i++) if (all[i].contentWindow === e.source) { from = all[i]; break; }
+      if (from && (!from.getClientRects().length || from.getBoundingClientRect().width < 4)) e.stopImmediatePropagation();
+    } catch (err) {}
+  }, true);
   // LeadConnector booking calendar: the widget posts ['highlevel.setHeight', {height, id:'msgsndr-calendar'}] and the
   // vendor helper (form_embed.js) looks for an iframe by that id, which the GoHighLevel embed does not carry, so the
   // frame stays at the browser's 150px default and the calendar is cut off. Size the iframe that sent the message.
