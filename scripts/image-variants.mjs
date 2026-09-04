@@ -5,7 +5,7 @@
  * WebP variants (r_320 … r_1200) the builder's <picture> sources ask for, under images.leadconnectorhq.com/…
  *
  *   node scripts/image-variants.mjs <source file> <mediaPath> [--max=1600]
- *   e.g. node scripts/image-variants.mjs C:/downloads/store.jpg ARD47WoZpqaZSQ9MSxLD/media/69a1d3acb617a750cec56a9b.jpg
+ *   e.g. node scripts/image-variants.mjs C:/downloads/store.jpg ARD47WoZpqaZSQ9MSxLD/media/&lt;media id&gt;.jpeg
  *
  * --max caps the stored "original" (a 6000px camera JPEG would otherwise ship as-is to every page).
  */

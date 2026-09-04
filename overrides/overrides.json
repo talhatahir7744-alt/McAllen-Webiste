@@ -2,15 +2,17 @@
   "_comment": "Hand-provided section code and live widget embeds applied by scripts/convert.mjs. `rules` match a GoHighLevel custom-code element by substrings of its current HTML (so desktop + mobile copies are both replaced) and swap in `file`; {{custom_values.*}} merge tags are filled from `vars`.",
   "vars": {
     "custom_values.new_store_city_location": "McAllen",
-    "custom_values.store_image_url": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/69a1d3acb617a750cec56a9b.jpg",
+    "custom_values.store_image_url": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/684480ff2c95c570cfc22e24.jpeg",
     "custom_values.5th_image": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577049a9c7792ea57899a.png"
   },
   "imageReplacements": {
     "_comment": "old media path -> new media path, applied to every reference (bare CDN URL, resize variants, payload). The new file and its r_320…r_1200 variants are added to the clone tree with `node scripts/image-variants.mjs <file> <mediaPath>`.",
-    "BljrSmLCnm4gF9LpsTRZ/media/6a7577099a9c7792ea578a2c.jpeg": "ARD47WoZpqaZSQ9MSxLD/media/69a1d3acb617a750cec56a9b.jpg"
+    "BljrSmLCnm4gF9LpsTRZ/media/6a7577099a9c7792ea578a2c.jpeg": "ARD47WoZpqaZSQ9MSxLD/media/684480ff2c95c570cfc22e24.jpeg",
+    "ARD47WoZpqaZSQ9MSxLD/media/69a1d3acb617a750cec56a9b.jpg": "ARD47WoZpqaZSQ9MSxLD/media/684480ff2c95c570cfc22e24.jpeg"
   },
   "imageAlt": {
-    "_comment": "alt text for client images that carry none, matched by media id; translated through overrides/i18n/es.extra.json",
+    "_comment": "alt text for client images that carry none, matched by media id (the id in the reference before or after replacement); translated through overrides/i18n/es.extra.json",
+    "684480ff2c95c570cfc22e24": "Snooze Mattress + Wellness McAllen storefront",
     "69a1d3acb617a750cec56a9b": "Snooze Mattress + Wellness McAllen storefront",
     "6a7577099a9c7792ea578a2c": "Snooze Mattress + Wellness McAllen storefront"
   },
