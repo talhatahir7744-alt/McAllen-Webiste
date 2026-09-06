@@ -36,7 +36,8 @@ const LEFTOVERS = [
   { name: 'old email', re: /brownsville@|tfrench\.snoozemattresscompany/gi, ok: (ctx, file) => /scripts\/relocate\.mjs/.test(file) },
   { name: 'old socials', re: /profile\.php\?id=61593118197488|snoozebrownsville/gi, ok: (ctx, file) => /scripts\/relocate\.mjs/.test(file) },
   // both superseded storefront photos: the Brownsville one and the wrong-store one that briefly replaced it
-  { name: 'old storefront file', re: /6a7577099a9c7792ea578a2c|69a1d3acb617a750cec56a9b/g, ok: (ctx, file) => /overrides\.json$|scripts\/relocate\.mjs|conversion-report|asset-map/.test(file) },
+  // (the shim's WebP-twin map lists every heavy original in the clone tree, the superseded photos included; harmless)
+  { name: 'old storefront file', re: /6a7577099a9c7792ea578a2c|69a1d3acb617a750cec56a9b/g, ok: (ctx, file) => /overrides\.json$|scripts\/relocate\.mjs|conversion-report|asset-map|ghl-offline-shim\.js/.test(file) },
   { name: 'old map links', re: /share\.google\/tRQVAaAurSFu6jvKl|maps\.app\.goo\.gl\/KevCK7WVkFbBDRir5|q=3831/g, ok: (ctx, file) => /scripts\/relocate\.mjs/.test(file) },
   { name: 'old hosts', re: /brownsville-webiste|rockwall\.snoozemattresscompany|brownsville\.snoozemattresscompany\.com/gi, ok: (ctx, file) => /scripts\/|README|overrides\/i18n\/|\.vercel\//.test(file) },
   { name: 'tel: not E.164', re: /tel:(?!\+19565865646)[^"'\\\s<>]+/g, ok: (ctx, file) => /scripts\/|README/.test(file) || /tel:\/mailto:/.test(ctx) },

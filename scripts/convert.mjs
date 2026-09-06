@@ -1124,12 +1124,24 @@ function shimSource() {
   function fixEl(el) { if (el.nodeType !== 1) return; if (el.tagName === 'STYLE') { fixStyle(el); return; } if (el.tagName === 'SCRIPT') return; for (var i = 0; i < ATTRS.length; i++) if (el.hasAttribute(ATTRS[i])) fixAttr(el, ATTRS[i]); }
   function scan(root) { if (root.nodeType !== 1) return; fixEl(root); var all = root.querySelectorAll('style,img,source,video,iframe,link,[style],[srcset],[data-src]'); for (var i = 0; i < all.length; i++) fixEl(all[i]); }
   try {
+    // Hydration (React + the GHL Vue runtime) produces thousands of mutation records in a burst; they are queued and
+    // handled in idle-time slices so this safety net never adds a long task to the critical path.
+    var queue = [], scheduled = false;
+    var ric = window.requestIdleCallback || function (cb) { return setTimeout(function () { cb({ timeRemaining: function () { return 8; } }); }, 100); };
+    function handle(m) {
+      if (m.type === 'characterData') { var p = m.target.parentNode; if (p && p.tagName === 'STYLE') fixStyle(p); }
+      else if (m.type === 'attributes') fixAttr(m.target, m.attributeName);
+      else for (var j = 0; j < m.addedNodes.length; j++) { var n = m.addedNodes[j]; if (n.nodeType === 1) scan(n); else if (n.nodeType === 3 && n.parentNode && n.parentNode.tagName === 'STYLE') fixStyle(n.parentNode); }
+    }
+    function drain(dl) {
+      scheduled = false; var n = 0;
+      while (queue.length && (n < 60 || dl.timeRemaining() > 3)) { handle(queue.shift()); n++; }
+      if (queue.length && !scheduled) { scheduled = true; ric(drain, { timeout: 1500 }); }
+    }
     new MutationObserver(function (muts) {
       if (busy) return;
-      for (var i = 0; i < muts.length; i++) { var m = muts[i];
-        if (m.type === 'characterData') { var p = m.target.parentNode; if (p && p.tagName === 'STYLE') fixStyle(p); }
-        else if (m.type === 'attributes') fixAttr(m.target, m.attributeName);
-        else for (var j = 0; j < m.addedNodes.length; j++) { var n = m.addedNodes[j]; if (n.nodeType === 1) scan(n); else if (n.nodeType === 3 && n.parentNode && n.parentNode.tagName === 'STYLE') fixStyle(n.parentNode); } }
+      for (var i = 0; i < muts.length; i++) queue.push(muts[i]);
+      if (!scheduled) { scheduled = true; ric(drain, { timeout: 1500 }); }
     }).observe(document.documentElement, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ATTRS });
   } catch (e) {}
   // No sweep of the server-rendered DOM: every URL in it was rewritten at build time (verified: zero external
