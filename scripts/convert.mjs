@@ -1135,7 +1135,7 @@ function shimSource() {
     }
     function drain(dl) {
       scheduled = false; var n = 0;
-      while (queue.length && (n < 60 || dl.timeRemaining() > 3)) { handle(queue.shift()); n++; }
+      while (queue.length && (n < 8 || dl.timeRemaining() > 3)) { handle(queue.shift()); n++; } /* a re-rendered custom-code block is one record but a whole subtree: keep slices short */
       if (queue.length && !scheduled) { scheduled = true; ric(drain, { timeout: 1500 }); }
     }
     new MutationObserver(function (muts) {

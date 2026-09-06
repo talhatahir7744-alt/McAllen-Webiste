@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             "beforeInteractive" runs after the page's own inline scripts (the review-widget.js embed among them),
             and the message filter must register before the vendor's listener. */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script src="/ghl-offline-shim.js?v=mtqf8e8q" />
+        <script src="/ghl-offline-shim.js?v=mtqfg3j2" />
       </head>
       <body>
         <TrackingBody />
@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader locale="en" />
         {children}
         <SiteFooter locale="en" />
-        <Script src="/snz-motion.js?v=mtqf8e8q" strategy="afterInteractive" />
+        <Script src="/snz-motion.js?v=mtqfg3j2" strategy="afterInteractive" />
       </body>
     </html>
   );
