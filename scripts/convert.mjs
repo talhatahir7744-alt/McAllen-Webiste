@@ -837,6 +837,7 @@ import Script from 'next/script';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
 import { PageLoader } from '@/components/PageLoader';
+import { TrackingHead, TrackingBody } from '@/components/Tracking';
 import '../../overrides/global.css';
 
 export const metadata: Metadata = {
@@ -847,6 +848,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang=${JSON.stringify(l.htmlLang)}>
       <head>
+        <TrackingHead />
         {/* Safety net: rewrites any asset URL the GHL runtime still builds against the original CDNs to the
             local copies, provides window.__ghlOnReady for the site's own DOMContentLoaded scripts, and filters the
             review widget's height messages. A plain parser-blocking script on purpose: next/script's
@@ -856,6 +858,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script src="/ghl-offline-shim.js?v=${BUILD_STAMP}" />
       </head>
       <body>
+        <TrackingBody />
         <PageLoader locale=${JSON.stringify(l.code)} />
         <SiteHeader locale=${JSON.stringify(l.code)} />
         {children}
