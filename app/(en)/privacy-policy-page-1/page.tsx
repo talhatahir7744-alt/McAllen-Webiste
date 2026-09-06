@@ -20,21 +20,21 @@ export const metadata: Metadata = {
     "url": "/privacy-policy-page-1",
     "type": "website",
     "images": [
-      "/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a7c8daffe4291bd100eddea.png"
+      "/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a7c8daffe4291bd100eddea.png.webp"
     ],
     "locale": "en_US"
   },
   "twitter": {
     "card": "summary_large_image",
     "images": [
-      "/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a7c8daffe4291bd100eddea.png"
+      "/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a7c8daffe4291bd100eddea.png.webp"
     ]
   },
   "icons": {
     "icon": "/assets/filesafe/qR8peonBlnjGI3ZuLHQP/media/695b9e7d17768458ae206a19.png"
   },
   "other": {
-    "image": "/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a7c8daffe4291bd100eddea.png"
+    "image": "/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a7c8daffe4291bd100eddea.png.webp"
   }
 };
 

@@ -14,6 +14,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://link.snoozesleep.com" />
+        <link rel="dns-prefetch" href="https://reputationhub.site" />
+        <link rel="dns-prefetch" href="https://tag.simpli.fi" />
         <TrackingHead />
         {/* Safety net: rewrites any asset URL the GHL runtime still builds against the original CDNs to the
             local copies, provides window.__ghlOnReady for the site's own DOMContentLoaded scripts, and filters the
@@ -21,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             "beforeInteractive" runs after the page's own inline scripts (the review-widget.js embed among them),
             and the message filter must register before the vendor's listener. */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script src="/ghl-offline-shim.js?v=mtnkeeal" />
+        <script src="/ghl-offline-shim.js?v=mtqf0z1j" />
       </head>
       <body>
         <TrackingBody />
@@ -29,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader locale="en" />
         {children}
         <SiteFooter locale="en" />
-        <Script src="/snz-motion.js?v=mtnkeeal" strategy="afterInteractive" />
+        <Script src="/snz-motion.js?v=mtqf0z1j" strategy="afterInteractive" />
       </body>
     </html>
   );

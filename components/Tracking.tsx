@@ -21,6 +21,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','${GTM_ID}');`;
 
+const SIMPLIFI_LOADER = `(function(){var done=false;function go(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='${SIMPLIFI_SRC}';document.head.appendChild(s);}
+var evs=['pointerdown','keydown','touchstart','scroll'];function onFirst(){go();for(var i=0;i<evs.length;i++)window.removeEventListener(evs[i],onFirst,{passive:true});}
+for(var i=0;i<evs.length;i++)window.addEventListener(evs[i],onFirst,{passive:true});
+var idle=window.requestIdleCallback||function(cb){setTimeout(cb,4000)};window.addEventListener('load',function(){idle(go,{timeout:4000});});})();`;
+
 /** <head> tags, in the client's order: gtag.js (primary), GTM, Simpli.fi, gtag.js (secondary). */
 export function TrackingHead() {
   return (
@@ -31,7 +36,9 @@ export function TrackingHead() {
       {/* Google Tag Manager */}
       <script dangerouslySetInnerHTML={{ __html: GTM_SNIPPET }} />
       {/* End Google Tag Manager */}
-      <script async src={SIMPLIFI_SRC} />
+      {/* Simpli.fi (marketing pixel, nothing on the page depends on it): the same async tag, injected after the page
+          is interactive: on the first user interaction or in the browser's first idle period (4 s at the latest) */}
+      <script dangerouslySetInnerHTML={{ __html: SIMPLIFI_LOADER }} />
       {/* Google tag (gtag.js) */}
       <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_SECONDARY}`} />
       <script dangerouslySetInnerHTML={{ __html: gtagSnippet(GA_SECONDARY) }} />

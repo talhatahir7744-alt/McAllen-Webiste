@@ -20,9 +20,15 @@ var keep=function(x){return x.nodeType===1&&/^(STYLE|LINK|SCRIPT)$/.test(x.tagNa
 while(c){var nx=c.nextSibling;if(c===n){past=true}else if(!keep(c)){(past?after:before).appendChild(c)}c=nx}
 document.body.insertBefore(before,document.body.firstChild);document.body.appendChild(after);w.setAttribute('data-ghl-fixed','1')})();`;
 
-export function GhlPage({ headHtml, bodyHtml, scripts }: { headHtml: string; bodyHtml: string; scripts: PageScript[] }) {
+export type PagePreload = { href: string; media?: string };
+
+export function GhlPage({ headHtml, bodyHtml, scripts, preload }: { headHtml: string; bodyHtml: string; scripts: PageScript[]; preload?: PagePreload[] }) {
   return (
     <>
+      {/* hero background = LCP element; React hoists these into <head> */}
+      {(preload || []).map((p) => (
+        <link key={p.href + (p.media || '')} rel="preload" as="image" href={p.href} media={p.media} fetchPriority="high" />
+      ))}
       <div data-ghl-page="" style={{ display: 'contents' }} suppressHydrationWarning dangerouslySetInnerHTML={{ __html: headHtml + bodyHtml }} />
       <Script id="ghl-teleport-fix" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: TELEPORT_FIX }} />
       {scripts.map((s) =>

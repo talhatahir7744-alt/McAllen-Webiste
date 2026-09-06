@@ -6,8 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "convert": "node scripts/convert.mjs",
+    "convert": "node scripts/optimize-images.mjs && node scripts/convert.mjs",
     "verify": "node scripts/verify.mjs",
+    "images": "node scripts/optimize-images.mjs",
     "qa:header": "node scripts/qa-header.mjs"
   },
   "dependencies": {

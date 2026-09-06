@@ -153,6 +153,7 @@ console.log(`clone check: ${pageFiles.length} pages, every <img> src/srcset reso
 // ---------------------------------------------------------------- 1. assets
 const assetMap = new Map();      // localRel -> publicPath
 const usedPublic = new Map();    // publicPath -> localRel
+const webpTwins = new Map();     // localRel -> path of its WebP twin (scripts/optimize-images.mjs), served in its place
 const variantIndex = new Map();  // mediaPath -> [{ size, localRel }]
 
 function publicPathFor(host, segs) {
@@ -187,7 +188,12 @@ for (const host of Object.keys(HOST_ALIAS)) {
     const segs = posix(path.relative(dir, file)).split('/');
     if (segs.length === 1 && segs[0] === 'index.html') continue; // stray host index page saved by wget
     const localRel = `${host}/${segs.join('/')}`;
-    let pub = publicPathFor(host, segs);
+    // WebP twins written by scripts/optimize-images.mjs sit next to their heavy PNG/JPEG original: the twin is not an
+    // asset of its own, the original is served under its public path + ".webp"
+    if (/\.(png|jpe?g)\.webp$/i.test(file) && fs.existsSync(file.replace(/\.webp$/i, ''))) continue;
+    const twin = /\.(png|jpe?g)$/i.test(file) && fs.existsSync(`${file}.webp`) ? `${file}.webp` : null;
+    let pub = publicPathFor(host, segs) + (twin ? '.webp' : '');
+    if (twin) webpTwins.set(localRel, twin);
     if (usedPublic.has(pub) && usedPublic.get(pub) !== localRel) {
       report.assets.collisions++;
       pub = pub.replace(/(\.[A-Za-z0-9]{1,8})?$/, `-${fnv1a(localRel)}$1`);
@@ -222,7 +228,7 @@ function patchBundle(text) {
 }
 console.log(`assets: ${assetMap.size} files indexed, ${variantIndex.size} proxied image sources, copying…`);
 for (const [localRel, pub] of assetMap) {
-  const src = `${CLONE}/${localRel}`; const dest = path.join(PUBLIC, pub.replace(/^\//, ''));
+  const src = webpTwins.get(localRel) || `${CLONE}/${localRel}`; const dest = path.join(PUBLIC, pub.replace(/^\//, ''));
   const host = localRel.split('/')[0];
   const isText = /\.(js|mjs|css)$/i.test(localRel) && (host === 'stcdn.leadconnectorhq.com' || host === 'fonts.googleapis.com');
   if (!isText) {
@@ -543,6 +549,11 @@ function convertPage(rel, loc = null) {
     const r = applyHeroBackground($, $p.length ? $p.html() || '' : '', OVR.heroBackgrounds[rel], new Set(OVR.removeElements));
     if (r.json !== null) $p.html(r.json);
     report.heroBackgrounds.push({ page: rel, image: OVR.heroBackgrounds[rel], desktop: r.desktop, mobile: r.mobile });
+    // the hero background is the LCP element: preload the copy that matches the viewport (<link rel="preload" media>)
+    const cfg = OVR.heroBackgrounds[rel]; const heroUrl = (w) => (typeof cfg === 'string' ? cfg : cfg && cfg[w]) || null;
+    ctx.preload = [];
+    if (r.desktop && heroUrl('desktop')) ctx.preload.push({ href: mapUrl(heroUrl('desktop'), pageDir), media: '(min-width: 768px)' });
+    if (r.mobile && heroUrl('mobile')) ctx.preload.push({ href: mapUrl(heroUrl('mobile'), pageDir), media: '(max-width: 767px)' });
     if (r.mobile) $(`[id="${r.mobile}"]`).addClass('snz-hero'); // phone hero: overlay + cover rules in overrides/site.css
   }
 
@@ -765,7 +776,7 @@ function convertPage(rel, loc = null) {
     `export const metadata: Metadata = ${JSON.stringify(metadata, null, 2)};`,
     '',
     'export default function Page() {',
-    '  return <GhlPage headHtml={HEAD_HTML} bodyHtml={BODY_HTML} scripts={SCRIPTS} />;',
+    `  return <GhlPage headHtml={HEAD_HTML} bodyHtml={BODY_HTML} scripts={SCRIPTS}${ctx.preload && ctx.preload.length ? ` preload={${JSON.stringify(ctx.preload)}}` : ''} />;`,
     '}',
     '',
   ].join('\n'));
@@ -800,9 +811,15 @@ var keep=function(x){return x.nodeType===1&&/^(STYLE|LINK|SCRIPT)$/.test(x.tagNa
 while(c){var nx=c.nextSibling;if(c===n){past=true}else if(!keep(c)){(past?after:before).appendChild(c)}c=nx}
 document.body.insertBefore(before,document.body.firstChild);document.body.appendChild(after);w.setAttribute('data-ghl-fixed','1')})();\`;
 
-export function GhlPage({ headHtml, bodyHtml, scripts }: { headHtml: string; bodyHtml: string; scripts: PageScript[] }) {
+export type PagePreload = { href: string; media?: string };
+
+export function GhlPage({ headHtml, bodyHtml, scripts, preload }: { headHtml: string; bodyHtml: string; scripts: PageScript[]; preload?: PagePreload[] }) {
   return (
     <>
+      {/* hero background = LCP element; React hoists these into <head> */}
+      {(preload || []).map((p) => (
+        <link key={p.href + (p.media || '')} rel="preload" as="image" href={p.href} media={p.media} fetchPriority="high" />
+      ))}
       <div data-ghl-page="" style={{ display: 'contents' }} suppressHydrationWarning dangerouslySetInnerHTML={{ __html: headHtml + bodyHtml }} />
       <Script id="ghl-teleport-fix" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: TELEPORT_FIX }} />
       {scripts.map((s) =>
@@ -848,6 +865,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang=${JSON.stringify(l.htmlLang)}>
       <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://link.snoozesleep.com" />
+        <link rel="dns-prefetch" href="https://reputationhub.site" />
+        <link rel="dns-prefetch" href="https://tag.simpli.fi" />
         <TrackingHead />
         {/* Safety net: rewrites any asset URL the GHL runtime still builds against the original CDNs to the
             local copies, provides window.__ghlOnReady for the site's own DOMContentLoaded scripts, and filters the
@@ -1061,6 +1082,8 @@ function shimSource() {
   ALIAS['images.' + LC] = 'lcimg'; ALIAS['stcdn.' + LC] = 'lcstatic'; ALIAS['fonts.googleapis.com'] = 'gfonts-css'; ALIAS['fonts.gstatic.com'] = 'gfonts';
   var LC_RE = new RegExp('(^|\\\\.)(' + LC.replace('.', '\\\\.') + '|apisystem\\\\.tech)$');
   var FONTMAP = ${JSON.stringify(Object.fromEntries(Object.entries(fontmap).map(([k, v]) => [k, assetMap.get(v) || null]).filter(([, v]) => v)))};
+  /* originals replaced by a WebP twin at build time (public path without the .webp suffix -> 1) */
+  var WEBP = ${JSON.stringify(Object.fromEntries([...webpTwins.keys()].map((k) => [(assetMap.get(k) || '').replace(/\.webp$/, ''), 1]).filter(([k]) => k)))};
   function fnv(s) { var h = 0x811c9dc5; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return ('0000000' + h.toString(16)).slice(-8); }
   function san(seg) { var s = seg.replace(/[^A-Za-z0-9._-]/g, '_'); if (s.length > 100) { var m = seg.match(/\\.[A-Za-z0-9]{1,8}$/); s = s.slice(0, 60) + '-' + fnv(seg) + (m ? m[0] : ''); } return s; }
   function esc(s) { return s.replace(/[\\\\|:?"*<>\\x00-\\x1f]/g, function (c) { var h = c.charCodeAt(0).toString(16).toUpperCase(); return '%' + (h.length < 2 ? '0' + h : h); }); }
@@ -1083,7 +1106,8 @@ function shimSource() {
       if (host === 'fonts.googleapis.com' && !/\\.css$/.test(w)) w += '.css';
       segs = w.split('/');
     }
-    return '/assets/' + alias + '/' + segs.filter(Boolean).map(san).join('/');
+    var out = '/assets/' + alias + '/' + segs.filter(Boolean).map(san).join('/');
+    return WEBP[out] ? out + '.webp' : out; /* heavy originals are served as their WebP twin (scripts/optimize-images.mjs) */
   }
   var CSS_URL = /url\\(\\s*(['"]?)(https?:\\/\\/[^'")]+)\\1\\s*\\)/g;
   function fixCss(t) { return t.replace(CSS_URL, function (all, qq, u) { var l = local(u); return l ? 'url(' + qq + l + qq + ')' : all; }); }
@@ -1108,7 +1132,9 @@ function shimSource() {
         else for (var j = 0; j < m.addedNodes.length; j++) { var n = m.addedNodes[j]; if (n.nodeType === 1) scan(n); else if (n.nodeType === 3 && n.parentNode && n.parentNode.tagName === 'STYLE') fixStyle(n.parentNode); } }
     }).observe(document.documentElement, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ATTRS });
   } catch (e) {}
-  document.addEventListener('DOMContentLoaded', function () { scan(document.documentElement); });
+  // No sweep of the server-rendered DOM: every URL in it was rewritten at build time (verified: zero external
+  // CDN references left on hydrated pages), so a full-document pass at DOMContentLoaded only cost main-thread time.
+  // The observer above remains the runtime safety net for anything the GHL runtime inserts or rewrites.
 })();
 `;
 }

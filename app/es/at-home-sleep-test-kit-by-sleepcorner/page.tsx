@@ -39,5 +39,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <GhlPage headHtml={HEAD_HTML} bodyHtml={BODY_HTML} scripts={SCRIPTS} />;
+  return <GhlPage headHtml={HEAD_HTML} bodyHtml={BODY_HTML} scripts={SCRIPTS} preload={[{"href":"/assets/filesafe/ARD47WoZpqaZSQ9MSxLD/media/6998cc589df4c153d0a468bf.png.webp","media":"(min-width: 768px)"},{"href":"/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png.webp","media":"(max-width: 767px)"}]} />;
 }

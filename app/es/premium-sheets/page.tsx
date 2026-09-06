@@ -20,24 +20,24 @@ export const metadata: Metadata = {
     "url": "/es/premium-sheets",
     "type": "website",
     "images": [
-      "/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4b4fe74193541e4272.png"
+      "/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4b4fe74193541e4272.png.webp"
     ],
     "locale": "es_US"
   },
   "twitter": {
     "card": "summary_large_image",
     "images": [
-      "/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4b4fe74193541e4272.png"
+      "/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4b4fe74193541e4272.png.webp"
     ]
   },
   "icons": {
     "icon": "/assets/filesafe/qR8peonBlnjGI3ZuLHQP/media/695b9e7d17768458ae206a19.png"
   },
   "other": {
-    "image": "/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4b4fe74193541e4272.png"
+    "image": "/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4b4fe74193541e4272.png.webp"
   }
 };
 
 export default function Page() {
-  return <GhlPage headHtml={HEAD_HTML} bodyHtml={BODY_HTML} scripts={SCRIPTS} />;
+  return <GhlPage headHtml={HEAD_HTML} bodyHtml={BODY_HTML} scripts={SCRIPTS} preload={[{"href":"/assets/filesafe/ARD47WoZpqaZSQ9MSxLD/media/6994d95854da044f3c95c763.png.webp","media":"(min-width: 768px)"},{"href":"/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png.webp","media":"(max-width: 767px)"}]} />;
 }

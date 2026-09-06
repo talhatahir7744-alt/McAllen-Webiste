@@ -5,7 +5,7 @@
    languages). One background image on the section's own background layer, headline through the last step, covered
    and centred, under a white wash that fades toward the top and bottom edges so the section blends into the white
    sections around it. The timeline block itself is transparent. Swap the image by changing --steps-bg. */
-.hl_page-preview--content .steps-bg-faded { --steps-bg: url("/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a98aa870ba3728cefe0c326.png"); background-color: #ffffff !important; }
+.hl_page-preview--content .steps-bg-faded { --steps-bg: url("/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a98aa870ba3728cefe0c326.png.webp"); background-color: #ffffff !important; }
 .hl_page-preview--content .steps-bg-faded > .bg {
   background: var(--steps-bg) center center / cover no-repeat !important;
   filter: none !important;
