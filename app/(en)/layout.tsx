@@ -44,7 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader locale="en" />
         {children}
         <SiteFooter locale="en" />
-        <Script src="/snz-motion.js?v=mu33rjs6" strategy="afterInteractive" />
+        <Script src="/snz-motion.js?v=mu33xa76" strategy="afterInteractive" />
       </body>
     </html>
   );

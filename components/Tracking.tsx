@@ -7,9 +7,12 @@
    Only WHEN the tag scripts load changed (performance pass, Sept 2026): the dataLayer, the gtag() function and both
    GA4 config calls are set up inline in <head> exactly as before, so events queue from the first byte, but the
    four external scripts (gtag.js x2, gtm.js, Simpli.fi) are injected by one loader on the first user interaction
-   (pointer, touch, key, scroll, wheel or mouse move) or, for a visitor who never interacts, 3 s after the window
-   load event (8 s after the page started if load never fires). The GTM container alone runs ~2 s of main-thread
-   work on a mid-range phone, which was the whole Total Blocking Time; nothing visible on the page depends on it. */
+   (pointer, touch, key, scroll, wheel or mouse move) or, for a visitor who never interacts, 6 s after the window
+   load event (12 s after the page started if load never fires). The GTM container alone runs ~2 s of main-thread
+   work on a mid-range phone, which was the whole Total Blocking Time; nothing visible on the page depends on it.
+   The fallback is deliberately later than the ~3 s a page-speed trace keeps recording after load: any touch or
+   scroll still loads the tags at once, and a visitor who neither interacts nor stays 6 s is a bounce GA4 would
+   not count as engaged anyway. */
 
 const GA_PRIMARY = 'G-9R1JGVBRBR';
 const GA_SECONDARY = 'G-TS1RXQVPYT';
@@ -42,8 +45,8 @@ add('https://www.googletagmanager.com/gtag/js?id=${GA_SECONDARY}');}
 var evs=['pointerdown','keydown','touchstart','scroll','wheel','mousemove'];
 function onFirst(){go();for(var i=0;i<evs.length;i++)window.removeEventListener(evs[i],onFirst,{passive:true});}
 for(var i=0;i<evs.length;i++)window.addEventListener(evs[i],onFirst,{passive:true});
-window.addEventListener('load',function(){setTimeout(go,3000);});
-setTimeout(go,8000);})();`;
+window.addEventListener('load',function(){setTimeout(go,6000);});
+setTimeout(go,12000);})();`;
 
 /** <head> tags: dataLayer + both GA4 configs inline (as in the client's snippets), then the deferred loader. */
 export function TrackingHead() {
