@@ -1152,7 +1152,7 @@ function shimSource() {
   var LC_RE = new RegExp('(^|\\\\.)(' + LC.replace('.', '\\\\.') + '|apisystem\\\\.tech)$');
   var FONTMAP = ${JSON.stringify(Object.fromEntries(Object.entries(fontmap).map(([k, v]) => [k, assetMap.get(v) || null]).filter(([, v]) => v)))};
   /* originals replaced by a WebP twin at build time (public path without the .webp suffix -> 1) */
-  var WEBP = ${JSON.stringify(Object.fromEntries([...webpTwins.keys()].map((k) => [(assetMap.get(k) || '').replace(/\.webp$/, ''), 1]).filter(([k]) => k)))};
+  var WEBP = ${JSON.stringify(Object.fromEntries([...webpTwins.keys()].filter((k) => !Object.keys(OVR.imageReplacements || {}).some((old) => old !== '_comment' && k.includes(old))).map((k) => [(assetMap.get(k) || '').replace(/\.webp$/, ''), 1]).filter(([k]) => k)))};
   function fnv(s) { var h = 0x811c9dc5; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return ('0000000' + h.toString(16)).slice(-8); }
   function san(seg) { var s = seg.replace(/[^A-Za-z0-9._-]/g, '_'); if (s.length > 100) { var m = seg.match(/\\.[A-Za-z0-9]{1,8}$/); s = s.slice(0, 60) + '-' + fnv(seg) + (m ? m[0] : ''); } return s; }
   function esc(s) { return s.replace(/[\\\\|:?"*<>\\x00-\\x1f]/g, function (c) { var h = c.charCodeAt(0).toString(16).toUpperCase(); return '%' + (h.length < 2 ? '0' + h : h); }); }
