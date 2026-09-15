@@ -1,4 +1,7 @@
-import Script from 'next/script';
+'use client';
+/* A client component on purpose: each route's generated client.tsx imports its markup and renders this, so the
+   markup is server-rendered into the HTML once and never serialized into the React hydration payload. */
+import { useEffect } from 'react';
 
 export type PageScript = { id: string; src?: string; type?: string; crossOrigin?: string; code?: string };
 
@@ -22,22 +25,42 @@ document.body.insertBefore(before,document.body.firstChild);document.body.append
 
 export type PagePreload = { href: string; media?: string };
 
+/**
+ * The page scripts (teleport fix, Nuxt payload, runtime entry, …) are appended in their original order once React
+ * has hydrated (an effect runs after hydration, like next/script's afterInteractive did). next/script is not used
+ * for them any more: for every external afterInteractive script it emits a <link rel="preload" as="script"> in
+ * <head>, which started the 256 KB runtime entry alongside the document and the hero image on phones.
+ */
+function runPageScripts(scripts: PageScript[]) {
+  // Appended back to back, like next/script did: classic inline scripts run synchronously in this order, classic
+  // external ones keep their order (async = false), and the runtime's module entry — first in the source, but
+  // deferred by the browser — executes after them, once the inline Nuxt config it needs has run.
+  for (const s of [{ id: 'ghl-teleport-fix', code: TELEPORT_FIX }, ...scripts]) {
+    if (document.getElementById(s.id)) continue;
+    const el = document.createElement('script');
+    el.id = s.id;
+    if (s.type) el.type = s.type;
+    if (s.crossOrigin) el.crossOrigin = s.crossOrigin;
+    if (s.src) { el.src = s.src; el.async = false; } else el.text = s.code || '';
+    document.body.appendChild(el);
+  }
+}
+
 export function GhlPage({ headHtml, bodyHtml, scripts, preload }: { headHtml: string; bodyHtml: string; scripts: PageScript[]; preload?: PagePreload[] }) {
+  useEffect(() => {
+    const w = document.querySelector('[data-ghl-page]');
+    if (!w || w.getAttribute('data-ghl-scripts')) return;
+    w.setAttribute('data-ghl-scripts', '1');
+    runPageScripts(scripts);
+  }, [scripts]);
   return (
     <>
       {/* hero background = LCP element; React hoists these into <head> */}
       {(preload || []).map((p) => (
         <link key={p.href + (p.media || '')} rel="preload" as="image" href={p.href} media={p.media} fetchPriority="high" />
       ))}
+      {/* __html is '' on the client (client.tsx): React keeps the server-rendered markup as long as the value does not change */}
       <div data-ghl-page="" style={{ display: 'contents' }} suppressHydrationWarning dangerouslySetInnerHTML={{ __html: headHtml + bodyHtml }} />
-      <Script id="ghl-teleport-fix" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: TELEPORT_FIX }} />
-      {scripts.map((s) =>
-        s.src ? (
-          <Script key={s.id} id={s.id} src={s.src} strategy="afterInteractive" {...(s.type ? { type: s.type } : {})} {...(s.crossOrigin ? { crossOrigin: s.crossOrigin as 'anonymous' | 'use-credentials' } : {})} />
-        ) : (
-          <Script key={s.id} id={s.id} strategy="afterInteractive" {...(s.type ? { type: s.type } : {})} dangerouslySetInnerHTML={{ __html: s.code || '' }} />
-        ),
-      )}
     </>
   );
 }

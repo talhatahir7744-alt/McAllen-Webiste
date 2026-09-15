@@ -158,6 +158,7 @@ There is no chat widget in the page code itself; the LeadConnector chat widget (
 - **Layout shifts**: every GHL image element gets an `aspect-ratio` rule (`<style data-snz-imgratio>`) because the runtime swaps its `<picture>` for a bare `<img>` while hydrating; phone-only sections use the 768px resize as the fallback src.
 - **Critical path**: the offline shim is inlined in both layouts (`lib/ghl-shim.ts`, generated with `public/ghl-offline-shim.js`), the page's own CSS is inlined (`experimental.inlineCss`), the runtime's ~40 module preloads are emitted after the page markup, and only the latin Poppins subset (five files) is preloaded.
 - **Page loader**: `<noscript>` hides the overlay, so the page is fully visible without JavaScript (the reveal system also only hides elements under `html.js`).
+- **One copy of the markup** (LCP pass): each route's `client.tsx` renders `GhlPage` (a client component) and reads `content.ts` only on the server (`typeof window === 'undefined'` — Next drops that branch from the client bundle). The markup is server-rendered into the HTML exactly as before, but it is no longer serialized into React's hydration payload (which doubled every document: the home page went from 3.3 MB / 456 KB gzip to 1.6 MB / 240 KB) and not bundled into the route chunk. On the client React keeps the server-rendered innerHTML because the (empty) value never changes; every link into these routes is a plain `<a>`, so they are always full loads. The page scripts (`scripts.ts`: teleport fix, Nuxt payload, runtime entry) are appended by an effect after hydration instead of next/script, which had preloaded the 256 KB runtime entry in `<head>` ahead of the hero image; the runtime's module preloads are added on window load.
 
 ## Removed tracking / analytics
 
@@ -178,4 +179,4 @@ Removed external scripts:
 - Fonts, images, CSS and the GoHighLevel runtime (Nuxt bundle + 1307 asset files) are served locally.
 - 51 referenced file(s) did not exist in the clone and now resolve to a local 404 instead of the CDN (see conversion-report.json → missingReferenced).
 
-Generated 2026-09-15T18:42:24.319Z from `C:/clones`.
+Generated 2026-09-15T20:06:54.365Z from `C:/clones`.
