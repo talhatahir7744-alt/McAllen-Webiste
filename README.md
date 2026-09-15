@@ -150,6 +150,15 @@ The LeadConnector form, booking-calendar and review-widget elements are rendered
 
 There is no chat widget in the page code itself; the LeadConnector chat widget (`widgets.leadconnectorhq.com`) was loaded by the Google Tag Manager container, which is removed.
 
+## Performance
+
+- **Tag scripts** (`components/Tracking.tsx`): the dataLayer, `gtag()` and both GA4 config calls are inline in `<head>` as in the client's snippets, but gtag.js (x2), the GTM container and Simpli.fi are injected by one loader on the first user interaction or 3 s after the load event (8 s after start at the latest). The GTM container alone was ~2 s of main-thread work on a phone (the whole Total Blocking Time); nothing visible depends on it. The GTM noscript iframe is unchanged.
+- **Logo marquee**: the brand logos' white/grey boxes are erased at build time (`scripts/scrub-logos.mjs`, flood fill from the edges, alpha WebP with width/height next to the original as `*.scrub.webp`); the page no longer redraws 34 logos on canvases or downloads each file twice.
+- **GHL API stub** (`app/ghl-stub/api/[...path]/route.ts`): the runtime's stats/attribution calls get an empty JSON 200 instead of a console 404.
+- **Layout shifts**: every GHL image element gets an `aspect-ratio` rule (`<style data-snz-imgratio>`) because the runtime swaps its `<picture>` for a bare `<img>` while hydrating; phone-only sections use the 768px resize as the fallback src.
+- **Critical path**: the offline shim is inlined in both layouts (`lib/ghl-shim.ts`, generated with `public/ghl-offline-shim.js`), the page's own CSS is inlined (`experimental.inlineCss`), the runtime's ~40 module preloads are emitted after the page markup, and only the latin Poppins subset (five files) is preloaded.
+- **Page loader**: `<noscript>` hides the overlay, so the page is fully visible without JavaScript (the reveal system also only hides elements under `html.js`).
+
 ## Removed tracking / analytics
 
 - payload.globalHeadTrackingCode (21 pages): `inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…`
@@ -169,4 +178,4 @@ Removed external scripts:
 - Fonts, images, CSS and the GoHighLevel runtime (Nuxt bundle + 1307 asset files) are served locally.
 - 51 referenced file(s) did not exist in the clone and now resolve to a local 404 instead of the CDN (see conversion-report.json → missingReferenced).
 
-Generated 2026-09-15T17:35:56.055Z from `C:/clones`.
+Generated 2026-09-15T18:26:45.320Z from `C:/clones`.

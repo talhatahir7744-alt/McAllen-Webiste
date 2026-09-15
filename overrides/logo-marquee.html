@@ -4,11 +4,12 @@
    • No more random blank gaps: images now load eagerly (lazy-loading
      breaks inside an animated marquee) and any logo whose file fails
      to load auto-hides itself in BOTH sets, so the loop stays seamless.
-   • No more greyish boxes: a small script now erases the grey/white
-     background baked into each logo file right in the browser
-     (flood-fill inward from the image edges, so light details
-     INSIDE a logo are kept). If the CDN blocks pixel access, a
-     stronger CSS whitening filter kicks in as the fallback.
+   • No more greyish boxes: the converter erases the grey/white
+     background baked into each logo file at build time
+     (scripts/scrub-logos.mjs: flood fill inward from the image
+     edges, light details INSIDE a logo are kept) and serves an
+     alpha WebP with width/height set. A logo whose file the
+     clone lacks keeps the CSS whitening filter as the fallback.
    Paste this entire block into its own GHL Custom HTML element,
    replacing the old marquee block.
    ============================================================ -->
@@ -67,7 +68,7 @@
     /* Blends white / light-grey backgrounds inside the logo files
        into the white strip — no grey boxes, no shadowed cards */
     mix-blend-mode: multiply;
-    filter: brightness(1.12) contrast(1.16); /* fallback whitening — replaced by real pixel cleanup once the script runs */
+    filter: brightness(1.12) contrast(1.16); /* fallback whitening — only for a logo the build could not scrub */
     transition: transform .3s ease;
     will-change: transform;
     transform-origin: center;
@@ -79,8 +80,7 @@
     .snz-logo-marquee__item:hover { z-index: 5; }
     .snz-logo-marquee__item:hover img { transform: scale(var(--lm-hover-scale)); }
   }
-  /* Once the script has truly erased a logo's background, drop the
-     whitening filter so its brand colors render exactly */
+  /* Scrubbed at build time (alpha WebP): no whitening filter, brand colors render exactly */
   .snz-logo-marquee__item img.snz-scrubbed {
     mix-blend-mode: normal;
     filter: none;
@@ -151,80 +151,6 @@
   </div>
 </div>
 
-<script>
-/* ── True background removal ──────────────────────────────────
-   Redraws each logo on a canvas and erases its background:
-   flood-fills inward from the image edges, deleting connected
-   pixels that are light AND grey-ish. White/grey boxes vanish,
-   while light details enclosed inside a logo are preserved.
-   If the CDN blocks pixel access (CORS), that logo just keeps
-   the CSS whitening fallback — nothing breaks. */
-(function () {
-  var LIGHT  = 192; // edge pixels brighter than this (per channel) count as background — lower it (e.g. 170) to catch darker grey boxes
-  var DESAT  = 32;  // ...but only if grey-ish: max−min channel gap ≤ this
-  var MAXDIM = 800; // downscale very large files before processing
-
-  var cache = {};
-  function scrub(url) {
-    if (!cache[url]) cache[url] = new Promise(function (resolve, reject) {
-      var im = new Image();
-      im.crossOrigin = 'anonymous';
-      im.onload = function () {
-        try {
-          var sc = Math.min(1, MAXDIM / Math.max(im.naturalWidth || 1, im.naturalHeight || 1));
-          var w = Math.max(1, Math.round(im.naturalWidth * sc));
-          var h = Math.max(1, Math.round(im.naturalHeight * sc));
-          var cv = document.createElement('canvas');
-          cv.width = w; cv.height = h;
-          var cx = cv.getContext('2d', { willReadFrequently: true });
-          cx.drawImage(im, 0, 0, w, h);
-          var id = cx.getImageData(0, 0, w, h), d = id.data;
-          function isBg(i) {
-            var a = d[i + 3];
-            if (a === 0) return true;
-            var r = d[i], g = d[i + 1], b = d[i + 2];
-            var mx = Math.max(r, g, b), mn = Math.min(r, g, b);
-            return (mx - mn) <= DESAT && mn >= LIGHT;
-          }
-          var seen = new Uint8Array(w * h), stack = [], changed = 0;
-          for (var x = 0; x < w; x++) { stack.push(x); stack.push(x + (h - 1) * w); }
-          for (var y = 0; y < h; y++) { stack.push(y * w); stack.push(w - 1 + y * w); }
-          while (stack.length) {
-            var p = stack.pop();
-            if (p < 0 || p >= w * h || seen[p]) continue;
-            seen[p] = 1;
-            var i4 = p * 4;
-            if (!isBg(i4)) continue;
-            if (d[i4 + 3] !== 0) { d[i4 + 3] = 0; changed++; }
-            var px = p % w;
-            if (px > 0) stack.push(p - 1);
-            if (px < w - 1) stack.push(p + 1);
-            stack.push(p - w); stack.push(p + w);
-          }
-          if (!changed) { resolve(null); return; } // already clean — keep the original file
-          cx.putImageData(id, 0, 0);
-          resolve(cv.toDataURL('image/png'));
-        } catch (e) { reject(e); } // tainted canvas → CSS fallback stays on
-      };
-      im.onerror = function () { reject(new Error('no-cors')); };
-      // fresh request so the browser doesn't reuse a cached non-CORS copy
-      im.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'snzscrub=1';
-    });
-    return cache[url];
-  }
-
-  var imgs = document.querySelectorAll('.snz-logo-marquee img');
-  Array.prototype.forEach.call(imgs, function (img) {
-    var url = img.getAttribute('src');
-    if (!url || url.indexOf('data:') === 0) return;
-    scrub(url).then(function (dataUrl) {
-      if (!dataUrl) return;
-      img.src = dataUrl;
-      img.classList.add('snz-scrubbed');
-    }).catch(function () { /* CDN blocked pixel access — whitening filter stays on */ });
-  });
-})();
-</script>
 
 <!--
 ═══════════════════════════════════════════════
@@ -233,11 +159,10 @@
   • Spacing      → --lm-gapx (28px = a 56px gap between every image)
   • Speed        → --lm-speed (lower = faster)
   • Hover size   → --lm-hover-scale (1.22 = grows 22% on hover)
-  • Grey boxes   → erased automatically by the script (it deletes
-                   light grey-ish pixels connected to the image edge).
-                   If one logo still shows a darker grey box, lower
-                   LIGHT in the script from 192 to ~170 — or best of
-                   all, re-upload that one logo with a transparent bg.
+  • Grey boxes   → erased at build time by scripts/scrub-logos.mjs (it deletes
+                   light grey-ish pixels connected to the image edge). If one
+                   logo still shows a darker grey box, lower LIGHT there from
+                   192 to ~170 — or re-upload that logo with a transparent bg.
   • Keep SET 1 and SET 2 identical for a seamless loop
 ═══════════════════════════════════════════════
 -->

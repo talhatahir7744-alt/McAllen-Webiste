@@ -24,6 +24,7 @@ import * as cheerio from 'cheerio';
 import { extractSections, insertSectionsIntoPage } from './insert-sections.mjs';
 import { applyHeroBackground } from './hero-backgrounds.mjs';
 import { fluidTypography, addImageDimensions } from './responsive-extras.mjs';
+import { prepareLogoMarquee } from './scrub-logos.mjs';
 import { loadLocale, translateDom, translateString, tr } from './i18n.mjs';
 import { relocate } from './relocate.mjs';
 
@@ -72,7 +73,8 @@ const localized = (route, loc) => (loc && loc.prefix ? loc.prefix + (route === '
 const escapeHtml = (t) => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const MOTION = fs.existsSync(path.join(OVERRIDES_DIR, 'motion.json')) ? JSON.parse(fs.readFileSync(path.join(OVERRIDES_DIR, 'motion.json'), 'utf8')) : { pages: {} };
 const motionRulesFor = (rel) => { let r = MOTION.pages[rel]; while (typeof r === 'string') r = MOTION.pages[r]; return [...(r || []), ...(MOTION.pages['*'] || [])]; };
-const ovrFile = (name) => fs.readFileSync(path.join(OVERRIDES_DIR, name), 'utf8');
+const PREPARED = new Map(); // override files rewritten at build time (the logo marquee, see below)
+const ovrFile = (name) => (PREPARED.has(name) ? PREPARED.get(name) : fs.readFileSync(path.join(OVERRIDES_DIR, name), 'utf8'));
 const applyVars = (html, extra = {}) => html.replace(/\{\{\s*([\w.]+)\s*\}\}/g, (m, k) => (k in extra ? String(extra[k]) : k in OVR.vars ? String(OVR.vars[k]) : m));
 const ruleFor = (html) => OVR.rules.find((r) => r.match.every((s) => html.includes(s)));
 
@@ -246,6 +248,13 @@ for (const [localRel, pub] of assetMap) {
   else { const r = patchBundle(text); if (r.n) report.assets.bundlesPatched++; text = r.text; }
   write(dest, text); report.assets.copied++; report.assets.bytes += Buffer.byteLength(text);
 }
+
+// ---- brand-logo marquee: the grey/white boxes are erased at build time (scripts/scrub-logos.mjs) into alpha WebPs
+// with width/height, so the page does no canvas work and downloads each logo once
+PREPARED.set('logo-marquee.html', await prepareLogoMarquee(
+  fs.readFileSync(path.join(OVERRIDES_DIR, 'logo-marquee.html'), 'utf8'),
+  (url) => { const c = wgetCandidates(url).find((x) => assetMap.has(x)); return c ? { src: `${CLONE}/${c}`, publicPath: assetMap.get(c) } : null; },
+  PUBLIC, (msg) => console.log(msg)));
 
 // ---------------------------------------------------------------- URL mapping
 function wgetCandidates(url) {
@@ -700,7 +709,7 @@ function convertPage(rel, loc = null) {
   });
 
   // ---- 6. head: stylesheet / style / preload sequence, in original order
-  const headParts = [];
+  const headParts = []; const tailParts = []; // tailParts: emitted after the page markup (module preloads)
   $('head').children().each((_, el) => {
     const $el = $(el); const tag = el.tagName.toLowerCase();
     if (tag === 'style') { if ($el.attr('data-offline-font') !== undefined) return; headParts.push(`<style>${rewriteCss($el.html() || '', pageDir)}</style>`); return; }
@@ -714,7 +723,10 @@ function convertPage(rel, loc = null) {
       headParts.push(`<link rel="stylesheet" href="${mapped}">`); return;
     }
     if (rel_ === 'preload' && as === 'style') { if (/^data:/i.test(href)) return; const mapped = mapUrl(href, pageDir); if (!/^https?:/i.test(mapped)) headParts.push(`<link rel="preload" as="style" href="${mapped}">`); return; }
-    if (as === 'script' || rel_ === 'modulepreload') { const mapped = mapUrl(href, pageDir); if (!/^https?:/i.test(mapped)) headParts.push(`<link rel="modulepreload" as="script" crossorigin href="${mapped}">`); return; }
+    // the runtime's ~40 module preloads go after the page markup: the browser still fetches them long before the
+    // (afterInteractive) entry script needs them, but they no longer compete with the document, the hero image and
+    // the fonts for bandwidth before first paint
+    if (as === 'script' || rel_ === 'modulepreload') { const mapped = mapUrl(href, pageDir); if (!/^https?:/i.test(mapped)) tailParts.push(`<link rel="modulepreload" as="script" crossorigin href="${mapped}">`); return; }
     if (rel_ === 'preconnect' || rel_ === 'dns-prefetch' || rel_ === 'prefetch') { report.droppedHints++; return; }
     // icon/canonical handled through metadata
   });
@@ -777,10 +789,24 @@ function convertPage(rel, loc = null) {
 
   // visible text mentions of the original site URL (e.g. in the privacy policy) -> the new deployment URL
   const SITE_TEXT_RE = new RegExp(`https?://(?:www\\.)?${SITE_HOST.replace(/\./g, '\\.')}`, 'g');
-  const headHtml = headParts.join('\n').replace(SITE_TEXT_RE, SITE_URL);
+  // phone-only sections never render wider than 767px: their images' fallback src (what the GHL runtime uses once it
+  // swaps <picture> for a bare <img>) can be the 768px resize instead of the 1200px one
+  $('.mobile-only img[src*="/r_1200/"]').each((_, el) => {
+    const src = $(el).attr('src'); const small = src.replace('/r_1200/', '/r_768/');
+    if (fs.existsSync(path.join(PUBLIC, decodeURIComponent(small.split('?')[0])))) { $(el).attr('src', small); report.phoneImgDownsized = (report.phoneImgDownsized || 0) + 1; }
+  });
   // explicit width/height on every local image (aspect ratio known before load, no layout shift)
   report.imageDimsAdded = (report.imageDimsAdded || 0) + addImageDimensions($, PUBLIC);
-  const bodyHtml = ($body.html() || '').replace(SITE_TEXT_RE, SITE_URL);
+  // the GHL runtime swaps every image element's <picture> for a bare <img> while it hydrates; a per-image
+  // aspect-ratio rule keeps that box (and everything below it) still while the new img decodes (no layout shift)
+  const ratioRules = new Map();
+  $('.c-image img[width][height]').each((_, el) => {
+    const id = $(el).closest('.c-image').attr('id'); const w = +$(el).attr('width'), h = +$(el).attr('height');
+    if (id && w > 0 && h > 0 && !ratioRules.has(id)) ratioRules.set(id, `#${id} .image-container img{aspect-ratio:${w}/${h}}`);
+  });
+  if (ratioRules.size) headParts.push(`<style data-snz-imgratio="">${[...ratioRules.values()].join('')}</style>`);
+  const headHtml = headParts.join('\n').replace(SITE_TEXT_RE, SITE_URL);
+  const bodyHtml = (($body.html() || '') + (tailParts.length ? '\n' + tailParts.join('\n') : '')).replace(SITE_TEXT_RE, SITE_URL);
   // sanity: nothing left pointing at the forbidden hosts in the page markup
   const leftover = (headHtml + bodyHtml).match(/https?:\/\/(?:[a-z0-9-]+\.)*(?:snoozemattresscompany\.com|filesafe\.space|leadconnectorhq\.com|msgsndr\.com)[^"'\s<)]*/gi) || [];
   for (const u of leftover) report.missingReferenced.add(`LEFTOVER ${rel}: ${u}`);
@@ -882,16 +908,18 @@ import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
 import { PageLoader } from '@/components/PageLoader';
 import { TrackingHead, TrackingBody } from '@/components/Tracking';
+import { GHL_SHIM } from '@/lib/ghl-shim';
 import { Poppins } from 'next/font/google';
 import '../../overrides/global.css';
 
 /* The site typeface. next/font downloads the Google Fonts files at build time and serves them from this origin (no
    request to fonts.googleapis.com / fonts.gstatic.com at runtime), emits the @font-face rules with font-display: swap,
    preloads the files and generates a metric-matched fallback face so the swap causes no layout shift. Weights: 400 body,
-   500 medium copy, 600 buttons / navigation, 700 bold text, 800 headings. Exposed as --font-poppins; overrides/global.css
+   500 medium copy, 600 buttons / navigation, 700 bold text, 800 headings. The latin subset covers every English and
+   Spanish character (accents and ñ are in U+00C0-00FF), so only five files are preloaded. Exposed as --font-poppins; overrides/global.css
    builds --font-poppins-stack from it. Declared in the root layout itself: Next only registers a font for preloading when
    the call sits in a layout or page module. */
-const poppins = Poppins({ weight: ['400', '500', '600', '700', '800'], subsets: ['latin', 'latin-ext'], display: 'swap', variable: '--font-poppins', preload: true });
+const poppins = Poppins({ weight: ['400', '500', '600', '700', '800'], subsets: ['latin'], display: 'swap', variable: '--font-poppins', preload: true });
 
 export const metadata: Metadata = {
   metadataBase: new URL(${JSON.stringify(SITE_URL)}),
@@ -910,9 +938,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             local copies, provides window.__ghlOnReady for the site's own DOMContentLoaded scripts, and filters the
             review widget's height messages. A plain parser-blocking script on purpose: next/script's
             "beforeInteractive" runs after the page's own inline scripts (the review-widget.js embed among them),
-            and the message filter must register before the vendor's listener. */}
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script src="/ghl-offline-shim.js?v=${BUILD_STAMP}" />
+            and the message filter must register before the vendor's listener. Inlined (lib/ghl-shim.ts, generated
+            with public/ghl-offline-shim.js) so it costs no extra request on the critical path. */}
+        <script dangerouslySetInnerHTML={{ __html: GHL_SHIM }} />
       </head>
       <body>
         <TrackingBody />
@@ -941,6 +969,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   write(path.join(ROOT, 'next.config.ts'), `import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  // the page's own CSS (global.css, the Poppins faces, component modules: ~15 KB) is written into the HTML instead
+  // of three render-blocking stylesheet requests
+  experimental: { inlineCss: true },
   async rewrites() {
     // Every LeadConnector widget (reviews iframe, popup form, calendar) now points at /ghl-stub/…;
     // serve the visible placeholder page for those. API paths (/ghl-stub/api/…) intentionally 404.
@@ -993,6 +1024,8 @@ export function middleware(req: NextRequest) {
   write(path.join(PUBLIC, 'ghl-stub', 'form_embed.js'), `/* Stub for https://link.snoozesleep.com/js/form_embed.js — the LeadConnector form embed script was
    deliberately not cloned. The popup form iframe loads /ghl-stub.html instead. */\n`);
   write(path.join(PUBLIC, 'ghl-offline-shim.js'), shimSource());
+  // the same source, inlined by both root layouts (one parser-blocking request less on the critical path)
+  write(path.join(ROOT, 'lib', 'ghl-shim.ts'), `// Generated by scripts/convert.mjs — do not edit by hand. Same code as public/ghl-offline-shim.js, inlined in <head>.\nexport const GHL_SHIM = ${JSON.stringify(shimSource()).replace(/<\/script/gi, '<\\/script')};\n`);
   write(path.join(ROOT, '.gitignore'), `# dependencies
 /node_modules
 /.pnp
@@ -1301,6 +1334,15 @@ ${widgets || '- (none found)'}
 ${stubs ? `\nRemaining placeholders:\n\n${stubs}\n` : ''}
 There is no chat widget in the page code itself; the LeadConnector chat widget (\`widgets.leadconnectorhq.com\`) was loaded by the Google Tag Manager container, which is removed.
 
+## Performance
+
+- **Tag scripts** (\`components/Tracking.tsx\`): the dataLayer, \`gtag()\` and both GA4 config calls are inline in \`<head>\` as in the client's snippets, but gtag.js (x2), the GTM container and Simpli.fi are injected by one loader on the first user interaction or 3 s after the load event (8 s after start at the latest). The GTM container alone was ~2 s of main-thread work on a phone (the whole Total Blocking Time); nothing visible depends on it. The GTM noscript iframe is unchanged.
+- **Logo marquee**: the brand logos' white/grey boxes are erased at build time (\`scripts/scrub-logos.mjs\`, flood fill from the edges, alpha WebP with width/height next to the original as \`*.scrub.webp\`); the page no longer redraws 34 logos on canvases or downloads each file twice.
+- **GHL API stub** (\`app/ghl-stub/api/[...path]/route.ts\`): the runtime's stats/attribution calls get an empty JSON 200 instead of a console 404.
+- **Layout shifts**: every GHL image element gets an \`aspect-ratio\` rule (\`<style data-snz-imgratio>\`) because the runtime swaps its \`<picture>\` for a bare \`<img>\` while hydrating; phone-only sections use the 768px resize as the fallback src.
+- **Critical path**: the offline shim is inlined in both layouts (\`lib/ghl-shim.ts\`, generated with \`public/ghl-offline-shim.js\`), the page's own CSS is inlined (\`experimental.inlineCss\`), the runtime's ~40 module preloads are emitted after the page markup, and only the latin Poppins subset (five files) is preloaded.
+- **Page loader**: \`<noscript>\` hides the overlay, so the page is fully visible without JavaScript (the reveal system also only hides elements under \`html.js\`).
+
 ## Removed tracking / analytics
 
 ${trackers || '- (none)'}
@@ -1325,7 +1367,7 @@ console.log(`converting ${pageFiles.length} pages from ${SITE_DIR} → ${ROOT}`)
 // hand-written routes that must survive a regeneration (everything else under app/ is generated)
 // hand-written routes that must survive a regeneration: app/(en)/blog, app/es/blog, sitemap.ts, robots.ts (everything else under app/ is generated)
 const GEN_FILE = /^(page|layout|not-found)\.tsx$|^content\.ts$/;
-if (fs.existsSync(APP)) for (const e of fs.readdirSync(APP)) { if (['sitemap.ts', 'robots.ts', '(en)', 'es'].includes(e)) continue; const p = path.join(APP, e); if (fs.statSync(p).isDirectory() || GEN_FILE.test(e)) fs.rmSync(p, { recursive: true, force: true }); }
+if (fs.existsSync(APP)) for (const e of fs.readdirSync(APP)) { if (['sitemap.ts', 'robots.ts', '(en)', 'es', 'ghl-stub' /* hand-written API stub route */].includes(e)) continue; const p = path.join(APP, e); if (fs.statSync(p).isDirectory() || GEN_FILE.test(e)) fs.rmSync(p, { recursive: true, force: true }); }
 for (const g of ['(en)', ...LOCALES.filter((l) => l.code !== 'en').map((l) => l.code)]) { const d = path.join(APP, g); if (!fs.existsSync(d)) continue; for (const e of fs.readdirSync(d)) { if (e === 'blog' || e === 'booking') continue; const p = path.join(d, e); if (fs.statSync(p).isDirectory() || GEN_FILE.test(e)) fs.rmSync(p, { recursive: true, force: true }); } }
 // sections to copy into other pages are read once from their source page (raw clone, before any transform)
 const INSERT_PACKS = OVR.insertSections.map((cfg) => extractSections(SITE_DIR, cfg));

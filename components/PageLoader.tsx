@@ -39,6 +39,8 @@ export function PageLoader({ locale = 'en' }: { locale?: Locale }) {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
+      {/* the overlay is only ever hidden by script: without JavaScript it must not exist at all */}
+      <noscript><style>{'#snz-loader{display:none}'}</style></noscript>
       <script dangerouslySetInnerHTML={{ __html: SKIP_SCRIPT }} />
       <div id="snz-loader" role="status" aria-live="polite" aria-label={TEXT[locale] || TEXT.en}>
         <div className="snz-loader__box">
