@@ -237,7 +237,12 @@ for (const [localRel, pub] of assetMap) {
     ensureDir(path.dirname(dest)); fs.copyFileSync(src, dest); report.assets.copied++; report.assets.bytes += st.size; continue;
   }
   let text = fs.readFileSync(src, 'utf8');
-  if (host === 'fonts.googleapis.com') text = text.replace(/\.\.\/fonts\.gstatic\.com\//g, '../gfonts/').replace(/https:\/\/fonts\.gstatic\.com\//g, '/assets/gfonts/');
+  if (host === 'fonts.googleapis.com') {
+    text = text.replace(/\.\.\/fonts\.gstatic\.com\//g, '../gfonts/').replace(/https:\/\/fonts\.gstatic\.com\//g, '/assets/gfonts/');
+    // Poppins is the site typeface and is served by next/font (root layouts); the builder's Google Fonts copies are
+    // dropped so every page has one set of Poppins faces (no second download, no 900 cut on some pages only).
+    text = text.replace(/(?:\/\*[^*]*\*\/\s*)?@font-face\s*\{[^}]*font-family:\s*['"]?Poppins['"]?\s*;[^}]*\}\s*/g, '');
+  }
   else { const r = patchBundle(text); if (r.n) report.assets.bundlesPatched++; text = r.text; }
   write(dest, text); report.assets.copied++; report.assets.bytes += Buffer.byteLength(text);
 }
@@ -608,7 +613,7 @@ function convertPage(rel, loc = null) {
       return { q, a };
     }).get().filter((it) => it.q);
     if (!items.length) return;
-    const itemsHtml = items.map((it, i) => `<div class="snz-faq__item${i === 0 ? ' is-open' : ''}"><h3 class="snz-faq__q"><button type="button" class="snz-faq__btn" id="${id}-q${i}" aria-expanded="${i === 0 ? 'true' : 'false'}" aria-controls="${id}-a${i}"><span>${escapeHtml(it.q)}</span><svg class="snz-faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3><div class="snz-faq__panel" id="${id}-a${i}" role="region" aria-labelledby="${id}-q${i}"><div class="snz-faq__inner"><div class="snz-faq__a">${it.a}</div></div></div></div>`).join('');
+    const itemsHtml = items.map((it, i) => `<div class="snz-faq__item${i === 0 ? ' is-open' : ''}"><h3 class="snz-faq__q"><button type="button" class="snz-faq__btn snz-headline-font" id="${id}-q${i}" aria-expanded="${i === 0 ? 'true' : 'false'}" aria-controls="${id}-a${i}"><span>${escapeHtml(it.q)}</span><svg class="snz-faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3><div class="snz-faq__panel" id="${id}-a${i}" role="region" aria-labelledby="${id}-q${i}"><div class="snz-faq__inner"><div class="snz-faq__a">${it.a}</div></div></div></div>`).join('');
     ctx.replacements.set(id, { kind: 'faq', html: applyVars(ovrFile('faq-accordion.html'), { id, items: itemsHtml }) });
     report.faqs.push({ page: rel, id, items: items.length });
   });
@@ -724,9 +729,31 @@ function convertPage(rel, loc = null) {
   });
   const notChain = [...textLinkIds].map((id) => `:not(.${id})`).join('');
   report.textLinkButtons = textLinkIds.size;
+  // ---- headline typeface marker: an element whose (last) builder font-family rule is var(--headlinefont) or the
+  // explicit "Visby Extrabold" (the old single 800 cut) gets .snz-headline-font ("Visby Bold" -> .snz-headline-bold),
+  // so overrides/site.css can give it the size-adjusted "Poppins Headline" alias while every other element gets the
+  // plain Poppins stack at its own weight.
+  const famByClass = new Map();
+  for (const m of pageCss.matchAll(/([^{}]+)\{([^{}]*font-family:[^{}]*)\}/g)) {
+    const val = (m[2].match(/font-family:\s*[^;}]+/g) || []).pop().replace(/^font-family:\s*/, '').trim();
+    for (const sel of m[1].split(',')) { const c = sel.match(/\.(c(?:heading|paragraph|button|sub-heading)-[A-Za-z0-9_-]+)\s*$/); if (c) famByClass.set(c[1], val); }
+  }
+  // Each page defines its own --headlinefont (Visby Extrabold on the home pages, Visby Bold on Mattresses, Poppins or
+  // Inter elsewhere): var(--headlinefont) users are headline elements only where that variable was a Visby face;
+  // on the other pages they simply render Poppins at the weight the builder gave them.
+  const pageHeadline = (pageCss.match(/--headlinefont:\s*['"]?([^;'"}]+)/) || [])[1] || '';
+  const varIsVisbyX = /Visby Extrabold/.test(pageHeadline), varIsVisbyB = /Visby Bold/.test(pageHeadline);
+  let headlineMarked = 0;
+  for (const [cls, val] of famByClass) {
+    const viaVar = /var\(--headlinefont\)/.test(val);
+    if (/Visby Extrabold/.test(val) || (viaVar && varIsVisbyX)) headlineMarked += $('.' + cls).addClass('snz-headline-font').length;
+    else if (/Visby Bold/.test(val) || (viaVar && varIsVisbyB)) headlineMarked += $('.' + cls).addClass('snz-headline-bold').length;
+  }
+  report.headlineFontMarked = (report.headlineFontMarked || 0) + headlineMarked;
   // fluid type: GHL's mobile + desktop font sizes become one clamp() between 390px and 1440px
   const fluidCss = fluidTypography(pageCss);
   if (fluidCss) headParts.push(`<style data-snz-fluid="">${fluidCss}</style>`);
+  headParts.push('<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/gfonts/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1xlFQ.woff2">'); // the "Poppins Headline" face (overrides/site.css)
   for (const cssFile of ['buttons.css', 'site.css', 'motion.css']) if (fs.existsSync(path.join(OVERRIDES_DIR, cssFile))) headParts.push(`<style data-snz-override="${cssFile}">${ovrFile(cssFile).split('{{not}}').join(notChain)}</style>`);
 
   // ---- 7. body
@@ -855,7 +882,16 @@ import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
 import { PageLoader } from '@/components/PageLoader';
 import { TrackingHead, TrackingBody } from '@/components/Tracking';
+import { Poppins } from 'next/font/google';
 import '../../overrides/global.css';
+
+/* The site typeface. next/font downloads the Google Fonts files at build time and serves them from this origin (no
+   request to fonts.googleapis.com / fonts.gstatic.com at runtime), emits the @font-face rules with font-display: swap,
+   preloads the files and generates a metric-matched fallback face so the swap causes no layout shift. Weights: 400 body,
+   500 medium copy, 600 buttons / navigation, 700 bold text, 800 headings. Exposed as --font-poppins; overrides/global.css
+   builds --font-poppins-stack from it. Declared in the root layout itself: Next only registers a font for preloading when
+   the call sits in a layout or page module. */
+const poppins = Poppins({ weight: ['400', '500', '600', '700', '800'], subsets: ['latin', 'latin-ext'], display: 'swap', variable: '--font-poppins', preload: true });
 
 export const metadata: Metadata = {
   metadataBase: new URL(${JSON.stringify(SITE_URL)}),
@@ -863,7 +899,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang=${JSON.stringify(l.htmlLang)}>
+    <html lang=${JSON.stringify(l.htmlLang)} className={poppins.variable}>
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://link.snoozesleep.com" />

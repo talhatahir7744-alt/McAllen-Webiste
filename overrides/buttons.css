@@ -19,7 +19,7 @@
   color: #fff !important;
   border: none !important;
   padding: 14px 32px !important;
-  font-family: var(--poppins, 'Poppins', 'Montserrat', sans-serif);
+  font-family: var(--font-poppins-stack);
   font-size: 18.67px; /* 14pt bold = WCAG large text */
   font-weight: 700;
   line-height: 1.25;

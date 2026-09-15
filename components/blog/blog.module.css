@@ -1,21 +1,6 @@
 /* Blog template — matches the site's theme: Visby Extrabold navy headings, Inter body, Poppins buttons,
    orange (#f58433) accents, one continuous light blue/lavender gradient per page. */
 
-@font-face {
-  font-family: 'Visby Extrabold';
-  src: url('/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/926196e1-ba02-4e3f-9089-fc734298218d.otf') format('opentype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Visby Bold';
-  src: url('/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/80deab12-c68c-42b6-8741-2d8bb3a7e197.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 .page {
   --navy: #001489;
   --navy-2: #0022cc;
@@ -25,9 +10,9 @@
   --ink-soft: #3a4166;
   --muted: #5b6690;
   --line: rgba(0, 20, 137, 0.1);
-  --head: 'Visby Extrabold', 'Visby CF', 'Poppins', 'Montserrat', Arial, sans-serif;
-  --body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-  --ui: 'Poppins', 'Montserrat', Arial, sans-serif;
+  --head: var(--font-poppins-stack);
+  --body: var(--font-poppins-stack);
+  --ui: var(--font-poppins-stack);
   --ease: cubic-bezier(0.19, 1, 0.22, 1);
   position: relative;
   isolation: isolate;
@@ -67,7 +52,7 @@
 .crumbs { display: flex; justify-content: center; gap: 10px; margin: 0 0 22px; font: 500 13px/1 var(--ui); color: var(--muted); }
 .crumbs a { text-decoration: none; color: var(--muted); }
 .crumbs a:hover { color: var(--orange); }
-.eyebrow { margin: 0 0 14px; font: 800 0.72rem/1 'Montserrat', var(--ui); letter-spacing: 0.26em; text-transform: uppercase; color: var(--orange); }
+.eyebrow { margin: 0 0 14px; font: 800 0.72rem/1 var(--ui); letter-spacing: 0.26em; text-transform: uppercase; color: var(--orange); }
 .title {
   margin: 0 auto 18px;
   max-width: 900px;
@@ -161,7 +146,7 @@
 }
 .ctaGlow { position: absolute; inset: 0; background: radial-gradient(700px 360px at 85% 0%, rgba(245, 132, 51, 0.35), transparent 60%), radial-gradient(600px 320px at 0% 100%, rgba(255, 255, 255, 0.12), transparent 60%); pointer-events: none; }
 .cta > * { position: relative; }
-.ctaEyebrow { margin: 0 0 12px; font: 800 0.72rem/1 'Montserrat', var(--ui); letter-spacing: 0.24em; text-transform: uppercase; color: var(--orange-2); white-space: nowrap; font-size: min(0.72rem, calc((100vw - 76px) * 0.0305)); } /* always one line: shrinks with the viewport below ~450px */
+.ctaEyebrow { margin: 0 0 12px; font: 800 0.72rem/1 var(--ui); letter-spacing: 0.24em; text-transform: uppercase; color: var(--orange-2); white-space: nowrap; font-size: min(0.72rem, calc((100vw - 76px) * 0.0305)); } /* always one line: shrinks with the viewport below ~450px */
 .ctaTitle { margin: 0 0 14px; font-family: var(--head); font-weight: 800; font-size: clamp(1.9rem, 4vw, 2.9rem); line-height: 1.15; color: #fff; }
 .ctaText { max-width: 680px; margin: 0 auto 26px; font-size: 1.05rem; line-height: 1.8; color: rgba(255, 255, 255, 0.86); }
 .ctaBtns { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }

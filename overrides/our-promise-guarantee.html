@@ -14,18 +14,12 @@
 ============================================================ -->
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 
 /* HEADLINES USE VISBY CF EXTRABOLD.
    Visby isn't on Google Fonts — if your site already loads it (theme font
    settings or Adobe Fonts), the stack below picks it up automatically.
    If not, un-comment this block and point src to your uploaded font file:
 
-@font-face{
-  font-family:'Visby CF';
-  src:url('YOUR-FONT-FILE-URL/VisbyCF-ExtraBold.woff2') format('woff2');
-  font-weight:800; font-style:normal; font-display:swap;
-}
 */
 
 .guar-section{
@@ -33,7 +27,7 @@
   overflow:hidden;
   background-color:#000a30;
   padding:clamp(90px,10vw,130px) 24px clamp(96px,10vw,136px);
-  font-family:'Montserrat',sans-serif;
+  font-family:var(--font-poppins-stack);
   isolation:isolate;
 }
 
@@ -90,7 +84,7 @@
 .guar-marquee-track{display:flex; width:max-content; animation:guarMarquee 60s linear infinite; will-change:transform;}
 .guar-marquee-track span{
   white-space:nowrap; text-transform:uppercase;
-  font-family:'Visby CF','VisbyCF','Visby','visby-cf','Montserrat',sans-serif;
+  font-family:var(--font-poppins-stack);
   font-weight:800; font-size:clamp(4.2rem,11vw,9rem); letter-spacing:.02em;
   color:transparent; -webkit-text-stroke:1px rgba(255,255,255,.07);
   padding-right:.6em;
@@ -119,7 +113,7 @@
 
 .guar-title{
   margin:0 0 26px;
-  font-family:'Visby CF','VisbyCF','Visby','visby-cf','Montserrat',sans-serif;
+  font-family:var(--font-poppins-stack);
   font-size:clamp(2.1rem,4vw,3.15rem);
   font-weight:800; color:#fff; line-height:1.16; letter-spacing:-.5px;
 }
@@ -250,7 +244,7 @@
 .guar-seal-disc{fill:rgba(0,10,52,.82); stroke:rgba(245,132,51,.4); stroke-width:1;}
 .guar-seal-text{
   fill:rgba(255,255,255,.85);
-  font-family:'Montserrat',sans-serif; font-weight:700;
+  font-family:var(--font-poppins-stack); font-weight:700;
   font-size:9px; letter-spacing:1.6px; text-transform:uppercase;
 }
 .guar-seal-moon{

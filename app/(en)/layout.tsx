@@ -4,7 +4,16 @@ import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
 import { PageLoader } from '@/components/PageLoader';
 import { TrackingHead, TrackingBody } from '@/components/Tracking';
+import { Poppins } from 'next/font/google';
 import '../../overrides/global.css';
+
+/* The site typeface. next/font downloads the Google Fonts files at build time and serves them from this origin (no
+   request to fonts.googleapis.com / fonts.gstatic.com at runtime), emits the @font-face rules with font-display: swap,
+   preloads the files and generates a metric-matched fallback face so the swap causes no layout shift. Weights: 400 body,
+   500 medium copy, 600 buttons / navigation, 700 bold text, 800 headings. Exposed as --font-poppins; overrides/global.css
+   builds --font-poppins-stack from it. Declared in the root layout itself: Next only registers a font for preloading when
+   the call sits in a layout or page module. */
+const poppins = Poppins({ weight: ['400', '500', '600', '700', '800'], subsets: ['latin', 'latin-ext'], display: 'swap', variable: '--font-poppins', preload: true });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mcallen.snoozemattresscompany.com"),
@@ -12,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={poppins.variable}>
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://link.snoozesleep.com" />
@@ -25,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             "beforeInteractive" runs after the page's own inline scripts (the review-widget.js embed among them),
             and the message filter must register before the vendor's listener. */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script src="/ghl-offline-shim.js?v=mtqfg3j2" />
+        <script src="/ghl-offline-shim.js?v=mu2ydelp" />
       </head>
       <body>
         <TrackingBody />
@@ -33,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader locale="en" />
         {children}
         <SiteFooter locale="en" />
-        <Script src="/snz-motion.js?v=mtqfg3j2" strategy="afterInteractive" />
+        <Script src="/snz-motion.js?v=mu2ydelp" strategy="afterInteractive" />
       </body>
     </html>
   );

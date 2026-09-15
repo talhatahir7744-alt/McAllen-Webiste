@@ -1,14 +1,6 @@
 /* The merged site footer: the light footer as the base (columns, dotted pattern, bottom bar) plus the
    map / location card, phone icon and the two CTA buttons from the old blue footer. */
 
-@font-face {
-  font-family: 'Visby Extrabold';
-  src: url('/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/926196e1-ba02-4e3f-9089-fc734298218d.otf') format('opentype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
 .footer {
   --navy: #001489;
   --orange: #f58433;
@@ -17,9 +9,9 @@
   --ink-soft: #3a4166;
   --muted: #5b6690;
   --line: rgba(0, 20, 137, 0.1);
-  --head: 'Visby Extrabold', 'Visby CF', 'Poppins', 'Montserrat', Arial, sans-serif;
-  --body: 'Inter', 'Poppins', 'Helvetica Neue', Arial, sans-serif;
-  --ui: 'Poppins', 'Montserrat', Arial, sans-serif;
+  --head: var(--font-poppins-stack);
+  --body: var(--font-poppins-stack);
+  --ui: var(--font-poppins-stack);
   --ease: cubic-bezier(0.19, 1, 0.22, 1);
   position: relative;
   isolation: isolate;

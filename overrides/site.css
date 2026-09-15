@@ -224,3 +224,29 @@ html { scroll-behavior: smooth; scroll-padding-top: 96px; }
   .hl_page-preview--content .cheading-g47b3UHIU- h1 > span:nth-child(2),
   .hl_page-preview--content .cheading-g47b3UHIU- h1 > span:nth-child(3) { white-space: nowrap; }
 }
+
+/* ---- Typeface: Poppins on the converted pages.
+   Every element gets the Poppins stack with !important, so the builder's per-section families and its inline
+   style="font-family: …" (Montserrat, Ubuntu, Arial, …) no longer win; Font Awesome icon elements keep their face.
+   The builder's headline face ("Visby Extrabold") was a single 800 cut that rendered at any CSS weight and sits
+   5-9% narrower than Poppins 800. "Poppins Headline" is that same Poppins 800 file (the site's Google Fonts copy)
+   declared as a single-cut family with size-adjust, so the headings, buttons and sub-headings the builder set in the
+   headline face keep the line breaks they were laid out for. The converter marks those elements (.snz-headline-font:
+   builder rules with the explicit Visby family, or var(--headlinefont) on the pages whose variable was a Visby face);
+   the builder's inline "Visby Extrabold" spans are matched by their style, and the FAQ questions / ribbon carry the
+   class in their templates. "Visby Bold" maps the same way onto the 700 cut. Everything else (including the pages
+   whose headline variable was Poppins or Inter) renders Poppins at the weight the builder set, so the size and
+   weight hierarchy is unchanged. */
+@font-face { font-family: 'Poppins Headline'; font-style: normal; font-weight: 100 900; font-display: swap; size-adjust: 92%; src: url(/assets/gfonts/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1JlFc-K.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Poppins Headline'; font-style: normal; font-weight: 100 900; font-display: swap; size-adjust: 92%; src: url(/assets/gfonts/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1xlFQ.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Poppins Headline Bold'; font-style: normal; font-weight: 100 900; font-display: swap; size-adjust: 92%; src: url(/assets/gfonts/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1JlFc-K.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Poppins Headline Bold'; font-style: normal; font-weight: 100 900; font-display: swap; size-adjust: 92%; src: url(/assets/gfonts/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+:root, .hl_page-preview--content { --headlinefont: var(--font-poppins-stack); --contentfont: var(--font-poppins-stack); }
+.hl_page-preview--content :where(*):not(.fa, .fas, .far, .fab, .fal, .fad, .fak, [class*=" fa-"], [class^="fa-"], .snz-headline-font, .snz-headline-font *, .snz-headline-bold, .snz-headline-bold *, [style*="Visby Extrabold"] *, [style*="Visby Bold"] *) { font-family: var(--font-poppins-stack) !important; }
+.hl_page-preview--content .snz-headline-font { font-family: 'Poppins Headline', var(--font-poppins-stack) !important; }
+.hl_page-preview--content .snz-headline-bold { font-family: 'Poppins Headline Bold', var(--font-poppins-stack) !important; }
+/* a button's sub-heading line has its own builder family (a system sans) and is not headline text */
+.hl_page-preview--content :is(.snz-headline-font, .snz-headline-bold) .sub-heading-button { font-family: var(--font-poppins-stack) !important; }
+.hl_page-preview--content [style*="font-family"] { font-family: var(--font-poppins-stack) !important; }
+.hl_page-preview--content [style*="Visby Extrabold"] { font-family: 'Poppins Headline', var(--font-poppins-stack) !important; }
+.hl_page-preview--content [style*="Visby Bold"] { font-family: 'Poppins Headline Bold', var(--font-poppins-stack) !important; }

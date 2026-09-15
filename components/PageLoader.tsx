@@ -11,7 +11,7 @@ import type { Locale } from '@/lib/i18n';
 const TEXT: Record<Locale, string> = { en: 'Preparing your best sleep…', es: 'Preparando tu mejor descanso…' };
 
 const CSS = `
-#snz-loader{position:fixed;inset:0;z-index:5000;display:flex;align-items:center;justify-content:center;background:radial-gradient(120% 90% at 50% 0%,#0b2aa8 0%,#001489 55%,#000b4a 100%);color:#fff;font-family:'Poppins','Montserrat',Arial,sans-serif;transition:opacity .4s ease,transform .4s ease,visibility 0s linear .4s;transform:scale(1);will-change:opacity,transform}
+#snz-loader{position:fixed;inset:0;z-index:5000;display:flex;align-items:center;justify-content:center;background:radial-gradient(120% 90% at 50% 0%,#0b2aa8 0%,#001489 55%,#000b4a 100%);color:#fff;font-family:var(--font-poppins-stack);transition:opacity .4s ease,transform .4s ease,visibility 0s linear .4s;transform:scale(1);will-change:opacity,transform}
 #snz-loader.is-done{opacity:0;transform:scale(1.04);visibility:hidden;pointer-events:none}
 html.snz-loader-skip #snz-loader,#snz-loader.is-gone{display:none}
 .snz-loader__box{display:flex;flex-direction:column;align-items:center;gap:22px;padding:24px;text-align:center}
