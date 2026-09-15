@@ -42,12 +42,6 @@ const HeartIcon = () => (
     <path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.3 5 6.8 5c1.9 0 3.5 1 4.4 2.4l.8 1.2.8-1.2C13.7 6 15.3 5 17.2 5c3.5 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21Z" />
   </svg>
 );
-const MailIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <rect x="3" y="5" width="18" height="14" rx="2.5" />
-    <path d="m3.5 7 8.5 6 8.5-6" />
-  </svg>
-);
 const ExtIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M7 17 17 7M9 7h8v8" />
@@ -107,10 +101,6 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
             <a href={SITE.phoneHref} className={styles.phone}>
               <span className={styles.phoneIcon}><PhoneIcon /></span>
               {SITE.phone}
-            </a>
-            <a href={`mailto:${LOCATION.email}`} className={`${styles.phone} ${styles.email}`}>
-              <span className={styles.phoneIcon}><MailIcon /></span>
-              {LOCATION.email}
             </a>
             <p className={styles.hours}>
               <span>{f.hours1}</span>

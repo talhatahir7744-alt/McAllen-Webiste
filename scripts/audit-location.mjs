@@ -91,7 +91,8 @@ for (const f of html) {
   };
   rows.push(row);
   const bad = [];
-  if (!row.address || !row.phone || !row.tel || !row.mailto || !row.fb || !row.ig || !row.yt || !row.hours || !row.maps || !row.jsonld) bad.push('missing McAllen data');
+  // mailto is not required: the footer no longer shows the email (Sept 2026); it stays in the JSON-LD and in the pages' own contact rows
+  if (!row.address || !row.phone || !row.tel || !row.fb || !row.ig || !row.yt || !row.hours || !row.maps || !row.jsonld) bad.push('missing McAllen data');
   if (!row.canonical.startsWith(NEW.domain)) bad.push('canonical ' + row.canonical);
   if (bad.length) { problems++; console.log(`  ✗ ${r}: ${bad.join('; ')} ${JSON.stringify(row)}`); }
 }
