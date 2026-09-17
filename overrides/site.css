@@ -116,6 +116,12 @@
   .hl_page-preview--content .snz-card.c-row .c-column + .c-column .image-container { padding: 0 0 10px !important; text-align: left !important; }
   .hl_page-preview--content .snz-card.c-row .c-column + .c-column .image-container > div { width: 40px !important; height: 40px !important; }
   .hl_page-preview--content .snz-card.c-row .c-column + .c-column .image-container img { display: block; box-sizing: border-box; width: 40px !important; height: 40px !important; max-width: none !important; padding: 7px; border-radius: 50%; background: #fff; object-fit: contain; }
+  /* equal optical size: the pin artwork fills only 56% x 76% of its file while the phone fills 95% and the clock 100%,
+     so each icon gets the padding that makes its drawn glyph ~21px inside the same 40px badge (aspect ratio kept by
+     object-fit: contain, glyphs are centred in their files) */
+  .hl_page-preview--content .snz-card.c-row .c-column + .c-column .image-container img[src*="69961684ad005321ae9bdf8e"] { padding: 6px; }
+  .hl_page-preview--content .snz-card.c-row .c-column + .c-column .image-container img[src*="69961684ee19cf5748d811e8"] { padding: 9px; }
+  .hl_page-preview--content .snz-card.c-row .c-column + .c-column .image-container img[src*="69961684dde40bd982f3faab"] { padding: 9px; }
   .hl_page-preview--content .snz-card.c-row .c-column + .c-column .c-heading h1, .hl_page-preview--content .snz-card.c-row .c-column + .c-column .c-heading h2 { margin: 0 0 6px !important; }
   .hl_page-preview--content .snz-card.c-row .c-column + .c-column .c-sub-heading h2, .hl_page-preview--content .snz-card.c-row .c-column + .c-column .c-sub-heading p { margin: 0 !important; }
 }
@@ -126,6 +132,10 @@
   .hl_page-preview--content .snz-card.c-row > .inner { align-items: flex-start !important; }
   .hl_page-preview--content .snz-card.c-row .c-column + .c-column > .inner { justify-content: flex-start !important; }
   .hl_page-preview--content .snz-card.c-row .c-column + .c-column .image-container img { box-sizing: border-box; width: 56px !important; height: 56px !important; padding: 10px; border-radius: 50%; background: #fff; object-fit: contain; }
+  /* equal optical size inside the 56px badge (~30px glyph each): see the phone block above for the reasoning */
+  .hl_page-preview--content .snz-card.c-row .c-column + .c-column .image-container img[src*="69961684ad005321ae9bdf8e"] { padding: 8px; }
+  .hl_page-preview--content .snz-card.c-row .c-column + .c-column .image-container img[src*="69961684ee19cf5748d811e8"] { padding: 12px; }
+  .hl_page-preview--content .snz-card.c-row .c-column + .c-column .image-container img[src*="69961684dde40bd982f3faab"] { padding: 13px; }
 }
 
 /* Financing band headline: the Spanish text carries a line break ("Duerme mejor ahora." / "Paga a plazos."); the
