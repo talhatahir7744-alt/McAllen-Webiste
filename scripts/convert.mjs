@@ -119,7 +119,8 @@ function escapeJsonForScript(json) { return json.replace(/</g, '\\u003C').replac
 function routeFromPage(relHtml) { const r = relHtml.replace(/\.html$/i, ''); return r === 'index' ? '/' : '/' + r; }
 
 // ---------------------------------------------------------------- 0. verify the clone
-const pageFiles = walk(SITE_DIR).filter((f) => f.toLowerCase().endsWith('.html')).map((f) => posix(path.relative(SITE_DIR, f))).sort();
+const pageFiles = walk(SITE_DIR).filter((f) => f.toLowerCase().endsWith('.html')).map((f) => posix(path.relative(SITE_DIR, f))).sort()
+  .filter((f) => !['terms-conditions.html', 'privacy-policy-page-1.html'].includes(f)); // duplicate legal pages: see DUPLICATE_ROUTES
 if (pageFiles.length === 0) { console.error(`No HTML pages found under ${SITE_DIR}`); process.exit(1); }
 const fontmap = fs.existsSync(`${CLONE}/fontmap.json`) ? JSON.parse(fs.readFileSync(`${CLONE}/fontmap.json`, 'utf8')) : {};
 
@@ -272,9 +273,15 @@ function mediaPublic(mediaPath, wantSize) {
   if (assetMap.has(orig)) return assetMap.get(orig);
   return null;
 }
+// The builder exported two copies of each legal page (terms-conditions.html / terms-conditions-page.html,
+// privacy-policy-page-1.html / privacy-policy-page.html) with identical text. Only the footer-linked copy is
+// generated; the other URL redirects to it (next.config.ts) and any link to it points at the kept page. Two live
+// URLs with the same text made Google pick its own canonical for /es/terms-conditions-page (Search Console).
+const DUPLICATE_ROUTES = { '/terms-conditions': '/terms-conditions-page', '/privacy-policy-page-1': '/privacy-policy-page' };
 function routeForSitePath(p) {
   let r = p.replace(/^\/+/, '').replace(/\.html$/i, '').replace(/\/+$/, '');
-  return r === '' || r === 'index' ? '/' : '/' + r;
+  const route = r === '' || r === 'index' ? '/' : '/' + r;
+  return DUPLICATE_ROUTES[route] || route;
 }
 function noteMissing(url) { report.missingReferenced.add(url); }
 function noteExternal(host) { report.externalHostsLeft[host] = (report.externalHostsLeft[host] || 0) + 1; }
@@ -1022,6 +1029,16 @@ const nextConfig: NextConfig = {
   // the page's own CSS (global.css, the Poppins faces, component modules: ~15 KB) is written into the HTML instead
   // of three render-blocking stylesheet requests
   experimental: { inlineCss: true },
+  async redirects() {
+    // the builder's duplicate legal pages (same text under a second URL) permanently point at the kept copy,
+    // in both languages, so search engines see one canonical URL per page
+    return [
+      { source: '/terms-conditions', destination: '/terms-conditions-page', permanent: true },
+      { source: '/es/terms-conditions', destination: '/es/terms-conditions-page', permanent: true },
+      { source: '/privacy-policy-page-1', destination: '/privacy-policy-page', permanent: true },
+      { source: '/es/privacy-policy-page-1', destination: '/es/privacy-policy-page', permanent: true },
+    ];
+  },
   async rewrites() {
     // Every LeadConnector widget (reviews iframe, popup form, calendar) now points at /ghl-stub/…;
     // serve the visible placeholder page for those. API paths (/ghl-stub/api/…) intentionally 404.

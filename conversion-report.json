@@ -748,14 +748,6 @@
       "tagged": 62
     },
     {
-      "page": "privacy-policy-page-1.html",
-      "tagged": 2
-    },
-    {
-      "page": "privacy-policy-page-1.html",
-      "tagged": 2
-    },
-    {
       "page": "privacy-policy-page.html",
       "tagged": 2
     },
@@ -777,14 +769,6 @@
     },
     {
       "page": "terms-conditions-page.html",
-      "tagged": 2
-    },
-    {
-      "page": "terms-conditions.html",
-      "tagged": 2
-    },
-    {
-      "page": "terms-conditions.html",
       "tagged": 2
     },
     {
@@ -1530,40 +1514,6 @@
       ]
     },
     {
-      "route": "/privacy-policy-page-1",
-      "locale": "en",
-      "source": "privacy-policy-page-1.html",
-      "title": "Privacy Policy",
-      "scripts": 2,
-      "headParts": 23,
-      "bodyBytes": 177809,
-      "removed": [
-        "section-n2EJ48xJKc",
-        "section-EZ3DGo6-8h",
-        "section-ghjYZIxTU2",
-        "section-zTxb2Wa9Nv"
-      ],
-      "overrides": [],
-      "widgets": []
-    },
-    {
-      "route": "/es/privacy-policy-page-1",
-      "locale": "es",
-      "source": "privacy-policy-page-1.html",
-      "title": "Política de Privacidad",
-      "scripts": 2,
-      "headParts": 23,
-      "bodyBytes": 180831,
-      "removed": [
-        "section-n2EJ48xJKc",
-        "section-EZ3DGo6-8h",
-        "section-ghjYZIxTU2",
-        "section-zTxb2Wa9Nv"
-      ],
-      "overrides": [],
-      "widgets": []
-    },
-    {
       "route": "/privacy-policy-page",
       "locale": "en",
       "source": "privacy-policy-page.html",
@@ -1680,40 +1630,6 @@
       "widgets": []
     },
     {
-      "route": "/terms-conditions",
-      "locale": "en",
-      "source": "terms-conditions.html",
-      "title": "Terms & Conditions",
-      "scripts": 2,
-      "headParts": 23,
-      "bodyBytes": 170166,
-      "removed": [
-        "section-n2EJ48xJKc",
-        "section-EZ3DGo6-8h",
-        "section-ghjYZIxTU2",
-        "section-zTxb2Wa9Nv"
-      ],
-      "overrides": [],
-      "widgets": []
-    },
-    {
-      "route": "/es/terms-conditions",
-      "locale": "es",
-      "source": "terms-conditions.html",
-      "title": "Términos y Condiciones",
-      "scripts": 2,
-      "headParts": 23,
-      "bodyBytes": 172985,
-      "removed": [
-        "section-n2EJ48xJKc",
-        "section-EZ3DGo6-8h",
-        "section-ghjYZIxTU2",
-        "section-zTxb2Wa9Nv"
-      ],
-      "overrides": [],
-      "widgets": []
-    },
-    {
       "route": "/thank/you",
       "locale": "en",
       "source": "thank/you.html",
@@ -1785,11 +1701,6 @@
     "LEFTOVER optin-page.html: https://rockwall.snoozemattresscompany.com/",
     "LEFTOVER pillows.html: https://rockwall.snoozemattresscompany.com/",
     "LEFTOVER premium-sheets.html: https://rockwall.snoozemattresscompany.com/",
-    "LEFTOVER privacy-policy-page-1.html: http://tfrench.snoozemattresscompany.com/",
-    "LEFTOVER privacy-policy-page-1.html: https://rockwall.snoozemattresscompany.com/",
-    "LEFTOVER privacy-policy-page-1.html: http://tfrench.snoozemattresscompany.com/\\u003Cbr>(956",
-    "LEFTOVER privacy-policy-page-1.html: http://tfrench.snoozemattresscompany.com/\\u003C/span>\\u003C/h2>",
-    "LEFTOVER privacy-policy-page-1.html: https://tfrench.snoozemattresscompany.com/",
     "LEFTOVER privacy-policy-page.html: http://tfrench.snoozemattresscompany.com/",
     "LEFTOVER privacy-policy-page.html: https://rockwall.snoozemattresscompany.com/",
     "LEFTOVER privacy-policy-page.html: http://tfrench.snoozemattresscompany.com/\\u003Cbr>(956",
@@ -1808,18 +1719,6 @@
     "LEFTOVER terms-conditions-page.html: https://rockwall.snoozemattresscompany.com/privacy-policy-page\\n\\n13.",
     "LEFTOVER terms-conditions-page.html: https://mcallen.snoozemattresscompany.com/es/privacy-policy-page",
     "LEFTOVER terms-conditions-page.html: https://mcallen.snoozemattresscompany.com/privacy-policy-page\\u003C/em>\\u003C/strong>\\u003C/a>\\u003C/h2>\\u003Ch2>\\u003C/h2>\\u003Ch2>\\u003Cstrong>\\u003Cspan",
-    "LEFTOVER terms-conditions.html: https://mcallen.snoozemattresscompany.com/",
-    "LEFTOVER terms-conditions.html: https://mcallen.snoozemattresscompany.com/privacy-policy-page",
-    "LEFTOVER terms-conditions.html: http://tfrench.snoozemattresscompany.com/",
-    "LEFTOVER terms-conditions.html: https://rockwall.snoozemattresscompany.com/privacy-policy-page",
-    "LEFTOVER terms-conditions.html: https://rockwall.snoozemattresscompany.com/",
-    "LEFTOVER terms-conditions.html: https://mcallen.snoozemattresscompany.com/\\",
-    "LEFTOVER terms-conditions.html: http://tfrench.snoozemattresscompany.com/\\u003C/span>\\u003C/h2>",
-    "LEFTOVER terms-conditions.html: https://rockwall.snoozemattresscompany.com/privacy-policy-page\\",
-    "LEFTOVER terms-conditions.html: https://rockwall.snoozemattresscompany.com/privacy-policy-page\\u003C/em>\\u003C/strong>\\u003C/a>\\u003C/h2>\\u003Ch2>\\u003C/h2>\\u003Ch2>\\u003Cstrong>\\u003Cspan",
-    "LEFTOVER terms-conditions.html: https://rockwall.snoozemattresscompany.com/privacy-policy-page\\n\\n13.",
-    "LEFTOVER terms-conditions.html: https://mcallen.snoozemattresscompany.com/es/privacy-policy-page",
-    "LEFTOVER terms-conditions.html: https://mcallen.snoozemattresscompany.com/privacy-policy-page\\u003C/em>\\u003C/strong>\\u003C/a>\\u003C/h2>\\u003Ch2>\\u003C/h2>\\u003Ch2>\\u003Cstrong>\\u003Cspan",
     "LEFTOVER thank/you.html: https://rockwall.snoozemattresscompany.com/"
   ],
   "removedTrackers": [
@@ -2574,56 +2473,6 @@
       "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
     },
     {
-      "page": "privacy-policy-page-1.html",
-      "where": "payload.globalHeadTrackingCode",
-      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
-    },
-    {
-      "page": "privacy-policy-page-1.html",
-      "where": "payload.globalHeadTrackingCode",
-      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
-    },
-    {
-      "page": "privacy-policy-page-1.html",
-      "where": "payload.globalHeadTrackingCode",
-      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
-    },
-    {
-      "page": "privacy-policy-page-1.html",
-      "where": "payload.globalBodyTrackingCode",
-      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
-    },
-    {
-      "page": "privacy-policy-page-1.html",
-      "where": "body noscript",
-      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
-    },
-    {
-      "page": "privacy-policy-page-1.html",
-      "where": "payload.globalHeadTrackingCode",
-      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
-    },
-    {
-      "page": "privacy-policy-page-1.html",
-      "where": "payload.globalHeadTrackingCode",
-      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
-    },
-    {
-      "page": "privacy-policy-page-1.html",
-      "where": "payload.globalHeadTrackingCode",
-      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
-    },
-    {
-      "page": "privacy-policy-page-1.html",
-      "where": "payload.globalBodyTrackingCode",
-      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
-    },
-    {
-      "page": "privacy-policy-page-1.html",
-      "where": "body noscript",
-      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
-    },
-    {
       "page": "privacy-policy-page.html",
       "where": "payload.globalHeadTrackingCode",
       "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
@@ -2770,56 +2619,6 @@
     },
     {
       "page": "terms-conditions-page.html",
-      "where": "body noscript",
-      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
-    },
-    {
-      "page": "terms-conditions.html",
-      "where": "payload.globalHeadTrackingCode",
-      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
-    },
-    {
-      "page": "terms-conditions.html",
-      "where": "payload.globalHeadTrackingCode",
-      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
-    },
-    {
-      "page": "terms-conditions.html",
-      "where": "payload.globalHeadTrackingCode",
-      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
-    },
-    {
-      "page": "terms-conditions.html",
-      "where": "payload.globalBodyTrackingCode",
-      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
-    },
-    {
-      "page": "terms-conditions.html",
-      "where": "body noscript",
-      "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
-    },
-    {
-      "page": "terms-conditions.html",
-      "where": "payload.globalHeadTrackingCode",
-      "what": "inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…"
-    },
-    {
-      "page": "terms-conditions.html",
-      "where": "payload.globalHeadTrackingCode",
-      "what": "script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS"
-    },
-    {
-      "page": "terms-conditions.html",
-      "where": "payload.globalHeadTrackingCode",
-      "what": "inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…"
-    },
-    {
-      "page": "terms-conditions.html",
-      "where": "payload.globalBodyTrackingCode",
-      "what": "noscript: <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\""
-    },
-    {
-      "page": "terms-conditions.html",
       "where": "body noscript",
       "what": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M\" height=\"0\" width=\"0\" style=\"di"
     },
@@ -4671,14 +4470,6 @@
       "missing": []
     },
     {
-      "page": "privacy-policy-page-1.html",
-      "locale": "es",
-      "route": "/es/privacy-policy-page-1",
-      "translated": 246,
-      "payloadStrings": 255,
-      "missing": []
-    },
-    {
       "page": "privacy-policy-page.html",
       "locale": "es",
       "route": "/es/privacy-policy-page",
@@ -4698,14 +4489,6 @@
       "page": "terms-conditions-page.html",
       "locale": "es",
       "route": "/es/terms-conditions-page",
-      "translated": 204,
-      "payloadStrings": 212,
-      "missing": []
-    },
-    {
-      "page": "terms-conditions.html",
-      "locale": "es",
-      "route": "/es/terms-conditions",
       "translated": 204,
       "payloadStrings": 212,
       "missing": []
@@ -4841,34 +4624,34 @@
       "src": "https://reputationhub.site/reputation/assets/review-widget.js"
     }
   ],
-  "droppedHints": 212,
-  "rewrittenUrls": 11854,
+  "droppedHints": 192,
+  "rewrittenUrls": 11304,
   "externalHostsLeft": {
-    "medicineshoppemeadowlark.ca": 42,
-    "www.medicineshoppemeadowlark.ca": 42,
-    "rockwall.snoozemattresscompany.com": 62,
+    "medicineshoppemeadowlark.ca": 38,
+    "www.medicineshoppemeadowlark.ca": 38,
+    "rockwall.snoozemattresscompany.com": 48,
     "www.w3.org": 100,
     "storage.googleapis.com": 84,
     "share.google": 176,
-    "maps.google.com": 126,
-    "www.facebook.com": 42,
-    "www.instagram.com": 42,
-    "schema.org": 288,
+    "maps.google.com": 114,
+    "www.facebook.com": 38,
+    "www.instagram.com": 38,
+    "schema.org": 280,
     "maps.app.goo.gl": 26,
     "reputationhub.site": 252,
-    "jstest.authorize.net": 42,
-    "js.authorize.net": 42,
-    "secure.safewebservices.com": 42,
+    "jstest.authorize.net": 38,
+    "js.authorize.net": 38,
+    "secure.safewebservices.com": 38,
     "link.snoozesleep.com": 50,
     "images.unsplash.com": 24,
     "www.synchrony.com": 6,
     "msgsndr-private.storage.googleapis.com": 2,
-    "tools.google.com": 32,
-    "adssettings.google.com": 32,
-    "optout.aboutads.info": 32,
-    "optout.networkadvertising.org": 32,
-    "tfrench.snoozemattresscompany.com": 60,
-    "mcallen.snoozemattresscompany.com": 16
+    "tools.google.com": 16,
+    "adssettings.google.com": 16,
+    "optout.aboutads.info": 16,
+    "optout.networkadvertising.org": 16,
+    "tfrench.snoozemattresscompany.com": 30,
+    "mcallen.snoozemattresscompany.com": 8
   },
   "cards": 100,
   "textLinkButtons": 0,

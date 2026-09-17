@@ -11,7 +11,7 @@ npm run build && npm run start   # http://localhost:3000
 npm run verify                    # routes, network capture, forbidden-host grep, screenshots
 ```
 
-## Routes (42)
+## Routes (38)
 
 | Route | Source page | Title |
 |---|---|---|
@@ -45,16 +45,12 @@ npm run verify                    # routes, network capture, forbidden-host grep
 | `/es/pillows` | `pillows.html` | Mejora tu Descanso con Almohadas Premium en McAllen |
 | `/premium-sheets` | `premium-sheets.html` | Wrap Yourself in Luxury Every Night |
 | `/es/premium-sheets` | `premium-sheets.html` | Envuélvete en Lujo Cada Noche |
-| `/privacy-policy-page-1` | `privacy-policy-page-1.html` | Privacy Policy |
-| `/es/privacy-policy-page-1` | `privacy-policy-page-1.html` | Política de Privacidad |
 | `/privacy-policy-page` | `privacy-policy-page.html` | Privacy Policy |
 | `/es/privacy-policy-page` | `privacy-policy-page.html` | Política de Privacidad |
 | `/sleep-recliner` | `sleep-recliner.html` | Sleep Better, Recline Smarter with the Zcliner® |
 | `/es/sleep-recliner` | `sleep-recliner.html` | Duerme Mejor y Reclínate con Inteligencia con el Zcliner® |
 | `/terms-conditions-page` | `terms-conditions-page.html` | Terms & Conditions |
 | `/es/terms-conditions-page` | `terms-conditions-page.html` | Términos y Condiciones |
-| `/terms-conditions` | `terms-conditions.html` | Terms & Conditions |
-| `/es/terms-conditions` | `terms-conditions.html` | Términos y Condiciones |
 | `/thank/you` | `thank/you.html` | Thank You |
 | `/es/thank/you` | `thank/you.html` | Gracias |
 
@@ -162,11 +158,11 @@ There is no chat widget in the page code itself; the LeadConnector chat widget (
 
 ## Removed tracking / analytics
 
-- payload.globalHeadTrackingCode (21 pages): `inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…`
-- payload.globalHeadTrackingCode (21 pages): `script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS`
-- payload.globalHeadTrackingCode (21 pages): `inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…`
-- payload.globalBodyTrackingCode (21 pages): `noscript: <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M" height="0"`
-- body noscript (21 pages): `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M" height="0" width="0" style="di`
+- payload.globalHeadTrackingCode (19 pages): `inline script: (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),…`
+- payload.globalHeadTrackingCode (19 pages): `script src=https://www.googletagmanager.com/gtag/js?id=G-VT9FVLEFMS`
+- payload.globalHeadTrackingCode (19 pages): `inline script:  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argum…`
+- payload.globalBodyTrackingCode (19 pages): `noscript: <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M" height="0"`
+- body noscript (19 pages): `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVPN94M" height="0" width="0" style="di`
 
 Removed external scripts:
 
@@ -177,6 +173,6 @@ Removed external scripts:
 - Third-party embeds that are not the client's CRM are kept as-is and still load from their own hosts: Google Maps embeds (`maps.google.com`), social links.
 - The reviews widget, popup form and booking calendar show placeholders instead of live CRM content.
 - Fonts, images, CSS and the GoHighLevel runtime (Nuxt bundle + 1307 asset files) are served locally.
-- 51 referenced file(s) did not exist in the clone and now resolve to a local 404 instead of the CDN (see conversion-report.json → missingReferenced).
+- 34 referenced file(s) did not exist in the clone and now resolve to a local 404 instead of the CDN (see conversion-report.json → missingReferenced).
 
-Generated 2026-09-15T20:11:21.476Z from `C:/clones`.
+Generated 2026-09-17T02:30:03.870Z from `C:/clones`.
