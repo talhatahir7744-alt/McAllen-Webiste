@@ -131,6 +131,9 @@
 @media (min-width: 768px) {
   .hl_page-preview--content .snz-card.c-row > .inner { align-items: flex-start !important; }
   .hl_page-preview--content .snz-card.c-row .c-column + .c-column > .inner { justify-content: flex-start !important; }
+  /* one left edge per column: the builder gave the "Location" heading wrapper a 20px left padding (the other two
+     columns have none), which pushed that heading right of its badge and address on tablet/desktop */
+  .hl_page-preview--content .snz-card.c-row .c-column + .c-column .image-container, .hl_page-preview--content .snz-card.c-row .c-column + .c-column .c-heading .text-output, .hl_page-preview--content .snz-card.c-row .c-column + .c-column .c-sub-heading .text-output, .hl_page-preview--content .snz-card.c-row .c-column + .c-column .c-paragraph .text-output { padding-left: 0 !important; }
   .hl_page-preview--content .snz-card.c-row .c-column + .c-column .image-container img { box-sizing: border-box; width: 56px !important; height: 56px !important; padding: 10px; border-radius: 50%; background: #fff; object-fit: contain; }
   /* equal optical size inside the 56px badge (~30px glyph each): see the phone block above for the reasoning */
   .hl_page-preview--content .snz-card.c-row .c-column + .c-column .image-container img[src*="69961684ad005321ae9bdf8e"] { padding: 8px; }
