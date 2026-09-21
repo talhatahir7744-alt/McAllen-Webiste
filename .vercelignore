@@ -1,4 +1,15 @@
+# Only what `next build` needs is uploaded. The converter (scripts/, overrides/ templates and dictionaries, the
+# clone) runs locally and commits its output (app/, public/, components/, lib/); overrides/global.css is the one
+# override file the build imports.
 .git
 node_modules
 .next
+out
 verify-out
+scripts
+overrides/*
+!overrides/global.css
+README.md
+conversion-report.json
+asset-map.json
+*.md

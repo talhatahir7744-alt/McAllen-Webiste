@@ -1,4 +1,7 @@
 import type { MetadataRoute } from 'next';
+
+// static export (next.config output: 'export'): generated once at build time, served as a plain file
+export const dynamic = 'force-static';
 import { POSTS } from '@/lib/blog-posts';
 import { localizeHref } from '@/lib/i18n';
 

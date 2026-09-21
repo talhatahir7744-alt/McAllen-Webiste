@@ -1665,24 +1665,25 @@
     }
   ],
   "assets": {
-    "copied": 608,
-    "bytes": 47468764,
-    "skippedUnchanged": 699,
+    "copied": 607,
+    "bytes": 34896628,
+    "skippedUnchanged": 506,
     "collisions": 0,
-    "bundlesPatched": 26,
+    "bundlesPatched": 25,
     "bundleReplacements": {
-      "https:\\/\\/fonts\\.googleapis\\.com": 10,
-      "https:\\/\\/stcdn\\.leadconnectorhq\\.com\\/": 128,
+      "https:\\/\\/fonts\\.googleapis\\.com": 7,
+      "https:\\/\\/stcdn\\.leadconnectorhq\\.com\\/": 90,
       "leadconnectorhq\\.com": 5,
-      "https:\\/\\/images(?:-staging)?\\.leadconnectorhq\\.com": 6,
-      "https:\\/\\/(?:[a-z0-9-]+\\.)*leadconnectorhq\\.com": 74,
-      "https:\\/\\/(?:[a-z0-9-]+\\.)*apisystem\\.tech": 5,
-      "https:\\/\\/(?:assets\\.)?cdn\\.(?:filesafe\\.space|msgsndr\\.com)": 10,
-      "filesafe\\.space": 16,
-      "msgsndr\\.com": 16,
+      "https:\\/\\/(?:[a-z0-9-]+\\.)*apisystem\\.tech": 3,
       "https:\\/\\/stcdn\\.leadconnectorhq\\.com": 3,
-      "https:\\/\\/fonts\\.gstatic\\.com": 3
-    }
+      "https:\\/\\/fonts\\.gstatic\\.com": 3,
+      "https:\\/\\/images(?:-staging)?\\.leadconnectorhq\\.com": 3,
+      "https:\\/\\/(?:[a-z0-9-]+\\.)*leadconnectorhq\\.com": 49,
+      "https:\\/\\/(?:assets\\.)?cdn\\.(?:filesafe\\.space|msgsndr\\.com)": 5,
+      "filesafe\\.space": 8,
+      "msgsndr\\.com": 8
+    },
+    "skippedUnshipped": 194
   },
   "missingImages": [],
   "missingReferenced": [

@@ -230,8 +230,26 @@ function patchBundle(text) {
   return { text, n };
 }
 console.log(`assets: ${assetMap.size} files indexed, ${variantIndex.size} proxied image sources, copying…`);
+// Indexed (so URLs still map locally) but not shipped: Google font files except the two 'Poppins Headline' cuts (every
+// face was stripped from the cloned stylesheets), Font Awesome's legacy formats (browsers take the woff2/woff listed
+// first), the form builder's GIFs (forms are iframes) and runtime chunks no page entry can reach.
+const HEADLINE_FONT_FILES = /pxiByp8kv8JHgFVrL(DD4Z1xlFQ|DD4Z1JlFc-K|Cz7Z1xlFQ|Cz7Z1JlFc-K)\.woff2$/;
+const unreachableChunks = (() => {
+  const dir = CLONE + '/stcdn.leadconnectorhq.com/_preview'; if (!fs.existsSync(dir)) return new Set();
+  const chunks = new Set(fs.readdirSync(dir).filter((x) => x.endsWith('.js')));
+  const entries = new Set(); for (const rel of pageFiles) for (const m of fs.readFileSync(path.join(SITE_DIR, rel), 'utf8').matchAll(/_preview\/([A-Za-z0-9_.-]+\.js)/g)) entries.add(m[1]);
+  const seen = new Set(); const queue = [...entries].filter((e) => chunks.has(e));
+  while (queue.length) { const ch = queue.pop(); if (seen.has(ch)) continue; seen.add(ch); const txt = fs.readFileSync(path.join(dir, ch), 'utf8'); for (const m of txt.matchAll(/["'`](?:\.\/)?([A-Za-z0-9_.-]+\.js)["'`]/g)) if (chunks.has(m[1]) && !seen.has(m[1])) queue.push(m[1]); }
+  return new Set([...chunks].filter((ch) => !seen.has(ch)));
+})();
+const SKIP_COPY = (localRel) => (/^fonts\.gstatic\.com\//.test(localRel) && !HEADLINE_FONT_FILES.test(localRel))
+  || /fontawesome\/webfonts\/.*\.(svg|eot|eot_|ttf)$/i.test(localRel)
+  || /^stcdn\.leadconnectorhq\.com\/forms\/gifs\//.test(localRel)
+  || (/^stcdn\.leadconnectorhq\.com\/_preview\/[^/]+\.js$/.test(localRel) && unreachableChunks.has(localRel.split('/').pop()));
+report.assets.skippedUnshipped = 0;
 for (const [localRel, pub] of assetMap) {
   const src = webpTwins.get(localRel) || `${CLONE}/${localRel}`; const dest = path.join(PUBLIC, pub.replace(/^\//, ''));
+  if (SKIP_COPY(localRel)) { report.assets.skippedUnshipped++; if (fs.existsSync(dest)) fs.rmSync(dest); continue; }
   const host = localRel.split('/')[0];
   const isText = /\.(js|mjs|css)$/i.test(localRel) && (host === 'stcdn.leadconnectorhq.com' || host === 'fonts.googleapis.com');
   if (!isText) {
@@ -242,9 +260,10 @@ for (const [localRel, pub] of assetMap) {
   let text = fs.readFileSync(src, 'utf8');
   if (host === 'fonts.googleapis.com') {
     text = text.replace(/\.\.\/fonts\.gstatic\.com\//g, '../gfonts/').replace(/https:\/\/fonts\.gstatic\.com\//g, '/assets/gfonts/');
-    // Poppins is the site typeface and is served by next/font (root layouts); the builder's Google Fonts copies are
-    // dropped so every page has one set of Poppins faces (no second download, no 900 cut on some pages only).
-    text = text.replace(/(?:\/\*[^*]*\*\/\s*)?@font-face\s*\{[^}]*font-family:\s*['"]?Poppins['"]?\s*;[^}]*\}\s*/g, '');
+    // All text renders Poppins (next/font in the root layouts; the two 'Poppins Headline' cuts are declared in
+    // overrides/site.css), so every @font-face is dropped from the cloned Google Fonts stylesheets and none of these
+    // families' font files is shipped (SKIP_COPY below).
+    text = text.replace(/(?:\/\*[^*]*\*\/\s*)?@font-face\s*\{[^}]*\}\s*/g, '');
   }
   else { const r = patchBundle(text); if (r.n) report.assets.bundlesPatched++; text = r.text; }
   write(dest, text); report.assets.copied++; report.assets.bytes += Buffer.byteLength(text);
@@ -1026,59 +1045,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   write(path.join(ROOT, 'next.config.ts'), `import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  // Every route is prerendered, so the site ships as plain static files (out/): no server functions, no ISR cache
+  // (each page view from Vercel's prerender cache counted as an ISR read and as origin transfer), smaller
+  // deployments. Redirects, rewrites and cache headers live in vercel.json, which Vercel applies to static output.
+  output: 'export',
   // the page's own CSS (global.css, the Poppins faces, component modules: ~15 KB) is written into the HTML instead
   // of three render-blocking stylesheet requests
   experimental: { inlineCss: true },
-  async redirects() {
-    // the builder's duplicate legal pages (same text under a second URL) permanently point at the kept copy,
-    // in both languages, so search engines see one canonical URL per page
-    return [
-      { source: '/terms-conditions', destination: '/terms-conditions-page', permanent: true },
-      { source: '/es/terms-conditions', destination: '/es/terms-conditions-page', permanent: true },
-      { source: '/privacy-policy-page-1', destination: '/privacy-policy-page', permanent: true },
-      { source: '/es/privacy-policy-page-1', destination: '/es/privacy-policy-page', permanent: true },
-    ];
-  },
-  async rewrites() {
-    // Every LeadConnector widget (reviews iframe, popup form, calendar) now points at /ghl-stub/…;
-    // serve the visible placeholder page for those. API paths (/ghl-stub/api/…) intentionally 404.
-    return [
-      { source: '/ghl-stub/widget/:path*', destination: '/ghl-stub.html' },
-      { source: '/ghl-stub/form/:path*', destination: '/ghl-stub.html' },
-      { source: '/ghl-stub/link/:path*', destination: '/ghl-stub.html' },
-      { source: '/ghl-stub/api/js/:path*', destination: '/ghl-stub/empty.js' },
-    ];
-  },
+  // next/image (footer logo, blog images) serves the local files as they are; nothing is optimized per request
+  images: { unoptimized: true },
 };
 
 export default nextConfig;
 `);
+  write(path.join(PUBLIC, 'ghl-stub', 'ok.json'), '{}\n'); // the runtime's stats/attribution calls (vercel.json rewrite) get an empty JSON object
   write(path.join(PUBLIC, 'ghl-stub', 'empty.js'), `/* Stub: LeadConnector widget loader scripts (e.g. the reviews widget) resolve here and do nothing. */\n`);
-  write(path.join(ROOT, 'middleware.ts'), `import { NextResponse, type NextRequest } from 'next/server';
-
-// Generated by scripts/convert.mjs. The GoHighLevel runtime builds Google Fonts stylesheet URLs at run time
-// (…/css?family=…); the bundles were patched to use /assets/gfonts-css instead of fonts.googleapis.com, and this
-// middleware maps such a request onto the wget-named local copy (same naming as scripts/convert.mjs).
-export const config = { matcher: ['/assets/gfonts-css/:path*'] };
-
-function fnv1a(s: string) { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(16).padStart(8, '0'); }
-function sanitizeSeg(seg: string) { let s = seg.replace(/[^A-Za-z0-9._-]/g, '_'); if (s.length > 100) { const ext = (seg.match(/\\.[A-Za-z0-9]{1,8}$/) || [''])[0]; s = s.slice(0, 60) + '-' + fnv1a(seg) + ext; } return s; }
-function winEscape(s: string) { return s.replace(/[\\\\|:?"*<>\\x00-\\x1f]/g, (c) => '%' + c.charCodeAt(0).toString(16).toUpperCase().padStart(2, '0')); }
-
-export function middleware(req: NextRequest) {
-  const { pathname, search } = req.nextUrl;
-  if (/^\\/assets\\/gfonts-css\\/css2?$/.test(pathname) && search.length > 1) {
-    const base = pathname.split('/').pop() as string;
-    const url = req.nextUrl.clone();
-    let query = search.slice(1);
-    try { query = decodeURIComponent(query); } catch { /* keep as is */ }
-    url.pathname = '/assets/gfonts-css/' + sanitizeSeg(base + '@' + winEscape(query) + '.css');
-    url.search = '';
-    return NextResponse.rewrite(url);
-  }
-  return NextResponse.next();
-}
-`);
+  // (no middleware.ts: the site is a static export; the runtime's Google Fonts stylesheet URLs are mapped by FONTMAP in
+  // public/ghl-offline-shim.js, and the cloned Google Fonts stylesheets no longer carry any @font-face)
+  if (fs.existsSync(path.join(ROOT, 'middleware.ts'))) fs.rmSync(path.join(ROOT, 'middleware.ts'));
   write(path.join(PUBLIC, 'ghl-stub.html'), `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Widget placeholder</title>
 <style>html,body{margin:0;height:100%;background:transparent}
@@ -1334,7 +1318,7 @@ ${aliases}
 2. **Pages** — for each HTML page one route is generated (\`app/<slug>/page.tsx\` + \`content.ts\`). \`<title>\`, description, keywords, robots, og:* and twitter:* tags become \`export const metadata\`; canonical/og:url point at \`${SITE_URL}\`.
    The \`<head>\` stylesheet/style sequence (external \`<link rel="stylesheet">\`, the data-URI custom-font stylesheet and every inline \`<style>\`) is emitted **verbatim and in the original order** in front of the \`<body>\` markup, both rendered through \`dangerouslySetInnerHTML\` in a server component (\`components/GhlPage.tsx\`). This keeps the builder's cascade order exactly; importing the stylesheets through \`globals.css\` would have moved the page-specific inline styles after the external sheets.
 3. **Scripts** — every \`<script src>\` and executable inline script is re-emitted through \`next/script\` (\`strategy="afterInteractive"\`) in the original order; the Nuxt JSON payload (\`#__NUXT_DATA__\`) and the JSON-LD block are data blocks and stay inline. Because \`afterInteractive\` scripts run after \`DOMContentLoaded\`, the site's own \`document.addEventListener("DOMContentLoaded", fn)\` calls were rewritten to \`window.__ghlOnReady(fn)\` (defined in \`public/ghl-offline-shim.js\`).
-4. **URL rewriting** — HTML attributes, inline CSS \`url()\`, the Nuxt payload strings, the Nuxt runtime config (\`window.__NUXT__.config\`: \`cdnURL\`, \`IMAGE_CDN\`, storage/API URLs) and the copied JS bundles (\`public/assets/lcstatic/_preview/*.js\`) were rewritten so nothing points at \`snoozemattresscompany.com\`, \`filesafe.space\`, \`leadconnectorhq.com\` or \`msgsndr.com\`. \`public/ghl-offline-shim.js\` is a runtime safety net that rewrites any such URL the GHL runtime still builds at hydration time, and \`middleware.ts\` maps the Google Fonts stylesheet URLs the runtime assembles (\`…/gfonts-css/css?family=…\`) onto the local copies.
+4. **URL rewriting** — HTML attributes, inline CSS \`url()\`, the Nuxt payload strings, the Nuxt runtime config (\`window.__NUXT__.config\`: \`cdnURL\`, \`IMAGE_CDN\`, storage/API URLs) and the copied JS bundles (\`public/assets/lcstatic/_preview/*.js\`) were rewritten so nothing points at \`snoozemattresscompany.com\`, \`filesafe.space\`, \`leadconnectorhq.com\` or \`msgsndr.com\`. \`public/ghl-offline-shim.js\` is a runtime safety net that rewrites any such URL the GHL runtime still builds at hydration time, and FONTMAP in the shim maps the Google Fonts stylesheet URLs the runtime assembles onto the local copies.
 5. **Teleport fix** — Vue's \`<Teleport to="body">\` hydration expects its SSR anchors to be direct children of \`<body>\`; React needs a host element, so \`components/GhlPage.tsx\` moves those body-level nodes out of the wrapper right after React hydration and before the Nuxt entry runs. Without this the GHL runtime "repairs" the DOM by deleting the page.
 
 ## Header / navigation
@@ -1405,7 +1389,8 @@ There is no chat widget in the page code itself; the LeadConnector chat widget (
 
 - **Tag scripts** (\`components/Tracking.tsx\`): the dataLayer, \`gtag()\` and both GA4 config calls are inline in \`<head>\` as in the client's snippets, but gtag.js (x2), the GTM container and Simpli.fi are injected by one loader on the first user interaction or 6 s after the load event (12 s after start at the latest; a shorter fallback fired inside page-speed traces once the page got fast). The GTM container alone was ~2 s of main-thread work on a phone (the whole Total Blocking Time); nothing visible depends on it. The GTM noscript iframe is unchanged.
 - **Logo marquee**: the brand logos' white/grey boxes are erased at build time (\`scripts/scrub-logos.mjs\`, flood fill from the edges, alpha WebP with width/height next to the original as \`*.scrub.webp\`); the page no longer redraws 34 logos on canvases or downloads each file twice.
-- **GHL API stub** (\`app/ghl-stub/api/[...path]/route.ts\`): the runtime's stats/attribution calls get an empty JSON 200 instead of a console 404.
+- **GHL API stub**: the runtime's stats/attribution calls (\`/ghl-stub/api/…\`) are rewritten by vercel.json to \`public/ghl-stub/ok.json\` (an empty JSON object) instead of a console 404.
+- **Hosting (static export)**: \`next.config.ts\` sets \`output: 'export'\`, so the deployment is the \`out/\` folder of plain files: no server functions, no ISR cache (every page view served from Vercel's prerender cache counted as an ISR read and origin transfer), and a smaller deployment. Redirects (duplicate legal URLs), rewrites (widget placeholders, API stub) and immutable cache headers for \`/assets\` and \`/_next/static\` live in \`vercel.json\`; \`.vercelignore\` uploads only what \`next build\` needs. The converter indexes but does not ship: Google font files other than the two 'Poppins Headline' cuts (all @font-face rules are stripped from the cloned Google stylesheets), Font Awesome's svg/eot/ttf formats, the form builder's GIFs and runtime chunks no page can reach.
 - **Layout shifts**: every GHL image element gets an \`aspect-ratio\` rule (\`<style data-snz-imgratio>\`) because the runtime swaps its \`<picture>\` for a bare \`<img>\` while hydrating; phone-only sections use the 768px resize as the fallback src.
 - **Critical path**: the offline shim is inlined in both layouts (\`lib/ghl-shim.ts\`, generated with \`public/ghl-offline-shim.js\`), the page's own CSS is inlined (\`experimental.inlineCss\`), the runtime's ~40 module preloads are emitted after the page markup, and only the latin Poppins subset (five files) is preloaded.
 - **Page loader**: \`<noscript>\` hides the overlay, so the page is fully visible without JavaScript (the reveal system also only hides elements under \`html.js\`).

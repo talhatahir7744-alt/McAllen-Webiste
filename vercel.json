@@ -1,5 +1,20 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/terms-conditions", "destination": "/terms-conditions-page", "permanent": true },
+    { "source": "/es/terms-conditions", "destination": "/es/terms-conditions-page", "permanent": true },
+    { "source": "/privacy-policy-page-1", "destination": "/privacy-policy-page", "permanent": true },
+    { "source": "/es/privacy-policy-page-1", "destination": "/es/privacy-policy-page", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/ghl-stub/widget/:path*", "destination": "/ghl-stub.html" },
+    { "source": "/ghl-stub/form/:path*", "destination": "/ghl-stub.html" },
+    { "source": "/ghl-stub/link/:path*", "destination": "/ghl-stub.html" },
+    { "source": "/ghl-stub/api/js/:path*", "destination": "/ghl-stub/empty.js" },
+    { "source": "/ghl-stub/api/:path*", "destination": "/ghl-stub/ok.json" }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -11,6 +26,10 @@
     },
     {
       "source": "/snz-motion.js",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/_next/static/(.*)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     }
   ]
