@@ -176,4 +176,4 @@ Removed external scripts:
 - Fonts, images, CSS and the GoHighLevel runtime (Nuxt bundle + 1113 asset files) are served locally.
 - 34 referenced file(s) did not exist in the clone and now resolve to a local 404 instead of the CDN (see conversion-report.json → missingReferenced).
 
-Generated 2026-09-21T00:52:09.568Z from `C:/clones`.
+Generated 2026-09-21T00:56:06.234Z from `C:/clones`.

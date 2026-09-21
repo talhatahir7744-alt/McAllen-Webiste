@@ -1119,6 +1119,15 @@ function shimSource() {
  *    (same naming scheme as scripts/convert.mjs) before the browser fetches it. */
 (function () {
   window.__ghlOnReady = function (fn) { if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn); else fn(); };
+  // The runtime's own telemetry (page-view stats, attribution session) is addressed to /ghl-stub/api/… (the converter's
+  // stand-in for its API host). Nothing on the site depends on those calls, and the site is static hosting, so they are
+  // answered here with an empty JSON object and never leave the browser (no request, no console error).
+  try {
+    var isStubApi = function (u) { try { var p = new URL(String(u && u.url ? u.url : u), location.href); return p.origin === location.origin && p.pathname.indexOf('/ghl-stub/api/') === 0 && p.pathname.indexOf('/ghl-stub/api/js/') !== 0; } catch (err) { return false; } };
+    var realFetch = window.fetch;
+    if (typeof realFetch === 'function') window.fetch = function (input, init) { if (isStubApi(input)) return Promise.resolve(new Response('{}', { status: 200, headers: { 'content-type': 'application/json' } })); return realFetch.apply(this, arguments); };
+    if (navigator.sendBeacon) { var realBeacon = navigator.sendBeacon.bind(navigator); navigator.sendBeacon = function (u, d) { return isStubApi(u) ? true : realBeacon(u, d); }; }
+  } catch (err) {}
   // locale: the GoHighLevel runtime sets <html lang="en"> on hydration; keep the language the server rendered
   try {
     var ssrLang = document.documentElement.getAttribute('lang');

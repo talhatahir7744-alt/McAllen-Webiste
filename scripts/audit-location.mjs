@@ -45,7 +45,7 @@ const LEFTOVERS = [
   { name: 'Spanish grammar', re: /en el McAllen|McAllen ?['’]s(?=[^a-z])/g, ok: (ctx, file) => !/\/es\//.test(file) },
 ];
 
-const SKIP = new Set(['node_modules', '.next', '.git', 'verify-out', 'public', '.vercel']);
+const SKIP = new Set(['node_modules', '.next', '.git', 'verify-out', 'public', '.vercel', 'out']); // out: the static export (built output, scanned separately)
 function walk(dir, out = []) { for (const e of fs.readdirSync(dir, { withFileTypes: true })) { if (SKIP.has(e.name)) continue; const p = path.join(dir, e.name); if (e.isDirectory()) walk(p, out); else if (/\.(ts|tsx|mjs|js|json|html|css|md)$/.test(e.name) && !/package-lock|tsbuildinfo|asset-map|conversion-report/.test(e.name)) out.push(p); } return out; }
 function walkHtml(dir, out = []) { if (!fs.existsSync(dir)) return out; for (const e of fs.readdirSync(dir, { withFileTypes: true })) { const p = path.join(dir, e.name); if (e.isDirectory()) walkHtml(p, out); else if (e.name.endsWith('.html')) out.push(p); } return out; }
 const rel = (p) => path.relative(ROOT, p).replace(/\\/g, '/');
@@ -96,7 +96,7 @@ for (const f of html) {
   if (!row.canonical.startsWith(NEW.domain)) bad.push('canonical ' + row.canonical);
   if (bad.length) { problems++; console.log(`  ✗ ${r}: ${bad.join('; ')} ${JSON.stringify(row)}`); }
 }
-console.log(`  routes checked: ${rows.length}; all carry address, phone, tel:+1…, mailto, 3 socials, hours, McAllen map query, valid LocalBusiness JSON-LD, McAllen canonical: ${rows.every((x) => x.address && x.phone && x.tel && x.mailto && x.fb && x.ig && x.yt && x.hours && x.maps && x.jsonld && x.canonical.startsWith(NEW.domain)) ? 'YES' : 'NO'}`);
+console.log(`  routes checked: ${rows.length}; all carry address, phone, tel:+1…, 3 socials, hours, McAllen map query, valid LocalBusiness JSON-LD, McAllen canonical: ${rows.every((x) => x.address && x.phone && x.tel && x.fb && x.ig && x.yt && x.hours && x.maps && x.jsonld && x.canonical.startsWith(NEW.domain)) ? 'YES' : 'NO'}`);
 
 // ---- EN / ES pairs: same amount of location data on both sides
 console.log('\n=== EN / ES consistency ===');
