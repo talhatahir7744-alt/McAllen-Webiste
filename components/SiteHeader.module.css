@@ -576,15 +576,16 @@
   .bar, .logo img, .list, .cta, .header, .header::before { transition: none !important; }
 }
 
-/* ---- narrower desktops: the nav list must fit between logo, EN|ES pill and phone button in both header states ---- */
-@media (min-width: 1025px) and (max-width: 1440px) {
-  .link { padding: 0 11px; font-size: 12.5px; letter-spacing: 0.07em; }
+/* ---- desktops: seven items (Sleep Quiz included) must fit between logo, EN|ES pill and phone button in both header
+   states, at every desktop width (this used to apply up to 1440px only; the 7th item needs it above that too) ---- */
+@media (min-width: 1025px) {
+  .link { padding: 0 10px; font-size: 12.5px; letter-spacing: 0.07em; }
   .list { gap: 2px; }
 }
 @media (min-width: 1025px) and (max-width: 1100px) {
   .bar { gap: 12px; padding: 0 16px; }
   .logo img { width: 130px; }
-  .link { padding: 0 8px; font-size: 12px; letter-spacing: 0.05em; }
+  .link { padding: 0 6px; font-size: 12px; letter-spacing: 0.05em; } /* 6px (was 8px): room for the seventh item, Sleep Quiz */
   .cta { padding: 0 14px 0 10px; gap: 8px; }
   .ctaNumber { font-size: 16px; }
   .lang { margin: 0 6px 0 0; }
@@ -592,3 +593,51 @@
   .compact .logo img { width: 124px; }
   .compact .bar { padding: 0 8px 0 14px; gap: 10px; }
 }
+
+/* ---- mobile drawer: third call to action, the Sleep Fit Quiz (same orange treatment as the phone button) ---- */
+.mQuiz {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  height: 54px; margin-top: 12px; padding: 0 16px;
+  border: 2px solid var(--snz-navy); border-radius: 15px;
+  background-color: var(--snz-navy); background-image: linear-gradient(135deg, #d96a1a 0%, #e6772e 100%);
+  color: #fff; font-family: var(--font-poppins-stack); font-size: 15px; font-weight: 600; line-height: 1.15; text-align: center; text-decoration: none;
+  box-shadow: none; transition: background-image 220ms var(--snz-ease), box-shadow 220ms var(--snz-ease), transform 120ms var(--snz-ease);
+}
+.mQuiz svg { flex: 0 0 auto; width: 18px; height: 18px; }
+.mQuiz:hover { background-image: linear-gradient(135deg, #c85f14 0%, #d96a1a 100%); box-shadow: 0 8px 5px -5px rgba(0, 20, 137, 0.25); }
+.mQuiz:active { transform: translateY(1px) scale(0.99); }
+
+/* ---- Sleep Quiz nav item: fits at every English desktop width with the tighter link spacing above; the Spanish label
+   ("Quiz de Sueño") is longer, so it needs tighter padding on narrow desktops and in the compact (scrolled) pill, and
+   it is hidden in the 1025–1099px band where it cannot fit. The quiz stays reachable there through the Our Products
+   dropdown row (.quizRow), the footer and the page CTAs. ---- */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .header[data-locale="es"] .link { padding: 0 7px; }
+}
+@media (min-width: 1025px) {
+  .header[data-locale="es"].compact .link { padding: 0 7px; letter-spacing: 0.05em; }
+}
+@media (min-width: 1025px) and (max-width: 1099px) {
+  .header[data-locale="es"] .quizItem { display: none; }
+}
+
+/* ---- Our Products dropdown: highlighted Sleep Fit Quiz row across the bottom of the panel (same navy treatment as
+   the Dream Mapping card) ---- */
+.quizRow {
+  grid-column: 1 / -1;
+  display: flex; align-items: center; gap: 14px;
+  margin-top: 2px; padding: 12px 16px 12px 12px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #001489 0%, #0b2aa8 100%);
+  color: #fff; text-decoration: none;
+  transition: transform 220ms var(--snz-ease), box-shadow 220ms var(--snz-ease);
+}
+.quizRow:hover { transform: translateY(-1px); box-shadow: 0 14px 28px -16px rgba(0, 20, 137, 0.6); }
+.quizRowIcon { flex: 0 0 40px; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 10px; background: rgba(245, 132, 51, 0.2); color: #ffb26b; }
+.quizRowIcon svg { width: 20px; height: 20px; }
+.quizRowText { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.quizRowTitle { font-size: 14px; font-weight: 700; line-height: 1.2; }
+.quizRowDesc { font-size: 12.5px; line-height: 1.35; color: rgba(255, 255, 255, 0.84); }
+.quizRowCta { margin-left: auto; flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #ffb26b; white-space: nowrap; }
+.quizRowCta svg { width: 14px; height: 14px; transition: transform 220ms var(--snz-ease); }
+.quizRow:hover .quizRowCta svg { transform: translateX(3px); }

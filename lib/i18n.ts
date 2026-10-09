@@ -29,11 +29,16 @@ export function alternateHref(pathname: string, target: Locale): string {
 type ProductItem = { label: string; desc: string };
 export type UiStrings = {
   langName: string;
-  nav: { home: string; about: string; products: string; financing: string; sales: string; blog: string; allArticles: string };
+  nav: { home: string; about: string; products: string; financing: string; sales: string; blog: string; quiz: string; allArticles: string };
   menu: { products: string; accessories: string; latest: string; openMenu: (label: string) => string; closeMenu: (label: string) => string; openSite: string; closeSite: string; siteMenu: string; homeAria: string; call: (phone: string) => string; switchTo: string };
   products: Record<string, ProductItem>;
   feature: { eyebrow: string; title: string; cta: string };
   drawerBook: string;
+  drawerQuiz: string;
+  /* Sleep Fit Quiz row at the bottom of the Our Products dropdown */
+  quizCard: { title: string; desc: string; cta: string };
+  /* Sleep Fit Quiz call to action under sections that had no next step (blog posts; the GoHighLevel pages carry the same copy in overrides/) */
+  quizCta: { line: string; button: string; aria: string };
   footer: {
     about: string; book: string; contact: string; products: string; company: string; visit: string; hours1: string; hours2: string; location: string; directions: string; openMaps: string; mapTitle: string;
     rights: string; madeWith: string; terms: string; privacy: string; facebook: string; instagram: string; youtube: string;
@@ -51,7 +56,7 @@ export type ProductKey = (typeof PRODUCT_KEYS)[number];
 
 const en: UiStrings = {
   langName: 'English',
-  nav: { home: 'Home', about: 'About Us', products: 'Our Products', financing: 'Financing', sales: 'Sales', blog: 'Blog', allArticles: 'All articles' },
+  nav: { home: 'Home', about: 'About Us', products: 'Our Products', financing: 'Financing', sales: 'Sales', blog: 'Blog', quiz: 'Sleep Quiz', allArticles: 'All articles' },
   menu: { products: 'Products', accessories: 'Sleep Accessories', latest: 'Latest articles', openMenu: (l) => `Open ${l} menu`, closeMenu: (l) => `Close ${l} menu`, openSite: 'Open menu', closeSite: 'Close menu', siteMenu: 'Site menu', homeAria: 'Snooze Mattress + Wellness — home', call: (p) => `Call ${p}`, switchTo: 'Ver en español' },
   products: {
     mattresses: { label: 'Mattresses', desc: 'Fitted to you with Dream Mapping' },
@@ -65,6 +70,9 @@ const en: UiStrings = {
   },
   feature: { eyebrow: 'Dream Mapping', title: 'Find your perfect mattress in about 5 minutes', cta: 'Book a free fitting' },
   drawerBook: 'Book Free Dream Mapping Appointment',
+  drawerQuiz: 'Take the Sleep Fit Quiz',
+  quizCard: { title: 'Sleep Fit Quiz', desc: 'Not sure which mattress is right for you? Find your comfort + support in 60 seconds.', cta: 'Take the quiz' },
+  quizCta: { line: 'Not sure which mattress is right for you?', button: 'Take the 60-Second Sleep Quiz →', aria: 'Sleep Fit Quiz' },
   footer: {
     about: 'Locally owned and operated in McAllen. We treat every person who walks through our door like family, and we are passionate about better health through better sleep.',
     book: 'Book Your Dream Mapping Appointment!', contact: 'Get In Touch With Us', products: 'Our Products', company: 'Company', visit: 'Visit Us',
@@ -72,7 +80,7 @@ const en: UiStrings = {
     mapTitle: 'Map to Snooze Mattress Company, 7913 North 10th Street, Suite 130, McAllen, TX 78504',
     rights: 'Snooze Mattress McAllen. All Rights Reserved', madeWith: 'Made with', terms: 'Terms & Conditions', privacy: 'Privacy Policy',
     facebook: 'Snooze McAllen on Facebook', instagram: 'Snooze McAllen on Instagram', youtube: 'Snooze McAllen on YouTube',
-    companyLinks: [['About Us', '/about-us'], ['Financing', '/mattress-financing'], ['Sales', '/mattress-sales'], ['Sleep Blog', '/blog'], ['Book a Dream Mapping Appointment', '/booking'], ['Get In Touch', '/optin-page']],
+    companyLinks: [['About Us', '/about-us'], ['Financing', '/mattress-financing'], ['Sales', '/mattress-sales'], ['Sleep Blog', '/blog'], ['Sleep Fit Quiz', '/sleep-quiz'], ['Book a Dream Mapping Appointment', '/booking'], ['Get In Touch', '/optin-page']],
   },
   blog: {
     eyebrow: 'Snooze Sleep Blog', indexTitle: 'Better Sleep Starts Here',
@@ -89,7 +97,7 @@ const en: UiStrings = {
 
 const es: UiStrings = {
   langName: 'Español',
-  nav: { home: 'Inicio', about: 'Nosotros', products: 'Productos', financing: 'Financiamiento', sales: 'Ofertas', blog: 'Blog', allArticles: 'Todos los artículos' }, // nav label kept short so the desktop row fits on one line; the full 'Nuestros Productos' stays in the footer
+  nav: { home: 'Inicio', about: 'Nosotros', products: 'Productos', financing: 'Financiamiento', sales: 'Ofertas', blog: 'Blog', quiz: 'Quiz de Sueño', allArticles: 'Todos los artículos' }, // nav label kept short so the desktop row fits on one line; the full 'Nuestros Productos' stays in the footer
   menu: { products: 'Productos', accessories: 'Accesorios para Dormir', latest: 'Artículos recientes', openMenu: (l) => `Abrir menú ${l}`, closeMenu: (l) => `Cerrar menú ${l}`, openSite: 'Abrir menú', closeSite: 'Cerrar menú', siteMenu: 'Menú del sitio', homeAria: 'Snooze Mattress + Wellness — inicio', call: (p) => `Llamar al ${p}`, switchTo: 'View in English' },
   products: {
     mattresses: { label: 'Colchones', desc: 'A tu medida con Dream Mapping' },
@@ -103,6 +111,9 @@ const es: UiStrings = {
   },
   feature: { eyebrow: 'Dream Mapping', title: 'Encuentra tu colchón perfecto en unos 5 minutos', cta: 'Reserva tu cita de Dream Mapping' },
   drawerBook: 'Reserva tu cita de Dream Mapping',
+  drawerQuiz: 'Haz el Quiz Sleep Fit',
+  quizCard: { title: 'Quiz Sleep Fit', desc: '¿No sabes qué colchón es el ideal para ti? Descubre tu comodidad y soporte en 60 segundos.', cta: 'Hacer el quiz' },
+  quizCta: { line: '¿No sabes qué colchón es el ideal para ti?', button: 'Haz el Quiz de Sueño de 60 Segundos →', aria: 'Quiz Sleep Fit' },
   footer: {
     about: 'Negocio local de McAllen, de la familia para la familia. Tratamos a cada persona que entra por nuestra puerta como si fuera de casa, y nos apasiona mejorar tu salud a través de un mejor sueño.',
     book: 'Reserva tu cita de Dream Mapping', contact: 'Contáctanos', products: 'Nuestros Productos', company: 'Empresa', visit: 'Visítanos',
@@ -110,7 +121,7 @@ const es: UiStrings = {
     mapTitle: 'Mapa para llegar a Snooze Mattress Company, 7913 North 10th Street, Suite 130, McAllen, TX 78504',
     rights: 'Snooze Mattress McAllen. Todos los derechos reservados', madeWith: 'Hecho con', terms: 'Términos y Condiciones', privacy: 'Política de Privacidad',
     facebook: 'Snooze McAllen en Facebook', instagram: 'Snooze McAllen en Instagram', youtube: 'Snooze McAllen en YouTube',
-    companyLinks: [['Nosotros', '/about-us'], ['Financiamiento', '/mattress-financing'], ['Ofertas', '/mattress-sales'], ['Blog del Sueño', '/blog'], ['Reserva tu cita de Dream Mapping', '/booking'], ['Contáctanos', '/optin-page']],
+    companyLinks: [['Nosotros', '/about-us'], ['Financiamiento', '/mattress-financing'], ['Ofertas', '/mattress-sales'], ['Blog del Sueño', '/blog'], ['Quiz Sleep Fit', '/sleep-quiz'], ['Reserva tu cita de Dream Mapping', '/booking'], ['Contáctanos', '/optin-page']],
   },
   blog: {
     eyebrow: 'Blog del Sueño de Snooze', indexTitle: 'Dormir Mejor Empieza Aquí',

@@ -263,3 +263,17 @@ html { scroll-behavior: smooth; scroll-padding-top: 96px; }
 .hl_page-preview--content [style*="font-family"] { font-family: var(--font-poppins-stack) !important; }
 .hl_page-preview--content [style*="Visby Extrabold"] { font-family: 'Poppins Headline', var(--font-poppins-stack) !important; }
 .hl_page-preview--content [style*="Visby Bold"] { font-family: 'Poppins Headline Bold', var(--font-poppins-stack) !important; }
+
+/* ---- Sleep Fit Quiz call to action (/sleep-quiz): one block under the sections that had no next step — the Dream
+   Mapping steps (overrides/dream-map-timeline.html), the brand marquee (logo-marquee.html), the guarantee cards
+   (our-promise-guarantee.html) and every FAQ accordion (faq-accordion.html). The button is the site button
+   (overrides/buttons.css styles .c-button a.custom); the Spanish copy comes from overrides/i18n/es.extra.json. ---- */
+.snz-quiz-cta { text-align: center; margin: 36px auto 0; max-width: 720px; padding: 0 16px; }
+.snz-quiz-cta__line { margin: 0 0 14px; font-family: var(--font-poppins-stack); font-size: clamp(17px, 2.2vw, 21px); font-weight: 600; line-height: 1.35; color: #001489; }
+.snz-quiz-cta__btn { display: inline-block; }
+.snz-quiz-cta__btn a.custom { display: inline-block; }
+.pm-section .snz-quiz-cta { margin-top: 44px; }
+.guar-section .snz-quiz-cta { margin-top: 30px; width: 100%; }
+.guar-section .snz-quiz-cta__line { color: #fff; }
+.snz-faq + .snz-quiz-cta { margin-top: 26px; padding: 0; }
+@media (max-width: 767px) { .snz-quiz-cta { margin-top: 28px; } .pm-section .snz-quiz-cta { margin-top: 32px; } }

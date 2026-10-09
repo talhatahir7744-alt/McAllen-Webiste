@@ -24,6 +24,7 @@ const PAGES: Array<[path: string, priority: number]> = [
   ['/mattress-financing', 0.8],
   ['/mattress-sales', 0.8],
   ['/booking', 0.8],
+  ['/sleep-quiz', 0.8],
   ['/optin-page', 0.8],
   ['/blog', 0.8],
   ['/privacy-policy-page', 0.3],

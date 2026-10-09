@@ -91,6 +91,10 @@ One footer for the whole site: `components/SiteFooter.tsx` (+ module CSS), rende
 
 `/blog` and the three posts (`/blog/custom-mattresses-improving-health`, `/blog/pressure-mapping-for-sleep`, `/blog/mattresses-that-relieve-aches`) are native App Router pages: content in `lib/blog-posts.ts` (client copy verbatim), template in `components/blog/` (hero → featured image → article → FAQ accordion → CTA → related posts → footer, one continuous lavender gradient), unique meta title/description, canonical, Open Graph + Twitter cards, JSON-LD BlogPosting + FAQPage + BreadcrumbList, `app/sitemap.ts` and `app/robots.ts`. Images are site assets served through `next/image`. The converter keeps `app/blog`, `app/sitemap.ts` and `app/robots.ts` when it regenerates `app/`.
 
+## Sleep Fit Quiz (hand-written route)
+
+`/sleep-quiz` and `/es/sleep-quiz` are the client's Sleep Fit Quiz inside the site header and footer: `components/SleepQuiz.tsx` renders the quiz shell and metadata (self-canonical, hreflang pair, `?r=` results links canonical to the bare page), `components/sleep-quiz/sleep-fit-quiz.css` is the quiz stylesheet scoped under `.snz-quiz`, and `public/sleep-fit-quiz.js` is the quiz logic (scoring, screens, lead form, kiosk mode `?kiosk=1`, shareable results) with every human-readable string in an EN/ES table and the McAllen store CONFIG + GoHighLevel inbound webhook. The converter keeps `app/(en)/sleep-quiz` and `app/es/sleep-quiz`. Calls to action link to it from the header (desktop item + mobile drawer item and button), the footer Company column, the Dream Mapping steps, the brand marquee, the guarantee cards, every FAQ accordion (`overrides/*.html`, styled by `overrides/site.css` → `.snz-quiz-cta`, Spanish copy in `overrides/i18n/es.extra.json`) and the blog posts (`components/blog/BlogLayout.tsx` → `QuizCta`).
+
 ## Page fixes (`overrides/site.css`, `overrides/global.css`)
 
 `site.css` is injected after every page stylesheet: the Financing / About Us / Home timeline block is transparent so the section's own lavender background flows from the heading into the timeline (no white seam). `global.css` is imported by the root layout for every route: smooth scrolling (disabled under reduced motion) with `scroll-padding-top` so anchors land below the sticky header. The timeline / guarantee scripts in `overrides/*.html` initialise every copy of a section (GHL renders a desktop and a mobile copy), so they animate on phones.
@@ -176,4 +180,4 @@ Removed external scripts:
 - Fonts, images, CSS and the GoHighLevel runtime (Nuxt bundle + 1113 asset files) are served locally.
 - 34 referenced file(s) did not exist in the clone and now resolve to a local 404 instead of the CDN (see conversion-report.json → missingReferenced).
 
-Generated 2026-09-21T00:56:06.234Z from `C:/clones`.
+Generated 2026-10-09T21:34:45.787Z from `C:/Users/Talha/AppData/Local/Temp/claude/d--McAllen-Site/6033f56f-8fef-41c1-9d45-6e65fddfb68f/scratchpad/clone`.

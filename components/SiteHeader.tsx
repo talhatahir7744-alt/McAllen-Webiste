@@ -32,6 +32,7 @@ function navTables(locale: Locale) {
     { label: t.nav.financing, href: '/mattress-financing' },
     { label: t.nav.sales, href: '/mattress-sales' },
     { label: t.nav.blog, href: BLOG_INDEX.href, menu: 'blog' },
+    { label: t.nav.quiz, href: '/sleep-quiz' },
   ];
   const item = (key: (typeof PRODUCT_KEYS)[number]): MenuLink => ({ label: t.products[key].label, desc: t.products[key].desc, href: PRODUCT_HREFS[key].href, icon: PRODUCT_HREFS[key].icon });
   const PRODUCT_GROUPS: { title: string; items: MenuLink[] }[] = [
@@ -82,6 +83,12 @@ const CalendarIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <rect x="3" y="5" width="18" height="16" rx="3" />
     <path d="M3 10h18M8 3v4M16 3v4M8 14h3M13 14h3M8 18h3" />
+  </svg>
+);
+const QuizIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <rect x="5" y="4.5" width="14" height="16.5" rx="2.5" />
+    <path d="M9 3.5h6v2.5H9zM8.5 12.5l2.2 2.2 4.8-4.8M8.5 17.5h7" />
   </svg>
 );
 const Close = () => (
@@ -316,6 +323,15 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
                           <span className={styles.featureTitle}>{t.feature.title}</span>
                           <span className={styles.featureCta}>{t.feature.cta} <Arrow /></span>
                         </a>
+                        {/* Sleep Fit Quiz: highlighted row across the bottom of the panel (the top-level nav item is hidden where it cannot fit) */}
+                        <a href={L('/sleep-quiz')} className={styles.quizRow}>
+                          <span className={styles.quizRowIcon}><QuizIcon /></span>
+                          <span className={styles.quizRowText}>
+                            <span className={styles.quizRowTitle}>{t.quizCard.title}</span>
+                            <span className={styles.quizRowDesc}>{t.quizCard.desc}</span>
+                          </span>
+                          <span className={styles.quizRowCta}>{t.quizCard.cta} <Arrow /></span>
+                        </a>
                       </>
                     ) : (
                       <>
@@ -326,7 +342,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
                   </div>
                 </li>
               ) : (
-                <li key={item.label} className={styles.item}>
+                <li key={item.label} className={item.href === '/sleep-quiz' ? `${styles.item} ${styles.quizItem}` : styles.item}>
                   <a href={L(item.href)} className={`${styles.link} ${isActive(item) ? styles.active : ''}`} aria-current={isActive(item) ? 'page' : undefined}>
                     {item.label}
                   </a>
@@ -426,6 +442,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
         <div className={styles.drawerFoot}>
           <a href={SITE.phoneHref} className={styles.mCta}><Phone />{SITE.phone}</a>
           <a href={L('/booking')} className={styles.mBook}><CalendarIcon />{t.drawerBook}</a>
+          <a href={L('/sleep-quiz')} className={styles.mQuiz}><QuizIcon />{t.drawerQuiz}</a>
         </div>
       </aside>
     </header>

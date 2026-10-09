@@ -215,3 +215,7 @@
 @media (prefers-reduced-motion: reduce) {
   .faqChevron, .faqPanel, .card, .cardImg img, .btn { transition: none; }
 }
+
+/* ---- Sleep Fit Quiz call to action after the article body (before the showroom CTA and related posts) ---- */
+.quizCta { width: min(780px, calc(100% - 40px)); margin: clamp(32px, 4vw, 44px) auto 0; text-align: center; }
+.quizCtaLine { margin: 0 0 14px; font: 600 clamp(17px, 2.2vw, 21px)/1.35 var(--ui); color: var(--navy); }

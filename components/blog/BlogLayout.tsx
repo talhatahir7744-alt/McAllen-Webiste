@@ -85,6 +85,17 @@ export function BlogCta({ locale = 'en' }: { locale?: Locale }) {
   );
 }
 
+/* Sleep Fit Quiz call to action: after the article body, before the showroom CTA and the related posts. */
+export function QuizCta({ locale = 'en' }: { locale?: Locale }) {
+  const t = ui(locale).quizCta;
+  return (
+    <section className={styles.quizCta} aria-label={t.aria} data-animate="fade-up">
+      <p className={styles.quizCtaLine}>{t.line}</p>
+      <a href={localizeHref('/sleep-quiz', locale)} className={styles.btn}>{t.button}</a>
+    </section>
+  );
+}
+
 export function BlogArticle({ post, related, locale = 'en' }: { post: BlogPost; related: BlogPost[]; locale?: Locale }) {
   const t = ui(locale).blog;
   return (
@@ -132,6 +143,7 @@ export function BlogArticle({ post, related, locale = 'en' }: { post: BlogPost; 
       </main>
 
       <div className={styles.container}>
+        <QuizCta locale={locale} />
         <BlogCta locale={locale} />
         <section className={styles.related} aria-labelledby="related-title">
           <h2 id="related-title" className={styles.h2Center}>{t.related}</h2>
