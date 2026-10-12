@@ -123,9 +123,10 @@ const I18N = {
       ctaTitle: "Feel your Sleep Fit in person",
       ctaText: "Book a Dream Mapping visit and we'll line up the mattresses that match your comfort and support so you can try them side by side.",
       book: "Book Dream Mapping", shop: "Shop Your Match",
-      retake: "Retake the quiz"
+      retake: "Retake the quiz",
+      shareLabel: "View my Sleep Fit results"
     },
-    trust: { reviews: "4.9★ from 2,000+ reviews", warranty: "10-yr+ warranties", financing: "0% financing available*", warrantyLabel: "Warranty", financingLabel: "Financing" },
+    trust: { guarantee: "365 Night Sleep Guarantee", guaranteeSub: "Love it or exchange it", warranty: "10-yr+ warranties", financing: "0% financing available", warrantyLabel: "Warranty", financingLabel: "Financing" },
     smsConsentText: "By checking this box, I agree to receive recurring text messages from Snooze Mattress + Wellness about my results, appointments and offers at the number provided. Consent is not a condition of purchase. Msg & data rates may apply. Msg frequency varies. Reply STOP to opt out, HELP for help."
   },
   es: {
@@ -211,14 +212,16 @@ const I18N = {
       ctaTitle: "Siente tu Sleep Fit en persona",
       ctaText: "Agenda una visita de Dream Mapping y te mostraremos los colchones que coinciden con tu comodidad y soporte para que los pruebes lado a lado.",
       book: "Agendar Dream Mapping", shop: "Compra tu Colchón Ideal",
-      retake: "Volver a hacer el quiz"
+      retake: "Volver a hacer el quiz",
+      shareLabel: "Ver mis resultados Sleep Fit"
     },
-    trust: { reviews: "4.9★ de más de 2,000 reseñas", warranty: "Garantías de 10+ años", financing: "Financiamiento al 0% disponible*", warrantyLabel: "Garantía", financingLabel: "Financiamiento" },
+    trust: { guarantee: "Garantía de 365 Noches de Sueño", guaranteeSub: "Ámalo o cámbialo", warranty: "Garantías de 10+ años", financing: "Financiamiento al 0% disponible", warrantyLabel: "Garantía", financingLabel: "Financiamiento" },
     smsConsentText: "Al marcar esta casilla, acepto recibir mensajes de texto recurrentes de Snooze Mattress + Wellness sobre mis resultados, citas y ofertas en el número proporcionado. El consentimiento no es condición de compra. Pueden aplicar tarifas de mensajes y datos. La frecuencia de mensajes varía. Responde STOP para cancelar o HELP para ayuda."
   }
 };
 const T = I18N[LANG];
-CONFIG.trust = { reviews: T.trust.reviews, warranty: T.trust.warranty, financing: T.trust.financing };
+/* results-screen trust strip (three cards): the site's own claims, per language; the strip renders from these values */
+CONFIG.trust = { guarantee: T.trust.guarantee, warranty: T.trust.warranty, financing: T.trust.financing };
 CONFIG.smsConsentText = T.smsConsentText;
 
 /* =================================================================================
@@ -367,7 +370,9 @@ function decodeAnswers(str){
     QUESTIONS.forEach((q,i)=>{ if(q.options.some(o=>o.v===parts[i])) a[q.key]=parts[i]; });
     return Object.keys(a).length===QUESTIONS.length ? a : null; }catch(e){ return null; }
 }
-function resultsUrl(){ const u = new URL(location.href); u.search = ""; u.hash = ""; u.searchParams.set("r", encodeAnswers(state.answers)); return u.toString(); }
+/* shareable results link: always the production page (not the host the quiz happens to run on: kiosk tablet, preview
+   deployment, local build), so the link in the lead's email and in GoHighLevel is the public one */
+function resultsUrl(){ const u = new URL(SITE_URL + location.pathname.replace(/\.html$/, "")); u.searchParams.set("r", encodeAnswers(state.answers)); return u.toString(); }
 function summaryText(){
   const r = state.result; const a = PROFILES[r.primary], b = PROFILES[r.secondary];
   return T.summary(a.phrase, r.secondary&&r.secondary!==r.primary ? b.phrase : null, COMFORT_LABELS[r.comfortIdx].toLowerCase());
@@ -491,6 +496,7 @@ function buildPayload(){
     quiz_tags: r.tags.join(","),
     q1_problem: label("problem"), q2_position: label("position"), q3_body_type: label("body"), q4_temperature: label("temp"), q5_partner: label("partner"),
     results_url: resultsUrl(),
+    results_url_short_label: T.results.shareLabel, // link text for GoHighLevel emails / SMS
     lead_source: KIOSK ? "Sleep Fit Quiz - In Store" : "Sleep Fit Quiz - Landing Page",
     page_url: location.href.split("?")[0],
     utm_source: qs.get("utm_source")||"", utm_medium: qs.get("utm_medium")||"", utm_campaign: qs.get("utm_campaign")||"",
@@ -552,7 +558,7 @@ function renderResults(){
       </div>
       <p class="store-line">${esc(STORE.name)} · ${esc(STORE.address)} · <a href="tel:${esc(tel)}">${esc(STORE.phone)}</a></p>
     </div>
-    <div class="trust"><div><b>${esc(CONFIG.trust.reviews.split(" ")[0])}</b>${esc(CONFIG.trust.reviews.split(" ").slice(1).join(" "))}</div><div><b>${esc(T.trust.warrantyLabel)}</b>${esc(CONFIG.trust.warranty)}</div><div><b>${esc(T.trust.financingLabel)}</b>${esc(CONFIG.trust.financing)}</div></div>
+    <div class="trust"><div><b>${esc(CONFIG.trust.guarantee)}</b>${esc(T.trust.guaranteeSub)}</div><div><b>${esc(T.trust.warrantyLabel)}</b>${esc(CONFIG.trust.warranty)}</div><div><b>${esc(T.trust.financingLabel)}</b>${esc(CONFIG.trust.financing)}</div></div>
     <div class="nav" style="justify-content:center"><button class="link-btn" id="retake">${esc(R.retake)}</button></div>
   </section>`;
   $view.querySelectorAll("[data-track]").forEach(a=> a.addEventListener("click",()=>track(a.dataset.track,{profile:prof.name, store:STORE.id})));

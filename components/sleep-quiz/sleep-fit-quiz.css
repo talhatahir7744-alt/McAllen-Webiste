@@ -115,12 +115,17 @@
 .snz-quiz .cta-box p { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 16px; }
 .snz-quiz .ctas { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .snz-quiz .store-line { font-size: 13.5px; color: var(--muted); margin-top: 14px; }
+/* trust strip under the results: three equal cards (heading + supporting line), the site's card look */
 .snz-quiz .trust { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
-.snz-quiz .trust div { background: var(--surface); border-radius: 14px; padding: 14px; text-align: center; font-size: 12.5px; color: var(--ink-soft); }
-.snz-quiz .trust b { display: block; font-size: 15px; color: var(--snooze-blue); margin-bottom: 2px; }
+.snz-quiz .trust div { background: var(--surface); border-radius: 14px; box-shadow: var(--shadow); padding: 14px 12px; text-align: center; font-size: 12.5px; line-height: 1.4; color: var(--ink-soft); }
+.snz-quiz .trust b { display: block; font-size: 15px; font-weight: 700; line-height: 1.25; color: var(--snooze-blue); margin-bottom: 3px; }
+@media (max-width: 720px) { .snz-quiz .trust b { font-size: 14px; } }
+@media (max-width: 559px) {
+  .snz-quiz .trust { grid-template-columns: 1fr; gap: 8px; margin-top: 16px; }
+  .snz-quiz .trust div { padding: 10px 12px; }
+}
 @media (max-width: 560px) {
   .snz-quiz .row2, .snz-quiz .ctas, .snz-quiz .fit-grid, .snz-quiz .steps { grid-template-columns: 1fr; }
-  .snz-quiz .trust { grid-template-columns: 1fr; }
   .snz-quiz .hero { padding: 28px 20px 22px; }
 }
 @media (prefers-reduced-motion: reduce) {

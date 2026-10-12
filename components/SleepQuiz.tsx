@@ -16,7 +16,7 @@ import './sleep-quiz/sleep-fit-quiz.css';
 const SITE_URL = 'https://mcallen.snoozemattresscompany.com';
 const FAVICON = '/assets/filesafe/qR8peonBlnjGI3ZuLHQP/media/695b9e7d17768458ae206a19.png';
 const OG_IMAGE = '/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4e747464c6b3a3be10.png.webp';
-export const QUIZ_SCRIPT = '/sleep-fit-quiz.js?v=1';
+export const QUIZ_SCRIPT = '/sleep-fit-quiz.js?v=3';
 
 const META: Record<Locale, { title: string; description: string; ogLocale: string; noscript: string }> = {
   en: {
