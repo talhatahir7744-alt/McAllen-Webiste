@@ -19,3 +19,72 @@ html {
 :root { --font-poppins-stack: var(--font-poppins), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 html, body, button, input, select, textarea, optgroup { font-family: var(--font-poppins-stack); }
 input::placeholder, textarea::placeholder { font-family: var(--font-poppins-stack); }
+
+/* ---- Lists: one rhythm for every check-icon list (financing page pass, Oct 2026) --------------------------------
+   The converted pages' lists are GoHighLevel bullet-list elements (.c-bullet-list: one <ul><li> per element, the
+   icon drawn by li::marker in Font Awesome) on the home hero, the product feature lists, the guarantees and the
+   financing page; the Sleep Fit Quiz results list (.snz-quiz .why) is hand-written. The builder gave every element
+   its own padding, a 1em line-height and negative margins, so items sat 10px apart and lists touched the copy above
+   and below them. One scale, declared here and used by both kinds of list. The builder's per-element values live in
+   each page's generated <style> and are overridden here rather than edited (overrides/site.css keeps the few
+   page-level nudges that fought this rhythm on the financing page). */
+:root {
+  --snz-list-item-gap: 13px;     /* between items (12-14px on desktop) */
+  --snz-list-block-gap: 22px;    /* above and below a list (20-24px) */
+  --snz-list-lead-gap: 34px;     /* a lead-in line between two lists opens a new block (32-40px) */
+  --snz-list-icon-gap: 11px;     /* icon to text (10-12px) */
+  --snz-list-line-height: 1.6;
+}
+@media (max-width: 767px) {
+  :root { --snz-list-item-gap: 11px; --snz-list-block-gap: 20px; --snz-list-lead-gap: 32px; --snz-list-icon-gap: 10px; }
+}
+/* GoHighLevel bullet lists: the element's own padding and margins go, the <li> carries the rhythm */
+.hl_page-preview--content .c-bullet-list { margin-top: 0 !important; margin-bottom: 0 !important; }
+.hl_page-preview--content .c-bullet-list .text-output { padding-top: 0 !important; padding-bottom: 0 !important; line-height: var(--snz-list-line-height) !important; }
+.hl_page-preview--content .c-bullet-list .text-output :is(ul, ol) { margin: 0 !important; }
+.hl_page-preview--content .c-bullet-list .text-output li { margin: 0 !important; line-height: var(--snz-list-line-height) !important; }
+.hl_page-preview--content .c-bullet-list .text-output li:not([class*="ql-indent"]) { padding-inline-start: var(--snz-list-icon-gap) !important; }
+.hl_page-preview--content .c-bullet-list .text-output li > p { margin: 0 !important; line-height: inherit !important; }
+/* items: the <li>s of one list, and consecutive single-item elements */
+.hl_page-preview--content .c-bullet-list .text-output li + li { margin-top: var(--snz-list-item-gap) !important; }
+.hl_page-preview--content .c-bullet-list.c-wrapper + .c-bullet-list.c-wrapper { margin-top: var(--snz-list-item-gap) !important; }
+/* a list is its own block: room above its first item and below its last */
+.hl_page-preview--content .c-wrapper:not(.c-bullet-list) + .c-bullet-list.c-wrapper { margin-top: var(--snz-list-block-gap) !important; }
+.hl_page-preview--content .c-bullet-list.c-wrapper + .c-wrapper:not(.c-bullet-list) { margin-top: var(--snz-list-block-gap) !important; }
+/* a heading, sub-heading or paragraph sandwiched between two lists introduces the next block */
+.hl_page-preview--content .c-bullet-list.c-wrapper + .c-wrapper:is(.c-heading, .c-sub-heading, .c-paragraph):has(+ .c-bullet-list) { margin-top: var(--snz-list-lead-gap) !important; }
+/* Sleep Fit Quiz results ("why this fits you"): the same item gap, icon gap and line-height */
+.snz-quiz ul.why { gap: var(--snz-list-item-gap); }
+.snz-quiz ul.why > li { gap: var(--snz-list-icon-gap); line-height: var(--snz-list-line-height); }
+
+/* ---- Financing page copy (desktop section #section-XBz7r5mHB5, phone #section-s9jzFpVhnj; both languages share
+   the element ids). The list rhythm is the rule set above; these are the builder settings on this one page that
+   fought it, plus the two hierarchy fixes. They sit here, not in overrides/site.css, because site.css is copied
+   into every generated page by the converter and only changes with a re-conversion; this file is bundled on every
+   build. ---- */
+/* the nested row that holds the lists was pulled 13px up into the intro line */
+.hl_page-preview--content #row-uijtZft2ja, .hl_page-preview--content #row-EKTHi8EX0l { margin-top: 0 !important; }
+/* "Qualified buyers may access:" sat 6px under the headline */
+.hl_page-preview--content #sub-heading-HP5QvF-Stn, .hl_page-preview--content #sub-heading-x65IKvSzlY { margin-top: 14px !important; }
+/* "These options are ideal for customers…" is body copy the builder set as an H1 in the headline face: the list
+   items' size (20px desktop, 16px phone) at weight 400 and the lists' 1.6 line-height; inline <strong>/<b> stays bold */
+.hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) h1,
+.hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) h1 [style*="Visby"] { font-family: var(--font-poppins-stack) !important; font-size: 20px !important; font-weight: 400 !important; line-height: 1.6 !important; }
+.hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) h1 :is(strong, b) { font-weight: 700 !important; }
+@media (max-width: 767px) {
+  .hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) h1,
+  .hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) h1 [style*="Visby"] { font-size: 16px !important; }
+}
+/* Headline "Traditional Mattress Financing (Synchrony & Wells Fargo)" (desktop #heading-nh1OX4OVP9, phone
+   #heading-9UhGiuQIC6): the highlighted title phrase and the parenthesis are two lines (the span stacks its <u> and
+   the text after it), and the size follows the column (container query on the text-output) so the title phrase never
+   breaks mid-phrase. English fits at the builder's 42px on desktop and needs 18px on a 390px phone; Spanish
+   ("Financiamiento Tradicional para Colchones") fits at 34px on desktop and keeps three clean lines on phones. */
+.hl_page-preview--content :is(.cheading-nh1OX4OVP9, .cheading-9UhGiuQIC6) { container-type: inline-size; }
+.hl_page-preview--content :is(.cheading-nh1OX4OVP9, .cheading-9UhGiuQIC6) h2 > span { display: flex !important; flex-direction: column; align-items: flex-start; }
+.hl_page-preview--content :is(.cheading-nh1OX4OVP9, .cheading-9UhGiuQIC6) h2 u { line-height: 1.15 !important; }
+html[lang="en"] .hl_page-preview--content :is(.cheading-nh1OX4OVP9, .cheading-9UhGiuQIC6) h2 { font-size: clamp(18px, 6.1cqw, 42px) !important; }
+html[lang="es"] .hl_page-preview--content .cheading-nh1OX4OVP9 h2 { font-size: clamp(18px, 4.3cqw, 42px) !important; }
+html[lang="es"] .hl_page-preview--content .cheading-9UhGiuQIC6 h2 { font-size: clamp(18px, 6.8cqw, 25px) !important; }
+/* the financing band's two paragraphs ("Get 0% Financing…" / "Upgrade your mattress…") read as two */
+#section-FVn4UvdYfr .c-paragraph p + p, #section-KI-fCuyF5S .c-paragraph p + p, #section-yWefy4dO1- .c-paragraph p + p { margin-top: 16px !important; }
