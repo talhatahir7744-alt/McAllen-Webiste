@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 
 export const metadata: Metadata = {
-  "title": "Elevate Your Sleep with Adjustable Mattress Bases",
-  "description": "Adjustable mattress bases at Snooze Mattress + Wellness in McAllen, are designed to enhance comfort, support, and overall sleep quality. With customizable head and foot positioning, adjustable bases help relieve pressure, reduce snoring, improve circulation, and support healthier sleep posture.",
+  "title": "Adjustable Beds & Bases in McAllen, TX | Snooze",
+  "description": "Adjustable beds and bases in McAllen, TX from Snooze Mattress + Wellness: more comfort, support and pressure relief, less snoring. Try one in store.",
   "alternates": {
     "canonical": "/adjustable-mattress-bases",
     "languages": {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Elevate Your Sleep with Adjustable Mattress Bases",
-    "description": "Adjustable mattress bases at Snooze Mattress + Wellness in McAllen, are designed to enhance comfort, support, and overall sleep quality. With customizable head and foot positioning, adjustable bases help relieve pressure, reduce snoring, improve circulation, and support healthier sleep posture.",
+    "title": "Adjustable Beds & Bases in McAllen, TX | Snooze",
+    "description": "Adjustable beds and bases in McAllen, TX from Snooze Mattress + Wellness: more comfort, support and pressure relief, less snoring. Try one in store.",
     "url": "/adjustable-mattress-bases",
     "type": "website",
     "images": [

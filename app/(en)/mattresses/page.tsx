@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 
 export const metadata: Metadata = {
-  "title": "Best Mattresses  in McAllen",
-  "description": "Finding the perfect mattress in McAllen doesn’t have to be overwhelming. At Snooze Mattress + Wellness, we make it simple and personal. From luxury comfort and advanced sleep technology to budget-friendly options, our McAllen showroom offers mattresses for every sleep style and budget.",
+  "title": "Mattresses in McAllen, TX — Tempur-Pedic, Sealy & More | Snooze",
+  "description": "Mattresses in McAllen, TX: Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, King Koil and more, fitted to you in a free Dream Mapping session.",
   "alternates": {
     "canonical": "/mattresses",
     "languages": {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Best Mattresses  in McAllen",
-    "description": "Finding the perfect mattress in McAllen doesn’t have to be overwhelming. At Snooze Mattress + Wellness, we make it simple and personal. From luxury comfort and advanced sleep technology to budget-friendly options, our McAllen showroom offers mattresses for every sleep style and budget.",
+    "title": "Mattresses in McAllen, TX — Tempur-Pedic, Sealy & More | Snooze",
+    "description": "Mattresses in McAllen, TX: Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, King Koil and more, fitted to you in a free Dream Mapping session.",
     "url": "/mattresses",
     "type": "website",
     "images": [

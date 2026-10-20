@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 
 export const metadata: Metadata = {
-  "title": "Flexible Mattress Payment Plans at Snooze Mattress Company",
-  "description": "At Snooze Mattress Company – McAllen, we make it easy to upgrade your sleep with flexible mattress payment options. Whether you’re purchasing a new mattress, adjustable base, or full sleep system, we offer financing solutions designed to fit a wide range of budgets and credit profiles. Better sleep shouldn’t wait.",
+  "title": "Mattress Financing in McAllen, TX — 0% Options | Snooze",
+  "description": "Mattress financing in McAllen, TX: 0% options through Synchrony and Wells Fargo plus Snap lease-to-own. Flexible monthly payments on your new sleep system.",
   "alternates": {
     "canonical": "/mattress-financing",
     "languages": {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Flexible Mattress Payment Plans at Snooze Mattress Company",
-    "description": "At Snooze Mattress Company – McAllen, we make it easy to upgrade your sleep with flexible mattress payment options. Whether you’re purchasing a new mattress, adjustable base, or full sleep system, we offer financing solutions designed to fit a wide range of budgets and credit profiles. Better sleep shouldn’t wait.",
+    "title": "Mattress Financing in McAllen, TX — 0% Options | Snooze",
+    "description": "Mattress financing in McAllen, TX: 0% options through Synchrony and Wells Fargo plus Snap lease-to-own. Flexible monthly payments on your new sleep system.",
     "url": "/mattress-financing",
     "type": "website",
     "images": [

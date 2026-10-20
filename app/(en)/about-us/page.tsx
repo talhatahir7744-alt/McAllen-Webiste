@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 
 export const metadata: Metadata = {
-  "title": "Stop Guessing. Start Sleeping Better Tonight.",
-  "description": "At Snooze Mattress + Wellness, we use science-backed Dream Mapping technology to find the mattress that's perfectly built for your body — in 5 minutes flat. No pressure. No guesswork. Just deep, restorative sleep.",
+  "title": "About Snooze McAllen — Locally Owned Mattress Store",
+  "description": "Snooze Mattress + Wellness, McAllen, TX: science-backed Dream Mapping fittings, real Sleep Coaches and no commission pressure to find your right mattress.",
   "alternates": {
     "canonical": "/about-us",
     "languages": {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Stop Guessing. Start Sleeping Better Tonight.",
-    "description": "At Snooze Mattress + Wellness, we use science-backed Dream Mapping technology to find the mattress that's perfectly built for your body — in 5 minutes flat. No pressure. No guesswork. Just deep, restorative sleep.",
+    "title": "About Snooze McAllen — Locally Owned Mattress Store",
+    "description": "Snooze Mattress + Wellness, McAllen, TX: science-backed Dream Mapping fittings, real Sleep Coaches and no commission pressure to find your right mattress.",
     "url": "/about-us",
     "type": "website",
     "images": [

@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 
 export const metadata: Metadata = {
-  "title": "Duerme Mejor. Ahorra Más. Compra Local.",
-  "description": "Estás en el lugar correcto. En Snooze Mattress + Wellness, te ayudamos a encontrar el colchón perfecto al precio perfecto — sin presiones, trucos ni letras chiquitas confusas. Ya sea que estés renovando tu recámara principal, buscando algo para el cuarto de visitas o por fin reemplazando ese colchón hundido, lo hacemos sencillo, accesible y cómodo.",
+  "title": "Ofertas de Colchones en McAllen, TX | Snooze",
+  "description": "Ofertas de colchones en McAllen, TX: Helix, Puffy, King Koil, Snooze-O-Pedic y paquetes con base ajustable a precios locales. Agenda tu cita gratis.",
   "alternates": {
     "canonical": "/es/mattress-sales",
     "languages": {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Duerme Mejor. Ahorra Más. Compra Local.",
-    "description": "Estás en el lugar correcto. En Snooze Mattress + Wellness, te ayudamos a encontrar el colchón perfecto al precio perfecto — sin presiones, trucos ni letras chiquitas confusas. Ya sea que estés renovando tu recámara principal, buscando algo para el cuarto de visitas o por fin reemplazando ese colchón hundido, lo hacemos sencillo, accesible y cómodo.",
+    "title": "Ofertas de Colchones en McAllen, TX | Snooze",
+    "description": "Ofertas de colchones en McAllen, TX: Helix, Puffy, King Koil, Snooze-O-Pedic y paquetes con base ajustable a precios locales. Agenda tu cita gratis.",
     "url": "/es/mattress-sales",
     "type": "website",
     "images": [

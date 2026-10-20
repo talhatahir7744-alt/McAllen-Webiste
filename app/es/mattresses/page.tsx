@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 
 export const metadata: Metadata = {
-  "title": "Los Mejores Colchones en McAllen",
-  "description": "Encontrar el colchón perfecto en McAllen no tiene por qué ser complicado. En Snooze Mattress + Wellness lo hacemos simple y personal. Desde comodidad de lujo y tecnología de sueño avanzada hasta opciones económicas, nuestra tienda en McAllen tiene colchones para cada estilo de descanso y presupuesto.",
+  "title": "Colchones en McAllen, TX: Tempur-Pedic, Sealy y Más | Snooze",
+  "description": "Colchones en McAllen, TX: Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, King Koil y más, ajustados a ti en una sesión gratis de Dream Mapping.",
   "alternates": {
     "canonical": "/es/mattresses",
     "languages": {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Los Mejores Colchones en McAllen",
-    "description": "Encontrar el colchón perfecto en McAllen no tiene por qué ser complicado. En Snooze Mattress + Wellness lo hacemos simple y personal. Desde comodidad de lujo y tecnología de sueño avanzada hasta opciones económicas, nuestra tienda en McAllen tiene colchones para cada estilo de descanso y presupuesto.",
+    "title": "Colchones en McAllen, TX: Tempur-Pedic, Sealy y Más | Snooze",
+    "description": "Colchones en McAllen, TX: Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, King Koil y más, ajustados a ti en una sesión gratis de Dream Mapping.",
     "url": "/es/mattresses",
     "type": "website",
     "images": [

@@ -111,9 +111,9 @@ const es: UiStrings = {
   },
   feature: { eyebrow: 'Dream Mapping', title: 'Encuentra tu colchón perfecto en unos 5 minutos', cta: 'Reserva tu cita de Dream Mapping' },
   drawerBook: 'Reserva tu cita de Dream Mapping',
-  drawerQuiz: 'Haz el Quiz Sleep Fit',
-  quizCard: { title: 'Quiz Sleep Fit', desc: '¿No sabes qué colchón es el ideal para ti? Descubre tu comodidad y soporte en 60 segundos.', cta: 'Hacer el quiz' },
-  quizCta: { line: '¿No sabes qué colchón es el ideal para ti?', button: 'Haz el Quiz de Sueño de 60 Segundos →', aria: 'Quiz Sleep Fit' },
+  drawerQuiz: 'Haz el Sleep Fit Quiz',
+  quizCard: { title: 'Sleep Fit Quiz', desc: '¿No sabes qué colchón es el ideal para ti? Descubre tu comodidad y soporte en 60 segundos.', cta: 'Hacer el quiz' },
+  quizCta: { line: '¿No sabes qué colchón es el ideal para ti?', button: 'Haz el Quiz de Sueño de 60 Segundos →', aria: 'Sleep Fit Quiz' },
   footer: {
     about: 'Negocio local de McAllen, de la familia para la familia. Tratamos a cada persona que entra por nuestra puerta como si fuera de casa, y nos apasiona mejorar tu salud a través de un mejor sueño.',
     book: 'Reserva tu cita de Dream Mapping', contact: 'Contáctanos', products: 'Nuestros Productos', company: 'Empresa', visit: 'Visítanos',
@@ -121,7 +121,7 @@ const es: UiStrings = {
     mapTitle: 'Mapa para llegar a Snooze Mattress Company, 7913 North 10th Street, Suite 130, McAllen, TX 78504',
     rights: 'Snooze Mattress McAllen. Todos los derechos reservados', madeWith: 'Hecho con', terms: 'Términos y Condiciones', privacy: 'Política de Privacidad',
     facebook: 'Snooze McAllen en Facebook', instagram: 'Snooze McAllen en Instagram', youtube: 'Snooze McAllen en YouTube',
-    companyLinks: [['Nosotros', '/about-us'], ['Financiamiento', '/mattress-financing'], ['Ofertas', '/mattress-sales'], ['Blog del Sueño', '/blog'], ['Quiz Sleep Fit', '/sleep-quiz'], ['Reserva tu cita de Dream Mapping', '/booking'], ['Contáctanos', '/optin-page']],
+    companyLinks: [['Nosotros', '/about-us'], ['Financiamiento', '/mattress-financing'], ['Ofertas', '/mattress-sales'], ['Blog del Sueño', '/blog'], ['Sleep Fit Quiz', '/sleep-quiz'], ['Reserva tu cita de Dream Mapping', '/booking'], ['Contáctanos', '/optin-page']],
   },
   blog: {
     eyebrow: 'Blog del Sueño de Snooze', indexTitle: 'Dormir Mejor Empieza Aquí',

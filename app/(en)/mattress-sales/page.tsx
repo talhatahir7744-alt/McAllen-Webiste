@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 
 export const metadata: Metadata = {
-  "title": "Sleep Better. Save More. Shop Local.",
-  "description": "You’re in the right place. At Snooze Mattress + Wellness, we help you find the perfect mattress at the perfect price — without pressure, gimmicks, or confusing fine print. Whether you’re upgrading your master bedroom, shopping for a guest room, or finally replacing that sagging mattress, we make it simple, affordable, and comfortable.",
+  "title": "Mattress Sales & Deals in McAllen, TX | Snooze",
+  "description": "Mattress deals in McAllen, TX: Helix, Puffy, King Koil, Snooze-O-Pedic and adjustable base bundles at local prices. Visit the showroom or book a fitting.",
   "alternates": {
     "canonical": "/mattress-sales",
     "languages": {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Sleep Better. Save More. Shop Local.",
-    "description": "You’re in the right place. At Snooze Mattress + Wellness, we help you find the perfect mattress at the perfect price — without pressure, gimmicks, or confusing fine print. Whether you’re upgrading your master bedroom, shopping for a guest room, or finally replacing that sagging mattress, we make it simple, affordable, and comfortable.",
+    "title": "Mattress Sales & Deals in McAllen, TX | Snooze",
+    "description": "Mattress deals in McAllen, TX: Helix, Puffy, King Koil, Snooze-O-Pedic and adjustable base bundles at local prices. Visit the showroom or book a fitting.",
     "url": "/mattress-sales",
     "type": "website",
     "images": [

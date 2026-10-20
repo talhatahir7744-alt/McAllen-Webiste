@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 
 export const metadata: Metadata = {
-  "title": "Mejora tu Descanso con Almohadas Premium en McAllen",
-  "description": "La almohada correcta hace toda la diferencia. En Snooze Mattress + Wellness tenemos la mejor selección de almohadas premium de McAllen, diseñadas para acunar tu cabeza, dar soporte a tu cuello y transformar tu descanso cada noche.",
+  "title": "Almohadas en McAllen, TX para Tu Forma de Dormir | Snooze",
+  "description": "Almohadas en McAllen, TX para tu forma de dormir: de lado, boca arriba o boca abajo. Almohadas premium en Snooze Mattress + Wellness para tu descanso.",
   "alternates": {
     "canonical": "/es/pillows",
     "languages": {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Mejora tu Descanso con Almohadas Premium en McAllen",
-    "description": "La almohada correcta hace toda la diferencia. En Snooze Mattress + Wellness tenemos la mejor selección de almohadas premium de McAllen, diseñadas para acunar tu cabeza, dar soporte a tu cuello y transformar tu descanso cada noche.",
+    "title": "Almohadas en McAllen, TX para Tu Forma de Dormir | Snooze",
+    "description": "Almohadas en McAllen, TX para tu forma de dormir: de lado, boca arriba o boca abajo. Almohadas premium en Snooze Mattress + Wellness para tu descanso.",
     "url": "/es/pillows",
     "type": "website",
     "images": [

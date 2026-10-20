@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 
 export const metadata: Metadata = {
-  "title": "Sillas de Masaje Infinity® en McAllen",
-  "description": "Las sillas de masaje Infinity® de Snooze Mattress + Wellness en McAllen ofrecen tecnología de masaje avanzada para relajarte, recuperarte y cuidar tu bienestar total. Con posición de gravedad cero, compresión de aire de cuerpo completo, terapia de calor y rodillos de masaje de precisión, las sillas Infinity te dan una experiencia de spa en la comodidad de tu casa.",
+  "title": "Sillas de Masaje Infinity en McAllen, TX | Snooze",
+  "description": "Sillas de masaje Infinity en McAllen, TX en Snooze Mattress + Wellness: tecnología de masaje avanzada para relajarte y recuperarte. Pruébalas en la tienda.",
   "alternates": {
     "canonical": "/es/massage-chairs",
     "languages": {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Sillas de Masaje Infinity® en McAllen",
-    "description": "Las sillas de masaje Infinity® de Snooze Mattress + Wellness en McAllen ofrecen tecnología de masaje avanzada para relajarte, recuperarte y cuidar tu bienestar total. Con posición de gravedad cero, compresión de aire de cuerpo completo, terapia de calor y rodillos de masaje de precisión, las sillas Infinity te dan una experiencia de spa en la comodidad de tu casa.",
+    "title": "Sillas de Masaje Infinity en McAllen, TX | Snooze",
+    "description": "Sillas de masaje Infinity en McAllen, TX en Snooze Mattress + Wellness: tecnología de masaje avanzada para relajarte y recuperarte. Pruébalas en la tienda.",
     "url": "/es/massage-chairs",
     "type": "website",
     "images": [

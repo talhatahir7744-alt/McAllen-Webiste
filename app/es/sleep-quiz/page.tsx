@@ -1,4 +1,4 @@
-// Página del Quiz Sleep Fit, escrita a mano (scripts/convert.mjs la conserva): el quiz corre dentro del header y footer del sitio.
+// Página del Sleep Fit Quiz, escrita a mano (scripts/convert.mjs la conserva): el quiz corre dentro del header y footer del sitio.
 import type { Metadata } from 'next';
 import { SleepQuiz, sleepQuizMetadata } from '@/components/SleepQuiz';
 

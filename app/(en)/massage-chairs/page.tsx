@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 
 export const metadata: Metadata = {
-  "title": "Infinity® Massage Chairs in McAllen",
-  "description": "Infinity® Massage Chairs at Snooze Mattress + Wellness in McAllen deliver advanced massage technology designed to promote relaxation, recovery, and total-body wellness. Featuring zero-gravity positioning, full-body air compression, heated therapy, and precision massage rollers, Infinity massage chairs provide a spa-quality experience in the comfort of your home.",
+  "title": "Massage Chairs in McAllen, TX — Infinity | Snooze",
+  "description": "Infinity massage chairs in McAllen, TX at Snooze Mattress + Wellness: advanced massage technology designed to help you relax and recover. Try one in store.",
   "alternates": {
     "canonical": "/massage-chairs",
     "languages": {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Infinity® Massage Chairs in McAllen",
-    "description": "Infinity® Massage Chairs at Snooze Mattress + Wellness in McAllen deliver advanced massage technology designed to promote relaxation, recovery, and total-body wellness. Featuring zero-gravity positioning, full-body air compression, heated therapy, and precision massage rollers, Infinity massage chairs provide a spa-quality experience in the comfort of your home.",
+    "title": "Massage Chairs in McAllen, TX — Infinity | Snooze",
+    "description": "Infinity massage chairs in McAllen, TX at Snooze Mattress + Wellness: advanced massage technology designed to help you relax and recover. Try one in store.",
     "url": "/massage-chairs",
     "type": "website",
     "images": [

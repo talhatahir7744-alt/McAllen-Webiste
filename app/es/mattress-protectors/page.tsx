@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 
 export const metadata: Metadata = {
-  "title": "Protege tu Colchón, Protege tu Inversión",
-  "description": "Un colchón de calidad merece protección de calidad. En Snooze Mattress + Wellness en McAllen, nuestros protectores de colchón premium cuidan tu cama contra derrames, manchas, alérgenos y el desgaste diario, sin perder la comodidad y la sensación que tanto te gusta.",
+  "title": "Protectores de Colchón en McAllen, TX | Snooze",
+  "description": "Protectores de colchón en McAllen, TX de Snooze Mattress + Wellness: protección transpirable e impermeable contra derrames y alérgenos para tu inversión.",
   "alternates": {
     "canonical": "/es/mattress-protectors",
     "languages": {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Protege tu Colchón, Protege tu Inversión",
-    "description": "Un colchón de calidad merece protección de calidad. En Snooze Mattress + Wellness en McAllen, nuestros protectores de colchón premium cuidan tu cama contra derrames, manchas, alérgenos y el desgaste diario, sin perder la comodidad y la sensación que tanto te gusta.",
+    "title": "Protectores de Colchón en McAllen, TX | Snooze",
+    "description": "Protectores de colchón en McAllen, TX de Snooze Mattress + Wellness: protección transpirable e impermeable contra derrames y alérgenos para tu inversión.",
     "url": "/es/mattress-protectors",
     "type": "website",
     "images": [

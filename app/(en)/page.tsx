@@ -4,24 +4,8 @@ import PageClient from './client';
 import { CurrentOffer } from '@/components/CurrentOffer';
 
 export const metadata: Metadata = {
-  "title": "Best Mattress Store in McAllen, TX | Snooze Mattress McAllen",
-  "description": "Our Dream Mapping technology, pinpoints the perfect mattress for your unique needs—in just 5 minutes! Visit us in McAllen today!",
-  "keywords": [
-    "Snooze",
-    "dream mapping",
-    "Snooze Mattress & Wellness",
-    "personalized sleep profile",
-    "mattress shopping",
-    "sleep technology",
-    "pressure mapping",
-    "McAllen mattresses",
-    "sleep solutions",
-    "mattress recommendations",
-    "sleep wellness",
-    "sleep comfort",
-    "custom pressure map",
-    "innovative sleep technology"
-  ],
+  "title": "Mattress Store in McAllen, TX | Free Dream Mapping | Snooze",
+  "description": "McAllen, TX mattress store: free 5-minute Dream Mapping fitting, top brands and 0% financing options at 7913 N 10th St, Suite 130.",
   "authors": [
     {
       "name": "Snooze Mattress & Wellness"
@@ -37,8 +21,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Best Mattress Store in McAllen, TX | Snooze Mattress McAllen",
-    "description": "Our Dream Mapping technology, pinpoints the perfect mattress for your unique needs—in just 5 minutes! Visit us in McAllen today!",
+    "title": "Mattress Store in McAllen, TX | Free Dream Mapping | Snooze",
+    "description": "McAllen, TX mattress store: free 5-minute Dream Mapping fitting, top brands and 0% financing options at 7913 N 10th St, Suite 130.",
     "url": "/",
     "type": "website",
     "images": [

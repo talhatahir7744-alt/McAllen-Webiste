@@ -10,7 +10,9 @@
     "verify": "node scripts/verify.mjs",
     "images": "node scripts/optimize-images.mjs",
     "qa:header": "node scripts/qa-header.mjs",
-    "lastmod": "node scripts/lastmod.mjs"
+    "lastmod": "node scripts/lastmod.mjs",
+    "seo:meta": "node scripts/seo-metadata.mjs",
+    "es:fixes": "node scripts/spanish-copy-fixes.mjs"
   },
   "dependencies": {
     "next": "15.5.25",

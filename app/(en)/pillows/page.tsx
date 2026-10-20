@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 
 export const metadata: Metadata = {
-  "title": "Elevate Your Sleep with Premium Pillows in McAllen",
-  "description": "The right pillow makes all the difference. At Snooze Mattress + Wellness, we offer McAllen's finest selection of premium pillows designed to cradle your head, support your neck, and transform your nightly rest.",
+  "title": "Pillows in McAllen, TX — Fitted to How You Sleep | Snooze",
+  "description": "Pillows in McAllen, TX fitted to how you sleep: side, back and stomach sleepers. Premium pillows at Snooze Mattress + Wellness for your sleep style.",
   "alternates": {
     "canonical": "/pillows",
     "languages": {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Elevate Your Sleep with Premium Pillows in McAllen",
-    "description": "The right pillow makes all the difference. At Snooze Mattress + Wellness, we offer McAllen's finest selection of premium pillows designed to cradle your head, support your neck, and transform your nightly rest.",
+    "title": "Pillows in McAllen, TX — Fitted to How You Sleep | Snooze",
+    "description": "Pillows in McAllen, TX fitted to how you sleep: side, back and stomach sleepers. Premium pillows at Snooze Mattress + Wellness for your sleep style.",
     "url": "/pillows",
     "type": "website",
     "images": [

@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 
 export const metadata: Metadata = {
-  "title": "Protect Your Mattress, Protect Your Investment",
-  "description": "A quality mattress deserves quality protection. At Snooze Mattress + Wellness in McAllen, our premium mattress protectors safeguard your bed against spills, stains, allergens, and everyday wear—all while maintaining the comfort and feel you love.",
+  "title": "Mattress Protectors in McAllen, TX | Snooze",
+  "description": "Mattress protectors in McAllen, TX from Snooze Mattress + Wellness: breathable, waterproof protection from spills and allergens for your mattress.",
   "alternates": {
     "canonical": "/mattress-protectors",
     "languages": {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Protect Your Mattress, Protect Your Investment",
-    "description": "A quality mattress deserves quality protection. At Snooze Mattress + Wellness in McAllen, our premium mattress protectors safeguard your bed against spills, stains, allergens, and everyday wear—all while maintaining the comfort and feel you love.",
+    "title": "Mattress Protectors in McAllen, TX | Snooze",
+    "description": "Mattress protectors in McAllen, TX from Snooze Mattress + Wellness: breathable, waterproof protection from spills and allergens for your mattress.",
     "url": "/mattress-protectors",
     "type": "website",
     "images": [

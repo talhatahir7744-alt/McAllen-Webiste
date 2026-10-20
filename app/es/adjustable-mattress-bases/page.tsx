@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 
 export const metadata: Metadata = {
-  "title": "Mejora tu Descanso con Bases Ajustables para Colchón",
-  "description": "Las bases ajustables de Snooze Mattress + Wellness en McAllen están diseñadas para mejorar la comodidad, el soporte y la calidad de tu sueño. Con posiciones ajustables de cabeza y pies, ayudan a aliviar la presión, reducir los ronquidos, mejorar la circulación y mantener una postura más saludable al dormir.",
+  "title": "Camas y Bases Ajustables en McAllen, TX | Snooze",
+  "description": "Camas y bases ajustables en McAllen, TX en Snooze Mattress + Wellness: más comodidad, soporte y alivio de presión, menos ronquidos. Pruébalas en la tienda.",
   "alternates": {
     "canonical": "/es/adjustable-mattress-bases",
     "languages": {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Mejora tu Descanso con Bases Ajustables para Colchón",
-    "description": "Las bases ajustables de Snooze Mattress + Wellness en McAllen están diseñadas para mejorar la comodidad, el soporte y la calidad de tu sueño. Con posiciones ajustables de cabeza y pies, ayudan a aliviar la presión, reducir los ronquidos, mejorar la circulación y mantener una postura más saludable al dormir.",
+    "title": "Camas y Bases Ajustables en McAllen, TX | Snooze",
+    "description": "Camas y bases ajustables en McAllen, TX en Snooze Mattress + Wellness: más comodidad, soporte y alivio de presión, menos ronquidos. Pruébalas en la tienda.",
     "url": "/es/adjustable-mattress-bases",
     "type": "website",
     "images": [

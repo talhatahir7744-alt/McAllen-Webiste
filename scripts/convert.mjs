@@ -536,7 +536,7 @@ function metaFromHead($, route, pageDir) {
   const get = (sel) => { const v = $(sel).first().attr('content'); return v ? v.trim() : undefined; };
   const title = $('head > title').first().text().trim(); if (title) meta.title = title;
   const description = get('meta[name="description"]'); if (description) meta.description = description;
-  const keywords = get('meta[name="keywords"]'); if (keywords) meta.keywords = keywords.split(',').map((s) => s.trim()).filter(Boolean);
+  // meta keywords are never emitted (dead weight for search engines; the builder's tag was in English on the Spanish pages too)
   const author = get('meta[name="author"]'); if (author) meta.authors = [{ name: author }];
   const robots = get('meta[name="robots"]'); if (robots) meta.robots = robots;
   if (NOINDEX_ROUTES.has(route)) meta.robots = { index: false, follow: true };
@@ -575,7 +575,6 @@ function convertPage(rel, loc = null) {
     const st = ctx.i18n;
     for (const k of ['title', 'description']) if (metadata[k]) metadata[k] = tr(metadata[k], loc, st);
     if (metadata.openGraph) for (const k of ['title', 'description']) if (metadata.openGraph[k]) metadata.openGraph[k] = tr(metadata.openGraph[k], loc, st);
-    if (Array.isArray(metadata.keywords)) metadata.keywords = metadata.keywords.map((k) => tr(k, loc, null));
   }
 
   // ---- 1. drop whole GHL elements (the original header sections + their custom nav code; components/SiteHeader.tsx replaces them)

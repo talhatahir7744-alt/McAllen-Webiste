@@ -4,24 +4,8 @@ import PageClient from './client';
 import { CurrentOffer } from '@/components/CurrentOffer';
 
 export const metadata: Metadata = {
-  "title": "La Mejor Tienda de Colchones en McAllen, TX | Snooze Mattress McAllen",
-  "description": "Nuestra tecnología Dream Mapping encuentra el colchón perfecto para tus necesidades, ¡en solo 5 minutos! Visítanos hoy en McAllen.",
-  "keywords": [
-    "Snooze",
-    "dream mapping",
-    "Snooze Mattress & Wellness",
-    "personalized sleep profile",
-    "mattress shopping",
-    "sleep technology",
-    "pressure mapping",
-    "McAllen mattresses",
-    "sleep solutions",
-    "mattress recommendations",
-    "sleep wellness",
-    "sleep comfort",
-    "custom pressure map",
-    "innovative sleep technology"
-  ],
+  "title": "Colchones en McAllen, TX | Dream Mapping Gratis | Snooze",
+  "description": "Tienda de colchones en McAllen, TX: sesión gratis de Dream Mapping de 5 minutos, marcas líderes y financiamiento al 0% en 7913 N 10th St, Suite 130.",
   "authors": [
     {
       "name": "Snooze Mattress & Wellness"
@@ -37,8 +21,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "La Mejor Tienda de Colchones en McAllen, TX | Snooze Mattress McAllen",
-    "description": "Nuestra tecnología Dream Mapping encuentra el colchón perfecto para tus necesidades, ¡en solo 5 minutos! Visítanos hoy en McAllen.",
+    "title": "Colchones en McAllen, TX | Dream Mapping Gratis | Snooze",
+    "description": "Tienda de colchones en McAllen, TX: sesión gratis de Dream Mapping de 5 minutos, marcas líderes y financiamiento al 0% en 7913 N 10th St, Suite 130.",
     "url": "/es",
     "type": "website",
     "images": [

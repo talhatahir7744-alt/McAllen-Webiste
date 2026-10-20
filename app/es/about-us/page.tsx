@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 
 export const metadata: Metadata = {
-  "title": "Deja de Adivinar. Empieza a Dormir Mejor Esta Noche.",
-  "description": "En Snooze Mattress + Wellness usamos la tecnología Dream Mapping, respaldada por la ciencia, para encontrar el colchón hecho a la medida de tu cuerpo — en solo 5 minutos. Sin presión. Sin adivinanzas. Solo un sueño profundo y reparador.",
+  "title": "Snooze McAllen: Tienda de Colchones de Dueños Locales",
+  "description": "Snooze Mattress + Wellness, McAllen, TX: Dream Mapping respaldado por la ciencia, Sleep Coaches reales y sin presión de comisiones para elegir tu colchón.",
   "alternates": {
     "canonical": "/es/about-us",
     "languages": {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Deja de Adivinar. Empieza a Dormir Mejor Esta Noche.",
-    "description": "En Snooze Mattress + Wellness usamos la tecnología Dream Mapping, respaldada por la ciencia, para encontrar el colchón hecho a la medida de tu cuerpo — en solo 5 minutos. Sin presión. Sin adivinanzas. Solo un sueño profundo y reparador.",
+    "title": "Snooze McAllen: Tienda de Colchones de Dueños Locales",
+    "description": "Snooze Mattress + Wellness, McAllen, TX: Dream Mapping respaldado por la ciencia, Sleep Coaches reales y sin presión de comisiones para elegir tu colchón.",
     "url": "/es/about-us",
     "type": "website",
     "images": [
