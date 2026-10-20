@@ -22,8 +22,11 @@ export const LOCATION = {
     instagram: 'https://www.instagram.com/snoozemcallen',
     youtube: 'https://www.youtube.com/@SnoozeMcAllen',
   },
-  mapLink: 'https://maps.google.com/?q=7913+N+10th+St,+Suite+130,+McAllen,+TX+78504',
-  mapEmbed: 'https://maps.google.com/maps?q=7913+N+10th+St,+Suite+130,+McAllen,+TX+78504&z=15&output=embed',
+  /* Google Maps: the query is the business name + the exact NAP, so the map and the directions link resolve to the
+     store's own listing (SEO audit, October 2026 — section 6b; scripts/brand-nap.mjs writes the same URLs into the
+     generated pages' location cards). */
+  mapLink: 'https://www.google.com/maps?q=Snooze+Mattress+%2B+Wellness%2C+7913+N+10th+St%2C+Suite+130%2C+McAllen%2C+TX+78504',
+  mapEmbed: 'https://www.google.com/maps?q=Snooze+Mattress+%2B+Wellness%2C+7913+N+10th+St%2C+Suite+130%2C+McAllen%2C+TX+78504&output=embed',
   /* LocalBusiness schema (components/LocalBusinessJsonLd.tsx, SEO audit section 5a) */
   storefrontImage: '/assets/filesafe/ARD47WoZpqaZSQ9MSxLD/media/684480ff2c95c570cfc22e24.jpeg.webp', // the storefront photo of the location card
   priceRange: '$$',

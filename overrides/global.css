@@ -116,3 +116,18 @@ html[lang="es"] .hl_page-preview--content .cheading-9UhGiuQIC6 h2 { font-size: c
   .hl_page-preview--content .snz-card.c-row .c-column + .c-column .c-heading h3 { margin: 0 0 6px !important; } /* location-card labels (were h1) */
 }
 html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5.6cqw) !important; } /* Spanish price-match headline (was h1) */
+
+/* ---- "Visit Us" block under the header on Home (SEO audit, October 2026 — section 6a; components/VisitUs.tsx): the
+   store's address, hours and phone as plain text near the top of the page, from the same source as the footer and
+   the LocalBusiness schema (lib/location.ts). A slim band in the site's navy on a light background; never hidden. */
+.snz-visit { background: #f6f7fb; border-bottom: 1px solid rgba(0, 20, 137, 0.1); font-family: var(--font-poppins-stack); color: #1e223c; }
+.snz-visit__inner { max-width: 1180px; margin: 0 auto; padding: 14px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 28px; }
+.snz-visit__title { margin: 0; font-size: 15px; font-weight: 700; line-height: 1.4; color: #001489; letter-spacing: 0.02em; text-transform: uppercase; }
+.snz-visit__line { margin: 0; font-size: 14.5px; line-height: 1.5; }
+.snz-visit__label { font-weight: 600; color: #001489; }
+.snz-visit__link { color: #1e223c; text-decoration: underline; text-decoration-color: rgba(0, 20, 137, 0.35); text-underline-offset: 2px; }
+.snz-visit__link:hover, .snz-visit__link:focus-visible { color: #001489; }
+@media (max-width: 767px) {
+  .snz-visit__inner { flex-direction: column; align-items: flex-start; gap: 4px; padding-top: 12px; padding-bottom: 12px; }
+  .snz-visit__line { font-size: 14px; }
+}

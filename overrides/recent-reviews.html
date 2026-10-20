@@ -1,0 +1,17 @@
+<!-- Recent Reviews (scripts/recent-reviews.mjs renders lib/reviews.json into this template and places it above the
+     LeadConnector reviews widget). Plain markup, no script: visible with or without JavaScript. -->
+<div class="snz-reviews" aria-labelledby="snz-reviews-title">
+  <style>
+    .snz-reviews { margin: 0 0 28px; text-align: left; font-family: var(--contentfont, 'Poppins', sans-serif); color: #1e223c; }
+    .snz-reviews__title { margin: 0 0 14px; font-size: clamp(20px, 2.4vw, 26px); font-weight: 800; line-height: 1.2; color: #001489; }
+    .snz-reviews__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .snz-reviews__item { margin: 0; padding: 18px 20px; border-radius: 16px; background: #fff; border: 1px solid rgba(0, 20, 137, 0.09); box-shadow: 0 10px 30px -22px rgba(0, 20, 137, 0.35); }
+    .snz-reviews__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; margin-bottom: 8px; }
+    .snz-reviews__stars { color: #f58433; letter-spacing: 2px; font-size: 16px; }
+    .snz-reviews__who { font-weight: 700; font-size: 15px; }
+    .snz-reviews__date { font-size: 13px; color: #4b5068; }
+    .snz-reviews__text { margin: 0; font-size: 15px; line-height: 1.6; }
+  </style>
+  <h3 id="snz-reviews-title" class="snz-reviews__title">{{title}}</h3>
+  <ul class="snz-reviews__list">{{items}}</ul>
+</div>

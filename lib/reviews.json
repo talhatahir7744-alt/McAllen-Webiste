@@ -1,0 +1,4 @@
+{
+  "_comment": "NEEDS CLIENT INPUT — 6 to 10 real customer reviews (first name, city, stars 1–5, text, date YYYY-MM-DD) as the customers wrote them. Rendered above the reviews widget by scripts/recent-reviews.mjs (npm run reviews); while this list is empty nothing is shown. Never add reviews that the client did not supply.",
+  "reviews": []
+}
