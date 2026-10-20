@@ -181,3 +181,12 @@ Removed external scripts:
 - 34 referenced file(s) did not exist in the clone and now resolve to a local 404 instead of the CDN (see conversion-report.json → missingReferenced).
 
 Generated 2026-10-09T21:34:45.787Z from `C:/Users/Talha/AppData/Local/Temp/claude/d--McAllen-Site/6033f56f-8fef-41c1-9d45-6e65fddfb68f/scratchpad/clone`.
+
+## SEO audit implementation (October 2026)
+
+### Section 1 — redirects and index hygiene
+
+- The builder's duplicate Home pages (`/home-page`, `/main-page`, `/es/home-page`, `/es/main-page`: identical to `/` and `/es`, each self-canonical with 28 H1s) are no longer generated (`scripts/convert.mjs` skips `home-page.html` / `main-page.html`, `DUPLICATE_ROUTES` maps them to `/`) and `vercel.json` 308-redirects them to `/` and `/es`. Legacy GoHighLevel URLs from the audit redirect too: `/post/pressure-map-for-sleep` → `/blog/pressure-mapping-for-sleep`, `/mattress-financing-mcallen-tx` → `/mattress-financing`, `/massage-chairs-402809` → `/massage-chairs` (and their `/es/` twins), plus a generic rule for any other builder slug with a six-digit suffix (`/:slug-:id(\d{6})` → `/:slug`). The duplicate legal pages were already redirecting.
+- `noindex,follow` on the contact opt-in form (`/optin-page`) and the two confirmation pages (`/thank/you`, `/dream/map/thank/you`), English and Spanish (`NOINDEX_ROUTES` in the converter, written into each page's metadata). `robots.txt` no longer disallows `/thank` and `/dream`: Google can only honour a noindex tag on a page it may fetch. `/dream` is only the Dream Mapping booking confirmation page.
+- `sitemap.xml`: `/optin-page` removed; every entry carries its own `lastmod` — the date of the last commit that touched the page's own source files (`scripts/lastmod.mjs` → `lib/lastmod.json`, `npm run lastmod`; blog posts keep their dates from `lib/blog-posts.ts`). Shared files (layout, header, footer, global CSS) deliberately do not count.
+- `goqr.mcallen.snoozemattresscompany.com` is outside this repo: it still serves the old GoHighLevel "Grand Opening — Win a FREE Mattress" giveaway page (title "Snooze Mattress", no canonical, no robots tag, container GTM-W6PF55FZ). Recommendation in the audit report.

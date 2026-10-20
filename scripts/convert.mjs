@@ -120,7 +120,7 @@ function routeFromPage(relHtml) { const r = relHtml.replace(/\.html$/i, ''); ret
 
 // ---------------------------------------------------------------- 0. verify the clone
 const pageFiles = walk(SITE_DIR).filter((f) => f.toLowerCase().endsWith('.html')).map((f) => posix(path.relative(SITE_DIR, f))).sort()
-  .filter((f) => !['terms-conditions.html', 'privacy-policy-page-1.html'].includes(f)); // duplicate legal pages: see DUPLICATE_ROUTES
+  .filter((f) => !['terms-conditions.html', 'privacy-policy-page-1.html', 'home-page.html', 'main-page.html'].includes(f)); // duplicate legal / home pages: see DUPLICATE_ROUTES
 if (pageFiles.length === 0) { console.error(`No HTML pages found under ${SITE_DIR}`); process.exit(1); }
 const fontmap = fs.existsSync(`${CLONE}/fontmap.json`) ? JSON.parse(fs.readFileSync(`${CLONE}/fontmap.json`, 'utf8')) : {};
 
@@ -296,7 +296,13 @@ function mediaPublic(mediaPath, wantSize) {
 // privacy-policy-page-1.html / privacy-policy-page.html) with identical text. Only the footer-linked copy is
 // generated; the other URL redirects to it (next.config.ts) and any link to it points at the kept page. Two live
 // URLs with the same text made Google pick its own canonical for /es/terms-conditions-page (Search Console).
-const DUPLICATE_ROUTES = { '/terms-conditions': '/terms-conditions-page', '/privacy-policy-page-1': '/privacy-policy-page' };
+// The builder also exported Home three times (index.html, home-page.html, main-page.html: identical pages, each with
+// its own self-canonical and 28 H1s): only "/" is generated, the other two URLs redirect to it (vercel.json).
+const DUPLICATE_ROUTES = { '/terms-conditions': '/terms-conditions-page', '/privacy-policy-page-1': '/privacy-policy-page', '/home-page': '/', '/main-page': '/' };
+// Pages search engines must not index (noindex,follow): the contact opt-in form and the booking / Dream Mapping
+// thank-you pages. They stay crawlable (robots.txt does not block them: Google can only read noindex on a page it
+// may fetch) and out of the sitemap (app/sitemap.ts).
+const NOINDEX_ROUTES = new Set(['/optin-page', '/thank/you', '/dream/map/thank/you']);
 function routeForSitePath(p) {
   let r = p.replace(/^\/+/, '').replace(/\.html$/i, '').replace(/\/+$/, '');
   const route = r === '' || r === 'index' ? '/' : '/' + r;
@@ -533,6 +539,7 @@ function metaFromHead($, route, pageDir) {
   const keywords = get('meta[name="keywords"]'); if (keywords) meta.keywords = keywords.split(',').map((s) => s.trim()).filter(Boolean);
   const author = get('meta[name="author"]'); if (author) meta.authors = [{ name: author }];
   const robots = get('meta[name="robots"]'); if (robots) meta.robots = robots;
+  if (NOINDEX_ROUTES.has(route)) meta.robots = { index: false, follow: true };
   const ogImage = get('meta[name="og:image"], meta[property="og:image"]');
   const ogType = get('meta[name="og:type"], meta[property="og:type"]');
   meta.alternates = { canonical: route };

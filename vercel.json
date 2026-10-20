@@ -6,7 +6,19 @@
     { "source": "/terms-conditions", "destination": "/terms-conditions-page", "permanent": true },
     { "source": "/es/terms-conditions", "destination": "/es/terms-conditions-page", "permanent": true },
     { "source": "/privacy-policy-page-1", "destination": "/privacy-policy-page", "permanent": true },
-    { "source": "/es/privacy-policy-page-1", "destination": "/es/privacy-policy-page", "permanent": true }
+    { "source": "/es/privacy-policy-page-1", "destination": "/es/privacy-policy-page", "permanent": true },
+    { "source": "/home-page", "destination": "/", "permanent": true },
+    { "source": "/main-page", "destination": "/", "permanent": true },
+    { "source": "/es/home-page", "destination": "/es", "permanent": true },
+    { "source": "/es/main-page", "destination": "/es", "permanent": true },
+    { "source": "/post/pressure-map-for-sleep", "destination": "/blog/pressure-mapping-for-sleep", "permanent": true },
+    { "source": "/es/post/pressure-map-for-sleep", "destination": "/es/blog/pressure-mapping-for-sleep", "permanent": true },
+    { "source": "/mattress-financing-mcallen-tx", "destination": "/mattress-financing", "permanent": true },
+    { "source": "/es/mattress-financing-mcallen-tx", "destination": "/es/mattress-financing", "permanent": true },
+    { "source": "/massage-chairs-402809", "destination": "/massage-chairs", "permanent": true },
+    { "source": "/es/massage-chairs-402809", "destination": "/es/massage-chairs", "permanent": true },
+    { "source": "/:slug-:id(\\d{6})", "destination": "/:slug", "permanent": true },
+    { "source": "/es/:slug-:id(\\d{6})", "destination": "/es/:slug", "permanent": true }
   ],
   "rewrites": [
     { "source": "/ghl-stub/widget/:path*", "destination": "/ghl-stub" },

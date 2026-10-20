@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 
 export const metadata: Metadata = {
+  "robots": { "index": false, "follow": true },
   "title": "Gracias",
   "description": "Vas en camino a dormir mejor: nuestro Coach de Dream Mapping se pondrá en contacto contigo muy pronto.",
   "alternates": {

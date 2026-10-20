@@ -9,7 +9,8 @@
     "convert": "node scripts/optimize-images.mjs && node scripts/convert.mjs",
     "verify": "node scripts/verify.mjs",
     "images": "node scripts/optimize-images.mjs",
-    "qa:header": "node scripts/qa-header.mjs"
+    "qa:header": "node scripts/qa-header.mjs",
+    "lastmod": "node scripts/lastmod.mjs"
   },
   "dependencies": {
     "next": "15.5.25",

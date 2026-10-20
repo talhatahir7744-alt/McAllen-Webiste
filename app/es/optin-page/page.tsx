@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 
 export const metadata: Metadata = {
+  "robots": { "index": false, "follow": true },
   "title": "Contáctanos",
   "description": "¿Tienes preguntas? Escríbenos y nuestro equipo te responderá muy pronto.",
   "alternates": {
