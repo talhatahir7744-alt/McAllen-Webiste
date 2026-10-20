@@ -1,200 +1,256 @@
 {
-  "_comment": "Hand-provided section code and live widget embeds applied by scripts/convert.mjs. `rules` match a GoHighLevel custom-code element by substrings of its current HTML (so desktop + mobile copies are both replaced) and swap in `file`; {{custom_values.*}} merge tags are filled from `vars`.",
-  "vars": {
-    "custom_values.new_store_city_location": "McAllen",
-    "custom_values.store_image_url": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/684480ff2c95c570cfc22e24.jpeg",
-    "custom_values.5th_image": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577049a9c7792ea57899a.png"
+ "_comment": "Hand-provided section code and live widget embeds applied by scripts/convert.mjs. `rules` match a GoHighLevel custom-code element by substrings of its current HTML (so desktop + mobile copies are both replaced) and swap in `file`; {{custom_values.*}} merge tags are filled from `vars`.",
+ "vars": {
+  "custom_values.new_store_city_location": "McAllen",
+  "custom_values.store_image_url": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/684480ff2c95c570cfc22e24.jpeg",
+  "custom_values.5th_image": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a7577049a9c7792ea57899a.png"
+ },
+ "imageReplacements": {
+  "_comment": "old media path -> new media path, applied to every reference (bare CDN URL, resize variants, payload). The new file and its r_320…r_1200 variants are added to the clone tree with `node scripts/image-variants.mjs <file> <mediaPath>`.",
+  "BljrSmLCnm4gF9LpsTRZ/media/6a7577099a9c7792ea578a2c.jpeg": "ARD47WoZpqaZSQ9MSxLD/media/684480ff2c95c570cfc22e24.jpeg",
+  "ARD47WoZpqaZSQ9MSxLD/media/69a1d3acb617a750cec56a9b.jpg": "ARD47WoZpqaZSQ9MSxLD/media/684480ff2c95c570cfc22e24.jpeg"
+ },
+ "imageAlt": {
+  "_comment": "alt text for client images that carry none, matched by media id (the id in the reference before or after replacement); translated through overrides/i18n/es.extra.json. Decorative icons (map pin, phone, clock, moon, truck, chevrons, underline, party popper, envelope, SMS) keep alt=\"\" on purpose. Only what each image clearly shows is described (SEO audit, October 2026 — section 8c).",
+  "684480ff2c95c570cfc22e24": "Snooze Mattress + Wellness McAllen storefront",
+  "69a1d3acb617a750cec56a9b": "Snooze Mattress + Wellness storefront",
+  "6a7577099a9c7792ea578a2c": "Snooze Mattress + Wellness storefront",
+  "8d16458d-661d-4d16-bec0-14dea766bf45": "Snooze Mattress + Wellness logo",
+  "55bbf70e-0a05-4905-90ef-1186c5afd036": "Snooze Mattress + Wellness logo",
+  "7eeb64ed-8497-4240-a956-802db60e201b": "Google Verified Reviews badge with five stars",
+  "bae599bb-e93f-4cd3-95a1-31b6fdc0acef": "Google Verified Reviews badge with five stars",
+  "75a57c26-ac9e-4878-b69c-a0ed8f8c73f6": "Woman in Snooze pajamas",
+  "d466f631-310f-40f9-a947-aade6a446db7": "Snooze Sleep Coach pointing at a Dream Mapping pressure-map screen",
+  "80d3f6fe-5f3c-43ea-97c2-104bb74a7f69": "Mattress brands at Snooze: Tempur-Pedic, Stearns & Foster, Sealy, Spring Air, King Koil, Puffy, Beautyrest, Englander, Bedgear, Serta, DreamFit, Helix and BedTech",
+  "38eee3d4-abcb-49e3-94e6-cd7ebd89d910": "Snooze Sleep Coaches with a customer holding an 'I said yes to better rest' sign",
+  "aea03256-4a88-40a6-aafc-a52d33bf668b": "Snooze Mattress + Wellness logo with Dream Mapping station photos",
+  "b6b75ca5-7001-49ea-8871-26fafebd26e5": "Couple sitting on a mattress",
+  "048a9777-3600-4126-9d78-e244abbb1649": "Tempur-Pedic mattress with all-night cooling technology, up to 5 degrees cooler",
+  "60c27cb0-9975-4694-9dd7-7f8690fa6784": "Sealy Posturepedic Plus Hybrid mattress: for the cozy comfort you deserve",
+  "f8aa5aa8-c709-433f-b17e-79530c41c648": "Couple reading in bed on a Stearns & Foster mattress",
+  "fc78e6c8-83e5-49e8-a979-ae3f3b3f741e": "Beautyrest Black mattress",
+  "cd8f887c-cd8b-4372-95d2-e14914f7e185": "Couple on a split adjustable bed with each side in a different position",
+  "e9c18929-46f8-41a8-be9c-48df84bd974c": "Snooze by Englander pillow-top mattress in a bedroom",
+  "bbab15f4-c968-436f-b115-797fe487ddf6": "Spring Air Copper Collection mattress in a bedroom",
+  "4c86b864-f161-45b3-9260-4ca4f355fb3d": "Snooze Handcrafted by King Koil mattress in a bedroom",
+  "9ab8c0e5-89ed-4a14-97ce-8e195cf4e3d7": "Snooze-O-Pedic mattress layers: premium knit cover, HD quilt foam, 1-inch HD comfort foam, 8-inch 800 series pocketed coils with power edge, HD base support foam",
+  "4c66d656-82b2-4056-addd-48369f39470f": "Helix Midnight Luxe mattress",
+  "9a89ea68-c054-4fe9-bd08-855ebfe471bf": "Snooze Sleep Coach holding a Snooze Dream Mapping board",
+  "8c1d8f3c-37bd-452b-89b8-cae044e4cf74": "Sleep Coach with customers at the Pressure Mapping station",
+  "695fbfed-24ba-4132-b604-2e6042bbb83f": "Snooze Sleep Coaches fitting a customer on a mattress",
+  "31ee7501-1ac9-4312-a88c-c2bd1011c60a": "Special 0% financing offers banner from Snooze Mattress + Wellness",
+  "eb4d4f59-7b6d-4d94-b9dd-6d2f37e1f2c1": "Special 0% financing offers banner from Snooze Mattress + Wellness",
+  "69a1d3acb617a7fa5cc56a9a": "Special 0% financing offers banner from Snooze Mattress + Wellness",
+  "0cf92cb4-df70-4b7a-a70a-ec8e5665e838": "Wells Fargo logo",
+  "4789c5da-b2ce-4978-ade7-81ea8ea3b3e9": "Snap Finance logo",
+  "2023_synchrony_basic_logo": "Synchrony logo",
+  "b3092438-e9e0-485b-9843-e4ce1bac1dc7": "Helix mattresses at an unbeatable price: 20% off banner",
+  "d754dc41-020b-42b5-a5ae-d3ac749de82b": "Snooze-O-Pedic queen mattress starting at $499 banner",
+  "1584ae42-19e4-46f1-a705-e7de3a9a83ff": "Puffy Lux mattress, save $1,350 banner",
+  "1608a146-b751-4d7d-89d4-f5d1722bfc23": "Free adjustable base with a King Koil mattress, a $2,000 savings banner",
+  "e9763626-2069-495f-8cdd-2875a9bc89d8": "Save $200 on adjustable bases banner",
+  "3b7ac807-a00c-49d7-a677-1533777db83d": "Adjustable mattress base in a bedroom, Snooze Mattress + Wellness",
+  "3520a2a4-7c5d-493d-8d96-ba70365092a3": "Adjustable mattress base raised at the head in a bedroom",
+  "b3200294-286d-43f9-ab79-2a85732e3c33": "Man asleep in bed: 'Still waking tired? Not on our watch', Snooze Sleep Clinic in a Box",
+  "f92e808a-1f77-4ca9-bb59-0bb613c963ef": "At-home sleep test device worn on the wrist and finger",
+  "6a7578249a9c7792ea5a8b22": "Two Snooze Sleep Coaches at the Dream Mapping station",
+  "1d541723-745d-42fd-9b93-9b1fcebecb2e": "Snooze Sleep Coach reviewing a customer's Dream Mapping pressure map",
+  "6a90ca4660935b340b746bc2": "Infinity massage chair in a living room",
+  "6a90ca464fe74193541e41fe": "Woman relaxing in an Infinity massage chair",
+  "fe35f6ed-37f2-4c65-998f-ed74d137d519": "Fitting a mattress protector over a mattress corner",
+  "85c21ea3-ee74-4d39-bd40-11fb7915c22a": "Bed with a mattress protector, Snooze Mattress + Wellness",
+  "4780a344-1f73-47f5-801c-9a7e2cbb7c1e": "Woman resting her head on a pillow",
+  "b22d0f99-73d8-48c5-b0b1-192c44869491": "Woman holding a pillow in bed",
+  "d036b855-7f3a-4ddd-b0d1-933efb633b44": "Folded premium sheets",
+  "10f47449-7efa-4f04-a49e-1b59a90fe1cd": "Woman holding a bed sheet, Snooze Mattress + Wellness",
+  "07463d88-2560-4c1f-9b23-a576044238f4": "Man reading a newspaper in a sleep recliner",
+  "074aaf0e-6f54-4322-bb3b-df64d98b2d08": "Woman reclining in a sleep recliner, Snooze Mattress + Wellness",
+  "69a1d3ac6e50d67b9121c9f4": "Snooze showroom with mattresses on display",
+  "69d8277f74d020e518f93f1e": "Snooze Sleep Coach fitting a customer with a pillow at the Pressure Mapping station",
+  "6a7577049a9c7792ea57899a": "Snooze Sleep Coach reviewing a customer's Dream Mapping results on screen",
+  "11c4f704-6266-4eea-8702-295bb6974c13": "Pressure map of a body showing high, medium and light pressure points",
+  "679361e8c21e373058b2232d": "Snooze Sleep Coaches reviewing Dream Mapping results with a customer",
+  "1871b85e-a9ee-4965-9e56-f7b289ce90fa": "Woman lying on a mattress during a pressure-mapping scan"
+ },
+ "rules": [
+  {
+   "name": "dream-map-timeline",
+   "match": [
+    "pm-section",
+    "Personalized Sleep Map Profile"
+   ],
+   "file": "dream-map-timeline.html"
   },
-  "imageReplacements": {
-    "_comment": "old media path -> new media path, applied to every reference (bare CDN URL, resize variants, payload). The new file and its r_320…r_1200 variants are added to the clone tree with `node scripts/image-variants.mjs <file> <mediaPath>`.",
-    "BljrSmLCnm4gF9LpsTRZ/media/6a7577099a9c7792ea578a2c.jpeg": "ARD47WoZpqaZSQ9MSxLD/media/684480ff2c95c570cfc22e24.jpeg",
-    "ARD47WoZpqaZSQ9MSxLD/media/69a1d3acb617a750cec56a9b.jpg": "ARD47WoZpqaZSQ9MSxLD/media/684480ff2c95c570cfc22e24.jpeg"
+  {
+   "name": "store-experience-timeline",
+   "match": [
+    "pm-section",
+    "Apply for Financing In-Store"
+   ],
+   "file": "store-experience-timeline.html"
   },
-  "imageAlt": {
-    "_comment": "alt text for client images that carry none, matched by media id (the id in the reference before or after replacement); translated through overrides/i18n/es.extra.json",
-    "684480ff2c95c570cfc22e24": "Snooze Mattress + Wellness McAllen storefront",
-    "69a1d3acb617a750cec56a9b": "Snooze Mattress + Wellness McAllen storefront",
-    "6a7577099a9c7792ea578a2c": "Snooze Mattress + Wellness McAllen storefront"
+  {
+   "name": "our-promise-guarantee",
+   "match": [
+    "guar-section",
+    "We Stand Behind"
+   ],
+   "file": "our-promise-guarantee.html"
   },
-  "rules": [
-    {
-      "name": "dream-map-timeline",
-      "match": [
-        "pm-section",
-        "Personalized Sleep Map Profile"
-      ],
-      "file": "dream-map-timeline.html"
-    },
-    {
-      "name": "store-experience-timeline",
-      "match": [
-        "pm-section",
-        "Apply for Financing In-Store"
-      ],
-      "file": "store-experience-timeline.html"
-    },
-    {
-      "name": "our-promise-guarantee",
-      "match": [
-        "guar-section",
-        "We Stand Behind"
-      ],
-      "file": "our-promise-guarantee.html"
-    },
-    {
-      "name": "logo-marquee",
-      "match": [
-        "ENDLESS LOGO MARQUEE"
-      ],
-      "file": "logo-marquee.html"
-    },
-    {
-      "name": "trust-ticker",
-      "match": [
-        "ghl-trust-ticker",
-        "Price Match Promise"
-      ],
-      "file": "trust-ticker.html"
-    },
-    {
-      "name": "logo-marquee-mobile",
-      "match": [
-        "custom-brand-slider"
-      ],
-      "file": "logo-marquee.html",
-      "_comment": "the client's phone brand slider squeezed a 14999px sprite into the viewport (logos ~4x compressed); the seamless marquee replaces it on phones too"
-    },
-    {
-      "name": "remove-giveaway-popup",
-      "match": [
-        "snzModal"
-      ],
-      "file": "empty.html",
-      "_comment": "the 'Win a Free Cooling Pillow' popup + red 'Enter to Win' ticker (one custom-code element on the home pages) is removed; the emptied element is hidden by overrides/site.css"
-    }
-  ],
-  "widgets": {
-    "form": {
-      "file": "widgets/form.html",
-      "formId": "0BTnYKylVR6OcWJug3r8",
-      "defaultFormId": "0BTnYKylVR6OcWJug3r8",
-      "formName": "Optin",
-      "_comment": "formId (McAllen) overrides the form id carried by every clone element; defaultFormId is the fallback for elements without one"
-    },
-    "calendar": {
-      "file": "widgets/calendar.html",
-      "calendarId": "lrAns7Z8j3vEJW3DC0Yr",
-      "defaultCalendarId": "lrAns7Z8j3vEJW3DC0Yr"
-    },
-    "reviews": {
-      "file": "widgets/reviews.html",
-      "locationId": "ARD47WoZpqaZSQ9MSxLD",
-      "widgetId": "67f5847f79c4ab793baf0087"
-    }
+  {
+   "name": "logo-marquee",
+   "match": [
+    "ENDLESS LOGO MARQUEE"
+   ],
+   "file": "logo-marquee.html"
   },
-  "removeElements": [
-    "section-n2EJ48xJKc",
-    "section-EZ3DGo6-8h",
-    "section-ghjYZIxTU2",
-    "section-zTxb2Wa9Nv",
-    "section-g0BQMsgMwp"
-  ],
-  "site": {
-    "phone": "(956) 586-5646",
-    "phoneHref": "tel:+19565865646",
-    "logoUrl": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/qR8peonBlnjGI3ZuLHQP/media/8d16458d-661d-4d16-bec0-14dea766bf45.webp",
-    "logoAlt": "Snooze Mattress + Wellness",
-    "featureImageUrl": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/695fbfed-24ba-4132-b604-2e6042bbb83f.jpeg"
+  {
+   "name": "trust-ticker",
+   "match": [
+    "ghl-trust-ticker",
+    "Price Match Promise"
+   ],
+   "file": "trust-ticker.html"
   },
-  "insertSections": [
-    {
-      "name": "our-promise-everywhere",
-      "from": {
-        "page": "about-us.html",
-        "match": [
-          "guar-section",
-          "We Stand Behind"
-        ]
-      },
-      "before": {
-        "textMatch": "Some of Our Happy Customers"
-      },
-      "skipPages": []
-    },
-    {
-      "name": "location-faq-about",
-      "from": {
-        "page": "index.html",
-        "sectionIds": [
-          "section-tpWh2qZzTP",
-          "section-wUF9nf9pjV"
-        ]
-      },
-      "after": {
-        "textMatch": "Some of Our Happy Customers"
-      },
-      "onlyPages": [
-        "about-us.html"
-      ],
-      "_comment": "Location card + FAQ section from Home after the reviews on About Us (the phone copy was already there; the desktop copy was missing)"
-    }
-  ],
-  "heroBackgrounds": {
-    "index.html": {
-      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/699c969010bc9c1e4d659063.png",
-      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
-    },
-    "home-page.html": {
-      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/699c969010bc9c1e4d659063.png",
-      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
-    },
-    "main-page.html": {
-      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/699c969010bc9c1e4d659063.png",
-      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
-    },
-    "mattress-financing.html": {
-      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/69a1cbdf917b4b217201b5ff.png",
-      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
-    },
-    "about-us.html": {
-      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/69a601e75a52f4e92a27dcf5.png",
-      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
-    },
-    "mattresses.html": {
-      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/697b9143d5b65e763eacc4cd.png",
-      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
-    },
-    "adjustable-mattress-bases.html": {
-      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/697bd240d5b65e6fefba8139.png",
-      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
-    },
-    "massage-chairs.html": {
-      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/697a4541f215daeb1a4c3c11.png",
-      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
-    },
-    "pillows.html": {
-      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/69822f77cf8ac07e786583a9.png",
-      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
-    },
-    "mattress-protectors.html": {
-      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6994d3d085759585d4e579dc.png",
-      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
-    },
-    "premium-sheets.html": {
-      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6994d95854da044f3c95c763.png",
-      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
-    },
-    "sleep-recliner.html": {
-      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6998cd2220c03538d469a1f8.png",
-      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
-    },
-    "at-home-sleep-test-kit-by-sleepcorner.html": {
-      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6998cc589df4c153d0a468bf.png",
-      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
-    },
-    "mattress-sales.html": {
-      "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/69a605e6abd0593098698c8b.png",
-      "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
-    }
+  {
+   "name": "logo-marquee-mobile",
+   "match": [
+    "custom-brand-slider"
+   ],
+   "file": "logo-marquee.html",
+   "_comment": "the client's phone brand slider squeezed a 14999px sprite into the viewport (logos ~4x compressed); the seamless marquee replaces it on phones too"
+  },
+  {
+   "name": "remove-giveaway-popup",
+   "match": [
+    "snzModal"
+   ],
+   "file": "empty.html",
+   "_comment": "the 'Win a Free Cooling Pillow' popup + red 'Enter to Win' ticker (one custom-code element on the home pages) is removed; the emptied element is hidden by overrides/site.css"
   }
+ ],
+ "widgets": {
+  "form": {
+   "file": "widgets/form.html",
+   "formId": "0BTnYKylVR6OcWJug3r8",
+   "defaultFormId": "0BTnYKylVR6OcWJug3r8",
+   "formName": "Optin",
+   "_comment": "formId (McAllen) overrides the form id carried by every clone element; defaultFormId is the fallback for elements without one"
+  },
+  "calendar": {
+   "file": "widgets/calendar.html",
+   "calendarId": "lrAns7Z8j3vEJW3DC0Yr",
+   "defaultCalendarId": "lrAns7Z8j3vEJW3DC0Yr"
+  },
+  "reviews": {
+   "file": "widgets/reviews.html",
+   "locationId": "ARD47WoZpqaZSQ9MSxLD",
+   "widgetId": "67f5847f79c4ab793baf0087"
+  }
+ },
+ "removeElements": [
+  "section-n2EJ48xJKc",
+  "section-EZ3DGo6-8h",
+  "section-ghjYZIxTU2",
+  "section-zTxb2Wa9Nv",
+  "section-g0BQMsgMwp"
+ ],
+ "site": {
+  "phone": "(956) 586-5646",
+  "phoneHref": "tel:+19565865646",
+  "logoUrl": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/qR8peonBlnjGI3ZuLHQP/media/8d16458d-661d-4d16-bec0-14dea766bf45.webp",
+  "logoAlt": "Snooze Mattress + Wellness",
+  "featureImageUrl": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/695fbfed-24ba-4132-b604-2e6042bbb83f.jpeg"
+ },
+ "insertSections": [
+  {
+   "name": "our-promise-everywhere",
+   "from": {
+    "page": "about-us.html",
+    "match": [
+     "guar-section",
+     "We Stand Behind"
+    ]
+   },
+   "before": {
+    "textMatch": "Some of Our Happy Customers"
+   },
+   "skipPages": []
+  },
+  {
+   "name": "location-faq-about",
+   "from": {
+    "page": "index.html",
+    "sectionIds": [
+     "section-tpWh2qZzTP",
+     "section-wUF9nf9pjV"
+    ]
+   },
+   "after": {
+    "textMatch": "Some of Our Happy Customers"
+   },
+   "onlyPages": [
+    "about-us.html"
+   ],
+   "_comment": "Location card + FAQ section from Home after the reviews on About Us (the phone copy was already there; the desktop copy was missing)"
+  }
+ ],
+ "heroBackgrounds": {
+  "index.html": {
+   "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/699c969010bc9c1e4d659063.png",
+   "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+  },
+  "home-page.html": {
+   "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/699c969010bc9c1e4d659063.png",
+   "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+  },
+  "main-page.html": {
+   "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/699c969010bc9c1e4d659063.png",
+   "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+  },
+  "mattress-financing.html": {
+   "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/69a1cbdf917b4b217201b5ff.png",
+   "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+  },
+  "about-us.html": {
+   "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/69a601e75a52f4e92a27dcf5.png",
+   "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+  },
+  "mattresses.html": {
+   "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/697b9143d5b65e763eacc4cd.png",
+   "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+  },
+  "adjustable-mattress-bases.html": {
+   "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/697bd240d5b65e6fefba8139.png",
+   "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+  },
+  "massage-chairs.html": {
+   "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/697a4541f215daeb1a4c3c11.png",
+   "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+  },
+  "pillows.html": {
+   "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/69822f77cf8ac07e786583a9.png",
+   "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+  },
+  "mattress-protectors.html": {
+   "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6994d3d085759585d4e579dc.png",
+   "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+  },
+  "premium-sheets.html": {
+   "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6994d95854da044f3c95c763.png",
+   "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+  },
+  "sleep-recliner.html": {
+   "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6998cd2220c03538d469a1f8.png",
+   "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+  },
+  "at-home-sleep-test-kit-by-sleepcorner.html": {
+   "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/6998cc589df4c153d0a468bf.png",
+   "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+  },
+  "mattress-sales.html": {
+   "desktop": "https://assets.cdn.filesafe.space/ARD47WoZpqaZSQ9MSxLD/media/69a605e6abd0593098698c8b.png",
+   "mobile": "https://assets.cdn.filesafe.space/BljrSmLCnm4gF9LpsTRZ/media/6a9899f9da522bf173a9bd91.png"
+  }
+ }
 }

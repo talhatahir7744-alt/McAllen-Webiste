@@ -32,7 +32,7 @@ export type UiStrings = {
   nav: { home: string; about: string; products: string; financing: string; sales: string; blog: string; quiz: string; allArticles: string };
   menu: { products: string; accessories: string; latest: string; openMenu: (label: string) => string; closeMenu: (label: string) => string; openSite: string; closeSite: string; siteMenu: string; homeAria: string; call: (phone: string) => string; switchTo: string };
   products: Record<string, ProductItem>;
-  feature: { eyebrow: string; title: string; cta: string };
+  feature: { eyebrow: string; title: string; cta: string; imgAlt: string };
   drawerBook: string;
   drawerQuiz: string;
   /* Sleep Fit Quiz row at the bottom of the Our Products dropdown */
@@ -68,7 +68,7 @@ const en: UiStrings = {
     recliner: { label: 'Sleep Recliner', desc: 'Recline smarter with the Zcliner®' },
     kit: { label: 'At-Home Sleep Test Kit', desc: 'Find what disrupts your sleep' },
   },
-  feature: { eyebrow: 'Dream Mapping', title: 'Find your perfect mattress in about 5 minutes', cta: 'Book a free fitting' },
+  feature: { eyebrow: 'Dream Mapping', title: 'Find your perfect mattress in about 5 minutes', cta: 'Book a free fitting', imgAlt: 'Snooze Sleep Coaches fitting a customer on a mattress' },
   drawerBook: 'Book Free Dream Mapping Appointment',
   drawerQuiz: 'Take the Sleep Fit Quiz',
   quizCard: { title: 'Sleep Fit Quiz', desc: 'Not sure which mattress is right for you? Find your comfort + support in 60 seconds.', cta: 'Take the quiz' },
@@ -109,7 +109,7 @@ const es: UiStrings = {
     recliner: { label: 'Sillón Reclinable', desc: 'Reclínate mejor con el Zcliner®' },
     kit: { label: 'Kit de Prueba de Sueño en Casa', desc: 'Descubre qué interrumpe tu sueño' },
   },
-  feature: { eyebrow: 'Dream Mapping', title: 'Encuentra tu colchón perfecto en unos 5 minutos', cta: 'Reserva tu cita de Dream Mapping' },
+  feature: { eyebrow: 'Dream Mapping', title: 'Encuentra tu colchón perfecto en unos 5 minutos', cta: 'Reserva tu cita de Dream Mapping', imgAlt: 'Sleep Coaches de Snooze ajustando a una clienta sobre un colchón' },
   drawerBook: 'Reserva tu cita de Dream Mapping',
   drawerQuiz: 'Haz el Sleep Fit Quiz',
   quizCard: { title: 'Sleep Fit Quiz', desc: '¿No sabes qué colchón es el ideal para ti? Descubre tu comodidad y soporte en 60 segundos.', cta: 'Hacer el quiz' },

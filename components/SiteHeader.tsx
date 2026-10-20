@@ -318,7 +318,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
                       <>
                         {PRODUCT_GROUPS.map(renderGroup)}
                         <a href={L('/booking')} className={styles.feature}>
-                          <img src={SITE.featureImage} alt="" loading="lazy" />
+                          <img src={SITE.featureImage} alt={t.feature.imgAlt} loading="lazy" />
                           <span className={styles.featureEyebrow}>{t.feature.eyebrow}</span>
                           <span className={styles.featureTitle}>{t.feature.title}</span>
                           <span className={styles.featureCta}>{t.feature.cta} <Arrow /></span>
