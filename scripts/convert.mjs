@@ -1035,6 +1035,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <SiteFooter locale=${JSON.stringify(l.code)} />
         <Script src="/snz-motion.js?v=${BUILD_STAMP}" strategy="afterInteractive" />
+        {/* dataLayer events for GA4 key events: phone / directions clicks, booking and opt-in confirmations (SEO audit 7b) */}
+        <Script src="/snz-events.js?v=${BUILD_STAMP}" strategy="afterInteractive" />
       </body>
     </html>
   );
