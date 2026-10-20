@@ -1,7 +1,29 @@
 import Script from 'next/script';
 import { SITE } from './site-config';
+import { LOCATION } from '@/lib/location';
+import { PageSchema } from './PageSchema';
 import type { Locale } from '@/lib/i18n';
 import styles from './BookingPage.module.css';
+
+/* Service schema for the Dream Mapping fitting (SEO audit, October 2026 — section 5d): free, about 5 minutes,
+   in the McAllen store — the three facts the audit supplied. Provider = the store's LocalBusiness record
+   (components/LocalBusinessJsonLd.tsx, @id …/#store), rendered by the footer on this page too. */
+const SITE_URL = 'https://mcallen.snoozemattresscompany.com';
+const serviceSchema = (locale: Locale) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${SITE_URL}/booking#service`,
+  name: 'Dream Mapping',
+  serviceType: locale === 'es' ? 'Ajuste de colchón por mapeo de presión' : 'Mattress fitting by pressure mapping',
+  description: locale === 'es'
+    ? 'Sesión gratuita de Dream Mapping en la tienda de McAllen: en unos 5 minutos, el mapeo de presión identifica el colchón que se ajusta a tu forma de dormir.'
+    : 'Free in-store Dream Mapping fitting at the McAllen store: in about 5 minutes, pressure mapping identifies the mattress that fits the way you sleep.',
+  url: `${SITE_URL}${locale === 'es' ? '/es' : ''}/booking`,
+  provider: { '@type': 'LocalBusiness', '@id': `${SITE_URL}/#store`, name: LOCATION.name },
+  areaServed: LOCATION.areaServed.map((city) => ({ '@type': 'City', name: city })),
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStoreOnly', url: `${SITE_URL}${locale === 'es' ? '/es' : ''}/booking` },
+  hoursAvailable: LOCATION.openingHours.map((h) => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: h.days.map((d) => `https://schema.org/${d}`), opens: h.opens, closes: h.closes })),
+});
 
 /* The Dream Mapping booking page, hand-written (not generated from the GoHighLevel export).
    The calendar is the client's exact embed placed directly in the page body: no wrapper, no container,
@@ -33,6 +55,7 @@ export function BookingPage({ locale = 'en' }: { locale?: Locale }) {
   const t = COPY[locale] || COPY.en;
   return (
     <>
+      <PageSchema items={[serviceSchema(locale)]} />
       <header className={styles.hero}>
         <img className={styles.logo} src={SITE.logo} alt={SITE.logoAlt} width={190} height={53} />
         <h1 className={styles.title}>
