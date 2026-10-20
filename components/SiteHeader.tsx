@@ -352,7 +352,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
           </ul>
         </nav>
 
-        {langSwitch(styles.lang)}
+        {/* the EN | ES toggle sits in the top bar above (components/TopBar.tsx); the drawer keeps its own copy */}
         <a href={SITE.phoneHref} className={styles.cta} aria-label={t.menu.call(SITE.phone)}>
           <span className={styles.ctaIcon}><Phone /></span>
           <span className={styles.ctaText}>

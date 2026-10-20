@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import { TopBar } from '@/components/TopBar';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
 import { PageLoader } from '@/components/PageLoader';
@@ -41,6 +42,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <TrackingBody />
         <PageLoader locale="en" />
+        {/* slim NAP + language strip above the sticky header, on every page (components/TopBar.tsx) */}
+        <TopBar locale="en" />
         <SiteHeader locale="en" />
         {children}
         <SiteFooter locale="en" />

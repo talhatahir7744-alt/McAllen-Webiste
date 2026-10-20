@@ -508,8 +508,7 @@
 .panelAll:hover svg { transform: translateX(3px); }
 
 /* ---- language switcher (EN | ES): desktop bar + drawer head ---- */
-.lang, .mLang { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border: 1.5px solid rgba(0, 20, 137, 0.22); border-radius: 999px; background: #fff; }
-.lang { margin: 0 14px 0 6px; }
+.mLang { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border: 1.5px solid rgba(0, 20, 137, 0.22); border-radius: 999px; background: #fff; }
 .mLang { margin: 0; }
 .mLang .langLink { min-width: 56px; height: 44px; font-size: 13px; }
 .mLangRow { display: flex; align-items: center; justify-content: space-between; margin: 0 12px 10px; padding: 6px 8px 14px; border-bottom: 1px solid rgba(0, 20, 137, 0.1); }
@@ -518,9 +517,7 @@
 .langLink:hover { background: rgba(0, 20, 137, 0.08); }
 .langLink:focus-visible { outline: 2px solid #f58433; outline-offset: 2px; }
 .langOn, .langOn:hover { background: linear-gradient(135deg, #d96a1a 0%, #e6772e 100%); color: #fff; }
-@media (max-width: 1024px) { .lang { display: none; } }
 @media (min-width: 1025px) { .mLang, .mLangRow { display: none; } }
-@media (max-width: 1200px) and (min-width: 1025px) { .lang { margin: 0 8px 0 2px; } .langLink { min-width: 30px; padding: 0 6px; } }
 
 /* ---- Spanish desktop nav: longer labels, one line ---- */
 @media (min-width: 1025px) {
@@ -528,7 +525,6 @@
   .header[data-locale="es"] .logo img { width: 140px; }
   .header[data-locale="es"] .list { gap: 2px; }
   .header[data-locale="es"] .link { font-size: 12px; letter-spacing: 0.06em; padding: 0 10px; }
-  .header[data-locale="es"] .lang { margin: 0 8px 0 0; }
   .header[data-locale="es"] .cta { padding: 0 16px 0 12px; gap: 8px; }
   .header[data-locale="es"] .ctaNumber { font-size: 17px; }
 }
@@ -570,7 +566,6 @@
   .compact .logo img { width: 140px; }
   .compact .cta { height: 42px; padding: 0 16px 0 12px; }
   .compact .ctaNumber { font-size: 16px; }
-  .compact .lang { margin: 0 8px 0 2px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .bar, .logo img, .list, .cta, .header, .header::before { transition: none !important; }
@@ -588,7 +583,6 @@
   .link { padding: 0 6px; font-size: 12px; letter-spacing: 0.05em; } /* 6px (was 8px): room for the seventh item, Sleep Quiz */
   .cta { padding: 0 14px 0 10px; gap: 8px; }
   .ctaNumber { font-size: 16px; }
-  .lang { margin: 0 6px 0 0; }
   .compact .link { padding: 0 6px; }
   .compact .logo img { width: 124px; }
   .compact .bar { padding: 0 8px 0 14px; gap: 10px; }

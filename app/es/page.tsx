@@ -4,7 +4,6 @@ import PageClient from './client';
 import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
 import { CurrentOffer } from '@/components/CurrentOffer';
-import { VisitUs } from '@/components/VisitUs';
 
 export const metadata: Metadata = {
   "title": "Colchones en McAllen, TX | Dream Mapping Gratis | Snooze",
@@ -52,8 +51,6 @@ export default function Page() {
     <>
       {/* the dated current-offer band (lib/offer.ts); renders nothing while the offer is off */}
       <CurrentOffer locale="es" />
-      {/* "Visit Us": address, hours and phone as plain text near the top (SEO audit 6a; lib/location.ts) */}
-      <VisitUs locale="es" />
       {/* page-level JSON-LD (scripts/page-schema.mjs) */}
       <PageSchema items={PAGE_SCHEMA} />
       <PageClient />
