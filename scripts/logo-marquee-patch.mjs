@@ -42,8 +42,11 @@ const BRANDS = {
 };
 const altFor = (id, locale) => { const b = BRANDS[id]; if (!b) return null; const n = b.name.replace(/&/g, '&amp;'); if (locale === 'es') return b.bedding ? `${n} en Snooze McAllen` : `Colchones ${n} en Snooze McAllen`; return b.bedding ? `${n} at Snooze McAllen` : `${n} mattresses at Snooze McAllen`; };
 
-/* the eager switch: runs once per document (delegated on the marquee's section, which survives hydration) */
-const EAGER_SCRIPT = `<script>(function(){if(window.__snzMarqueeEager)return;window.__snzMarqueeEager=1;var near=[];function eager(box){box.querySelectorAll('.snz-logo-marquee img[loading="lazy"]').forEach(function(i){i.loading='eager'})}function arm(){var ms=document.querySelectorAll('.snz-logo-marquee');if(!ms.length)return;if(!('IntersectionObserver' in window)){ms.forEach(function(m){eager(m.closest('.c-section')||m)});return}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.unobserve(e.target);near.push(e.target);eager(e.target)})},{rootMargin:'100% 0px'});ms.forEach(function(m){io.observe(m.closest('.c-section')||m)});var n=0,t=setInterval(function(){near.forEach(eager);if(++n>24)clearInterval(t)},500)}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',arm);else arm()})();</script>`;
+/* the eager switch: runs once per document, armed only after the window load event (so the logo fetches never compete
+   with the hero image / LCP: measured on the mattresses page, switching at DOMContentLoaded pushed the LCP from 3.4 s
+   to ~12 s on a simulated slow phone), observing the marquee's section (which survives hydration) */
+const EAGER_SCRIPT = `<script>(function(){if(window.__snzMarqueeEager)return;window.__snzMarqueeEager=1;var near=[];function eager(box){box.querySelectorAll('.snz-logo-marquee img[loading="lazy"]').forEach(function(i){i.loading='eager'})}function arm(){var ms=document.querySelectorAll('.snz-logo-marquee');if(!ms.length)return;if(!('IntersectionObserver' in window)){ms.forEach(function(m){eager(m.closest('.c-section')||m)});return}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.unobserve(e.target);near.push(e.target);eager(e.target)})},{rootMargin:'100% 0px'});ms.forEach(function(m){io.observe(m.closest('.c-section')||m)});var n=0,t=setInterval(function(){near.forEach(eager);if(++n>24)clearInterval(t)},500)}if(document.readyState==='complete')setTimeout(arm,0);else window.addEventListener('load',function(){setTimeout(arm,0)})})();</script>`;
+const EAGER_RE = /<script>\(function\(\)\{if\(window\.__snzMarqueeEager\)[\s\S]*?<\/script>/;
 
 function patchBlock(html, locale) {
   let n = 0;
@@ -53,10 +56,12 @@ function patchBlock(html, locale) {
     let t = tag.replace(/\bloading="eager"/, 'loading="lazy"');
     if (!/\bloading=/.test(t)) t = t.replace(/^<img\b/, '<img loading="lazy"');
     if (!/\bdecoding=/.test(t)) t = t.replace(/^<img\b/, '<img decoding="async"');
+    if (!/\bfetchpriority=/.test(t)) t = t.replace(/^<img\b/, '<img fetchpriority="low"'); // never ahead of the hero image
     if (alt !== null) t = /\balt="[^"]*"/.test(t) ? t.replace(/\balt="[^"]*"/, `alt="${alt}"`) : t.replace(/^<img\b/, `<img alt="${alt}"`);
     if (t !== tag) n++; return t;
   });
-  if (!out.includes('__snzMarqueeEager')) out = out.replace(/(<div class="snz-logo-marquee"[^>]*>)/, EAGER_SCRIPT + '$1');
+  if (EAGER_RE.test(out)) { const cur = out.match(EAGER_RE)[0]; if (cur !== EAGER_SCRIPT) { out = out.replace(EAGER_RE, () => EAGER_SCRIPT); n++; } }
+  else out = out.replace(/(<div class="snz-logo-marquee"[^>]*>)/, EAGER_SCRIPT + '$1');
   return { out, n };
 }
 
