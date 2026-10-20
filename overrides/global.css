@@ -68,12 +68,12 @@ input::placeholder, textarea::placeholder { font-family: var(--font-poppins-stac
 .hl_page-preview--content #sub-heading-HP5QvF-Stn, .hl_page-preview--content #sub-heading-x65IKvSzlY { margin-top: 14px !important; }
 /* "These options are ideal for customers…" is body copy the builder set as an H1 in the headline face: the list
    items' size (20px desktop, 16px phone) at weight 400 and the lists' 1.6 line-height; inline <strong>/<b> stays bold */
-.hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) h1,
-.hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) h1 [style*="Visby"] { font-family: var(--font-poppins-stack) !important; font-size: 20px !important; font-weight: 400 !important; line-height: 1.6 !important; }
-.hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) h1 :is(strong, b) { font-weight: 700 !important; }
+.hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) :is(h1, p),
+.hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) :is(h1, p) [style*="Visby"] { font-family: var(--font-poppins-stack) !important; font-size: 20px !important; font-weight: 400 !important; line-height: 1.6 !important; }
+.hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) :is(h1, p) :is(strong, b) { font-weight: 700 !important; }
 @media (max-width: 767px) {
-  .hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) h1,
-  .hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) h1 [style*="Visby"] { font-size: 16px !important; }
+  .hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) :is(h1, p),
+  .hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) :is(h1, p) [style*="Visby"] { font-size: 16px !important; }
 }
 /* Headline "Traditional Mattress Financing (Synchrony & Wells Fargo)" (desktop #heading-nh1OX4OVP9, phone
    #heading-9UhGiuQIC6): the highlighted title phrase and the parenthesis are two lines (the span stacks its <u> and
@@ -101,3 +101,18 @@ html[lang="es"] .hl_page-preview--content .cheading-9UhGiuQIC6 h2 { font-size: c
 .snz-offer__fine { margin: 0; font-size: 13px; line-height: 1.5; color: rgba(255, 255, 255, 0.82); max-width: 760px; }
 .snz-offer__cta { display: inline-block; margin-top: 6px; padding: 14px 28px; border-radius: 8px; background: #F58433; color: #fff; font-weight: 700; text-decoration: none; letter-spacing: 0.02em; }
 .snz-offer__cta:hover, .snz-offer__cta:focus-visible { background: #d96a1a; color: #fff; }
+
+/* ---- Heading structure (SEO audit, October 2026 — scripts/heading-structure.mjs): one H1 per page, the rest demoted.
+   A builder element whose tag changed carries .snz-h. Its builder CSS still applies (every component rule targets
+   h1…h6 and the container alike); what the old tag itself provided is restored here: the builder's base rule gave
+   headings `margin: unset`, and <strong> inside a heading inherits the heading's weight (the script writes the
+   heading's own weight on each demoted <p>). */
+.hl_page-preview--content .text-output p.snz-h { margin: 0; }
+/* a hero the builder split into several heading lines is one <h1> whose lines are separated by a newline (not a <br>
+   element, which would shift the span:nth-child() rules the baked site.css keys on the home hero) */
+.hl_page-preview--content .text-output h1.snz-h1-merged { white-space: pre-line; }
+/* page-fix rules in the baked site.css that named the old tag, repeated here for the new one */
+@media (max-width: 767px) {
+  .hl_page-preview--content .snz-card.c-row .c-column + .c-column .c-heading h3 { margin: 0 0 6px !important; } /* location-card labels (were h1) */
+}
+html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5.6cqw) !important; } /* Spanish price-match headline (was h1) */

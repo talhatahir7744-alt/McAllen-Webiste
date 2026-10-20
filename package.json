@@ -12,7 +12,8 @@
     "qa:header": "node scripts/qa-header.mjs",
     "lastmod": "node scripts/lastmod.mjs",
     "seo:meta": "node scripts/seo-metadata.mjs",
-    "es:fixes": "node scripts/spanish-copy-fixes.mjs"
+    "es:fixes": "node scripts/spanish-copy-fixes.mjs",
+    "headings": "node scripts/heading-structure.mjs"
   },
   "dependencies": {
     "next": "15.5.25",
