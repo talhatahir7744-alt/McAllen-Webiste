@@ -54,7 +54,9 @@ for (const f of files) {
       const url = ip && str(ip.url); if (!url) continue;
       const alt = altFor(url, locale); if (alt === null) continue;
       if (str(ip.altText) === alt) continue;
-      if (typeof ip.altText === 'number' && typeof nodes[ip.altText] === 'string') nodes[ip.altText] = alt; else ip.altText = nodes.push(alt) - 1;
+      // ALWAYS a new string node, never an in-place overwrite: the payload deduplicates strings, so an existing altText
+      // usually points at the one shared "" node that thousands of other fields (video urls, posters, classes…) share.
+      ip.altText = nodes.push(alt) - 1;
       touched = true; payloadChanged++;
     }
     for (let i = 0; i < nodes.length; i++) if (typeof nodes[i] === 'string' && nodes[i].includes('<img')) { const v = patchHtml(nodes[i], locale); if (v !== nodes[i]) { nodes[i] = v; touched = true; payloadChanged++; } }
