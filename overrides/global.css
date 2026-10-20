@@ -88,3 +88,16 @@ html[lang="es"] .hl_page-preview--content .cheading-nh1OX4OVP9 h2 { font-size: c
 html[lang="es"] .hl_page-preview--content .cheading-9UhGiuQIC6 h2 { font-size: clamp(18px, 6.8cqw, 25px) !important; }
 /* the financing band's two paragraphs ("Get 0% Financing…" / "Upgrade your mattress…") read as two */
 #section-FVn4UvdYfr .c-paragraph p + p, #section-KI-fCuyF5S .c-paragraph p + p, #section-yWefy4dO1- .c-paragraph p + p { margin-top: 16px !important; }
+
+/* ---- Current offer band (components/CurrentOffer.tsx, copy and dates in lib/offer.ts): rendered on the home page
+   under the header only while the offer is enabled and in date. Navy band, white copy, orange call to action — the
+   site's own palette; nothing else on the page moves when it is absent. ---- */
+.snz-offer { background: #001489; color: #fff; padding: 28px 20px; text-align: center; }
+.snz-offer__inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.snz-offer__eyebrow { margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #F58433; }
+.snz-offer__title { margin: 0; font-size: clamp(22px, 3vw, 32px); font-weight: 800; line-height: 1.2; color: #fff; }
+.snz-offer__text, .snz-offer__dates { margin: 0; font-size: 16px; line-height: 1.6; color: #fff; max-width: 760px; }
+.snz-offer__dates { font-weight: 600; }
+.snz-offer__fine { margin: 0; font-size: 13px; line-height: 1.5; color: rgba(255, 255, 255, 0.82); max-width: 760px; }
+.snz-offer__cta { display: inline-block; margin-top: 6px; padding: 14px 28px; border-radius: 8px; background: #F58433; color: #fff; font-weight: 700; text-decoration: none; letter-spacing: 0.02em; }
+.snz-offer__cta:hover, .snz-offer__cta:focus-visible { background: #d96a1a; color: #fff; }
