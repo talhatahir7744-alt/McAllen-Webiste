@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   "description": "Tienda de colchones en McAllen, TX: sesión gratis de Dream Mapping de 5 minutos, marcas líderes y financiamiento al 0% en 7913 N 10th St, Suite 130.",
   "authors": [
     {
-      "name": "Snooze Mattress & Wellness"
+      "name": "Snooze Mattress + Wellness"
     }
   ],
   "robots": "index, follow",

@@ -28,7 +28,7 @@ const CONFIG = {
     id: "mcallen",
     name: "Snooze Mattress + Wellness – McAllen",
     phone: "(956) 586-5646",
-    address: "7913 North 10th Street, Suite 130, McAllen, TX 78504",
+    address: "7913 N 10th St, Suite 130, McAllen, TX 78504",
     bookingUrl: SITE_URL + PREFIX + "/booking",      // Dream Mapping booking page
     shopUrl: SITE_URL + PREFIX + "/mattresses",      // mattresses page
     // McAllen sub-account Inbound Webhook URL (Automation → Workflows → trigger)

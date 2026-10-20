@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   "description": "McAllen, TX mattress store: free 5-minute Dream Mapping fitting, top brands and 0% financing options at 7913 N 10th St, Suite 130.",
   "authors": [
     {
-      "name": "Snooze Mattress & Wellness"
+      "name": "Snooze Mattress + Wellness"
     }
   ],
   "robots": "index, follow",

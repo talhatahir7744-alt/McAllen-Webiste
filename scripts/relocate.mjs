@@ -23,7 +23,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 export const NEW = {
   city: 'McAllen',
-  street: '7913 North 10th Street, Suite 130',
+  street: '7913 N 10th St, Suite 130',
   cityStateZip: 'McAllen, TX 78504',
   zip: '78504',
   phone: '(956) 586-5646',
@@ -33,9 +33,9 @@ export const NEW = {
   facebook: 'https://www.facebook.com/p/Snooze-Mattress-Wellness-61575812121380/',
   instagram: 'https://www.instagram.com/snoozemcallen',
   youtube: 'https://www.youtube.com/@SnoozeMcAllen',
-  mapsQuery: '7913+North+10th+Street,+Suite+130,+McAllen,+TX+78504',
-  hoursEn: ['Mon – Sat 10 AM – 7 PM', 'Sunday 12 – 6 PM'],
-  hoursEs: ['Lun – Sáb 10 AM – 7 PM', 'Domingo 12 – 6 PM'],
+  mapsQuery: '7913+N+10th+St,+Suite+130,+McAllen,+TX+78504',
+  hoursEn: ['Mon–Sat 10 AM–7 PM', 'Sun 12–6 PM'],
+  hoursEs: ['Lun–Sáb 10 AM–7 PM', 'Dom 12–6 PM'],
 };
 NEW.mapLink = `https://maps.google.com/?q=${NEW.mapsQuery}`;
 NEW.mapEmbed = `https://maps.google.com/maps?q=${NEW.mapsQuery}&z=15&output=embed`;
@@ -116,7 +116,7 @@ export const RULES = [
 
   // ---- live domain (canonicals, sitemap, robots, JSON-LD, the Privacy Policy link on the Terms pages)
   lit('brownsville-webiste.vercel.app', 'mcallen.snoozemattresscompany.com'),
-  // the client's copy linked the Rockwall store (Terms → Privacy Policy, and a "Snooze Mattress Company" link on every
+  // the client's copy linked the Rockwall store (Terms → Privacy Policy, and a "Snooze Mattress + Wellness" link on every
   // page); slashes may be JSON-escaped (/) inside the payload
   [/https:(\/\/|\\\\u002F\\\\u002F|\\u002F\\u002F)rockwall\.snoozemattresscompany\.com/g, 'https:$1mcallen.snoozemattresscompany.com'],
 

@@ -184,6 +184,11 @@ Generated 2026-10-09T21:34:45.787Z from `C:/Users/Talha/AppData/Local/Temp/claud
 
 ## SEO audit implementation (October 2026)
 
+### Rules — business name and NAP
+
+- The business is **"Snooze Mattress + Wellness"** everywhere ("Snooze Mattress Company", "Snooze Mattress & Wellness" and "Snooze Mattress McAllen" were all in use; plain "Snooze" stays as shorthand) and the NAP reads exactly **7913 N 10th St, Suite 130, McAllen, TX 78504 · (956) 586-5646 · Mon–Sat 10 AM–7 PM, Sun 12–6 PM** (Spanish: Lun–Sáb 10 AM–7 PM, Dom 12–6 PM). `scripts/brand-nap.mjs` (`npm run brand`, after `npm run convert`, `seo:meta`, `es:fixes` and `headings`) applies both to the generated pages (markup + Nuxt payload), the generated metadata, `lib/i18n.ts`, `lib/blog-posts.ts`, the Spanish blog posts, the components, the quiz script, the override templates and the Spanish dictionary values (never the English keys the converter looks up). First run: 237 × "Company", 141 × "& Wellness", 147 × "McAllen", 265 street forms, 267 map-query street forms, 43–44 of each hours line. Idempotent; `--check` is a dry run. `lib/location.ts` carries the same name and NAP for the footer and the LocalBusiness schema.
+- Not asserted anywhere any more: a legal entity name (the old `legalName` was "Snooze Mattress Company", which the client's rule replaces) — the registered name is NEEDS CLIENT INPUT. The legal pages' copy follows the same rule. URLs, e-mail addresses and `tel:` links are untouched.
+
 ### Section 1 — redirects and index hygiene
 
 - The builder's duplicate Home pages (`/home-page`, `/main-page`, `/es/home-page`, `/es/main-page`: identical to `/` and `/es`, each self-canonical with 28 H1s) are no longer generated (`scripts/convert.mjs` skips `home-page.html` / `main-page.html`, `DUPLICATE_ROUTES` maps them to `/`) and `vercel.json` 308-redirects them to `/` and `/es`. Legacy GoHighLevel URLs from the audit redirect too: `/post/pressure-map-for-sleep` → `/blog/pressure-mapping-for-sleep`, `/mattress-financing-mcallen-tx` → `/mattress-financing`, `/massage-chairs-402809` → `/massage-chairs` (and their `/es/` twins), plus a generic rule for any other builder slug with a six-digit suffix (`/:slug-:id(\d{6})` → `/:slug`). The duplicate legal pages were already redirecting.

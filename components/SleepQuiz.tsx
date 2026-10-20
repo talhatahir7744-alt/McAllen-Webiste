@@ -23,13 +23,13 @@ const META: Record<Locale, { title: string; description: string; ogLocale: strin
     title: 'Sleep Fit Quiz | Snooze Mattress + Wellness McAllen',
     description: 'Answer 5 quick questions about how you sleep and find the comfort level, support level and mattress features your body needs. Free, 60 seconds, from Snooze Mattress + Wellness in McAllen.',
     ogLocale: 'en_US',
-    noscript: 'The Sleep Fit Quiz needs JavaScript. Call (956) 586-5646 or visit Snooze Mattress + Wellness at 7913 North 10th Street, Suite 130, McAllen, TX 78504 and we will find your fit in person.',
+    noscript: 'The Sleep Fit Quiz needs JavaScript. Call (956) 586-5646 or visit Snooze Mattress + Wellness at 7913 N 10th St, Suite 130, McAllen, TX 78504 and we will find your fit in person.',
   },
   es: {
     title: 'Sleep Fit Quiz | Snooze Mattress + Wellness McAllen',
     description: 'Responde 5 preguntas rápidas sobre cómo duermes y descubre el nivel de comodidad, el nivel de soporte y las características de colchón que tu cuerpo necesita. Gratis, en 60 segundos, de Snooze Mattress + Wellness en McAllen.',
     ogLocale: 'es_US',
-    noscript: 'El Sleep Fit Quiz necesita JavaScript. Llama al (956) 586-5646 o visita Snooze Mattress + Wellness en 7913 North 10th Street, Suite 130, McAllen, TX 78504 y encontraremos tu ajuste en persona.',
+    noscript: 'El Sleep Fit Quiz necesita JavaScript. Llama al (956) 586-5646 o visita Snooze Mattress + Wellness en 7913 N 10th St, Suite 130, McAllen, TX 78504 y encontraremos tu ajuste en persona.',
   },
 };
 

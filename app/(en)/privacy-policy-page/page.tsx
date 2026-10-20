@@ -4,7 +4,7 @@ import PageClient from './client';
 
 export const metadata: Metadata = {
   "title": "Privacy Policy",
-  "description": "Snooze Mattress Company – McAllen (“Company,” “we,” “us,” or “our”) respects your privacy and is committed to protecting your personal information.\n\nThis Privacy Policy describes how we collect, use, and share information when you visit:",
+  "description": "Snooze Mattress + Wellness – McAllen (“Company,” “we,” “us,” or “our”) respects your privacy and is committed to protecting your personal information.\n\nThis Privacy Policy describes how we collect, use, and share information when you visit:",
   "alternates": {
     "canonical": "/privacy-policy-page",
     "languages": {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   "openGraph": {
     "title": "Privacy Policy",
-    "description": "Snooze Mattress Company – McAllen (“Company,” “we,” “us,” or “our”) respects your privacy and is committed to protecting your personal information.\n\nThis Privacy Policy describes how we collect, use, and share information when you visit:",
+    "description": "Snooze Mattress + Wellness – McAllen (“Company,” “we,” “us,” or “our”) respects your privacy and is committed to protecting your personal information.\n\nThis Privacy Policy describes how we collect, use, and share information when you visit:",
     "url": "/privacy-policy-page",
     "type": "website",
     "images": [

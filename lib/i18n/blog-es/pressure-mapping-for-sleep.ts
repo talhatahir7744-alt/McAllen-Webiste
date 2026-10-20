@@ -26,7 +26,7 @@ export const POST_ES: BlogPost = {
         'El mapeo de presión consiste en colocar una colchoneta delgada con miles de sensores entre la persona y la superficie donde duerme. Estos sensores miden la fuerza que se ejerce en cada punto de contacto y generan una imagen a colores que muestra las zonas de mayor y menor presión. Los colores cálidos normalmente señalan puntos de presión concentrados, mientras que los colores fríos representan las áreas donde el cuerpo está bien sostenido y la presión se reparte de manera uniforme.',
         'Esta tecnología se ha vuelto una herramienta muy valiosa para investigadores, fabricantes y profesionales de la salud que buscan entender la relación tan compleja entre nuestro cuerpo y [las superficies donde dormimos](/es/blog/custom-mattresses-improving-health). Lo que hace tan poderoso al mapeo de presión es que convierte esa sensación subjetiva de comodidad en datos objetivos que se pueden medir.',
       ],
-      image: { ...IMG.mappingVisit, alt: 'Clientes en la estación de Mapeo de Presión dentro de Snooze Mattress Company McAllen', caption: 'La estación de Mapeo de Presión en nuestra tienda de McAllen.' },
+      image: { ...IMG.mappingVisit, alt: 'Clientes en la estación de Mapeo de Presión dentro de Snooze Mattress + Wellness McAllen', caption: 'La estación de Mapeo de Presión en nuestra tienda de McAllen.' },
     },
     {
       heading: 'Qué Significan Realmente los Colores',

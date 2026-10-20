@@ -1,9 +1,12 @@
 /* The store. Used by the footer (address, map, social links) and the site-wide LocalBusiness JSON-LD.
-   scripts/relocate.mjs carries the same values for the generated GoHighLevel pages: change both together. */
+   scripts/relocate.mjs carries the same values for the generated GoHighLevel pages: change both together.
+   Business name and NAP as the client wrote them for the SEO audit (October 2026): "Snooze Mattress + Wellness",
+   7913 N 10th St, Suite 130, McAllen, TX 78504 · (956) 586-5646 · Mon–Sat 10 AM–7 PM, Sun 12–6 PM
+   (scripts/brand-nap.mjs applies the same wording to the generated pages). No legal entity name is asserted anywhere:
+   the registered name is NEEDS CLIENT INPUT. */
 export const LOCATION = {
-  name: 'Snooze Mattress + Wellness — McAllen',
-  legalName: 'Snooze Mattress Company',
-  street: '7913 North 10th Street, Suite 130',
+  name: 'Snooze Mattress + Wellness',
+  street: '7913 N 10th St, Suite 130',
   city: 'McAllen',
   region: 'TX',
   postalCode: '78504',
@@ -19,11 +22,19 @@ export const LOCATION = {
     instagram: 'https://www.instagram.com/snoozemcallen',
     youtube: 'https://www.youtube.com/@SnoozeMcAllen',
   },
-  mapLink: 'https://maps.google.com/?q=7913+North+10th+Street,+Suite+130,+McAllen,+TX+78504',
-  mapEmbed: 'https://maps.google.com/maps?q=7913+North+10th+Street,+Suite+130,+McAllen,+TX+78504&z=15&output=embed',
+  mapLink: 'https://maps.google.com/?q=7913+N+10th+St,+Suite+130,+McAllen,+TX+78504',
+  mapEmbed: 'https://maps.google.com/maps?q=7913+N+10th+St,+Suite+130,+McAllen,+TX+78504&z=15&output=embed',
+  /* LocalBusiness schema (components/LocalBusinessJsonLd.tsx, SEO audit section 5a) */
+  storefrontImage: '/assets/filesafe/ARD47WoZpqaZSQ9MSxLD/media/684480ff2c95c570cfc22e24.jpeg.webp', // the storefront photo of the location card
+  priceRange: '$$',
+  /* NEEDS CLIENT INPUT: the Google Business Profile URL (listed in sameAs once set) and the "write a review" link
+     (the /review page's button). Both stay empty until the client supplies them; nothing is rendered from an empty value. */
+  gbpUrl: '',
+  reviewUrl: '',
+  areaServed: ['McAllen', 'Edinburg', 'Mission', 'Pharr'],
   hours: {
-    en: ['Mon – Sat 10 AM – 7 PM', 'Sunday 12 – 6 PM'],
-    es: ['Lun – Sáb 10 AM – 7 PM', 'Domingo 12 – 6 PM'],
+    en: ['Mon–Sat 10 AM–7 PM', 'Sun 12–6 PM'],
+    es: ['Lun–Sáb 10 AM–7 PM', 'Dom 12–6 PM'],
   },
   openingHours: [
     { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], opens: '10:00', closes: '19:00' },

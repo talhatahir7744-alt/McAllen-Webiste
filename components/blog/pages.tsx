@@ -74,7 +74,7 @@ export function postMetadata(slug: string, locale: Locale): Metadata {
       description: post.metaDescription,
       url,
       locale: OG_LOCALE[locale],
-      siteName: 'Snooze Mattress Company',
+      siteName: 'Snooze Mattress + Wellness',
       publishedTime: post.datePublished,
       modifiedTime: post.datePublished,
       authors: [t.org],
