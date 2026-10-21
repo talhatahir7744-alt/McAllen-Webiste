@@ -129,7 +129,7 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
 
         <div className={styles.bottom} data-animate="fade" data-delay="200">
           <span className={styles.copy}>
-            <span>© {new Date().getFullYear()} <span aria-hidden="true">💙💤</span> {f.rights}</span>
+            <span>© {new Date().getFullYear()} {f.rights}</span>
             <span className={styles.madeWith}>{f.madeWith} <HeartIcon /> {locale === 'es' ? 'amor' : 'love'}</span>
           </span>
           <span className={styles.legal}>
