@@ -29,9 +29,11 @@ export function BlogShell({ children }: { children: ReactNode }) {
   );
 }
 
-function Meta({ post }: { post: BlogPost }) {
+function Meta({ post, byline }: { post: BlogPost; byline: string }) {
   return (
     <div className={styles.meta}>
+      <span className={styles.byline}>{byline}</span>
+      <span aria-hidden="true" className={styles.metaDot}>•</span>
       <span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3" /><path d="M3 10h18M8 3v4M16 3v4" /></svg>
         <time dateTime={post.datePublished}>{post.dateDisplay}</time>
@@ -55,7 +57,7 @@ export function PostCard({ post, headingLevel = 'h3', locale = 'en' }: { post: B
         <Image src={post.featured.src} alt="" width={post.featured.width} height={post.featured.height} sizes="(max-width: 720px) 100vw, 33vw" />
       </a>
       <div className={styles.cardBody}>
-        <Meta post={post} />
+        <Meta post={post} byline={t.byline} />
         <H className={styles.cardTitle}>
           <a href={href}>{post.title}</a>
         </H>
@@ -109,7 +111,7 @@ export function BlogArticle({ post, related, locale = 'en' }: { post: BlogPost; 
           </nav>
           <p className={styles.eyebrow}>{t.eyebrow}</p>
           <h1 className={styles.title}>{post.title}</h1>
-          <Meta post={post} />
+          <Meta post={post} byline={t.byline} />
           <Divider />
         </div>
       </header>

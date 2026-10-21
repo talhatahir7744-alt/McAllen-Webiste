@@ -19,7 +19,8 @@
     "schema:check": "node scripts/validate-schema.mjs",
     "reviews": "node scripts/recent-reviews.mjs",
     "marquee": "node scripts/logo-marquee-patch.mjs",
-    "alts": "node scripts/image-alts.mjs"
+    "alts": "node scripts/image-alts.mjs",
+    "offer:ticker": "node scripts/offer-ticker.mjs"
   },
   "dependencies": {
     "next": "15.5.25",

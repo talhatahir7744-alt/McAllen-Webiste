@@ -120,3 +120,12 @@ html[lang="es"] .hl_page-preview--content .cheading-9UhGiuQIC6 h2 { font-size: c
   .hl_page-preview--content .snz-card.c-row .c-column + .c-column .c-heading h3 { margin: 0 0 6px !important; } /* location-card labels (were h1) */
 }
 html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5.6cqw) !important; } /* Spanish price-match headline (was h1) */
+
+/* ---- Sales page intro (components/SalesIntro.tsx): the dated offer header reuses .snz-offer; the "How mattress sales work"
+   intro is plain copy on a light band (SEO audit build pass, A4). */
+.snz-sales-intro { background: #f6f7fb; border-bottom: 1px solid rgba(0, 20, 137, 0.1); font-family: var(--font-poppins-stack); color: #1e223c; }
+.snz-sales-intro__inner { max-width: 900px; margin: 0 auto; padding: 28px 16px 30px; }
+.snz-sales-intro__title { margin: 0 0 10px; font-size: clamp(22px, 3vw, 30px); font-weight: 800; line-height: 1.2; color: #001489; }
+.snz-sales-intro__text { margin: 0 0 12px; font-size: 16px; line-height: 1.65; }
+.snz-sales-intro__text:last-child { margin-bottom: 0; }
+.snz-offer--sales .snz-offer__inner { padding-bottom: 4px; }

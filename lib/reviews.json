@@ -1,4 +1,26 @@
 {
-  "_comment": "NEEDS CLIENT INPUT — 6 to 10 real customer reviews (first name, city, stars 1–5, text, date YYYY-MM-DD) as the customers wrote them. Rendered above the reviews widget by scripts/recent-reviews.mjs (npm run reviews); while this list is empty nothing is shown. Never add reviews that the client did not supply.",
-  "reviews": []
+  "_comment": "Customer reviews supplied by the client (October 21, 2026), verbatim — customer text is never edited or translated. Rendered above the reviews widget by scripts/recent-reviews.mjs (npm run reviews).",
+  "reviews": [
+    {
+      "name": "Xandria N.",
+      "city": "McAllen, TX",
+      "stars": 5,
+      "date": "2026-08-02",
+      "text": "As soon as we stepped into Snooze, we felt comfortable right away. We were warmly greeted by Pablo, who immediately made us feel welcome and confident throughout the entire process. He took the time to help us find the perfect mattress for our needs, and we never once felt pressured. We couldn't be happier or more confident with our purchase. Thank you, Pablo, for making this such a great experience! We highly recommend Snooze to anyone looking for a new mattress."
+    },
+    {
+      "name": "Karina R.",
+      "city": "McAllen, TX",
+      "stars": 5,
+      "date": "2026-08-14",
+      "text": "Pablo was incredibly helpful and super knowledgeable on all the mattresses and products. We got our body scans and were shown the mattresses that would most likely work best for us. Super excited to get our new mattress and base to help with my back and pelvic issues and to improve our quality of sleep. Thank you 😊"
+    },
+    {
+      "name": "Lydia",
+      "city": "McAllen, TX",
+      "stars": 5,
+      "date": "2026-06-04",
+      "text": "Really nice place! If you're looking to get a new mattress, I'd recommend to come here. Elias is super knowledgeable in any and all mattresses & adjustable bed frames. He's able to educate you & answer any question you may have. They allow you to look on your own, no pressure added to try and get a sale. Its a great place."
+    }
+  ]
 }

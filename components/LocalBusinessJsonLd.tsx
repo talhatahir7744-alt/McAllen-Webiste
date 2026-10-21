@@ -36,8 +36,8 @@ export function LocalBusinessJsonLd({ locale = 'en' }: { locale?: Locale }) {
       addressCountry: L.country,
     },
     geo: { '@type': 'GeoCoordinates', latitude: L.geo.latitude, longitude: L.geo.longitude },
-    hasMap: L.mapLink,
-    sameAs: [L.social.facebook, L.social.instagram, L.social.youtube, ...(L.gbpUrl ? [L.gbpUrl] : [])],
+    hasMap: L.gbpUrl,
+    sameAs: [L.social.facebook, L.social.instagram, L.social.youtube, L.gbpUrl],
     openingHoursSpecification: L.openingHours.map((h) => ({
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: h.days.map((d) => `https://schema.org/${d}`),

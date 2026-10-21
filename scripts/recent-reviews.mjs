@@ -26,14 +26,14 @@ const START = '<!--snz-recent-reviews-->', END = '<!--/snz-recent-reviews-->';
 // by the iframe; attributes are double-quoted in the page markup (the converter normalises them), single-quoted in the payload
 const WIDGET_START = /(?:<script type=["']text\/javascript["'] src=["']https:\/\/reputationhub\.site\/reputation\/assets\/review-widget\.js["']><\/script>\s*)?<iframe[^>]*\blc_reviews_widget\b/g;
 const placeBefore = (html, block) => strip(html).replace(WIDGET_START, (m) => block + m);
-const LABELS = { en: { title: 'Recent Reviews', stars: (n) => `${n} out of 5 stars`, from: 'Google' }, es: { title: 'Reseñas Recientes', stars: (n) => `${n} de 5 estrellas`, from: 'Google' } };
+const LABELS = { en: { title: 'Recent Reviews', stars: (n) => `${n} out of 5 stars`, from: 'Google review' }, es: { title: 'Reseñas Recientes', stars: (n) => `${n} de 5 estrellas`, from: 'Reseña en Google' } };
 
 const reviews = (DATA.reviews || []).filter((r) => r && r.name && r.text && r.stars);
 function render(locale) {
   if (!reviews.length) return '';
   const t = LABELS[locale] || LABELS.en;
-  const fmt = (d) => { try { return new Intl.DateTimeFormat(locale === 'es' ? 'es-US' : 'en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${d}T00:00:00Z`)); } catch { return esc(d); } };
-  const items = reviews.map((r) => `<li class="snz-reviews__item"><div class="snz-reviews__head"><span class="snz-reviews__stars" role="img" aria-label="${esc(t.stars(r.stars))}">${'★'.repeat(Math.max(1, Math.min(5, Math.round(r.stars))))}</span><span class="snz-reviews__who">${esc(r.name)}${r.city ? `, ${esc(r.city)}` : ''}</span>${r.date ? `<time class="snz-reviews__date" datetime="${esc(r.date)}">${fmt(r.date)}</time>` : ''}</div><p class="snz-reviews__text">${esc(r.text)}</p></li>`).join('');
+  const fmt = (d) => { try { return new Intl.DateTimeFormat(locale === 'es' ? 'es-US' : 'en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${d}T00:00:00Z`)); } catch { return esc(d); } };
+  const items = reviews.map((r) => `<li class="snz-reviews__item"><div class="snz-reviews__head"><span class="snz-reviews__stars" role="img" aria-label="${esc(t.stars(r.stars))}">${'★'.repeat(Math.max(1, Math.min(5, Math.round(r.stars))))}</span><span class="snz-reviews__who">${esc(r.name)}${r.city ? `, ${esc(r.city)}` : ''}</span>${r.date ? `<time class="snz-reviews__date" datetime="${esc(r.date)}">${fmt(r.date)}</time>` : ''}<span class="snz-reviews__source">${esc(t.from)}</span></div><p class="snz-reviews__text">${esc(r.text)}</p></li>`).join('');
   return START + TEMPLATE.replace('{{title}}', esc(t.title)).replace('{{items}}', items) + END;
 }
 const strip = (html) => html.replace(new RegExp(`${START}[\\s\\S]*?${END}`, 'g'), '');

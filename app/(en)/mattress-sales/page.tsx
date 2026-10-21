@@ -3,8 +3,10 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
+import { SalesIntro } from '@/components/SalesIntro';
+import { isOfferActive } from '@/lib/offer';
 
-export const metadata: Metadata = {
+const BASE_METADATA: Metadata = {
   "title": "Mattress Sales & Deals in McAllen, TX | Snooze",
   "description": "Mattress deals in McAllen, TX: Helix, Puffy, King Koil, Snooze-O-Pedic and adjustable base bundles at local prices. Visit the showroom or book a fitting.",
   "alternates": {
@@ -39,11 +41,20 @@ export const metadata: Metadata = {
   }
 };
 
+/* while the current offer (lib/offer.ts) is active at build time the title and description name the sale (SEO audit build pass, A4) */
+const SALE_TITLE = "Black Friday Mattress Sale in McAllen, TX | Snooze";
+const SALE_DESCRIPTION = "Black Friday Sale at Snooze Mattress + Wellness, McAllen, TX, November 3 – December 1: sale pricing on Helix, Puffy, King Koil, Snooze-O-Pedic and adjustable base bundles. Details in store.";
+export const metadata: Metadata = isOfferActive()
+  ? { ...BASE_METADATA, title: SALE_TITLE, description: SALE_DESCRIPTION, openGraph: { ...(BASE_METADATA.openGraph || {}), title: SALE_TITLE, description: SALE_DESCRIPTION } }
+  : BASE_METADATA;
+
 export default function Page() {
   return (
     <>
       {/* page-level JSON-LD (scripts/page-schema.mjs) */}
       <PageSchema items={PAGE_SCHEMA} />
+      {/* dated current-offer header + "How mattress sales work" intro above the builder's offers (SEO audit build pass, A4) */}
+      <SalesIntro locale="en" />
       <PageClient />
     </>
   );

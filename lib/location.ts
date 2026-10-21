@@ -25,15 +25,16 @@ export const LOCATION = {
   /* Google Maps: the query is the business name + the exact NAP, so the map and the directions link resolve to the
      store's own listing (SEO audit, October 2026 — section 6b; scripts/brand-nap.mjs writes the same URLs into the
      generated pages' location cards). */
-  mapLink: 'https://www.google.com/maps?q=Snooze+Mattress+%2B+Wellness%2C+7913+N+10th+St%2C+Suite+130%2C+McAllen%2C+TX+78504',
+  /* The store's Google Business Profile listing (Place ID supplied by the client, October 21, 2026): the top bar's
+     address link and the footer's "Get Directions" / "Open Maps" links open it, the LocalBusiness schema lists it in
+     sameAs and hasMap. The footer map embed keeps its business-name query. */
+  placeId: 'ChIJBYBxOXChZYYR48f71GAS7YY',
+  gbpUrl: 'https://www.google.com/maps/place/?q=place_id:ChIJBYBxOXChZYYR48f71GAS7YY',
+  mapLink: 'https://www.google.com/maps/place/?q=place_id:ChIJBYBxOXChZYYR48f71GAS7YY',
   mapEmbed: 'https://www.google.com/maps?q=Snooze+Mattress+%2B+Wellness%2C+7913+N+10th+St%2C+Suite+130%2C+McAllen%2C+TX+78504&output=embed',
   /* LocalBusiness schema (components/LocalBusinessJsonLd.tsx, SEO audit section 5a) */
   storefrontImage: '/assets/filesafe/ARD47WoZpqaZSQ9MSxLD/media/684480ff2c95c570cfc22e24.jpeg.webp', // the storefront photo of the location card
   priceRange: '$$',
-  /* NEEDS CLIENT INPUT: the Google Business Profile URL (listed in sameAs once set) and the "write a review" link
-     (the /review page's button). Both stay empty until the client supplies them; nothing is rendered from an empty value. */
-  gbpUrl: '',
-  reviewUrl: '',
   areaServed: ['McAllen', 'Edinburg', 'Mission', 'Pharr'],
   hours: {
     en: ['Mon–Sat 10 AM–7 PM', 'Sun 12–6 PM'],

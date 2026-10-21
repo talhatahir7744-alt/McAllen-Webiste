@@ -1,33 +1,35 @@
 /* The site's current promotion: ONE place to edit (copy + dates), rendered by components/CurrentOffer.tsx on the
-   home page (EN + ES) directly under the header. It replaced the builder's expired "Memorial Day Savings Event /
-   Save up to 75% … until June 6th" block (SEO audit, October 2026), which was removed from the page markup and the
-   page payload (overrides.json → removeElements: section-g0BQMsgMwp).
+   home page (EN + ES) directly under the header, by components/SalesIntro.tsx at the top of the sales page, and
+   by scripts/offer-ticker.mjs as an item of the home page's promotions ticker. It replaced the builder's expired
+   "Memorial Day Savings Event / Save up to 75% … until June 6th" block (SEO audit, October 2026), which was removed
+   from the page markup and the page payload (overrides.json → removeElements: section-g0BQMsgMwp).
 
-   The site is a static export: `isOfferActive` is evaluated when the site is BUILT, not per visit. Deploy (or
-   schedule a redeploy) on the day an offer starts and the day after it ends. Nothing is hidden with CSS or JS:
-   when the offer is off, the band is simply not in the HTML. */
+   The site is a static export: `isOfferActive` is evaluated when the site is BUILT, not per visit, so the band is
+   simply not in the HTML outside the offer window — deploy (or schedule a redeploy) on the day an offer starts and
+   the day after it ends. As a safety net for the days between the end date and the next deploy, the rendered band
+   also carries its end date and a tiny inline script hides it once the visitor's clock is past that date. */
 export type OfferCopy = { en: string; es: string };
 export type OfferConfig = {
   enabled: boolean;
-  startDate: string; // 'YYYY-MM-DD' in store time (America/Chicago); '' = no start limit
+  startDate: string; // 'YYYY-MM-DD' in store time (America/Chicago); '' = no start limit (the band announces the sale ahead of it)
   endDate: string; // 'YYYY-MM-DD'; the band shows through the end of this day; '' = no end limit
   eyebrow: OfferCopy;
   headline: OfferCopy;
-  details: OfferCopy; // the offer itself, one or two sentences, as approved by the client
+  details: OfferCopy; // the offer itself, as approved by the client
   finePrint: OfferCopy; // terms / exclusions, as approved by the client
-  cta: { href: string }; // the label is the footer's booking CTA (lib/i18n.ts), one wording site-wide
+  cta: { href: string; label: OfferCopy };
 };
 
 export const CURRENT_OFFER: OfferConfig = {
-  /* NEEDS CLIENT INPUT — flip to true only with the client's approved offer copy, terms and dates. */
-  enabled: false,
-  startDate: '',
-  endDate: '',
+  /* Client-approved (October 21, 2026): Black Friday Sale, November 3 – December 1, 2026, details in store. */
+  enabled: true,
+  startDate: '', // announced from now; the dates are in the copy
+  endDate: '2026-12-01',
   eyebrow: { en: 'Current offer', es: 'Oferta actual' },
-  headline: { en: 'Current offer — pending client approval', es: 'Oferta actual — pendiente de aprobación del cliente' },
-  details: { en: '', es: '' },
+  headline: { en: 'Black Friday Sale', es: 'Venta de Black Friday' },
+  details: { en: 'November 3 – December 1 · See in store for details', es: '3 de noviembre – 1 de diciembre · Pregunta en tienda por los detalles' },
   finePrint: { en: '', es: '' },
-  cta: { href: '/booking' },
+  cta: { href: '/mattress-sales', label: { en: 'See the sale', es: 'Ver las ofertas' } },
 };
 
 const STORE_TZ = 'America/Chicago';
@@ -42,11 +44,7 @@ export function isOfferActive(now = new Date()): boolean {
   return true;
 }
 
-/** "Valid May 1, 2026 – June 6, 2026" / "Válido del 1 de mayo de 2026 al 6 de junio de 2026" (empty when no dates are set) */
-export function offerDates(locale: 'en' | 'es'): string {
-  const { startDate, endDate } = CURRENT_OFFER;
-  if (!startDate && !endDate) return '';
-  const fmt = (d: string) => new Intl.DateTimeFormat(locale === 'es' ? 'es-US' : 'en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${d}T00:00:00Z`));
-  if (locale === 'es') return startDate && endDate ? `Válido del ${fmt(startDate)} al ${fmt(endDate)}` : startDate ? `Válido a partir del ${fmt(startDate)}` : `Válido hasta el ${fmt(endDate)}`;
-  return startDate && endDate ? `Valid ${fmt(startDate)} – ${fmt(endDate)}` : startDate ? `Valid from ${fmt(startDate)}` : `Valid through ${fmt(endDate)}`;
+/** one short line for places that only have room for text (the promotions ticker, the sales-page title) */
+export function offerLine(locale: 'en' | 'es'): string {
+  return locale === 'es' ? 'Venta de Black Friday · 3 de noviembre – 1 de diciembre' : 'Black Friday Sale · November 3 – December 1';
 }
