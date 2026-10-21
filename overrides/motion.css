@@ -21,6 +21,13 @@ html.js [data-animate="zoom-in"]    { transform: scale(0.94); }
 html.js [data-animate="fade"]       { transform: none; }
 html.js [data-animate].is-in        { opacity: 1; transform: none; will-change: auto; }
 
+/* Hero sections (data-snz-hero on both copies: scripts/hero-mark.mjs, and scripts/convert.mjs for new conversions) paint on the first frame — LCP must not wait
+   for JavaScript (SEO audit build pass, October 2026 — section B). Their reveal elements are never hidden by the gate above;
+   a CSS-only entrance (a short slide, full opacity throughout, no observer) runs on top after first paint. */
+html.js [data-snz-hero] [data-animate] { opacity: 1; transform: none; transition: none; will-change: auto; animation: snzHeroIn 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both; animation-delay: var(--snz-delay, 0ms); }
+@keyframes snzHeroIn { from { transform: translate3d(0, 14px, 0); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) { html.js [data-snz-hero] [data-animate] { animation: none; } }
+
 /* ---- micro-interactions (transform / opacity / shadow only) ---- */
 
 /* primary hero CTA: slow, soft pulse that pauses on hover */

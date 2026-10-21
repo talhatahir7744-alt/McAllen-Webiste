@@ -601,6 +601,7 @@ function convertPage(rel, loc = null) {
     if (r.desktop && heroUrl('desktop')) ctx.preload.push({ href: mapUrl(heroUrl('desktop'), pageDir), media: '(min-width: 768px)' });
     if (r.mobile && heroUrl('mobile')) ctx.preload.push({ href: mapUrl(heroUrl('mobile'), pageDir), media: '(max-width: 767px)' });
     if (r.mobile) $(`[id="${r.mobile}"]`).addClass('snz-hero'); // phone hero: overlay + cover rules in overrides/site.css
+    for (const id of [r.desktop, r.mobile]) if (id) $(`[id="${id}"]`).attr('data-snz-hero', ''); // both hero copies paint on the first frame (overrides/motion.css; scripts/hero-mark.mjs for existing pages)
   }
 
   // ---- 1d. scroll-reveal tags (overrides/motion.json): data-animate / data-delay on server-rendered elements.
