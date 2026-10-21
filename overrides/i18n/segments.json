@@ -2078,7 +2078,7 @@
  {
   "text": "King for a Queen Specials or 0% Financing!",
   "count": 18,
-  "context": "King for a Queen Specials or 0% Financing! ✦",
+  "context": "King for a Queen Specials or 0% Financing!",
   "pages": [
    "/",
    "home-page",
@@ -2088,7 +2088,7 @@
  {
   "text": "Free Delivery on Orders Over $999",
   "count": 6,
-  "context": "Free Delivery on Orders Over $999 ✦",
+  "context": "Free Delivery on Orders Over $999",
   "pages": [
    "/",
    "home-page",
@@ -2098,7 +2098,7 @@
  {
   "text": "Shop the Best Mattress Deals Today",
   "count": 6,
-  "context": "Shop the Best Mattress Deals Today ✦",
+  "context": "Shop the Best Mattress Deals Today",
   "pages": [
    "/",
    "home-page",
@@ -2108,7 +2108,7 @@
  {
   "text": "Visit Your Local Snooze Today!",
   "count": 6,
-  "context": "Visit Your Local Snooze Today! ✦",
+  "context": "Visit Your Local Snooze Today!",
   "pages": [
    "/",
    "home-page",
@@ -2128,7 +2128,7 @@
  {
   "text": "Enter to Win a FREE Pillow",
   "count": 24,
-  "context": "Enter to Win a FREE Pillow ✦",
+  "context": "Enter to Win a FREE Pillow",
   "pages": [
    "/",
    "home-page",
@@ -4203,7 +4203,7 @@
   ]
  },
  {
-  "text": "✔ Upgrade your sleep now",
+  "text": "Upgrade your sleep now",
   "count": 2,
   "context": "",
   "pages": [
@@ -4211,7 +4211,7 @@
   ]
  },
  {
-  "text": "✔ Protect your savings",
+  "text": "Protect your savings",
   "count": 2,
   "context": "",
   "pages": [
@@ -4219,7 +4219,7 @@
   ]
  },
  {
-  "text": "✔ Spread payments over time",
+  "text": "Spread payments over time",
   "count": 2,
   "context": "",
   "pages": [
@@ -4227,7 +4227,7 @@
   ]
  },
  {
-  "text": "✔ Take advantage of promotional offers",
+  "text": "Take advantage of promotional offers",
   "count": 2,
   "context": "",
   "pages": [
@@ -4612,9 +4612,9 @@
   ]
  },
  {
-  "text": "🔥 Current",
+  "text": "Current",
   "count": 2,
-  "context": "🔥 Current Mattress Deals",
+  "context": "Current Mattress Deals",
   "pages": [
    "mattress-sales"
   ]
@@ -4622,7 +4622,7 @@
  {
   "text": "Mattress Deals",
   "count": 2,
-  "context": "🔥 Current Mattress Deals",
+  "context": "Current Mattress Deals",
   "pages": [
    "mattress-sales"
   ]

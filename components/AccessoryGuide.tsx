@@ -1,5 +1,6 @@
 import { LOCATION } from '@/lib/location';
 import { localizeHref, type Locale } from '@/lib/i18n';
+import { CheckItem } from '@/components/icons';
 
 /* Buying guides for the accessory pages (SEO audit build pass, October 2026 — D4): /pillows, /mattress-protectors and
    /premium-sheets each gain 300–500 words built only from the claims already on the page (materials, sleep positions,
@@ -153,7 +154,7 @@ export function AccessoryGuide({ page, locale }: { page: GuidePage; locale: Loca
         {g.blocks.map((b, i) => {
           if ('h2' in b) return <h2 key={i} className="snz-guide__h2">{b.h2}</h2>;
           if ('h3' in b) return <h3 key={i} className="snz-guide__h3">{b.h3}</h3>;
-          if ('ul' in b) return <ul key={i} className="snz-guide__list">{b.ul.map((li, j) => <li key={j}>{li}</li>)}</ul>;
+          if ('ul' in b) return <ul key={i} className="snz-guide__list snz-check-list">{b.ul.map((li, j) => <CheckItem key={j}>{li}</CheckItem>)}</ul>;
           return <p key={i} className="snz-guide__p">{b.p}</p>;
         })}
         <a className="snz-guide__cta" href={localizeHref('/booking', locale)}>{g.cta}</a>

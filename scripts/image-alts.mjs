@@ -1,6 +1,6 @@
 /*
  * Image alt text for the generated pages (SEO audit, October 2026 — section 8b/8c). Source of truth:
- * overrides/overrides.json → "imageAlt" ({ "<media id or file name>": "<English alt>" }), translated for /es through
+ * overrides/overrides.json -> "imageAlt" ({ "<media id or file name>": "<English alt>" }), translated for /es through
  * overrides/i18n/es.extra.json (key = the English alt). Applied to every <img> whose src carries the id — in the page
  * markup, in the Nuxt payload (imageProperties.altText and custom-code HTML strings), both languages — so hydration
  * keeps the text. scripts/convert.mjs applies the same map at convert time; this script brings already-converted
@@ -44,7 +44,7 @@ for (const f of files) {
   let newPayload = pm ? pm[0] : '';
   if (pm) {
     const nodes = JSON.parse(pm[2]); let touched = false;
-    // image elements: extra.imageProperties → { value } → { url, compression[, altText] } (the runtime re-renders the
+    // image elements: extra.imageProperties -> { value } -> { url, compression[, altText] } (the runtime re-renders the
     // <img> from this dict after hydration, so the alt must live here too — same place scripts/convert.mjs writes it)
     const dictOf = (i) => (typeof i === 'number' && nodes[i] && typeof nodes[i] === 'object' && !Array.isArray(nodes[i]) ? nodes[i] : null);
     const str = (i) => (typeof i === 'number' && typeof nodes[i] === 'string' ? nodes[i] : null);

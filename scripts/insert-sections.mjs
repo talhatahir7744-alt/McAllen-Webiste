@@ -10,7 +10,7 @@
  *   3. the page CSS (the per-element rules for the copied ids, media queries preserved).
  * GHL renders most sections twice (a desktop-only and a mobile-only copy) and the two copies of the
  * anchor are not always adjacent, so every copied section is anchored to a matching section with a
- * compatible visibility (desktop copy → desktop/any anchor, mobile copy → mobile/any anchor).
+ * compatible visibility (desktop copy -> desktop/any anchor, mobile copy -> mobile/any anchor).
  * The regular pipeline then treats the copies like native content: content overrides, URL rewriting…
  */
 import fs from 'node:fs';

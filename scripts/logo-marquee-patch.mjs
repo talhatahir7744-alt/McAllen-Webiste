@@ -20,7 +20,7 @@ const CHECK = process.argv.includes('--check');
 const BS = String.fromCharCode(92);
 const escapeJsonForScript = (json) => json.split('<').join(BS + 'u003C').split(String.fromCharCode(0x2028)).join(BS + 'u2028').split(String.fromCharCode(0x2029)).join(BS + 'u2029');
 
-/* media id → brand (the order of the strip); `bedding: true` for brands whose products here are not mattresses */
+/* media id -> brand (the order of the strip); `bedding: true` for brands whose products here are not mattresses */
 const BRANDS = {
   '6a7f503a84abba640bb0b486': { name: 'BedTech' },
   '6a7f5039dc6b0a15e53bc0be': { name: 'Helix' },

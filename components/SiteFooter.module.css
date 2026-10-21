@@ -136,7 +136,7 @@
 .legal a { color: var(--muted); transition: color 200ms; }
 .legal a:hover { color: var(--orange); }
 
-/* responsive: two columns on tablets, one column on phones (brand → products → company → visit/map) */
+/* responsive: two columns on tablets, one column on phones (brand -> products -> company -> visit/map) */
 @media (max-width: 1024px) {
   .grid { grid-template-columns: 1fr 1fr; }
   .visit { grid-column: 1 / -1; }

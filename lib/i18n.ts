@@ -75,7 +75,7 @@ const en: UiStrings = {
   drawerBook: 'Book Free Dream Mapping Appointment',
   drawerQuiz: 'Take the Sleep Fit Quiz',
   quizCard: { title: 'Sleep Fit Quiz', desc: 'Not sure which mattress is right for you? Find your comfort + support in 60 seconds.', cta: 'Take the quiz' },
-  quizCta: { line: 'Not sure which mattress is right for you?', button: 'Take the 60-Second Sleep Quiz →', aria: 'Sleep Fit Quiz' },
+  quizCta: { line: 'Not sure which mattress is right for you?', button: 'Take the 60-Second Sleep Quiz', aria: 'Sleep Fit Quiz' },
   footer: {
     about: 'Locally owned and operated in McAllen. We treat every person who walks through our door like family, and we are passionate about better health through better sleep.',
     book: 'Book Your Dream Mapping Appointment!', contact: 'Get In Touch With Us', products: 'Our Products', company: 'Company', visit: 'Visit Us',
@@ -119,7 +119,7 @@ const es: UiStrings = {
   drawerBook: 'Reserva tu cita de Dream Mapping',
   drawerQuiz: 'Haz el Sleep Fit Quiz',
   quizCard: { title: 'Sleep Fit Quiz', desc: '¿No sabes qué colchón es el ideal para ti? Descubre tu comodidad y soporte en 60 segundos.', cta: 'Hacer el quiz' },
-  quizCta: { line: '¿No sabes qué colchón es el ideal para ti?', button: 'Haz el Quiz de Sueño de 60 Segundos →', aria: 'Sleep Fit Quiz' },
+  quizCta: { line: '¿No sabes qué colchón es el ideal para ti?', button: 'Haz el Quiz de Sueño de 60 Segundos', aria: 'Sleep Fit Quiz' },
   footer: {
     about: 'Negocio local de McAllen, de la familia para la familia. Tratamos a cada persona que entra por nuestra puerta como si fuera de casa, y nos apasiona mejorar tu salud a través de un mejor sueño.',
     book: 'Reserva tu cita de Dream Mapping', contact: 'Contáctanos', products: 'Nuestros Productos', company: 'Empresa', visit: 'Visítanos',

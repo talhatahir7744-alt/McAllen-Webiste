@@ -17,7 +17,7 @@
 .hl_page-preview--content .steps-bg-faded .pm-section::before,
 .hl_page-preview--content .steps-bg-faded .pm-section::after { display: none; }
 
-/* Custom-code elements emptied by an override rule (overrides.json → "empty.html": the giveaway popup + ticker on
+/* Custom-code elements emptied by an override rule (overrides.json -> "empty.html": the giveaway popup + ticker on
    the home pages) leave no gap: the whole element is hidden. */
 .hl_page-preview--content .c-custom-code:has(> .custom-code-container:empty) { display: none !important; }
 
@@ -207,7 +207,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 96px; }
    content) read as a stray semi-circle on the new background. Off at every width; the section image is untouched. */
 .hl_page-preview--content .steps-bg-faded .pm-orb { display: none !important; }
 
-/* McAllen desktop hero photos (overrides.json → heroBackgrounds; Home, About Us, Financing): the builder emits
+/* McAllen desktop hero photos (overrides.json -> heroBackgrounds; Home, About Us, Financing): the builder emits
    `background: url(...)` (size cover, centred) but leaves the default repeat; pinned explicitly. These sections are
    desktop-only, the phone heroes are separate sections and untouched. */
 @media (min-width: 768px) {

@@ -12,15 +12,15 @@
  *     the location bar's "Location / Phone / Store Hours" labels become <h3>;
  *   - heading components that hold a stat label ("5 Min", "85%"), a sentence (twelve words or more ending in a
  *     period) or nothing at all become <p>, as do the heading tags inside sub-heading components (taglines, brand
- *     descriptions) and inside paragraph components unless the text is a short title (≤ 10 words → <h2>);
+ *     descriptions) and inside paragraph components unless the text is a short title (≤ 10 words -> <h2>);
  *   - the legal pages keep their document outline: the first bold title of each layout ("Privacy Policy" /
- *     "Terms & Conditions") → <h1>, the numbered section titles stay <h2>, sub-sections stay <h3>, body lines → <p>.
+ *     "Terms & Conditions") -> <h1>, the numbered section titles stay <h2>, sub-sections stay <h3>, body lines -> <p>.
  * A retagged element keeps its builder CSS (every component rule targets h1…h6 and the container alike) and gets the
  * class "snz-h". Two things the old tag itself carried are restored: the builder's base rule gives headings
  * `margin: unset` (overrides/global.css sets margin: 0 on p.snz-h) and the heading's weight (the builder's typography
  * rule `.heading-X h1, …` declares it, else the base rule's 500) is written on the <p> as an inline font-weight, so the
  * text renders exactly as before. The same decision is applied to the component's copy inside the Nuxt payload
- * (#__NUXT_DATA__ → the element's extra.* HTML string), so the runtime never re-renders the old tags on hydration.
+ * (#__NUXT_DATA__ -> the element's extra.* HTML string), so the runtime never re-renders the old tags on hydration.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -34,7 +34,7 @@ const REPORT = process.argv.includes('--report') || process.argv.includes('--che
 const BS = String.fromCharCode(92);
 const escapeJsonForScript = (json) => json.split('<').join(BS + 'u003C').split(String.fromCharCode(0x2028)).join(BS + 'u2028').split(String.fromCharCode(0x2029)).join(BS + 'u2029');
 
-/** location-bar labels (EN + ES) → h3 */
+/** location-bar labels (EN + ES) -> h3 */
 const LOCATION_LABELS = new Set(['Location', 'Phone', 'Store Hours', 'Ubicación', 'Teléfono', 'Horario', 'Horario de la Tienda', 'Horarios']);
 /** heading components that are really paragraphs (desktop + phone copies) */
 const SENTENCE_HEADINGS = new Set(['heading-0Ke59u-Zyv', 'heading-LvWh8ejTgG', 'heading-x_lOMCWdWN', 'heading-xFUkiLXSB7', 'heading-a_3Xyhe6O1', 'heading-N7kZBR2b2E', 'heading-_a8z5FzSKp', 'heading-8MiTGEtfaV']);

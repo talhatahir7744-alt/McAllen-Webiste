@@ -2,7 +2,7 @@
    home page (EN + ES) directly under the header, by components/SalesIntro.tsx at the top of the sales page, and
    by scripts/offer-ticker.mjs as an item of the home page's promotions ticker. It replaced the builder's expired
    "Memorial Day Savings Event / Save up to 75% … until June 6th" block (SEO audit, October 2026), which was removed
-   from the page markup and the page payload (overrides.json → removeElements: section-g0BQMsgMwp).
+   from the page markup and the page payload (overrides.json -> removeElements: section-g0BQMsgMwp).
 
    The site is a static export: `isOfferActive` is evaluated when the site is BUILT, not per visit, so the band is
    simply not in the HTML outside the offer window — deploy (or schedule a redeploy) on the day an offer starts and

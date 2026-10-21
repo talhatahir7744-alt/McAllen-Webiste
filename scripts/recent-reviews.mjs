@@ -21,6 +21,7 @@ const TEMPLATE = fs.readFileSync(path.join(ROOT, 'overrides/recent-reviews.html'
 const BS = String.fromCharCode(92);
 const escapeJsonForScript = (json) => json.split('<').join(BS + 'u003C').split(String.fromCharCode(0x2028)).join(BS + 'u2028').split(String.fromCharCode(0x2029)).join(BS + 'u2029');
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const STAR = '<svg class="snz-ico snz-ico--star" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5l-5.9 3.1 1.2-6.5L2.5 9.5l6.6-.9z"></path></svg>';
 const START = '<!--snz-recent-reviews-->', END = '<!--/snz-recent-reviews-->';
 // the widget embed: its loader script (present once per page in the markup, in every copy of the payload string) followed
 // by the iframe; attributes are double-quoted in the page markup (the converter normalises them), single-quoted in the payload
@@ -33,7 +34,7 @@ function render(locale) {
   if (!reviews.length) return '';
   const t = LABELS[locale] || LABELS.en;
   const fmt = (d) => { try { return new Intl.DateTimeFormat(locale === 'es' ? 'es-US' : 'en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${d}T00:00:00Z`)); } catch { return esc(d); } };
-  const items = reviews.map((r) => `<li class="snz-reviews__item"><div class="snz-reviews__head"><span class="snz-reviews__stars" role="img" aria-label="${esc(t.stars(r.stars))}">${'★'.repeat(Math.max(1, Math.min(5, Math.round(r.stars))))}</span><span class="snz-reviews__who">${esc(r.name)}${r.city ? `, ${esc(r.city)}` : ''}</span>${r.date ? `<time class="snz-reviews__date" datetime="${esc(r.date)}">${fmt(r.date)}</time>` : ''}<span class="snz-reviews__source">${esc(t.from)}</span></div><p class="snz-reviews__text">${esc(r.text)}</p></li>`).join('');
+  const items = reviews.map((r) => `<li class="snz-reviews__item"><div class="snz-reviews__head"><span class="snz-reviews__stars" role="img" aria-label="${esc(t.stars(r.stars))}">${STAR.repeat(Math.max(1, Math.min(5, Math.round(r.stars))))}</span><span class="snz-reviews__who">${esc(r.name)}${r.city ? `, ${esc(r.city)}` : ''}</span>${r.date ? `<time class="snz-reviews__date" datetime="${esc(r.date)}">${fmt(r.date)}</time>` : ''}<span class="snz-reviews__source">${esc(t.from)}</span></div><p class="snz-reviews__text">${esc(r.text)}</p></li>`).join('');
   return START + TEMPLATE.replace('{{title}}', esc(t.title)).replace('{{items}}', items) + END;
 }
 const strip = (html) => html.replace(new RegExp(`${START}[\\s\\S]*?${END}`, 'g'), '');

@@ -5,10 +5,10 @@
  *   node scripts/spanish-copy-fixes.mjs        (npm run es:fixes)       --check reports without writing
  *
  *   - the financing band's duplicated sentence end ("… sin pagar todo por adelantado. sin pagar todo por adelantado.")
- *   - "crezca en el McAllen" → "crezca en McAllen"
+ *   - "crezca en el McAllen" -> "crezca en McAllen"
  *   - the missing opening "¡" ("¡Obtén una Solución de Sueño Respaldada por la Ciencia!", "¡Nuestros Sleep Coaches
- *     están ansiosos …!" — that one also fixes the number agreement, "Nuestra" → "Nuestros")
- *   - the menu / quiz name "Quiz Sleep Fit" → "Sleep Fit Quiz" (brand name)
+ *     están ansiosos …!" — that one also fixes the number agreement, "Nuestra" -> "Nuestros")
+ *   - the menu / quiz name "Quiz Sleep Fit" -> "Sleep Fit Quiz" (brand name)
  * "Mapeo de Presión" is left where it describes the pressure-mapping technology ("¿Qué es el Mapeo de Presión?",
  * "Nuestra tecnología de Mapeo de Presión", the blog post about it); the service is "Dream Mapping" everywhere else.
  * In content.ts the markup is a JS string: attribute quotes are \" (server markup) or \\\" (payload copy) and payload

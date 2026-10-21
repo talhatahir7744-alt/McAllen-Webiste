@@ -5,6 +5,7 @@ import type { BlogPost } from '@/lib/blog-posts';
 import { localizeHref, ui, type Locale } from '@/lib/i18n';
 import { Faq } from './Faq';
 import { Rich } from './Rich';
+import { ArrowRightIcon } from '@/components/icons';
 import styles from './blog.module.css';
 
 /* Orange brush-stroke divider used under the site's own headings (same SVG as the GHL pages). */
@@ -63,7 +64,7 @@ export function PostCard({ post, headingLevel = 'h3', locale = 'en' }: { post: B
         </H>
         <p className={styles.cardExcerpt}>{post.excerpt}</p>
         <a href={href} className={styles.cardMore} aria-label={t.read(post.title)}>
-          {t.readArticle} <span aria-hidden="true">→</span>
+          {t.readArticle} <ArrowRightIcon />
         </a>
       </div>
     </article>
@@ -93,7 +94,7 @@ export function QuizCta({ locale = 'en' }: { locale?: Locale }) {
   return (
     <section className={styles.quizCta} aria-label={t.aria} data-animate="fade-up">
       <p className={styles.quizCtaLine}>{t.line}</p>
-      <a href={localizeHref('/sleep-quiz', locale)} className={styles.btn}>{t.button}</a>
+      <a href={localizeHref('/sleep-quiz', locale)} className={styles.btn}>{t.button} <ArrowRightIcon /></a>
     </section>
   );
 }

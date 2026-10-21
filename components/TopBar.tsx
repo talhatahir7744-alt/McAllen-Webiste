@@ -5,7 +5,7 @@ import { alternateHref, ui, type Locale } from '@/lib/i18n';
 import styles from './TopBar.module.css';
 
 /* Slim top bar above the main navigation on every page (both root layouts render it; the converter writes it into
-   the layout template): the store's address (→ its Google Maps listing), hours and phone (tel: link) from the shared
+   the layout template): the store's address (-> its Google Maps listing), hours and phone (tel: link) from the shared
    location config (lib/location.ts — the same source as the footer, the location cards and the LocalBusiness schema;
    this bar is the audit's item 6a), and the EN | ES language toggle, moved here from the navigation row. Brand navy
    from the page's own colour variable, white text, orange icons from the site's SVG set, Poppins, no heading tags.

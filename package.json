@@ -17,6 +17,7 @@
     "brand": "node scripts/brand-nap.mjs",
     "brand:links": "node scripts/brand-links.mjs",
     "faq:direct": "node scripts/faq-direct.mjs",
+    "icons": "node scripts/icons.mjs",
     "schema": "node scripts/page-schema.mjs",
     "schema:check": "node scripts/validate-schema.mjs",
     "reviews": "node scripts/recent-reviews.mjs",

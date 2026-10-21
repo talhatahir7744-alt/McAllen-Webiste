@@ -16,8 +16,7 @@
 .h3 { margin: 10px 0 4px; font-size: 18px; font-weight: 700; color: var(--navy); }
 .sub { display: grid; gap: 8px; }
 .p { margin: 0; font-size: 16.5px; line-height: 1.7; }
-.list { margin: 0; padding-left: 1.25em; display: grid; gap: 6px; font-size: 16.5px; line-height: 1.6; }
-.list li::marker { color: var(--orange); }
+.list { font-size: 16.5px; }
 .tableWrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
 .table { width: 100%; border-collapse: collapse; font-size: 15px; }
 .caption { caption-side: top; text-align: left; padding: 12px 14px 6px; font-weight: 700; color: var(--navy); }

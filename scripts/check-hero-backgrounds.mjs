@@ -1,4 +1,4 @@
-// Verifies overrides.json → heroBackgrounds: on every configured page, at desktop and phone widths, the visible
+// Verifies overrides.json -> heroBackgrounds: on every configured page, at desktop and phone widths, the visible
 // hero section's background image is the configured file. Usage: node scripts/check-hero-backgrounds.mjs [baseUrl]
 import fs from 'node:fs';
 import puppeteer from 'puppeteer-core';

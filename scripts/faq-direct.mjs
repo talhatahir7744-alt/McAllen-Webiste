@@ -16,7 +16,7 @@ const CHECK = process.argv.includes('--check');
 const BS = String.fromCharCode(92);
 const escapeJsonForScript = (json) => json.split('<').join(BS + 'u003C').split(String.fromCharCode(0x2028)).join(BS + 'u2028').split(String.fromCharCode(0x2029)).join(BS + 'u2029');
 
-/* question (as shown) → answer HTML (one or more <p>), per locale */
+/* question (as shown) -> answer HTML (one or more <p>), per locale */
 const ANSWERS = {
   en: {
     'Why choose Snooze Mattress + Wellness in McAllen, TX?': '<p>Because you get the best mattress prices in town through our competitive sales and price matching, a one-of-a-kind Sleep Comfort Guarantee on your new mattress, and a family business that greets you with a smile in our Snooze Blues pajamas. We would be honored to serve you!</p>',
@@ -89,7 +89,7 @@ for (const file of files) {
   const body = JSON.parse(bodyM[1]); if (!body.includes('snz-faq__a')) continue;
   const pm = body.match(/(<script[^>]*id="__NUXT_DATA__"[^>]*>)([\s\S]*?)(<\/script>)/);
   const markup = pm ? body.replace(pm[0], '\u0000PAYLOAD\u0000') : body;
-  const seen = new Map(); // old answer HTML → new answer HTML (for the builder's orphaned FAQ element strings)
+  const seen = new Map(); // old answer HTML -> new answer HTML (for the builder's orphaned FAQ element strings)
   const newMarkup = rewriteAccordion(markup, TABLE[loc], seen, unknown);
   const items = (newMarkup.match(ITEM) || []).length; totalItems += items;
   let payload = pm ? pm[0] : ''; let orphans = 0;
@@ -104,7 +104,7 @@ for (const file of files) {
       if (seen.has(n)) { nodes[i] = seen.get(n); touched = true; orphans++; continue; }
       const t = n.replace(/\s+/g, ' ').trim(); if (oldText.has(t)) { nodes[i] = oldText.get(t); touched = true; orphans++; }
     }
-    // the builder's FAQ schema data (Question → acceptedAnswer → text), disconnected from the page by
+    // the builder's FAQ schema data (Question -> acceptedAnswer -> text), disconnected from the page by
     // scripts/page-schema.mjs but still in the payload: matched structurally by the question text
     for (const n of nodes) {
       if (!n || typeof n !== 'object' || Array.isArray(n) || typeof n.name !== 'number' || typeof n.acceptedAnswer !== 'number') continue;

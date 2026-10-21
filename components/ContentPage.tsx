@@ -1,4 +1,5 @@
 import { Faq } from '@/components/blog/Faq';
+import { CheckItem } from '@/components/icons';
 import { PageSchema } from '@/components/PageSchema';
 import { LOCATION } from '@/lib/location';
 import { localizeHref, ui, type Locale } from '@/lib/i18n';
@@ -43,12 +44,12 @@ export function ContentPage({ page, locale }: { page: ContentPageData; locale: L
             <section key={i} className={styles.section}>
               <h2 className={styles.h2}>{s.h2}</h2>
               {(s.paragraphs || []).map((p, j) => <p key={j} className={styles.p}>{p}</p>)}
-              {s.bullets ? <ul className={styles.list}>{s.bullets.map((b, j) => <li key={j}>{b}</li>)}</ul> : null}
+              {s.bullets ? <ul className={`${styles.list} snz-check-list`}>{s.bullets.map((b, j) => <CheckItem key={j}>{b}</CheckItem>)}</ul> : null}
               {(s.h3s || []).map((sub, j) => (
                 <div key={j} className={styles.sub}>
                   <h3 className={styles.h3}>{sub.h3}</h3>
                   {(sub.paragraphs || []).map((p, k) => <p key={k} className={styles.p}>{p}</p>)}
-                  {sub.bullets ? <ul className={styles.list}>{sub.bullets.map((b, k) => <li key={k}>{b}</li>)}</ul> : null}
+                  {sub.bullets ? <ul className={`${styles.list} snz-check-list`}>{sub.bullets.map((b, k) => <CheckItem key={k}>{b}</CheckItem>)}</ul> : null}
                 </div>
               ))}
             </section>

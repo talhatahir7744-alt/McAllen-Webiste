@@ -1,7 +1,7 @@
 /*
  * Page-level structured data for the generated GoHighLevel pages (SEO audit, October 2026 — section 5).
  * For every generated route (app/**／content.ts + page.tsx, English and Spanish):
- *   - FAQPage from the page's own FAQ accordion (overrides/faq-accordion.html markup: .snz-faq__item → question in
+ *   - FAQPage from the page's own FAQ accordion (overrides/faq-accordion.html markup: .snz-faq__item -> question in
  *     .snz-faq__btn, answer in .snz-faq__a), questions deduplicated (the builder exports every section twice);
  *   - BreadcrumbList (Home › page) on the product pages;
  *   - the builder's own "schemaMarkup" is removed from the page payload: the GoHighLevel runtime used to inject it
@@ -24,7 +24,7 @@ const SITE_URL = 'https://mcallen.snoozemattresscompany.com';
 const BS = String.fromCharCode(92);
 const escapeJsonForScript = (json) => json.split('<').join(BS + 'u003C').split(String.fromCharCode(0x2028)).join(BS + 'u2028').split(String.fromCharCode(0x2029)).join(BS + 'u2029');
 
-/* product pages → breadcrumb name (the header's product labels, lib/i18n.ts) */
+/* product pages -> breadcrumb name (the header's product labels, lib/i18n.ts) */
 const PRODUCT_NAMES = {
   '/mattresses': { en: 'Mattresses', es: 'Colchones' },
   '/adjustable-mattress-bases': { en: 'Adjustable Mattress Bases', es: 'Bases Ajustables' },
@@ -61,7 +61,7 @@ for (const dir of pages) {
     { '@type': 'ListItem', position: 1, name: HOME[locale], item: locale === 'es' ? `${SITE_URL}/es` : SITE_URL },
     { '@type': 'ListItem', position: 2, name: PRODUCT_NAMES[base][locale], item: `${SITE_URL}${route}` },
   ] });
-  // ---- the builder's schemaMarkup leaves the payload (devalue array: pageData.schemaMarkup → -1 = undefined)
+  // ---- the builder's schemaMarkup leaves the payload (devalue array: pageData.schemaMarkup -> -1 = undefined)
   const $p = $('script#__NUXT_DATA__').first(); let payloadChanged = false;
   if ($p.length) {
     const nodes = JSON.parse($p.html());

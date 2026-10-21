@@ -31,7 +31,7 @@ const CONFIG = {
     address: "7913 N 10th St, Suite 130, McAllen, TX 78504",
     bookingUrl: SITE_URL + PREFIX + "/booking",      // Dream Mapping booking page
     shopUrl: SITE_URL + PREFIX + "/mattresses",      // mattresses page
-    // McAllen sub-account Inbound Webhook URL (Automation → Workflows → trigger)
+    // McAllen sub-account Inbound Webhook URL (Automation -> Workflows -> trigger)
     webhookUrl: "https://services.leadconnectorhq.com/hooks/ARD47WoZpqaZSQ9MSxLD/webhook-trigger/00b3cdec-7a6f-4184-95ec-81210f1e7bc8"
   }
 };
@@ -97,23 +97,23 @@ const I18N = {
       h1: "Find the comfort + support your body needs.",
       lede: "Answer 5 quick questions about how you sleep. We'll match you to the right comfort level, support level and features — so you know exactly what to try.",
       chips: ["5 questions", "Personal Sleep Profile", "Results sent to your inbox"],
-      start: "Start my Sleep Fit Quiz →",
+      start: "Start my Sleep Fit Quiz",
       steps: [["1. Answer", "Sleep position, body type, heat and more."], ["2. Get your fit", "Your comfort level and support level."], ["3. Try it", (store) => `Feel your fit side by side at ${store}.`]]
     },
-    back: "← Back",
+    back: "Back",
     lead: {
       h2: "Your Sleep Fit results are ready.",
       hint: "Tell us where to send them — you'll see them instantly on the next screen, and we'll email you a copy.",
       teaser: (name) => `Your Sleep Profile: <b>${name}</b><br>Your comfort + support match is ready.`,
       firstName: "First name", lastName: "Last name", email: "Email", phone: "Mobile phone", phonePlaceholder: "(555) 555-5555",
       errFn: "Please enter your first name", errLn: "Please enter your last name", errEm: "Please enter a valid email", errPh: "Please enter a valid 10-digit phone number",
-      submit: "Show my Sleep Fit results →", building: "Building your Sleep Fit…",
+      submit: "Show my Sleep Fit results", building: "Building your Sleep Fit…",
       lock: "We'll never sell your info. Unsubscribe anytime."
     },
     results: {
       eyebrow: "Your Perfect Sleep Fit",
       h1: (first) => `${first ? esc(first) + ", here's" : "Here's"} your Sleep Fit.`,
-      emailed: (email) => `✓ A copy of your results is on its way to ${esc(email)}`,
+      emailed: (email) => `${ICONS.check} A copy of your results is on its way to ${esc(email)}`,
       profileEyebrow: "Your Sleep Profile",
       match: "Your comfort + support match",
       comfortLabel: "Comfort level", supportLabel: "Support level",
@@ -186,23 +186,23 @@ const I18N = {
       h1: "Encuentra la comodidad y el soporte que tu cuerpo necesita.",
       lede: "Responde 5 preguntas rápidas sobre cómo duermes. Te indicaremos el nivel de comodidad, el nivel de soporte y las características ideales para ti, para que sepas exactamente qué probar.",
       chips: ["5 preguntas", "Perfil de Sueño personal", "Resultados a tu correo"],
-      start: "Empezar mi Quiz Sleep Fit →",
+      start: "Empezar mi Quiz Sleep Fit",
       steps: [["1. Responde", "Posición al dormir, tipo de cuerpo, calor y más."], ["2. Recibe tu ajuste", "Tu nivel de comodidad y tu nivel de soporte."], ["3. Pruébalo", (store) => `Siente tu ajuste lado a lado en ${store}.`]]
     },
-    back: "← Atrás",
+    back: "Atrás",
     lead: {
       h2: "Tus resultados Sleep Fit están listos.",
       hint: "Dinos a dónde enviarlos: los verás al instante en la siguiente pantalla y te mandaremos una copia por correo.",
       teaser: (name) => `Tu Perfil de Sueño: <b>${name}</b><br>Tu combinación de comodidad y soporte está lista.`,
       firstName: "Nombre", lastName: "Apellido", email: "Correo electrónico", phone: "Celular", phonePlaceholder: "(555) 555-5555",
       errFn: "Escribe tu nombre", errLn: "Escribe tu apellido", errEm: "Escribe un correo válido", errPh: "Escribe un número de teléfono válido de 10 dígitos",
-      submit: "Ver mis resultados Sleep Fit →", building: "Preparando tu Sleep Fit…",
+      submit: "Ver mis resultados Sleep Fit", building: "Preparando tu Sleep Fit…",
       lock: "Nunca venderemos tu información. Cancela cuando quieras."
     },
     results: {
       eyebrow: "Tu Sleep Fit perfecto",
       h1: (first) => `${first ? esc(first) + ", este es" : "Este es"} tu Sleep Fit.`,
-      emailed: (email) => `✓ Una copia de tus resultados va en camino a ${esc(email)}`,
+      emailed: (email) => `${ICONS.check} Una copia de tus resultados va en camino a ${esc(email)}`,
       profileEyebrow: "Tu Perfil de Sueño",
       match: "Tu combinación de comodidad + soporte",
       comfortLabel: "Nivel de comodidad", supportLabel: "Nivel de soporte",
@@ -342,7 +342,9 @@ const ICONS = {
   no:        sv('<path d="M12 2v20M4.5 6.5l15 11M19.5 6.5l-15 11"/><path d="M9.5 3.5L12 6l2.5-2.5M9.5 20.5L12 18l2.5 2.5"/>'),
   yes:       sv('<circle cx="8" cy="8" r="3"/><circle cx="16.5" cy="8.5" r="2.6"/><path d="M2.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5"/><path d="M14 14.6c.8-.4 1.6-.6 2.5-.6 2.8 0 5 2 5 5"/>'),
   single:    sv('<circle cx="12" cy="8" r="3.5"/><path d="M5 20.5c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/>'),
-  check:     sv('<path d="M5 12.5l4.5 4.5L19 7.5"/>')
+  check:     sv('<path d="M5 12.5l4.5 4.5L19 7.5"/>'),
+  arrow:     sv('<path d="M5 12h14m-6-6 6 6-6 6"/>'),
+  arrowLeft: sv('<path d="M19 12H5m6-6-6 6 6 6"/>')
 };
 const iconFor = (q,o) => q.key==="partner" && o.v==="no" ? ICONS.single : (ICONS[o.v] || "");
 
@@ -408,7 +410,7 @@ function renderIntro(){
       <h1>${esc(T.intro.h1)}</h1>
       <p class="lede">${esc(T.intro.lede)}</p>
       <div class="hero-badges">${T.intro.chips.map(c=>`<span class="chip"><i></i>${esc(c)}</span>`).join("")}</div>
-      <button class="btn btn-orange btn-block" id="start">${esc(T.intro.start)}</button>
+      <button class="btn btn-orange btn-block" id="start">${esc(T.intro.start)} ${ICONS.arrow}</button>
     </div>
     <div class="steps">${steps}</div>
   </section>`;
@@ -423,7 +425,7 @@ function renderQuestion(){
       ${q.options.map(o=>`<button class="answer ${state.answers[q.key]===o.v?'selected':''}" role="radio" aria-checked="${state.answers[q.key]===o.v}" data-v="${o.v}">
         <span class="ico">${iconFor(q,o)}</span><span>${esc(o.label)}${o.sub?`<small>${esc(o.sub)}</small>`:""}</span></button>`).join("")}
     </div>
-    <div class="nav">${state.step>0?`<button class="link-btn" id="back">${esc(T.back)}</button>`:"<span></span>"}</div>
+    <div class="nav">${state.step>0?`<button class="link-btn" id="back">${ICONS.arrowLeft} ${esc(T.back)}</button>`:"<span></span>"}</div>
   </section>`;
   $view.querySelectorAll(".answer").forEach(b=> b.onclick = ()=>{
     state.answers[q.key] = b.dataset.v;
@@ -450,10 +452,10 @@ function renderLeadForm(){
       <div><label class="f" for="em">${esc(L.email)}</label><input class="input" id="em" type="email" autocomplete="email" inputmode="email" required><div class="errmsg">${esc(L.errEm)}</div></div>
       <div><label class="f" for="ph">${esc(L.phone)}</label><input class="input" id="ph" type="tel" autocomplete="tel" inputmode="tel" placeholder="${esc(L.phonePlaceholder)}" required><div class="errmsg">${esc(L.errPh)}</div></div>
       <label class="consent"><input type="checkbox" id="sms"> <span>${esc(CONFIG.smsConsentText)}</span></label>
-      <button class="btn btn-orange btn-block" id="submitBtn" type="submit">${esc(L.submit)}</button>
+      <button class="btn btn-orange btn-block" id="submitBtn" type="submit">${esc(L.submit)} ${ICONS.arrow}</button>
       <p class="lock">${esc(L.lock)}</p>
     </form>
-    <div class="nav"><button class="link-btn" id="back">${esc(T.back)}</button></div>
+    <div class="nav"><button class="link-btn" id="back">${ICONS.arrowLeft} ${esc(T.back)}</button></div>
   </section>`;
   document.getElementById("back").onclick = ()=>{ state.step--; render(); };
   document.getElementById("leadForm").onsubmit = onLeadSubmit;

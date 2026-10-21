@@ -47,7 +47,10 @@ input::placeholder, textarea::placeholder { font-family: var(--font-poppins-stac
 .hl_page-preview--content .c-bullet-list .text-output { padding-top: 0 !important; padding-bottom: 0 !important; line-height: var(--snz-list-line-height) !important; }
 .hl_page-preview--content .c-bullet-list .text-output :is(ul, ol) { margin: 0 !important; }
 .hl_page-preview--content .c-bullet-list .text-output li { margin: 0 !important; line-height: var(--snz-list-line-height) !important; }
-.hl_page-preview--content .c-bullet-list .text-output li:not([class*="ql-indent"]) { padding-inline-start: var(--snz-list-icon-gap) !important; }
+/* each item is icon + text as flex (the check-circle SVG is injected by scripts/icons.mjs); hanging indent comes from the flex row */
+.hl_page-preview--content .c-bullet-list .text-output :is(ul, ol) { padding: 0 !important; list-style: none !important; }
+.hl_page-preview--content .c-bullet-list .text-output li { display: flex !important; align-items: flex-start !important; gap: var(--snz-list-icon-gap) !important; padding-inline-start: 0 !important; list-style: none !important; }
+.hl_page-preview--content .c-bullet-list .text-output li > p { flex: 1 1 auto; min-width: 0; }
 .hl_page-preview--content .c-bullet-list .text-output li > p { margin: 0 !important; line-height: inherit !important; }
 /* items: the <li>s of one list, and consecutive single-item elements */
 .hl_page-preview--content .c-bullet-list .text-output li + li { margin-top: var(--snz-list-item-gap) !important; }
@@ -155,6 +158,29 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
 .snz-guide__h2 { margin-top: 30px; }
 .snz-guide__h3 { margin: 18px 0 8px; font-size: 18px; font-weight: 700; line-height: 1.3; color: #001489; }
 .snz-guide__p { margin: 0 0 14px; font-size: 16px; line-height: 1.7; }
-.snz-guide__list { margin: 0 0 14px; padding-left: 22px; display: grid; gap: 8px; font-size: 16px; line-height: 1.6; }
+.snz-guide__list { font-size: 16px; }
 .snz-guide__cta { display: inline-block; margin-top: 8px; padding: 13px 26px; border-radius: 8px; background: #F58433; color: #fff; font-weight: 700; text-decoration: none; letter-spacing: 0.02em; }
 .snz-guide__cta:hover, .snz-guide__cta:focus-visible { background: #d96a1a; color: #fff; }
+
+/* ---- Inline icons (emoji replacement pass, October 2026): every icon on the site is inline SVG sized to the text;
+   decorative ones carry aria-hidden. Colour follows the text (currentColor) unless a modifier sets it. ---- */
+.snz-ico { display: inline-block; width: 1.1em; height: 1.1em; vertical-align: -0.18em; flex: 0 0 auto; }
+.snz-ico--orange { color: #F58433; } .snz-ico--navy { color: #001489; } .snz-ico--white { color: #fff; }
+.snz-ico--arrow { margin-left: 0.1em; }
+/* the orange check-circle beside every list item: centred on the first line of text (line-height 1.6 -> (1.6em - 1.15em) / 2) */
+.snz-li-ico { width: 1.15em !important; height: 1.15em !important; color: #F58433; margin-top: calc((var(--snz-list-line-height) * 1em - 1.15em) / 2); vertical-align: 0; }
+/* hand-written lists (new pages, accessory guides) share the builder lists' rhythm */
+.snz-check-list { list-style: none !important; margin: 0 0 14px; padding: 0 !important; display: grid; gap: var(--snz-list-item-gap); }
+.snz-check-list > li { display: flex; align-items: flex-start; gap: var(--snz-list-icon-gap); line-height: var(--snz-list-line-height); margin: 0; }
+.snz-check-list > li > span { flex: 1 1 auto; min-width: 0; }
+/* Highlighted words in headings and copy: plain orange text, no box (one rule; replaces the builder's white-on-gradient
+   u/ins style with its clipped corners). Links keep their underline. Matches the home hero's "Custom-Fit" highlight. */
+.hl_page-preview--content :is(u, ins) { background: none !important; color: #F58433 !important; padding: 0 !important; border-radius: 0 !important; text-decoration: none !important; }
+.hl_page-preview--content a :is(u, ins) { text-decoration: underline !important; text-underline-offset: 3px; }
+/* ticker separator sparkle and review stars */
+.snooze-ticker-sep .snz-ico { width: 0.75em; height: 0.75em; vertical-align: -0.05em; }
+.snz-reviews__stars { display: inline-flex !important; align-items: center; gap: 2px; letter-spacing: 0 !important; }
+.snz-reviews__stars .snz-ico { width: 1em; height: 1em; vertical-align: 0; }
+/* Sleep Fit Quiz buttons carry the arrow / back icons inline */
+.snz-quiz .btn svg, .snz-quiz .link-btn svg { width: 1.1em; height: 1.1em; vertical-align: -0.18em; }
+.snz-quiz .emailed svg { width: 1.1em; height: 1.1em; vertical-align: -0.18em; color: #F58433; }

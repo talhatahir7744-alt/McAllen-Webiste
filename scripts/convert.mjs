@@ -312,7 +312,7 @@ function noteMissing(url) { report.missingReferenced.add(url); }
 function noteExternal(host) { report.externalHostsLeft[host] = (report.externalHostsLeft[host] || 0) + 1; }
 
 /** Map an absolute URL to its local replacement. Returns null when it should be left alone. */
-// overrides.json → imageReplacements: { "<old mediaPath>": "<new mediaPath>" } swaps a client image everywhere it is
+// overrides.json -> imageReplacements: { "<old mediaPath>": "<new mediaPath>" } swaps a client image everywhere it is
 // referenced (bare CDN URL, every images.leadconnectorhq.com resize variant, relative clone paths, payload strings)
 // for a new file that was added to the clone tree with scripts/image-variants.mjs
 function replaceMedia(s) {
@@ -453,12 +453,12 @@ function transformPayload(json, pageDir, ctx) {
     for (let i = 0; i < nodes.length; i++) if (Array.isArray(nodes[i]) && nodes[i].some((x) => typeof x === 'number' && drop.has(x))) nodes[i] = nodes[i].filter((x) => !(typeof x === 'number' && drop.has(x)));
     for (const i of drop) { const id = str(nodes[i].id); if (id && removeIds.has(id)) ctx.removed.push(id); }
   }
-  // 2b. alt text for client image elements that carry none (overrides.json → imageAlt); the runtime re-renders the
+  // 2b. alt text for client image elements that carry none (overrides.json -> imageAlt); the runtime re-renders the
   //     <img> from imageProperties after hydration, so the markup alt (step 2c of convertPage) alone would not stick
   const imageAlt = Object.entries(OVR.imageAlt || {}).filter(([k]) => k !== '_comment');
   if (imageAlt.length) for (const n of nodes) {
     if (!n || typeof n !== 'object' || Array.isArray(n)) continue;
-    let ip = dict(n.imageProperties); if (ip && !('url' in ip) && 'value' in ip) ip = dict(ip.value); // imageProperties → { value } → { url, altText, … }
+    let ip = dict(n.imageProperties); if (ip && !('url' in ip) && 'value' in ip) ip = dict(ip.value); // imageProperties -> { value } -> { url, altText, … }
     const url = ip && str(ip.url); if (!url) continue;
     const hit = imageAlt.find(([needle]) => url.includes(needle));
     if (hit && !(str(ip.altText) || '').trim()) ip.altText = push(hit[1]);
@@ -675,7 +675,7 @@ function convertPage(rel, loc = null) {
     if (!ctx.overridden.has(id)) { ctx.overridden.set(id, rule.name); report.overrides.push({ page: rel, id, rule: rule.name, file: rule.file }); }
   });
 
-  // ---- 2c. alt text for client images that carry none (overrides.json → imageAlt: { "<media id>": "<alt>" }; the
+  // ---- 2c. alt text for client images that carry none (overrides.json -> imageAlt: { "<media id>": "<alt>" }; the
   //      Spanish text comes from the dictionary like any other alt attribute)
   for (const [needle, alt] of Object.entries(OVR.imageAlt || {})) {
     $('img').each((_, el) => { const src = $(el).attr('src') || ''; if (src.includes(needle) && !($(el).attr('alt') || '').trim()) $(el).attr('alt', alt); });
@@ -1375,7 +1375,7 @@ One footer for the whole site: \`components/SiteFooter.tsx\` (+ module CSS), ren
 
 ## Sleep Fit Quiz (hand-written route)
 
-\`/sleep-quiz\` and \`/es/sleep-quiz\` are the client's Sleep Fit Quiz inside the site header and footer: \`components/SleepQuiz.tsx\` renders the quiz shell and metadata (self-canonical, hreflang pair, \`?r=\` results links canonical to the bare page), \`components/sleep-quiz/sleep-fit-quiz.css\` is the quiz stylesheet scoped under \`.snz-quiz\`, and \`public/sleep-fit-quiz.js\` is the quiz logic (scoring, screens, lead form, kiosk mode \`?kiosk=1\`, shareable results) with every human-readable string in an EN/ES table and the McAllen store CONFIG + GoHighLevel inbound webhook. The converter keeps \`app/(en)/sleep-quiz\` and \`app/es/sleep-quiz\`. Calls to action link to it from the header (desktop item + mobile drawer item and button), the footer Company column, the Dream Mapping steps, the brand marquee, the guarantee cards, every FAQ accordion (\`overrides/*.html\`, styled by \`overrides/site.css\` → \`.snz-quiz-cta\`, Spanish copy in \`overrides/i18n/es.extra.json\`) and the blog posts (\`components/blog/BlogLayout.tsx\` → \`QuizCta\`).
+\`/sleep-quiz\` and \`/es/sleep-quiz\` are the client's Sleep Fit Quiz inside the site header and footer: \`components/SleepQuiz.tsx\` renders the quiz shell and metadata (self-canonical, hreflang pair, \`?r=\` results links canonical to the bare page), \`components/sleep-quiz/sleep-fit-quiz.css\` is the quiz stylesheet scoped under \`.snz-quiz\`, and \`public/sleep-fit-quiz.js\` is the quiz logic (scoring, screens, lead form, kiosk mode \`?kiosk=1\`, shareable results) with every human-readable string in an EN/ES table and the McAllen store CONFIG + GoHighLevel inbound webhook. The converter keeps \`app/(en)/sleep-quiz\` and \`app/es/sleep-quiz\`. Calls to action link to it from the header (desktop item + mobile drawer item and button), the footer Company column, the Dream Mapping steps, the brand marquee, the guarantee cards, every FAQ accordion (\`overrides/*.html\`, styled by \`overrides/site.css\` -> \`.snz-quiz-cta\`, Spanish copy in \`overrides/i18n/es.extra.json\`) and the blog posts (\`components/blog/BlogLayout.tsx\` -> \`QuizCta\`).
 
 ## Page fixes (\`overrides/site.css\`, \`overrides/global.css\`)
 

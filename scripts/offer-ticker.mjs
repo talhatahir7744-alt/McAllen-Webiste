@@ -24,7 +24,7 @@ const line = { en: (src.match(/offerLine[\s\S]*?:\s*'([^']*)'/) || [])[1] || '',
 const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Chicago', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
 const active = enabled && (!startDate || today >= startDate) && (!endDate || today <= endDate) && line.en;
 const START = '<!--snz-offer-ticker-->', END = '<!--/snz-offer-ticker-->';
-const item = (locale) => `${START}<div class="snooze-ticker-item"> <span class="snooze-ticker-text">${esc(line[locale])}</span> <span class="snooze-ticker-sep">✦</span> </div>${END}`;
+const item = (locale) => `${START}<div class="snooze-ticker-item"> <span class="snooze-ticker-text">${esc(line[locale])}</span> <span class="snooze-ticker-sep" aria-hidden="true"><svg class="snz-ico snz-ico--sparkle" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2.5 14.3 9.7 21.5 12l-7.2 2.3L12 21.5l-2.3-7.2L2.5 12l7.2-2.3z"></path></svg></span> </div>${END}`;
 const strip = (html) => html.replace(new RegExp(`${START}[\\s\\S]*?${END}\\s*`, 'g'), '');
 // insert the item as the first item of each set (after the SET comment), so both copies of the loop carry it
 const place = (html, locale) => { const s = strip(html); if (!active) return s; return s.replace(/(<!-- ── SET [12][^>]*-->\s*)/g, (m) => m + item(locale) + ' '); };
