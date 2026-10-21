@@ -184,3 +184,9 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
 /* Sleep Fit Quiz buttons carry the arrow / back icons inline */
 .snz-quiz .btn svg, .snz-quiz .link-btn svg { width: 1.1em; height: 1.1em; vertical-align: -0.18em; }
 .snz-quiz .emailed svg { width: 1.1em; height: 1.1em; vertical-align: -0.18em; color: #F58433; }
+
+/* ---- Two-line headline in the sleep-guarantee band (scripts/guarantee-section.mjs, October 2026): the first line keeps
+   the heading size, the second sits under it smaller; both wrap naturally on phones. ---- */
+.snz-h2-line { display: block; text-wrap: balance; } /* a wrapped line splits evenly instead of leaving one word on its own */
+.snz-h2-line--big { font-weight: 800; }
+.snz-h2-line--small { font-size: 0.62em; font-weight: 800; letter-spacing: 0.03em; line-height: 1.25; margin-top: 0.4em; }
