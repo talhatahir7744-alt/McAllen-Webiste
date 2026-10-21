@@ -24,7 +24,7 @@ const NAME = 'Snooze Mattress + Wellness';
 // any spacing the builder emits between hour tokens: plain space, NBSP, the entity, or the NBSP escaped inside the payload JSON
 const SP = '(?:\\s|&nbsp;|\\u00a0|\\\\u00a0)*';
 const RULES = [
-  { name: 'Snooze Mattress Company → + Wellness', re: /Snooze Mattress Company/g, to: NAME },
+  { name: 'Snooze Mattress Company / Co → + Wellness (any case)', re: /Snooze Mattress Co(?:mpany)?(?![A-Za-z])/gi, to: NAME },
   { name: 'Snooze Mattress & Wellness → + Wellness', re: /Snooze Mattress (?:&amp;|&) Wellness/g, to: NAME },
   { name: 'Snooze Mattress McAllen → + Wellness', re: /Snooze Mattress McAllen/g, to: NAME },
   { name: 'street: North 10th Street → N 10th St', re: /7913 North 10th Street, Suite 130/g, to: '7913 N 10th St, Suite 130' },

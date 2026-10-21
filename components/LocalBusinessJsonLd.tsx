@@ -21,6 +21,7 @@ export function LocalBusinessJsonLd({ locale = 'en' }: { locale?: Locale }) {
     '@type': ['FurnitureStore', 'LocalBusiness'],
     '@id': `${SITE_URL}/#store`,
     name: L.name,
+    legalName: L.legalName,
     url: locale === 'es' ? `${SITE_URL}/es` : `${SITE_URL}/`,
     image: [`${SITE_URL}${L.storefrontImage}`, `${SITE_URL}${SITE.logo}`],
     logo: `${SITE_URL}${SITE.logo}`,

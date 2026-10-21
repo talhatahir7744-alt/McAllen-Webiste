@@ -13,7 +13,9 @@ import * as cheerio from 'cheerio';
 
 export const ATTRS = ['alt', 'title', 'placeholder', 'aria-label'];
 const SKIP_TAGS = new Set(['script', 'style', 'noscript', 'template', 'code', 'pre']);
-export const norm = (s) => s.replace(/\s+/g, ' ').trim();
+/* the business name is normalised on both sides of the lookup: the original export says "Snooze Mattress Company", the dictionaries say "Snooze Mattress + Wellness" (client rule, October 2026) */
+const BRAND_RE = /Snooze Mattress Co(?:mpany)?(?![A-Za-z])/gi;
+export const norm = (s) => s.replace(/\s+/g, ' ').trim().replace(BRAND_RE, 'Snooze Mattress + Wellness');
 
 export function loadLocale(dir, locale) {
   const dict = new Map();

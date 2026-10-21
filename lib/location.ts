@@ -6,6 +6,7 @@
    the registered name is NEEDS CLIENT INPUT. */
 export const LOCATION = {
   name: 'Snooze Mattress + Wellness',
+  legalName: 'Snooze Mattress + Wellness', // confirmed by the client (October 22, 2026): the legal name is the display name
   street: '7913 N 10th St, Suite 130',
   city: 'McAllen',
   region: 'TX',
