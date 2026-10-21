@@ -142,6 +142,17 @@ export function BlogArticle({ post, related, locale = 'en' }: { post: BlogPost; 
           <h2 id="faq-title" className={styles.h2}>{t.faq}</h2>
           <Faq items={post.faqs} />
         </section>
+
+        {post.sources?.length ? (
+          <section className={styles.sources} aria-labelledby="sources-title">
+            <h2 id="sources-title" className={styles.h2}>{t.sources}</h2>
+            <ol className={styles.sourceList}>
+              {post.sources.map((src) => (
+                <li key={src.href}><a href={src.href} target="_blank" rel="noopener noreferrer">{src.label}</a></li>
+              ))}
+            </ol>
+          </section>
+        ) : null}
       </main>
 
       <div className={styles.container}>

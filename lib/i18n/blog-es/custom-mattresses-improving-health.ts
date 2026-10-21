@@ -17,20 +17,20 @@ export const POST_ES: BlogPost = {
     {
       paragraphs: [
         '¿Cuándo fue la última vez que te levantaste sintiéndote de verdad descansado? Si eres como mucha gente, la respuesta quizá sea "ya ni me acuerdo". La calidad de tu sueño juega un papel clave en tu salud y bienestar en general, y uno de los factores que más influyen en esa calidad es la superficie sobre la que duermes cada noche. Mientras la mayoría nos conformamos con el colchón que se siente cómodo en una prueba rápida en la tienda, hay una mejor manera de hacerlo que está llamando la atención en el mundo del bienestar.',
-        'Un colchón hecho a tu medida, diseñado específicamente para tu cuerpo y tu forma de dormir, no es un lujo: es [una inversión en tu salud](/es/mattress-financing). En nuestra tienda, que es de aquí y la manejamos nosotros mismos, tratamos como familia a cada persona que entra por la puerta, con una verdadera pasión por ayudar a nuestra comunidad a tener mejor salud y bienestar a través de un sueño de calidad. Vamos a ver cómo una solución de descanso personalizada puede transformar no solo tus noches, sino tu calidad de vida en general.',
+        'Un [colchón hecho a tu medida](/es/mattresses), diseñado específicamente para tu cuerpo y tu forma de dormir, no es un lujo: es [una inversión en tu salud](/es/mattress-financing). En nuestra tienda, que es de aquí y la manejamos nosotros mismos, tratamos como familia a cada persona que entra por la puerta, con una verdadera pasión por ayudar a nuestra comunidad a tener mejor salud y bienestar a través de un sueño de calidad. Vamos a ver cómo una solución de descanso personalizada puede transformar no solo tus noches, sino tu calidad de vida en general.',
       ],
     },
     {
       heading: 'Apoyo para la Estructura Única de tu Cuerpo',
       paragraphs: [
-        'El cuerpo de cada persona es diferente. Todos tenemos curvas, puntos de presión y una distribución de peso únicos que afectan cómo nos acomodamos a la superficie donde dormimos. Un colchón diseñado para tu tipo de cuerpo trabaja a favor de tu alineación natural, no en su contra. Cuando tu columna mantiene su curva natural durante toda la noche, es menos probable que te levantes con [esos dolores y molestias de siempre](/es/blog/mattresses-that-relieve-aches) que pueden amargarte el día entero.',
+        'El cuerpo de cada persona es diferente. Todos tenemos curvas, [puntos de presión](/es/dream-mapping) y una distribución de peso únicos que afectan cómo nos acomodamos a la superficie donde dormimos. Un colchón diseñado para tu tipo de cuerpo trabaja a favor de tu alineación natural, no en su contra. Cuando tu columna mantiene su curva natural durante toda la noche, es menos probable que te levantes con [esos dolores y molestias de siempre](/es/blog/mattresses-that-relieve-aches) que pueden amargarte el día entero.',
         'Piénsalo así: no usarías los lentes graduados de otra persona esperando ver bien. Lo mismo aplica para tu colchón. Lo que le funciona perfecto a tu pareja o a un amigo puede tenerte dando vueltas toda la noche.',
       ],
     },
     {
       heading: 'Menos Puntos de Presión y Menos Molestias',
       paragraphs: [
-        'Los [puntos de presión](/es/blog/pressure-mapping-for-sleep) aparecen cuando ciertas partes de tu cuerpo cargan demasiado peso mientras duermes. Los hombros, las caderas y la parte baja de la espalda son especialmente vulnerables. Una superficie de descanso ajustada a tus necesidades puede atender justo esas zonas, repartiendo tu peso de manera más pareja y reduciendo la carga sobre cualquier punto en particular.',
+        'Los [puntos de presión](/es/blog/pressure-mapping-for-sleep) aparecen cuando ciertas partes de tu cuerpo cargan demasiado peso mientras duermes. Los hombros, las caderas y la [parte baja de la espalda](/es/mattresses-for-back-pain) son especialmente vulnerables. Una superficie de descanso ajustada a tus necesidades puede atender justo esas zonas, repartiendo tu peso de manera más pareja y reduciendo la carga sobre cualquier punto en particular.',
         'Cuando los puntos de presión se atienden como debe ser, es menos probable que estés cambiando de posición a cada rato durante la noche. Eso significa ciclos de sueño más profundos y reparadores, que le permiten a tu cuerpo completar sus procesos naturales de sanación y renovación. Muchas personas descubren que esas molestias crónicas que ya daban por normales empiezan a desaparecer cuando cambian a una solución de descanso bien ajustada.',
       ],
       image: { ...IMG.pressureMap, alt: 'Mapa de presión de una persona dormida que resalta las zonas de mayor presión en los hombros, las caderas y la parte baja de la espalda', caption: 'Un mapa de presión muestra exactamente dónde carga más peso tu cuerpo mientras duermes.' },
@@ -66,6 +66,11 @@ export const POST_ES: BlogPost = {
       ],
       image: { ...IMG.store, alt: 'Tienda Snooze Mattress + Wellness en McAllen', caption: 'Snooze Mattress + Wellness – McAllen, 7913 N 10th St, Suite 130.' },
     },
+  ],
+  sources: [
+    { label: 'National Heart, Lung, and Blood Institute (NIH): Why Is Sleep Important?', href: 'https://www.nhlbi.nih.gov/health/sleep/why-sleep-important' },
+    { label: 'Jacobson BH et al., Journal of Chiropractic Medicine (2009): Changes in back pain, sleep quality and perceived stress after introduction of new bedding systems', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC2697581/' },
+    { label: 'Harvard Health Publishing: What type of mattress is best for people with low back pain?', href: 'https://www.health.harvard.edu/pain/what-type-of-mattress-is-best-for-people-with-low-back-pain' },
   ],
   faqs: [
     {

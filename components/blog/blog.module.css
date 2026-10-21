@@ -220,3 +220,9 @@
 /* ---- Sleep Fit Quiz call to action after the article body (before the showroom CTA and related posts) ---- */
 .quizCta { width: min(780px, calc(100% - 40px)); margin: clamp(32px, 4vw, 44px) auto 0; text-align: center; }
 .quizCtaLine { margin: 0 0 14px; font: 600 clamp(17px, 2.2vw, 21px)/1.35 var(--ui); color: var(--navy); }
+
+/* Cited sources under the article (SEO audit build pass, D3) */
+.sources { margin-top: clamp(28px, 4vw, 40px); }
+.sourceList { margin: 0; padding-left: 22px; display: grid; gap: 8px; font-size: 0.98rem; line-height: 1.6; color: var(--ink-soft); }
+.sourceList a { color: #001489; text-decoration: underline; text-underline-offset: 3px; }
+.sourceList a:hover { color: var(--orange); }

@@ -21,6 +21,7 @@ export type BlogSection = {
 };
 
 export type BlogFaq = { question: string; answer: string };
+export type BlogSource = { label: string; href: string }; // cited source, rendered under the article
 
 export type BlogPost = {
   slug: string;
@@ -36,6 +37,7 @@ export type BlogPost = {
   excerpt: string; // first sentence of the post, verbatim — used on cards
   sections: BlogSection[];
   faqs: BlogFaq[];
+  sources?: BlogSource[]; // "Sources" list after the FAQ (SEO audit build pass, D3)
 };
 
 import { IMG } from './blog-images';
@@ -58,13 +60,13 @@ export const POSTS: BlogPost[] = [
       {
         paragraphs: [
           "When was the last time you woke up feeling truly refreshed? If you're like many people, the answer might be \"I can't remember.\" The quality of your sleep plays a crucial role in your overall health and well-being, and one of the most significant factors affecting that quality is the surface you sleep on every night. While most of us settle for whatever mattress seems comfortable during a quick store test, there's a better approach that's gaining attention in the wellness community.",
-          "A custom mattress designed specifically for your body and sleep preferences isn't just a luxury—it's [an investment in your health](/mattress-financing). At our locally owned and operated store, we believe in treating every person who walks through our door like family, bringing a deep passion for helping our community achieve better health and wellness through quality sleep. Let's explore how a personalized sleep solution can transform not just your nights, but your overall quality of life.",
+          "A [custom mattress](/mattresses) designed specifically for your body and sleep preferences isn't just a luxury—it's [an investment in your health](/mattress-financing). At our locally owned and operated store, we believe in treating every person who walks through our door like family, bringing a deep passion for helping our community achieve better health and wellness through quality sleep. Let's explore how a personalized sleep solution can transform not just your nights, but your overall quality of life.",
         ],
       },
       {
         heading: 'Supporting Your Unique Body Structure',
         paragraphs: [
-          "Every person's body is different. We all have unique curves, pressure points, and weight distributions that affect how we interact with our sleeping surface. A mattress designed for your specific body type works with your natural alignment rather than against it. When your spine maintains its natural curve throughout the night, you're less likely to wake up with [those familiar aches and pains](/blog/mattresses-that-relieve-aches) that can set a negative tone for your entire day.",
+          "Every person's body is different. We all have unique curves, [pressure points](/dream-mapping), and weight distributions that affect how we interact with our sleeping surface. A mattress designed for your specific body type works with your natural alignment rather than against it. When your spine maintains its natural curve throughout the night, you're less likely to wake up with [those familiar aches and pains](/blog/mattresses-that-relieve-aches) that can set a negative tone for your entire day.",
           "Think about it this way: you wouldn't wear someone else's prescription glasses and expect to see clearly. The same principle applies to your mattress. What works perfectly for your partner or friend might leave you tossing and turning all night.",
         ],
       },
@@ -108,6 +110,11 @@ export const POSTS: BlogPost[] = [
         image: { ...IMG.store, alt: 'Snooze Mattress + Wellness McAllen storefront', caption: 'Snooze Mattress + Wellness – McAllen, 7913 N 10th St, Suite 130.' },
       },
     ],
+    sources: [
+      { label: 'National Heart, Lung, and Blood Institute (NIH): Why Is Sleep Important?', href: 'https://www.nhlbi.nih.gov/health/sleep/why-sleep-important' },
+      { label: 'Jacobson BH et al., Journal of Chiropractic Medicine (2009): Changes in back pain, sleep quality and perceived stress after introduction of new bedding systems', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC2697581/' },
+      { label: 'Harvard Health Publishing: What type of mattress is best for people with low back pain?', href: 'https://www.health.harvard.edu/pain/what-type-of-mattress-is-best-for-people-with-low-back-pain' },
+    ],
     faqs: [
       {
         question: 'How long does it typically take to adjust to a new sleeping surface?',
@@ -139,7 +146,7 @@ export const POSTS: BlogPost[] = [
     sections: [
       {
         paragraphs: [
-          'When it comes to understanding how well a sleep surface supports your body, pressure mapping technology has revolutionized the way we analyze comfort and [spinal alignment](/blog/mattresses-that-relieve-aches). These sophisticated tools provide visual representations of how weight distributes across a mattress, revealing critical insights that were once invisible to the naked eye.',
+          'When it comes to understanding how well a sleep surface supports your body, [pressure mapping](/dream-mapping) technology has revolutionized the way we analyze comfort and [spinal alignment](/blog/mattresses-that-relieve-aches). These sophisticated tools provide visual representations of how weight distributes across a mattress, revealing critical insights that were once invisible to the naked eye.',
         ],
       },
       {
@@ -160,7 +167,7 @@ export const POSTS: BlogPost[] = [
       {
         heading: 'Side Sleeping Insights',
         paragraphs: [
-          'For side sleepers, pressure maps reveal particularly important information. When someone lies on their side, their body weight naturally concentrates at the shoulders and hips, which are the widest points of the body. A pressure map of an inadequate sleep surface will show intense pressure concentrations at these two points, with significant gaps at the waist where the body receives no support.',
+          'For [side sleepers](/mattresses-for-back-pain), pressure maps reveal particularly important information. When someone lies on their side, their body weight naturally concentrates at the shoulders and hips, which are the widest points of the body. A pressure map of an inadequate sleep surface will show intense pressure concentrations at these two points, with significant gaps at the waist where the body receives no support.',
           "Quality sleep surfaces designed for side sleeping demonstrate a different pattern. The pressure map shows the shoulders and hips sinking in appropriately to maintain spinal alignment, while the waist receives gentle support to prevent the spine from bowing. This balanced distribution prevents the numbness and pain that many side sleepers experience when their mattress cannot accommodate their body's natural curves.",
         ],
       },
@@ -175,7 +182,7 @@ export const POSTS: BlogPost[] = [
       {
         heading: 'The Role of Material Composition',
         paragraphs: [
-          'Pressure mapping has helped illuminate why different mattress materials perform differently under load. Memory foam, for instance, typically shows a gradual pressure distribution as it contours closely to the body\'s shape. Latex materials often display a more responsive pressure pattern, supporting the body while maintaining some buoyancy. Innerspring systems may show more concentrated pressure points unless they incorporate substantial comfort layers.',
+          'Pressure mapping has helped illuminate why different [mattress materials](/mattresses) perform differently under load. [Memory foam](/memory-foam-mattresses), for instance, typically shows a gradual pressure distribution as it contours closely to the body\'s shape. Latex materials often display a more responsive pressure pattern, supporting the body while maintaining some buoyancy. Innerspring systems may show more concentrated pressure points unless they incorporate substantial comfort layers.',
           'Hybrid designs that combine multiple materials often produce the most favorable pressure maps, balancing the contouring abilities of foam layers with the support structures of coils. [When you visit a mattress store](/about-us), asking about pressure mapping results for different models can provide valuable insight beyond simply lying down for a few minutes.',
         ],
       },
@@ -209,6 +216,11 @@ export const POSTS: BlogPost[] = [
           '[Visit our showroom](/booking) to try our sleep surfaces and discover how personalized comfort can improve your nightly rest. [Our sleep specialists](/optin-page) can help you understand which materials and support systems align with your body type, preferred sleeping positions, and comfort preferences. Stop by today and take the first step toward more restful, rejuvenating sleep. Your body will thank you every morning.',
         ],
       },
+    ],
+    sources: [
+      { label: 'Radwan A et al., Sleep Health (2015): Effect of different mattress designs on sleep quality, pain reduction and spinal alignment, a systematic review', href: 'https://pubmed.ncbi.nlm.nih.gov/29073401/' },
+      { label: 'Kovacs FM et al., The Lancet (2003): Effect of firmness of mattress on chronic non-specific low-back pain, a randomised controlled trial', href: 'https://pubmed.ncbi.nlm.nih.gov/14630439/' },
+      { label: 'Centers for Disease Control and Prevention: About Sleep', href: 'https://www.cdc.gov/sleep/about/index.html' },
     ],
     faqs: [
       {
@@ -262,7 +274,7 @@ export const POSTS: BlogPost[] = [
         heading: "Recognizing the Signs Your Mattress Isn't Working",
         paragraphs: [
           "Your body communicates clearly when something isn't right with your sleep setup. Morning stiffness that takes more than a few minutes to shake off often signals that your body has been fighting against your mattress all night. You might notice that certain positions become uncomfortable quickly, forcing you to toss and turn throughout the night searching for relief that never quite comes.",
-          "Pay attention to where you feel discomfort. Lower back pain often indicates issues with spinal support, while hip and shoulder soreness typically points to [pressure point problems](/blog/pressure-mapping-for-sleep). If you find yourself waking frequently throughout the night or feeling like you haven't truly rested despite spending enough time in bed, your mattress might be working against your body's needs rather than supporting them.",
+          "Pay attention to where you feel discomfort. Lower [back pain](/mattresses-for-back-pain) often indicates issues with spinal support, while hip and shoulder soreness typically points to [pressure point problems](/blog/pressure-mapping-for-sleep). If you find yourself waking frequently throughout the night or feeling like you haven't truly rested despite spending enough time in bed, your mattress might be working against your body's needs rather than supporting them.",
         ],
         image: { ...IMG.station, alt: 'Pressure mapping test at Snooze showing where a mattress fails to support the body', caption: 'A quick pressure mapping test shows exactly where your current mattress is letting you down.' },
       },
@@ -278,7 +290,7 @@ export const POSTS: BlogPost[] = [
       {
         heading: 'Matching Support to Your Sleep Position',
         paragraphs: [
-          'How you naturally sleep determines what kind of support your body needs most. Side sleepers typically need more cushioning around their shoulders and hips to prevent pressure buildup in these areas, while also requiring enough support to keep their spine straight from a front view. Back sleepers generally benefit from firmer support that prevents their lower back from sagging while still providing some contouring around the natural curves of their spine.',
+          'How you naturally sleep determines what kind of support your body needs most. [Side sleepers](/how-to-choose-a-mattress) typically need more cushioning around their shoulders and hips to prevent pressure buildup in these areas, while also requiring enough support to keep their spine straight from a front view. Back sleepers generally benefit from firmer support that prevents their lower back from sagging while still providing some contouring around the natural curves of their spine.',
           "Stomach sleepers face unique challenges because this position tends to strain the lower back and neck. They typically need firmer surfaces that prevent their midsection from sinking too deeply, which can create an uncomfortable arch in the lower spine. If you shift between positions throughout the night, you'll need a sleep surface that accommodates all your movements without creating discomfort in any position.",
         ],
       },
@@ -292,12 +304,18 @@ export const POSTS: BlogPost[] = [
       {
         heading: 'Finding Your Perfect Match',
         paragraphs: [
-          'Discovering [the right sleep surface for your needs](/blog/custom-mattresses-improving-health) involves more than reading descriptions or specifications. Your body needs to experience how different options feel and respond to your weight, shape, and movements. What feels comfortable for a few minutes might feel quite different after lying in your typical sleep position for longer periods.',
+          'Discovering [the right sleep surface for your needs](/blog/custom-mattresses-improving-health) involves more than reading descriptions or specifications. Your body needs to experience how different options feel and respond to your weight, shape, and movements. What feels comfortable for a few minutes might feel quite different after lying in your typical [sleep position](/how-to-choose-a-mattress) for longer periods.',
           "Give yourself time when exploring different options. Lie down in your natural sleep positions and notice how your body feels after several minutes. Pay attention to whether you feel pressure building anywhere or if you need to adjust your position to find comfort. Trust your body's feedback rather than trying to convince yourself that something feels right when it doesn't quite match your needs.",
           "Your journey toward pain-free mornings and truly restorative sleep starts with understanding how your body interacts with your sleep surface. By recognizing the signs of poor support, exploring different comfort technologies, and taking the time to find what works specifically for your body, you can transform your nights and wake up feeling genuinely refreshed. Remember that [investing in your sleep](/mattress-financing) is investing in your overall health and daily quality of life. If you're ready to discover which sleep solution can help you wake without aches and pains, [reach out to connect with our team](/optin-page), who treats every person like family and is passionate about helping you achieve better health through quality rest.",
         ],
         image: { ...IMG.store, alt: 'Snooze Mattress + Wellness McAllen storefront', caption: 'Come lie down and test for yourself at 7913 N 10th St, Suite 130, McAllen.' },
       },
+    ],
+    sources: [
+      { label: 'Kovacs FM et al., The Lancet (2003): Effect of firmness of mattress on chronic non-specific low-back pain, a randomised controlled trial', href: 'https://pubmed.ncbi.nlm.nih.gov/14630439/' },
+      { label: 'Jacobson BH et al., Journal of Chiropractic Medicine (2009): Changes in back pain, sleep quality and perceived stress after introduction of new bedding systems', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC2697581/' },
+      { label: 'Harvard Health Publishing: What type of mattress is best for people with low back pain?', href: 'https://www.health.harvard.edu/pain/what-type-of-mattress-is-best-for-people-with-low-back-pain' },
+      { label: 'Mayo Clinic: Sleep tips, 6 steps to better sleep', href: 'https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/sleep/art-20048379' },
     ],
     faqs: [
       {

@@ -48,7 +48,7 @@ export type UiStrings = {
   blog: {
     eyebrow: string; indexTitle: string; indexIntro: string; home: string; blogCrumb: string; readArticle: string; read: (title: string) => string; faq: string; related: string;
     ctaEyebrow: string; ctaTitle: string; ctaText: string; ctaBook: string; ctaCall: (phone: string) => string; ctaAddr: string;
-    indexMetaTitle: string; indexMetaDesc: string; ogDesc: string; section: string; org: string; byline: string;
+    indexMetaTitle: string; indexMetaDesc: string; ogDesc: string; section: string; org: string; byline: string; sources: string;
   };
 };
 
@@ -95,7 +95,7 @@ const en: UiStrings = {
     ctaBook: 'Book Your Dream Mapping Appointment', ctaCall: (p) => `Call ${p}`, ctaAddr: '7913 N 10th St, Suite 130, McAllen, TX 78504 · Mon–Sat 10 AM–7 PM · Sun 12–6 PM',
     indexMetaTitle: 'Sleep Blog | Snooze Mattress + Wellness McAllen',
     indexMetaDesc: 'Sleep tips from Snooze Mattress + Wellness in McAllen: custom mattresses, pressure mapping and how the right mattress relieves aches and pains.',
-    ogDesc: 'Custom mattresses, pressure mapping and better sleep — from the Snooze team in McAllen.', section: 'Sleep & Wellness', org: 'Snooze Mattress + Wellness', byline: 'By Snooze Mattress + Wellness',
+    ogDesc: 'Custom mattresses, pressure mapping and better sleep — from the Snooze team in McAllen.', section: 'Sleep & Wellness', org: 'Snooze Mattress + Wellness', byline: 'By Snooze Mattress + Wellness', sources: 'Sources',
   },
 };
 
@@ -139,7 +139,7 @@ const es: UiStrings = {
     ctaBook: 'Reserva tu cita de Dream Mapping', ctaCall: (p) => `Llama al ${p}`, ctaAddr: '7913 N 10th St, Suite 130, McAllen, TX 78504 · Lun–Sáb 10 AM–7 PM · Dom 12–6 PM',
     indexMetaTitle: 'Blog del Sueño | Snooze Mattress + Wellness McAllen',
     indexMetaDesc: 'Consejos para dormir mejor de Snooze Mattress + Wellness en McAllen: colchones a tu medida, mapeo de presión y cómo el colchón correcto alivia dolores y molestias.',
-    ogDesc: 'Colchones a tu medida, mapeo de presión y mejor sueño, del equipo de Snooze en McAllen.', section: 'Sueño y Bienestar', org: 'Snooze Mattress + Wellness', byline: 'Por Snooze Mattress + Wellness',
+    ogDesc: 'Colchones a tu medida, mapeo de presión y mejor sueño, del equipo de Snooze en McAllen.', section: 'Sueño y Bienestar', org: 'Snooze Mattress + Wellness', byline: 'Por Snooze Mattress + Wellness', sources: 'Fuentes',
   },
 };
 

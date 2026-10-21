@@ -37,6 +37,15 @@ const COPY = {
     sub: 'Book your personalized Dream Mapping Appointment to ',
     subStrong: 'discover your perfect mattress.',
     almost: 'Almost There…',
+    /* "What happens at your Dream Mapping visit" (SEO audit build pass, D2): the fitting as the site already describes it */
+    visitTitle: 'What happens at your Dream Mapping visit',
+    visitSteps: [
+      'You lie down on the Dream Mapping sensor bed in the position you usually sleep in, and the sensors map where your body carries pressure.',
+      'The map takes about five minutes.',
+      'A Sleep Coach reads the map with you and walks you to the mattresses that match it, instead of you trying every bed in the store.',
+      'It is free, and there is no obligation to buy.',
+      'Couples are welcome: each of you is mapped individually, so the mattress works for both.',
+    ],
   },
   es: {
     title: '¡Da el Primer Paso Hacia un',
@@ -44,6 +53,14 @@ const COPY = {
     sub: 'Agenda tu cita personalizada de Dream Mapping y ',
     subStrong: 'descubre tu colchón perfecto.',
     almost: 'Ya casi…',
+    visitTitle: 'Qué pasa en tu visita de Dream Mapping',
+    visitSteps: [
+      'Te recuestas en la cama con sensores de Dream Mapping en la posición en la que normalmente duermes, y los sensores mapean dónde carga presión tu cuerpo.',
+      'El mapa tarda unos cinco minutos.',
+      'Un Sleep Coach lee el mapa contigo y te lleva a los colchones que coinciden con él, en lugar de que pruebes todas las camas de la tienda.',
+      'Es gratis y no hay obligación de comprar.',
+      'Las parejas son bienvenidas: se mapea a cada uno por separado, para que el colchón funcione para los dos.',
+    ],
   },
 };
 
@@ -79,6 +96,12 @@ export function BookingPage({ locale = 'en' }: { locale?: Locale }) {
         id={BOOKING_EMBED_ID}
       />
       <br />
+      <section className={styles.visit} aria-labelledby="visit-title">
+        <h2 id="visit-title" className={styles.visitTitle}>{t.visitTitle}</h2>
+        <ol className={styles.visitSteps}>
+          {t.visitSteps.map((step, i) => <li key={i}>{step}</li>)}
+        </ol>
+      </section>
       <Script src="https://link.snoozesleep.com/js/form_embed.js" strategy="afterInteractive" />
     </>
   );

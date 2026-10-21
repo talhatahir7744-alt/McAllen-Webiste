@@ -17,7 +17,7 @@ export const POST_ES: BlogPost = {
   sections: [
     {
       paragraphs: [
-        'Cuando se trata de entender qué tan bien un colchón sostiene tu cuerpo, la tecnología de mapeo de presión ha cambiado por completo la forma en que analizamos el confort y la [alineación de la columna](/es/blog/mattresses-that-relieve-aches). Estas herramientas tan avanzadas crean una imagen de cómo se reparte tu peso sobre el colchón, y revelan detalles importantes que antes eran invisibles a simple vista.',
+        'Cuando se trata de entender qué tan bien un colchón sostiene tu cuerpo, la tecnología de [mapeo de presión](/es/dream-mapping) ha cambiado por completo la forma en que analizamos el confort y la [alineación de la columna](/es/blog/mattresses-that-relieve-aches). Estas herramientas tan avanzadas crean una imagen de cómo se reparte tu peso sobre el colchón, y revelan detalles importantes que antes eran invisibles a simple vista.',
       ],
     },
     {
@@ -31,7 +31,7 @@ export const POST_ES: BlogPost = {
     {
       heading: 'Qué Significan Realmente los Colores',
       paragraphs: [
-        'La imagen que produce un sistema de mapeo de presión cuenta una historia muy clara sobre tu postura al dormir. Las zonas de presión alta, que casi siempre aparecen en rojo o naranja, indican las áreas donde el peso de tu cuerpo se concentra en una superficie más pequeña. Estos "puntos calientes" suelen aparecer en las partes más pesadas del cuerpo: los hombros cuando duermes de lado, o las caderas y la parte baja de la espalda cuando duermes boca arriba.',
+        'La imagen que produce un sistema de mapeo de presión cuenta una historia muy clara sobre tu postura al dormir. Las zonas de presión alta, que casi siempre aparecen en rojo o naranja, indican las áreas donde el peso de tu cuerpo se concentra en una superficie más pequeña. Estos "puntos calientes" suelen aparecer en las partes más pesadas del cuerpo: los hombros cuando [duermes de lado](/es/mattresses-for-back-pain), o las caderas y la parte baja de la espalda cuando duermes boca arriba.',
         'Las zonas de presión baja, en azul o verde, muestran dónde el colchón sí está acunando tu cuerpo y repartiendo el peso de forma más pareja. El mapa de presión ideal muestra una distribución relativamente uniforme de presión moderada en todo el cuerpo, sin puntos calientes extremos que puedan causar molestias o cortar la circulación durante la noche.',
       ],
     },
@@ -53,8 +53,8 @@ export const POST_ES: BlogPost = {
     {
       heading: 'El Papel de los Materiales del Colchón',
       paragraphs: [
-        'El mapeo de presión ha ayudado a entender por qué los distintos materiales de colchón se comportan de forma diferente bajo el peso del cuerpo. La espuma viscoelástica (memory foam), por ejemplo, suele mostrar una distribución gradual de la presión porque se amolda muy de cerca a la forma del cuerpo. Los materiales de látex normalmente presentan un patrón de presión con más rebote, sosteniendo el cuerpo sin dejar de tener cierta flotabilidad. Los sistemas de resortes pueden mostrar puntos de presión más concentrados, a menos que incluyan capas de confort bastante generosas.',
-        'Los diseños híbridos que combinan varios materiales suelen producir los mapas de presión más favorables, ya que equilibran la capacidad de amoldarse de las capas de espuma con la estructura de soporte de los resortes. [Cuando visites una tienda de colchones](/es/about-us), preguntar por los resultados del mapeo de presión de los distintos modelos te puede dar mucha más información que simplemente acostarte unos minutos.',
+        'El mapeo de presión ha ayudado a entender por qué los distintos materiales de colchón se comportan de forma diferente bajo el peso del cuerpo. La espuma viscoelástica ([memory foam](/es/memory-foam-mattresses)), por ejemplo, suele mostrar una distribución gradual de la presión porque se amolda muy de cerca a la forma del cuerpo. Los materiales de látex normalmente presentan un patrón de presión con más rebote, sosteniendo el cuerpo sin dejar de tener cierta flotabilidad. Los sistemas de resortes pueden mostrar puntos de presión más concentrados, a menos que incluyan capas de confort bastante generosas.',
+        'Los [diseños híbridos](/es/mattresses) que combinan varios materiales suelen producir los mapas de presión más favorables, ya que equilibran la capacidad de amoldarse de las capas de espuma con la estructura de soporte de los resortes. [Cuando visites una tienda de colchones](/es/about-us), preguntar por los resultados del mapeo de presión de los distintos modelos te puede dar mucha más información que simplemente acostarte unos minutos.',
       ],
     },
     {
@@ -87,6 +87,11 @@ export const POST_ES: BlogPost = {
         '[Visita nuestra tienda](/es/booking) para probar nuestros colchones y descubrir cómo un confort personalizado puede mejorar tu descanso cada noche. [Nuestros Especialistas en Sueño](/es/optin-page) te pueden ayudar a entender qué materiales y sistemas de soporte van mejor con tu tipo de cuerpo, tus posiciones favoritas para dormir y tus preferencias de comodidad. Pasa hoy mismo y da el primer paso hacia un sueño más reparador y rejuvenecedor. Tu cuerpo te lo va a agradecer cada mañana.',
       ],
     },
+  ],
+  sources: [
+    { label: 'Radwan A et al., Sleep Health (2015): Effect of different mattress designs on sleep quality, pain reduction and spinal alignment, a systematic review', href: 'https://pubmed.ncbi.nlm.nih.gov/29073401/' },
+    { label: 'Kovacs FM et al., The Lancet (2003): Effect of firmness of mattress on chronic non-specific low-back pain, a randomised controlled trial', href: 'https://pubmed.ncbi.nlm.nih.gov/14630439/' },
+    { label: 'Centers for Disease Control and Prevention: About Sleep', href: 'https://www.cdc.gov/sleep/about/index.html' },
   ],
   faqs: [
     {

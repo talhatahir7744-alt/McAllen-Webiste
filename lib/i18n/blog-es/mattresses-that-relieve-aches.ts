@@ -22,7 +22,7 @@ export const POST_ES: BlogPost = {
     {
       heading: 'Cómo Afecta a Tu Cuerpo la Superficie Donde Duermes',
       paragraphs: [
-        'La forma en que tu cuerpo interactúa con el colchón durante la noche define si despiertas descansado o adolorido. Cuando te acuestas, el peso de tu cuerpo necesita repartirse de manera pareja para que no se acumule presión en ciertas zonas. Los hombros, las caderas y la parte baja de la espalda son especialmente vulnerables, porque por naturaleza cargan más peso y necesitan un soporte distinto al del resto del cuerpo.',
+        'La forma en que tu cuerpo interactúa con el [colchón](/es/mattresses) durante la noche define si despiertas descansado o adolorido. Cuando te acuestas, el peso de tu cuerpo necesita repartirse de manera pareja para que no se acumule presión en ciertas zonas. Los hombros, las caderas y la parte baja de la espalda son especialmente vulnerables, porque por naturaleza cargan más peso y necesitan un soporte distinto al del resto del cuerpo.',
         'Piensa en tu columna como una estructura delicada que necesita mantener sus curvas naturales incluso mientras duermes. Cuando un colchón es demasiado firme, tu cuerpo no puede hundirse donde lo necesita, y quedan huecos entre la parte baja de tu espalda y la superficie. Por el contrario, cuando un colchón es demasiado suave, tu cuerpo se hunde de más y jala tu columna fuera de alineación en la dirección opuesta. Encontrar ese punto medio donde tu cuerpo se siente apoyado y a la vez arropado hace toda la diferencia en cómo te sientes cada mañana.',
       ],
     },
@@ -46,7 +46,7 @@ export const POST_ES: BlogPost = {
     {
       heading: 'Elige el Soporte Según Tu Posición al Dormir',
       paragraphs: [
-        'La forma en que duermes por naturaleza determina qué tipo de soporte necesita más tu cuerpo. Quienes duermen de lado normalmente necesitan más acolchado en hombros y caderas para evitar que se acumule presión en esas zonas, y al mismo tiempo suficiente soporte para mantener la columna derecha vista de frente. Quienes duermen boca arriba generalmente se benefician de un soporte más firme que evita que la parte baja de la espalda se hunda, pero que aun así se amolda un poco a las curvas naturales de la columna.',
+        'La forma en que duermes por naturaleza determina qué tipo de soporte necesita más tu cuerpo. Quienes [duermen de lado](/es/mattresses-for-back-pain) normalmente necesitan más acolchado en hombros y caderas para evitar que se acumule presión en esas zonas, y al mismo tiempo suficiente soporte para mantener la columna derecha vista de frente. Quienes duermen boca arriba generalmente se benefician de un soporte más firme que evita que la parte baja de la espalda se hunda, pero que aun así se amolda un poco a las curvas naturales de la columna.',
         'Quienes duermen boca abajo enfrentan retos únicos, porque esta posición tiende a forzar la parte baja de la espalda y el cuello. Por lo general necesitan superficies más firmes que eviten que la parte media del cuerpo se hunda demasiado, lo cual puede crear un arco incómodo en la parte baja de la columna. Si cambias de posición varias veces durante la noche, vas a necesitar una superficie que se adapte a todos tus movimientos sin causarte molestias en ninguna posición.',
       ],
     },
@@ -66,6 +66,12 @@ export const POST_ES: BlogPost = {
       ],
       image: { ...IMG.store, alt: 'Tienda Snooze Mattress + Wellness en McAllen', caption: 'Ven, acuéstate y compruébalo tú mismo en 7913 N 10th St, Suite 130, McAllen.' },
     },
+  ],
+  sources: [
+    { label: 'Kovacs FM et al., The Lancet (2003): Effect of firmness of mattress on chronic non-specific low-back pain, a randomised controlled trial', href: 'https://pubmed.ncbi.nlm.nih.gov/14630439/' },
+    { label: 'Jacobson BH et al., Journal of Chiropractic Medicine (2009): Changes in back pain, sleep quality and perceived stress after introduction of new bedding systems', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC2697581/' },
+    { label: 'Harvard Health Publishing: What type of mattress is best for people with low back pain?', href: 'https://www.health.harvard.edu/pain/what-type-of-mattress-is-best-for-people-with-low-back-pain' },
+    { label: 'Mayo Clinic: Sleep tips, 6 steps to better sleep', href: 'https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/sleep/art-20048379' },
   ],
   faqs: [
     {
