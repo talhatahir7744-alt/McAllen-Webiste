@@ -11,7 +11,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "What financing options do you offer?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We offer flexible financing through:Synchrony BankWells Fargo Bank, N.A.Snap Finance (lease-to-own option)This allows us to provide solutions for a wide range of credit profiles."
+          "text": "Three: Synchrony Bank, Wells Fargo Bank, N.A., and Snap Finance (a lease-to-own option). This lets us provide solutions for a wide range of credit profiles."
         }
       },
       {
@@ -19,7 +19,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "Is financing available with 0% interest?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We periodically offer promotional financing options, including:No Interest If Paid in Full within a promotional periodEqual Monthly Payment plansImportant: For deferred interest promotions, if the balance is not paid in full within the promotional period, interest may be charged from the original purchase date. Minimum monthly payments are required. Subject to credit approval.Ask in-store for current promotional details."
+          "text": "Yes, periodically. Our promotional financing options include No Interest If Paid in Full within a promotional period and Equal Monthly Payment plans.Important: for deferred interest promotions, if the balance is not paid in full within the promotional period, interest may be charged from the original purchase date. Minimum monthly payments are required. Subject to credit approval. Ask in store for current promotional details."
         }
       },
       {
@@ -27,7 +27,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "What if I don’t qualify for traditional financing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We offer Snap Finance, a lease-to-own option.Snap Finance is not a loan. It is a lease-to-own agreement designed for customers who may not qualify for traditional credit.Fast application processFlexible payment optionsEarly payoff options may be availableTotal cost of ownership may exceed original purchase price if payments are made over the full term. Approval is determined directly by Snap Finance."
+          "text": "Snap Finance is the option: a lease-to-own agreement, not a loan, designed for customers who may not qualify for traditional credit. It offers a fast application process and flexible payment options, and early payoff options may be available.Total cost of ownership may exceed the original purchase price if payments are made over the full term. Approval is determined directly by Snap Finance."
         }
       },
       {
@@ -35,7 +35,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "Does applying affect my credit?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Financing applications through Synchrony or Wells Fargo may involve a credit inquiry as determined by the lender.Snap Finance uses its own approval criteria.Approval decisions are made solely by the financing provider."
+          "text": "It may. Applications through Synchrony or Wells Fargo may involve a credit inquiry as determined by the lender; Snap Finance uses its own approval criteria. Approval decisions are made solely by the financing provider."
         }
       },
       {
@@ -43,7 +43,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "How long does approval take?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "In most cases:Applications are processed within minutesMany customers receive a decision the same dayApproval timing depends on the financing provider and application details."
+          "text": "Usually minutes. Applications are processed within minutes and many customers receive a decision the same day; timing depends on the financing provider and the application details."
         }
       },
       {
@@ -51,7 +51,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "Is there a minimum purchase required?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Some promotional financing offers require a minimum purchase amount.Details vary by promotion and lender. Please see store for current requirements."
+          "text": "Sometimes. Some promotional financing offers require a minimum purchase amount; details vary by promotion and lender, so please see the store for current requirements."
         }
       },
       {
@@ -59,7 +59,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "Can I pay off my financing early?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes.For traditional financing:You may pay off your balance early without penalty (check lender terms). For Snap Finance:Early purchase options may be available and can reduce total cost.See financing provider for full terms."
+          "text": "Yes. With traditional financing you may pay off your balance early without penalty (check the lender’s terms). With Snap Finance, early purchase options may be available and can reduce the total cost. See the financing provider for full terms."
         }
       },
       {
@@ -67,7 +67,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "Who do I make payments to?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Payments are made directly to the financing provider:SynchronyWells FargoSnap FinanceSnooze Mattress + Wellness does not collect or service financing payments."
+          "text": "Directly to the financing provider: Synchrony, Wells Fargo or Snap Finance. Snooze Mattress + Wellness does not collect or service financing payments."
         }
       },
       {
@@ -75,7 +75,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "Why finance instead of paying cash?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Financing allows you to:✔ Upgrade your sleep now✔ Protect your savings✔ Spread payments over time✔ Take advantage of promotional offersBetter sleep impacts your health, recovery, and daily performance — many customers prefer structured payments rather than delaying improvement."
+          "text": "Financing lets you upgrade your sleep now, protect your savings, spread payments over time and take advantage of promotional offers. Better sleep impacts your health, recovery and daily performance, and many customers prefer structured payments to delaying the improvement."
         }
       },
       {
@@ -83,7 +83,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "Is financing safe?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes.We work with established financing providers who follow industry standards for consumer financing.All financing approvals, terms, and servicing are handled directly by the lender or lease provider.Snooze Mattress + Wellness does not make credit decisions."
+          "text": "Yes. We work with established financing providers who follow industry standards for consumer financing. All approvals, terms and servicing are handled directly by the lender or lease provider; Snooze Mattress + Wellness does not make credit decisions."
         }
       },
       {
@@ -91,7 +91,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "How do I apply?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can:Apply in-store with a sleep specialistStart the process online (if enabled)Ask about options during your visitOur team will walk you through the best option based on your needs."
+          "text": "In store with a sleep specialist, online where the option is enabled, or by asking about financing during your visit. Our team will walk you through the best option for your needs."
         }
       }
     ]

@@ -15,6 +15,7 @@
     "es:fixes": "node scripts/spanish-copy-fixes.mjs",
     "headings": "node scripts/heading-structure.mjs",
     "brand": "node scripts/brand-nap.mjs",
+    "faq:direct": "node scripts/faq-direct.mjs",
     "schema": "node scripts/page-schema.mjs",
     "schema:check": "node scripts/validate-schema.mjs",
     "reviews": "node scripts/recent-reviews.mjs",

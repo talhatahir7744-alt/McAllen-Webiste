@@ -11,7 +11,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Qué opciones de financiamiento ofrecen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ofrecemos financiamiento flexible a través de:Synchrony BankWells Fargo Bank, N.A.Snap Finance (renta con opción a compra)Esto nos permite ofrecer soluciones para una amplia variedad de perfiles de crédito."
+          "text": "Tres: Synchrony Bank, Wells Fargo Bank, N.A. y Snap Finance (renta con opción a compra). Esto nos permite ofrecer soluciones para una amplia variedad de perfiles de crédito."
         }
       },
       {
@@ -19,7 +19,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Hay financiamiento disponible con 0% de interés?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Periódicamente ofrecemos opciones de financiamiento promocional, que incluyen:Sin Intereses Si se Paga en su Totalidad dentro del periodo promocionalPlanes de Pagos Mensuales IgualesImportante: En las promociones con interés diferido, si el saldo no se paga en su totalidad dentro del periodo promocional, se podrán cobrar intereses desde la fecha original de compra. Se requieren pagos mínimos mensuales. Sujeto a aprobación de crédito.Pregunta en tienda por los detalles de las promociones vigentes."
+          "text": "Sí, por temporadas. Nuestras opciones de financiamiento promocional incluyen Sin Intereses Si se Paga en su Totalidad dentro del periodo promocional y Planes de Pagos Mensuales Iguales.Importante: en las promociones con interés diferido, si el saldo no se paga en su totalidad dentro del periodo promocional, se podrán cobrar intereses desde la fecha original de compra. Se requieren pagos mínimos mensuales. Sujeto a aprobación de crédito. Pregunta en tienda por los detalles vigentes."
         }
       },
       {
@@ -27,7 +27,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Qué pasa si no califico para el financiamiento tradicional?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ofrecemos Snap Finance, una opción de renta con opción a compra.Snap Finance no es un préstamo. Es un contrato de renta con opción a compra diseñado para clientes que quizá no califiquen para un crédito tradicional.Proceso de solicitud rápidoOpciones de pago flexiblesPuede haber opciones de liquidación anticipadaEl costo total puede superar el precio original de compra si los pagos se realizan durante todo el plazo. La aprobación la determina directamente Snap Finance."
+          "text": "Snap Finance es la opción: un contrato de renta con opción a compra, no un préstamo, diseñado para clientes que quizá no califiquen para un crédito tradicional. Ofrece un proceso de solicitud rápido y opciones de pago flexibles, y puede haber opciones de liquidación anticipada.El costo total puede superar el precio original de compra si los pagos se realizan durante todo el plazo. La aprobación la determina directamente Snap Finance."
         }
       },
       {
@@ -35,7 +35,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Solicitar financiamiento afecta mi crédito?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Las solicitudes de financiamiento a través de Synchrony o Wells Fargo pueden implicar una consulta de crédito, según lo determine el prestamista.Snap Finance utiliza sus propios criterios de aprobación.Las decisiones de aprobación las toma únicamente el proveedor de financiamiento."
+          "text": "Puede ser. Las solicitudes a través de Synchrony o Wells Fargo pueden implicar una consulta de crédito, según lo determine el prestamista; Snap Finance utiliza sus propios criterios de aprobación. Las decisiones de aprobación las toma únicamente el proveedor de financiamiento."
         }
       },
       {
@@ -43,7 +43,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Cuánto tarda la aprobación?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "En la mayoría de los casos:Las solicitudes se procesan en minutosMuchos clientes reciben una respuesta el mismo díaEl tiempo de aprobación depende del proveedor de financiamiento y de los detalles de la solicitud."
+          "text": "Normalmente minutos. Las solicitudes se procesan en minutos y muchos clientes reciben una respuesta el mismo día; el tiempo depende del proveedor de financiamiento y de los detalles de la solicitud."
         }
       },
       {
@@ -51,7 +51,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Se requiere una compra mínima?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Algunas ofertas de financiamiento promocional requieren un monto mínimo de compra.Los detalles varían según la promoción y el prestamista. Visita la tienda para conocer los requisitos vigentes."
+          "text": "A veces. Algunas ofertas de financiamiento promocional requieren un monto mínimo de compra; los detalles varían según la promoción y el prestamista, así que visita la tienda para conocer los requisitos vigentes."
         }
       },
       {
@@ -59,7 +59,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Puedo liquidar mi financiamiento antes de tiempo?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí.Para el financiamiento tradicional:Puedes liquidar tu saldo antes de tiempo sin penalización (consulta los términos del prestamista). Para Snap Finance:Puede haber opciones de compra anticipada que reducen el costo total.Consulta los términos completos con el proveedor de financiamiento."
+          "text": "Sí. Con el financiamiento tradicional puedes liquidar tu saldo antes de tiempo sin penalización (consulta los términos del prestamista). Con Snap Finance puede haber opciones de compra anticipada que reducen el costo total. Consulta los términos completos con el proveedor de financiamiento."
         }
       },
       {
@@ -67,7 +67,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿A quién le hago los pagos?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Los pagos se hacen directamente al proveedor de financiamiento:SynchronyWells FargoSnap FinanceSnooze Mattress + Wellness no cobra ni administra los pagos de financiamiento."
+          "text": "Directamente al proveedor de financiamiento: Synchrony, Wells Fargo o Snap Finance. Snooze Mattress + Wellness no cobra ni administra los pagos de financiamiento."
         }
       },
       {
@@ -75,7 +75,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Por qué financiar en lugar de pagar de contado?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "El financiamiento te permite:✔ Mejorar tu descanso hoy mismo✔ Proteger tus ahorros✔ Distribuir los pagos a lo largo del tiempo✔ Aprovechar las ofertas promocionalesDormir mejor impacta tu salud, tu recuperación y tu rendimiento diario — muchos clientes prefieren pagos estructurados en lugar de posponer la mejora."
+          "text": "El financiamiento te permite mejorar tu descanso hoy mismo, proteger tus ahorros, distribuir los pagos a lo largo del tiempo y aprovechar las ofertas promocionales. Dormir mejor impacta tu salud, tu recuperación y tu rendimiento diario, y muchos clientes prefieren pagos estructurados en lugar de posponer la mejora."
         }
       },
       {
@@ -83,7 +83,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Es seguro el financiamiento?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí.Trabajamos con proveedores de financiamiento establecidos que siguen los estándares de la industria para el crédito al consumidor.Todas las aprobaciones, los términos y la administración del financiamiento los maneja directamente el prestamista o el proveedor de arrendamiento.Snooze Mattress + Wellness no toma decisiones de crédito."
+          "text": "Sí. Trabajamos con proveedores de financiamiento establecidos que siguen los estándares de la industria para el crédito al consumidor. Todas las aprobaciones, los términos y la administración los maneja directamente el prestamista o el proveedor de arrendamiento; Snooze Mattress + Wellness no toma decisiones de crédito."
         }
       },
       {
@@ -91,7 +91,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Cómo solicito el financiamiento?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Puedes:Solicitarlo en tienda con un especialista en sueñoIniciar el proceso en línea (si está disponible)Preguntar por las opciones durante tu visitaNuestro equipo te guiará hacia la mejor opción según tus necesidades."
+          "text": "En tienda con un especialista en sueño, en línea cuando la opción está disponible, o preguntando por el financiamiento durante tu visita. Nuestro equipo te guiará hacia la mejor opción según tus necesidades."
         }
       }
     ]

@@ -4,6 +4,7 @@ import PageClient from './client';
 import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
 import { CurrentOffer } from '@/components/CurrentOffer';
+import { AreaLinks } from '@/components/AreaLinks';
 
 export const metadata: Metadata = {
   "title": "Mattress Store in McAllen, TX | Free Dream Mapping | Snooze",
@@ -54,6 +55,8 @@ export default function Page() {
       {/* page-level JSON-LD (scripts/page-schema.mjs) */}
       <PageSchema items={PAGE_SCHEMA} />
       <PageClient />
+      {/* "Shopping from Edinburg, Mission or Pharr?" — links to the service-area pages (SEO audit build pass, C1) */}
+      <AreaLinks locale="en" />
     </>
   );
 }

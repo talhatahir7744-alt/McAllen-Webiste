@@ -11,7 +11,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "Why choose Snooze Mattress + Wellness in McAllen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We have the best mattress prices in town through our competitive sales and price matching, we offer a one-of-a-kind Sleep Comfort Guarantee in your new mattress, and we will greet you with a smile in our Snooze Blues pajamas. Our family business would be honored to serve you!"
+          "text": "Because you get the best mattress prices in town through our competitive sales and price matching, a one-of-a-kind Sleep Comfort Guarantee on your new mattress, and a family business that greets you with a smile in our Snooze Blues pajamas. We would be honored to serve you!"
         }
       },
       {
@@ -19,7 +19,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "What is Dream Mapping?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Dream Mapping analyzes your pressure points and preferences to recommend the perfect mattress for your body."
+          "text": "Dream Mapping is a free five-minute pressure-mapping fitting: it analyzes your pressure points and preferences to recommend the mattress that fits your body."
         }
       },
       {
@@ -27,7 +27,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "How long does it take to complete the Dream Mapping process?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Just about 5 minutes! Then our Sleep Coaches will take you to only the mattresses that match your body."
+          "text": "About five minutes. Then our Sleep Coaches take you to only the mattresses that match your body."
         }
       },
       {
@@ -35,7 +35,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "Can couples use Dream Mapping?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, we tailor mattress recommendations for both individuals and couples."
+          "text": "Yes. We tailor mattress recommendations for both individuals and couples."
         }
       },
       {
@@ -43,7 +43,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "Is there any pressure to buy?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolutely not! Our Dream Mapping technology takes all of the guess work out of finding the perfect mattress for you. After you have completed the Dream Map, the technology essentially eliminates around 85% of our products, so you get a true custom fit mattress for your body."
+          "text": "No. Our Dream Mapping technology takes all of the guesswork out of finding the perfect mattress for you: after you have completed the Dream Map, the technology essentially eliminates around 85% of our products, so you get a true custom-fit mattress for your body."
         }
       },
       {
@@ -51,7 +51,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "Do you offer financing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! We offer a variety of great financing options so that you can get the sleep you deserve!"
+          "text": "Yes. We offer financing through Synchrony, Wells Fargo and Snap Finance (a lease-to-own option), so you can get the sleep you deserve."
         }
       },
       {
@@ -59,7 +59,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "What kind of mattresses do you carry?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Snooze Mattress + Wellness carries all major mattress brands, as well as custom made mattresses only available at Snooze. With a wide variety of mattresses to choose from, our Sleep Coaches will have no problem finding your perfect mattress to get you the sleep you deserve."
+          "text": "All major mattress brands, plus custom-made mattresses available only at Snooze. With a wide variety to choose from, our Sleep Coaches will have no problem finding your perfect mattress."
         }
       },
       {
@@ -67,7 +67,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "Do you offer mattress delivery?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolutely, we will deliver and setup your new mattress, as well as haul away your old mattress if you no longer have the need for it"
+          "text": "Yes. We deliver and set up your new mattress, free on orders over $999, and haul away your old mattress if you no longer need it."
         }
       },
       {
@@ -75,7 +75,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "Why choose Snooze Mattress + Wellness in McAllen, TX?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We have the best mattress prices in town through our competitive sales and price matching, we offer a one-of-a-kind Sleep Comfort Guarantee in your new mattress, and we will greet you with a smile in our Snooze Blues pajamas. Our family business would be honored to serve you!"
+          "text": "Because you get the best mattress prices in town through our competitive sales and price matching, a one-of-a-kind Sleep Comfort Guarantee on your new mattress, and a family business that greets you with a smile in our Snooze Blues pajamas. We would be honored to serve you!"
         }
       }
     ]

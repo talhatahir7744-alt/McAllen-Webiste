@@ -11,7 +11,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Por qué elegir Snooze Mattress + Wellness en McAllen, TX?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Tenemos los mejores precios de colchones de la ciudad gracias a nuestras ofertas competitivas y a que igualamos precios, ofrecemos una Garantía de Confort de Sueño única para tu colchón nuevo, y te recibiremos con una sonrisa en nuestras pijamas Snooze Blues. ¡Para nuestro negocio familiar sería un honor atenderte!"
+          "text": "Porque tienes los mejores precios de colchones de la ciudad gracias a nuestras ofertas competitivas y a que igualamos precios, una Garantía de Confort de Sueño única para tu colchón nuevo, y un negocio familiar que te recibe con una sonrisa en nuestras pijamas Snooze Blues. ¡Sería un honor atenderte!"
         }
       },
       {
@@ -19,7 +19,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Qué es Dream Mapping?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Dream Mapping analiza tus puntos de presión y tus preferencias para recomendarte el colchón perfecto para tu cuerpo."
+          "text": "Dream Mapping es un ajuste gratis de unos cinco minutos sobre una cama con sensores de presión: analiza tus puntos de presión y tus preferencias para recomendarte el colchón que va con tu cuerpo."
         }
       },
       {
@@ -27,7 +27,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Cuánto tiempo toma completar el proceso de Dream Mapping?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "¡Solo unos 5 minutos! Después, nuestros Sleep Coaches te llevarán únicamente a los colchones que coinciden con tu cuerpo."
+          "text": "Unos cinco minutos. Después, nuestros Sleep Coaches te llevan únicamente a los colchones que coinciden con tu cuerpo."
         }
       },
       {
@@ -35,7 +35,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Las parejas pueden usar Dream Mapping?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí, personalizamos las recomendaciones de colchón tanto para personas que duermen solas como para parejas."
+          "text": "Sí. Personalizamos las recomendaciones de colchón tanto para personas que duermen solas como para parejas."
         }
       },
       {
@@ -43,7 +43,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Hay presión para comprar?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "¡Para nada! Nuestra tecnología Dream Mapping elimina todas las adivinanzas al buscar el colchón perfecto para ti. Una vez que completas el Dream Map, la tecnología descarta prácticamente el 85% de nuestros productos, así que obtienes un colchón verdaderamente a la medida de tu cuerpo."
+          "text": "No. Nuestra tecnología Dream Mapping elimina las adivinanzas al buscar el colchón perfecto para ti: una vez que completas tu Dream Map, la tecnología descarta prácticamente el 85% de nuestros productos, así que obtienes un colchón verdaderamente a la medida de tu cuerpo."
         }
       },
       {
@@ -51,7 +51,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Ofrecen financiamiento?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "¡Sí! ¡Ofrecemos una variedad de excelentes opciones de financiamiento para que consigas el sueño que mereces!"
+          "text": "Sí. Ofrecemos financiamiento con Synchrony, Wells Fargo y Snap Finance (renta con opción a compra), para que consigas el sueño que mereces."
         }
       },
       {
@@ -59,7 +59,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Qué tipo de colchones manejan?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Snooze Mattress + Wellness maneja todas las principales marcas de colchones, además de colchones hechos a la medida disponibles únicamente en Snooze. Con una amplia variedad de colchones para elegir, nuestros Sleep Coaches no tendrán ningún problema en encontrar tu colchón perfecto para darte el sueño que mereces."
+          "text": "Todas las principales marcas de colchones, además de colchones hechos a la medida disponibles únicamente en Snooze. Con una amplia variedad para elegir, nuestros Sleep Coaches no tendrán ningún problema en encontrar tu colchón perfecto."
         }
       },
       {
@@ -67,7 +67,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Ofrecen entrega de colchones?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Por supuesto, entregamos e instalamos tu colchón nuevo, y también nos llevamos tu colchón viejo si ya no lo necesitas"
+          "text": "Sí. Entregamos e instalamos tu colchón nuevo, gratis en compras mayores de $999, y nos llevamos tu colchón viejo si ya no lo necesitas."
         }
       },
       {
@@ -75,7 +75,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Por qué elegir Snooze Mattress + Wellness en McAllen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Tenemos los mejores precios de colchones de la ciudad gracias a nuestras ofertas competitivas y a que igualamos precios, ofrecemos una Garantía de Confort de Sueño única para tu colchón nuevo, y te recibiremos con una sonrisa en nuestras pijamas Snooze Blues. ¡Para nuestro negocio familiar sería un honor atenderte!"
+          "text": "Porque tienes los mejores precios de colchones de la ciudad gracias a nuestras ofertas competitivas y a que igualamos precios, una Garantía de Confort de Sueño única para tu colchón nuevo, y un negocio familiar que te recibe con una sonrisa en nuestras pijamas Snooze Blues. ¡Sería un honor atenderte!"
         }
       }
     ]
