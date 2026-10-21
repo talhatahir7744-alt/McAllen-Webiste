@@ -32,13 +32,25 @@ const EMOJI = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2300}-\u
 const COMMENT_GLYPH = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2300}-\u{23FF}\u{FE0F}\u{200D}]/gu;
 const cleanComments = (html) => html.replace(/<!--[\s\S]*?-->/g, (c) => c.replace(/swap ✦ for ★ ● ◆ | or any emoji/g, 'swap the sparkle SVG for another icon').replace(COMMENT_GLYPH, '').replace(/→/g, '->'));
 const listInject = (ul) => ul.replace(/<li(\s[^>]*)?>(?!<svg)/g, (m, attrs) => `<li${attrs || ''}>${ICON.check}`);
+/* One text block per item: the builder exports some bullets as two <p>s ("…pressure points in" + "under 5 minutes.")
+   or with a hard <br>; laid out as a flex row (icon + text) those render as two columns. Merge the paragraphs into
+   the first one, joined by a space, and turn <br>s into spaces, so each bullet is one wrapping sentence. */
+const normalizeLi = (ul) => ul.replace(/(<li(?:\s[^>]*)?>)([\s\S]*?)(<\/li>)/g, (m, open, inner, close) => {
+  const svg = (inner.match(/^<svg[\s\S]*?<\/svg>/) || [''])[0]; let rest = inner.slice(svg.length);
+  const ps = [...rest.matchAll(/<p(\s[^>]*)?>([\s\S]*?)<\/p>/g)];
+  if (ps.length > 1 && ps.map((p) => p[0]).join('') === rest.replace(/\s+(?=<p)/g, '')) {
+    const parts = ps.map((p) => p[2].trim()).filter(Boolean); rest = `<p${ps[0][1] || ''}>${parts.join(' ')}</p>`;
+  }
+  rest = rest.replace(/\s*<br\s*\/?>\s*/g, ' ').replace(/ {2,}/g, ' ');
+  return open + svg + rest + close;
+});
 const stats = { pages: 0, lists: 0, li: 0, payloadLists: 0, arrows: 0, seps: 0, navStrings: 0, misc: 0, headArrows: 0 };
 
 function transformMarkup(markup) {
   const lists = new Map(); // original <ul>…</ul> -> injected
   let out = markup.replace(/(<div class="bulletList-[^"]*\btext-output\b[^"]*"[^>]*><div>)(<ul>[\s\S]*?<\/ul>)/g, (m, open, ul) => {
-    if (ul.includes('snz-li-ico')) return m;
-    const next = listInject(ul); stats.lists++; stats.li += (ul.match(/<li/g) || []).length; lists.set(ul, next); return open + next;
+    const next = normalizeLi(listInject(ul)); if (next === ul) return m;
+    stats.lists++; stats.li += (ul.match(/<li/g) || []).length; lists.set(ul, next); return open + next;
   });
   out = out.replace(/(<span class="main-heading-button">[^<]*?)\s*→\s*(<\/span>)/g, (m, a, b) => { stats.arrows++; return `${a} ${ICON.arrow}${b}`; });
   out = out.replace(/<span class="snooze-ticker-sep">✦<\/span>/g, () => { stats.seps++; return TICKER_SEP; });

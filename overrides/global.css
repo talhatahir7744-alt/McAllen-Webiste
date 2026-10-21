@@ -40,7 +40,7 @@ input::placeholder, textarea::placeholder { font-family: var(--font-poppins-stac
   --snz-list-line-height: 1.6;
 }
 @media (max-width: 767px) {
-  :root { --snz-list-item-gap: 11px; --snz-list-block-gap: 20px; --snz-list-lead-gap: 32px; --snz-list-icon-gap: 10px; }
+  :root { --snz-list-item-gap: 12px; --snz-list-block-gap: 20px; --snz-list-lead-gap: 32px; --snz-list-icon-gap: 10px; }
 }
 /* GoHighLevel bullet lists: the element's own padding and margins go, the <li> carries the rhythm */
 .hl_page-preview--content .c-bullet-list { margin-top: 0 !important; margin-bottom: 0 !important; }
@@ -49,8 +49,8 @@ input::placeholder, textarea::placeholder { font-family: var(--font-poppins-stac
 .hl_page-preview--content .c-bullet-list .text-output li { margin: 0 !important; line-height: var(--snz-list-line-height) !important; }
 /* each item is icon + text as flex (the check-circle SVG is injected by scripts/icons.mjs); hanging indent comes from the flex row */
 .hl_page-preview--content .c-bullet-list .text-output :is(ul, ol) { padding: 0 !important; list-style: none !important; }
-.hl_page-preview--content .c-bullet-list .text-output li { display: flex !important; align-items: flex-start !important; gap: var(--snz-list-icon-gap) !important; padding-inline-start: 0 !important; list-style: none !important; }
-.hl_page-preview--content .c-bullet-list .text-output li > p { flex: 1 1 auto; min-width: 0; }
+.hl_page-preview--content .c-bullet-list .text-output li { display: flex !important; align-items: flex-start !important; gap: var(--snz-list-icon-gap) !important; padding-inline-start: 0 !important; list-style: none !important; text-align: left !important; }
+.hl_page-preview--content .c-bullet-list .text-output li > p { flex: 1 1 auto; min-width: 0; text-align: left !important; }
 .hl_page-preview--content .c-bullet-list .text-output li > p { margin: 0 !important; line-height: inherit !important; }
 /* items: the <li>s of one list, and consecutive single-item elements */
 .hl_page-preview--content .c-bullet-list .text-output li + li { margin-top: var(--snz-list-item-gap) !important; }
@@ -62,7 +62,7 @@ input::placeholder, textarea::placeholder { font-family: var(--font-poppins-stac
 .hl_page-preview--content .c-bullet-list.c-wrapper + .c-wrapper:is(.c-heading, .c-sub-heading, .c-paragraph):has(+ .c-bullet-list) { margin-top: var(--snz-list-lead-gap) !important; }
 /* Sleep Fit Quiz results ("why this fits you"): the same item gap, icon gap and line-height */
 .snz-quiz ul.why { gap: var(--snz-list-item-gap); }
-.snz-quiz ul.why > li { gap: var(--snz-list-icon-gap); line-height: var(--snz-list-line-height); }
+.snz-quiz ul.why > li { gap: var(--snz-list-icon-gap); line-height: var(--snz-list-line-height); text-align: left; }
 
 /* ---- Financing page copy (desktop section #section-XBz7r5mHB5, phone #section-s9jzFpVhnj; both languages share
    the element ids). The list rhythm is the rule set above; these are the builder settings on this one page that
@@ -168,10 +168,10 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
 .snz-ico--orange { color: #F58433; } .snz-ico--navy { color: #001489; } .snz-ico--white { color: #fff; }
 .snz-ico--arrow { margin-left: 0.1em; }
 /* the orange check-circle beside every list item: centred on the first line of text (line-height 1.6 -> (1.6em - 1.15em) / 2) */
-.snz-li-ico { width: 1.15em !important; height: 1.15em !important; color: #F58433; margin-top: calc((var(--snz-list-line-height) * 1em - 1.15em) / 2); vertical-align: 0; }
+.snz-li-ico { width: 20px !important; height: 20px !important; color: #F58433; margin-top: calc((var(--snz-list-line-height) * 1em - 20px) / 2); vertical-align: 0; }
 /* hand-written lists (new pages, accessory guides) share the builder lists' rhythm */
 .snz-check-list { list-style: none !important; margin: 0 0 14px; padding: 0 !important; display: grid; gap: var(--snz-list-item-gap); }
-.snz-check-list > li { display: flex; align-items: flex-start; gap: var(--snz-list-icon-gap); line-height: var(--snz-list-line-height); margin: 0; }
+.snz-check-list > li { display: flex; align-items: flex-start; gap: var(--snz-list-icon-gap); line-height: var(--snz-list-line-height); margin: 0; text-align: left; }
 .snz-check-list > li > span { flex: 1 1 auto; min-width: 0; }
 /* Highlighted words in headings and copy: plain orange text, no box (one rule; replaces the builder's white-on-gradient
    u/ins style with its clipped corners). Links keep their underline. Matches the home hero's "Custom-Fit" highlight. */
