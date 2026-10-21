@@ -92,6 +92,9 @@
 .phoneIcon { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 9px; background: rgba(245, 132, 51, 0.14); color: var(--orange); }
 .phoneIcon svg { width: 16px; height: 16px; }
 .hours { display: grid; gap: 2px; margin: 0 0 16px; font-size: 0.93rem; color: var(--ink-soft); }
+.serving { display: flex; flex-wrap: wrap; gap: 0 6px; margin: -8px 0 16px; font-size: 0.9rem; color: var(--ink-soft); }
+.serving a { color: var(--navy); font-weight: 600; text-decoration: none; transition: color 200ms; }
+.serving a:hover { color: var(--orange); }
 
 .mapCard {
   position: relative; overflow: hidden; border-radius: 18px;

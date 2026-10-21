@@ -106,6 +106,12 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
               <span>{f.hours1}</span>
               <span>{f.hours2}</span>
             </p>
+            <p className={styles.serving}>
+              <span>{f.serving}</span>
+              {f.areas.map(([label, href], i) => (
+                <span key={href}>{i > 0 && <span aria-hidden="true"> · </span>}<a href={L(href)}>{label}</a></span>
+              ))}
+            </p>
             <div className={styles.mapCard}>
               <iframe className={styles.map} src={locale === 'es' ? `${MAP_EMBED}&hl=es` : MAP_EMBED} title={f.mapTitle} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
               <div className={styles.locCard}>

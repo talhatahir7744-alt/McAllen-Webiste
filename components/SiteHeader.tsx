@@ -43,7 +43,12 @@ function navTables(locale: Locale) {
     title: t.menu.latest,
     items: blogNav(locale).map((p) => ({ label: p.label, href: p.href, desc: p.blurb, icon: 'article' as const })),
   };
-  return { t, PRIMARY, PRODUCT_GROUPS, BLOG_GROUP, blogIndex: { label: t.nav.allArticles, href: BLOG_INDEX.href } };
+  /* Mattresses by size & type: the size/type pages (section E) as a compact row under the product groups */
+  const SIZE_GROUP: { title: string; items: MenuLink[] } = {
+    title: t.menu.sizes,
+    items: t.menu.sizeLinks.map(([label, href]) => ({ label, href, desc: '', icon: 'bed' as const })),
+  };
+  return { t, PRIMARY, PRODUCT_GROUPS, SIZE_GROUP, BLOG_GROUP, blogIndex: { label: t.nav.allArticles, href: BLOG_INDEX.href } };
 }
 
 /* Minimal line icons (24px grid, stroke inherits currentColor) */
@@ -104,7 +109,7 @@ const menuActive = (key: MenuKey, pathname: string) => (key === 'products' ? PRO
 export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
   const rawPath = normalize(usePathname() || '/');
   const pathname = splitLocale(rawPath).path; // English path used for the active states
-  const { t, PRIMARY, PRODUCT_GROUPS, BLOG_GROUP, blogIndex } = navTables(locale);
+  const { t, PRIMARY, PRODUCT_GROUPS, SIZE_GROUP, BLOG_GROUP, blogIndex } = navTables(locale);
   const L = (href: string) => localizeHref(href, locale);
   const langSwitch = (cls: string) => (
     <div className={cls} role="group" aria-label={t.menu.switchTo}>
@@ -323,6 +328,13 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
                           <span className={styles.featureTitle}>{t.feature.title}</span>
                           <span className={styles.featureCta}>{t.feature.cta} <Arrow /></span>
                         </a>
+                        {/* Mattresses by size & type (section E pages): compact link row across the panel */}
+                        <div className={styles.sizeRow} aria-label={SIZE_GROUP.title}>
+                          <span className={styles.sizeRowLabel}>{SIZE_GROUP.title}</span>
+                          {SIZE_GROUP.items.map((p) => (
+                            <a key={p.href} href={L(p.href)} className={`${styles.sizeChip} ${pathname === p.href ? styles.sizeChipActive : ''}`} aria-current={pathname === p.href ? 'page' : undefined}>{p.label}</a>
+                          ))}
+                        </div>
                         {/* Sleep Fit Quiz: highlighted row across the bottom of the panel (the top-level nav item is hidden where it cannot fit) */}
                         <a href={L('/sleep-quiz')} className={styles.quizRow}>
                           <span className={styles.quizRowIcon}><QuizIcon /></span>
@@ -412,11 +424,17 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
                   <div className={`${styles.mSub} ${openAcc === item.menu ? styles.mSubOpen : ''}`}>
                     <div className={styles.mSubInner}>
                       {item.menu === 'products' ? (
-                        PRODUCT_GROUPS.map((group) => (
-                          <div key={group.title}>
-                            {renderMobileLinks(group.items)}
+                        <>
+                          {PRODUCT_GROUPS.map((group) => (
+                            <div key={group.title}>
+                              {renderMobileLinks(group.items)}
+                            </div>
+                          ))}
+                          <div>
+                            <p className={styles.mGroupTitle}>{SIZE_GROUP.title}</p>
+                            {renderMobileLinks(SIZE_GROUP.items)}
                           </div>
-                        ))
+                        </>
                       ) : (
                         <div>
                           <a href={L(blogIndex.href)} className={`${styles.mSubLink} ${pathname === blogIndex.href ? styles.mActive : ''}`} aria-current={pathname === blogIndex.href ? 'page' : undefined} onClick={closeMobile}>

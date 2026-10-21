@@ -635,3 +635,10 @@
 .quizRowCta { margin-left: auto; flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #ffb26b; white-space: nowrap; }
 .quizRowCta svg { width: 14px; height: 14px; transition: transform 220ms var(--snz-ease); }
 .quizRow:hover .quizRowCta svg { transform: translateX(3px); }
+
+/* ---- Our Products dropdown: "Mattresses by size & type" chip row (section E pages) ---- */
+.sizeRow { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 2px; padding: 0 2px; }
+.sizeRowLabel { margin-right: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--snz-muted); }
+.sizeChip { display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--snz-line); font-size: 13px; font-weight: 600; color: var(--snz-navy); text-decoration: none; transition: background-color 200ms var(--snz-ease), border-color 200ms var(--snz-ease); }
+.sizeChip:hover, .sizeChip:focus-visible { background: rgba(0, 20, 137, 0.06); border-color: rgba(0, 20, 137, 0.3); }
+.sizeChipActive { background: rgba(0, 20, 137, 0.08); border-color: rgba(0, 20, 137, 0.35); }
