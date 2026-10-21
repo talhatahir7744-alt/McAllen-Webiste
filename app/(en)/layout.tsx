@@ -47,7 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader locale="en" />
         {children}
         <SiteFooter locale="en" />
-        <Script src="/snz-motion.js?v=mv1hgzpy" strategy="afterInteractive" />
+        <Script src="/snz-motion.js?v=mv2keep" strategy="afterInteractive" />
         {/* dataLayer events for GA4 key events: phone / directions clicks, booking and opt-in confirmations (SEO audit 7b) */}
         <Script src="/snz-events.js?v=ev1" strategy="afterInteractive" />
       </body>

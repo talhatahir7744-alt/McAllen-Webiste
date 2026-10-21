@@ -28,6 +28,9 @@ export const ICON = {
 export const TICKER_SEP = `<span class="snooze-ticker-sep" aria-hidden="true">${ICON.sparkle}</span>`;
 
 const EMOJI = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2300}-\u{23FF}\u{FE0F}\u{200D}]/gu;
+/* glyphs inside HTML comments (the ticker and timeline custom code carry authoring notes) are not copy, but they are still emoji in the page source: strip them, arrows become ASCII */
+const COMMENT_GLYPH = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2300}-\u{23FF}\u{FE0F}\u{200D}]/gu;
+const cleanComments = (html) => html.replace(/<!--[\s\S]*?-->/g, (c) => c.replace(/swap ✦ for ★ ● ◆ | or any emoji/g, 'swap the sparkle SVG for another icon').replace(COMMENT_GLYPH, '').replace(/→/g, '->'));
 const listInject = (ul) => ul.replace(/<li(\s[^>]*)?>(?!<svg)/g, (m, attrs) => `<li${attrs || ''}>${ICON.check}`);
 const stats = { pages: 0, lists: 0, li: 0, payloadLists: 0, arrows: 0, seps: 0, navStrings: 0, misc: 0, headArrows: 0 };
 
@@ -39,6 +42,7 @@ function transformMarkup(markup) {
   });
   out = out.replace(/(<span class="main-heading-button">[^<]*?)\s*→\s*(<\/span>)/g, (m, a, b) => { stats.arrows++; return `${a} ${ICON.arrow}${b}`; });
   out = out.replace(/<span class="snooze-ticker-sep">✦<\/span>/g, () => { stats.seps++; return TICKER_SEP; });
+  const cleaned = cleanComments(out); if (cleaned !== out) { stats.misc++; out = cleaned; }
   return { out, lists };
 }
 function transformPayloadString(n, lists) {
@@ -50,6 +54,7 @@ function transformPayloadString(n, lists) {
   if (v.includes('💙💤')) { v = v.replace(/\s*💙💤\s*/g, ' '); stats.misc++; }
   if (v.includes('<!-- ✅ ')) { v = v.replace(/<!-- ✅ /g, '<!-- '); stats.misc++; }
   if (v.includes('swap ✦ for ★ ● ◆ | or any emoji')) { v = v.replace('swap ✦ for ★ ● ◆ | or any emoji', 'swap the sparkle SVG for another icon'); stats.misc++; }
+  if (v.includes('<!--')) { const c = cleanComments(v); if (c !== v) { v = c; stats.misc++; } }
   if (v.includes('→')) { v = v.replace(/→/g, '->'); stats.misc++; }
   EMOJI.lastIndex = 0;
   return v;

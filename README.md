@@ -261,3 +261,13 @@ Post-convert order with the new scripts: `convert → seo:meta → es:fixes → 
 - Highlighted words (`<u>`/`<ins>` in the builder copy) render as plain orange text with no box: one rule in `overrides/global.css` replaces the builder's white-on-gradient style; links inside keep their underline.
 - The override templates (`overrides/*.html`), the ticker item template (`scripts/offer-ticker.mjs`), the reviews template (`scripts/recent-reviews.mjs`) and the Spanish dictionaries carry the same markup, and `scripts/i18n.mjs` ignores the old glyphs when matching, so a re-convert produces the same result.
 - Font Awesome glyphs that remain (not emoji): the builder draws a few icons through CSS `content` escapes in the Font Awesome 5 private-use range (button start/end icons such as the arrow, book and phone; the FAQ and menu chevrons; the money-check icon before "Looking for mattress financing"). They are icon-font glyphs rendered by the builder runtime, so they were left in place; converting them to inline SVG means re-rendering the builder buttons and is a separate pass.
+
+### Hydration safety (October 22, 2026)
+
+Found while verifying the icon pass: on a slow connection the page could come up blank. The 1.5 MB body streams for seconds; meanwhile tags that run during the parse (GTM loading CallRail number swapping, the Simpli.fi pixel) insert elements into `<body>`, which then sit between the page wrapper and its React siblings (the accessory guides, the home area block). React, hydrating later, finds a tree that no longer matches, regenerates it (error #418) and the regenerated wrapper is empty because the client never has the markup. Three changes:
+
+- `components/Tracking.tsx`: GTM and Simpli.fi start at DOMContentLoaded (`DEFERRED_TAGS`), so their insertions land after the parsed body, which React tolerates; GA4 gtag.js still loads in `<head>` at once. On a plain load gtag.js starts at ~10 ms, gtm.js and Simpli.fi at DOMContentLoaded (~0.2-0.5 s), the first GA4 collect at ~0.75 s.
+- `public/snz-motion.js` (cache key `mv2keep`): the finished loader stays in the DOM hidden instead of being removed; an afterInteractive script is not guaranteed to run after hydration.
+- `components/GhlPage.tsx`: an inline script keeps a handle on the server-rendered nodes and the effect puts them back if React ever regenerates the wrapper, so a mismatch from any other third-party script shows the page instead of a blank document.
+
+Reproduce / verify: headless Chrome at 390 px with 4× CPU and a 400 kbps network (scratchpad `hydration-dev-probe.mjs`): `/es/mattress-protectors` failed 4/4 before, 0/4 after; the dev server's hydration diff showed the inserted `cdn.callrail.com` script where `<section class="snz-guide">` was expected.

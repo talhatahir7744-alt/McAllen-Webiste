@@ -49,7 +49,13 @@ function runPageScripts(scripts: PageScript[]) {
 export function GhlPage({ headHtml, bodyHtml, scripts, preload }: { headHtml: string; bodyHtml: string; scripts: PageScript[]; preload?: PagePreload[] }) {
   useEffect(() => {
     const w = document.querySelector('[data-ghl-page]');
-    if (!w || w.getAttribute('data-ghl-scripts')) return;
+    if (!w) return;
+    // Defence in depth: the client never has the markup (__html is ''), so if React ever regenerates the tree after
+    // a hydration mismatch the wrapper comes back empty. Keep a copy of the server markup from the first mount and
+    // put it back, so the visitor sees the page (static) instead of a blank document.
+    const g = window as unknown as { __snzGhlNodes?: Node[] };
+    if (!w.childNodes.length && g.__snzGhlNodes) { for (const n of g.__snzGhlNodes) w.appendChild(n); console.warn('[snz] page markup put back after a React re-render'); }
+    if (w.getAttribute('data-ghl-scripts')) return;
     w.setAttribute('data-ghl-scripts', '1');
     runPageScripts(scripts);
   }, [scripts]);
@@ -61,6 +67,10 @@ export function GhlPage({ headHtml, bodyHtml, scripts, preload }: { headHtml: st
       ))}
       {/* __html is '' on the client (client.tsx): React keeps the server-rendered markup as long as the value does not change */}
       <div data-ghl-page="" style={{ display: 'contents' }} suppressHydrationWarning dangerouslySetInnerHTML={{ __html: headHtml + bodyHtml }} />
+      {/* keeps a handle on the server-rendered nodes before React runs: third-party loaders (CallRail, tag managers)
+          can insert elements between the wrapper and its siblings while the HTML is still streaming, and a hydration
+          mismatch then makes React regenerate the tree with an empty wrapper; the effect above puts the nodes back */}
+      <script dangerouslySetInnerHTML={{ __html: "(function(){var w=document.querySelector('[data-ghl-page]');if(w&&!window.__snzGhlNodes)window.__snzGhlNodes=Array.prototype.slice.call(w.childNodes)})();" }} />
     </>
   );
 }

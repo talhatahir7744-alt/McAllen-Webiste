@@ -15,8 +15,10 @@
   function reveal(el) { el.classList.add('is-in'); el.__snzRevealed = true; }
 
   var loader = document.getElementById('snz-loader');
-  /* this script runs after hydration, so the finished loader can now leave the DOM for good */
-  if (loader) { var dropLoader = function () { setTimeout(function () { var l = document.getElementById('snz-loader'); if (l && l.parentNode) l.parentNode.removeChild(l); }, 700); }; if (loader.classList.contains('is-done') || loader.classList.contains('is-gone') || root.classList.contains('snz-loader-skip')) dropLoader(); else root.addEventListener('snz:loader-done', dropLoader, { once: true }); }
+  /* The finished loader stays in the DOM (display:none via .is-gone). It used to be removed here, but an
+     afterInteractive script can run before React has finished hydrating on a slow load, and a missing node then
+     made React regenerate the whole tree, which blanked the page markup. Hiding is enough. */
+  if (loader) { var dropLoader = function () { setTimeout(function () { var l = document.getElementById('snz-loader'); if (l) l.classList.add('is-gone'); }, 700); }; if (loader.classList.contains('is-done') || loader.classList.contains('is-gone') || root.classList.contains('snz-loader-skip')) dropLoader(); else root.addEventListener('snz:loader-done', dropLoader, { once: true }); }
 
   if (!supported) {
     root.classList.remove('js');
