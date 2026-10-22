@@ -208,10 +208,10 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
    seamless; transform only; paused on hover; static for reduced motion. Clicks on the transparent parts fall through
    to the sections underneath. Not part of the scroll-reveal system. ---- */
 :root { --ribbon-speed: 36s; }
-.snz-cross { display: block; position: relative; z-index: 5; height: 170px; margin: -110px 0 -60px; /* ~65% over the hero, ~35% over the next section */ background: transparent; overflow: hidden; pointer-events: none; isolation: isolate; cursor: pointer; text-decoration: none; color: inherit; font-family: var(--font-poppins-stack); }
+.snz-cross { display: block; position: relative; z-index: 5; height: 170px; margin: -85px 0 -85px; /* centred on the seam: half over the hero, half over the next section */ background: transparent; overflow: hidden; pointer-events: none; isolation: isolate; cursor: pointer; text-decoration: none; color: inherit; font-family: var(--font-poppins-stack); }
 .snz-cross__rb { position: absolute; top: 50%; left: -4vw; width: 108vw; display: block; overflow: hidden; text-decoration: none; pointer-events: auto; will-change: transform; backface-visibility: hidden; box-shadow: 0 10px 28px rgba(0, 20, 137, 0.24); }
-.snz-cross__rb--a { z-index: 2; background: #F58433; color: #001489; transform: translateY(-50%) rotate(-2.5deg); box-shadow: 0 10px 22px rgba(0, 8, 60, 0.45), 0 2px 5px rgba(0, 8, 60, 0.3); }
-.snz-cross__rb--b { z-index: 1; background: #001489; color: #fff; transform: translateY(-50%) rotate(2.5deg); }
+.snz-cross__rb--a { z-index: 2; background: #F58433; color: #001489; transform: translateY(-50%) rotate(-1.6deg); box-shadow: 0 10px 22px rgba(0, 8, 60, 0.45), 0 2px 5px rgba(0, 8, 60, 0.3); }
+.snz-cross__rb--b { z-index: 1; background: #001489; color: #fff; transform: translateY(-50%) rotate(1.6deg); }
 .snz-cross__track { display: flex; width: max-content; white-space: nowrap; will-change: transform; backface-visibility: hidden; }
 .snz-cross__rb--a .snz-cross__track { animation: snzRibbonLeft var(--ribbon-speed) linear infinite; }
 .snz-cross__rb--b .snz-cross__track { animation: snzRibbonRight var(--ribbon-speed) linear infinite; }
@@ -230,7 +230,7 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
 @keyframes snzRibbonLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes snzRibbonRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 @media (max-width: 767px) {
-  .snz-cross { height: 118px; margin: -77px 0 -41px; }
+  .snz-cross { height: 118px; margin: -59px 0 -59px; }
   /* the phone hero ends with its CTA button and has no bottom padding of its own: room so the raised ribbons clear it */
   .hl_page-preview--content #section-EKHUaSKRzf { padding-bottom: 40px !important; }
   .snz-cross__tag { width: 15px; height: 15px; }
@@ -279,8 +279,8 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
 /* ---- Home: room between the ribbon band and the "If you don't Snooze, you lose!" headline, and a tighter subheadline →
    step one (the Pressure Mapping section: desktop Ji7YR_oUp7 / mobile 6PvUGyH7jn; the steps block is the custom code
    HLVM8l3CzV / PlS5urY9jK, whose own top padding made most of the old gap). Set at the source, no negative margins. ---- */
-.hl_page-preview--content #section-Ji7YR_oUp7 { padding-top: 88px !important; }
-.hl_page-preview--content #section-6PvUGyH7jn { padding-top: 44px !important; }
+.hl_page-preview--content #section-Ji7YR_oUp7 { padding-top: 102px !important; } /* the band reaches 85px into this section */
+.hl_page-preview--content #section-6PvUGyH7jn { padding-top: 59px !important; } /* the band reaches 59px into this section */
 .hl_page-preview--content #custom-code-HLVM8l3CzV .pm-section { padding-top: 0 !important; }
 .hl_page-preview--content #custom-code-PlS5urY9jK .pm-section { padding-top: 20px !important; }
 

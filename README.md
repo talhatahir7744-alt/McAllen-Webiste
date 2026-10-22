@@ -303,6 +303,13 @@ The "How mattress sales work at Snooze" copy lives inside the hero of `/mattress
 - Position: the band overlaps the hero by about 65% and the next section by about 35% (170px band, margins −110px / −60px; 118px band, −77px / −41px on phones). The headline "If you don't Snooze, you lose!" sits about 81px (desktop) / 58px (phone) below the ribbons. The phone hero, which ends with its CTA button and had no bottom padding, gets 40px so the raised ribbons clear the button.
 - Crawl hygiene: only the first item set of ribbon A's first copy is readable text; every repeat (the rest of that copy, the loop copy, and all of ribbon B) is `aria-hidden="true"` (repeats inside a copy sit in a `display: contents` wrapper, so copy widths and the seamless loop are unchanged). The band link's accessible name is fixed text: "See the Black Friday sale" / "Ver la venta de Black Friday".
 
+### Home page: ribbon band position (October 23, 2026)
+
+- Position: the band is centred on the seam, half over the hero and half over the next section (170px band, margins −85px / −85px; 118px band, −59px / −59px on phones). It used to sit about 65% over the hero.
+- Tighter X: the ribbons are rotated ±1.6° instead of ±2.5°, so at the screen edges they sit about 36px apart at 1280px (was 56px) and 10px apart on phones, still crossing at the centre; ribbon A (orange) stays on top with its shadow.
+- Headline gap kept: the Pressure Mapping section's top padding goes from 88px to 102px (desktop) and from 44px to 59px (phone), so "If you don't Snooze, you lose!" stays about 81px / 58px below the lowest point of the ribbons.
+- Unchanged: content, size, colours, animation (A left, B right), the link to `/mattress-sales` and the `aria-hidden` repeats. All in `overrides/global.css`.
+
 ### Mobile performance pass (October 23, 2026)
 
 Diagnosis (Lighthouse mobile, simulated throttling, production): most of the main-thread time is the tags the **GTM container** loads — 11 Google Ads gtag.js copies at 150–390 ms each, two extra GA4 properties, the Reddit pixel (~340 ms), Facebook, CallRail, the LeadConnector chat loader, Trade Desk / Adelphic: about 2.3 s of blocking time that only a change in the container can remove. The GoHighLevel (Nuxt) runtime itself is small (~70 ms entry + chunks), React/Next ~100–500 ms, the scroll-reveal script ~86 ms. In about half the runs nothing was painted until ~1.3 s (the full-screen page loader, a parser-blocking third-party script in the body), and Lighthouse turned that into an 11–12 s simulated LCP.
