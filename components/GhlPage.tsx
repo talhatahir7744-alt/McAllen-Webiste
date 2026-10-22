@@ -26,6 +26,18 @@ document.body.insertBefore(before,document.body.firstChild);document.body.append
 export type PagePreload = { href: string; media?: string };
 
 /**
+ * The builder headline faces ("Poppins Headline" / "Poppins Headline Bold", 8 KB each, overrides/site.css), preloaded at
+ * the very start of the page markup: early enough that they arrive before the headlines render (preloaded only from the
+ * markup further down they arrived late on phones and the headlines re-wrapped when they swapped in: layout shift).
+ * Deliberately in <body>, not <head>: Chrome holds the first rendering while a font preloaded from <head> is still
+ * downloading, and when the font landed just after the first frame the page stayed blank for a further second (observed
+ * first paint ~1.35 s instead of ~0.35 s in most Lighthouse mobile runs, simulated LCP ~12 s). Performance pass, October 2026.
+ */
+const FONT_PRELOADS =
+  '<link rel="preload" as="font" type="font/woff2" crossorigin="" href="/assets/gfonts/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1xlFQ.woff2">' +
+  '<link rel="preload" as="font" type="font/woff2" crossorigin="" href="/assets/gfonts/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2">';
+
+/**
  * The page scripts (teleport fix, Nuxt payload, runtime entry, …) are appended in their original order once React
  * has hydrated (an effect runs after hydration, like next/script's afterInteractive did). next/script is not used
  * for them any more: for every external afterInteractive script it emits a <link rel="preload" as="script"> in
@@ -65,13 +77,9 @@ export function GhlPage({ headHtml, bodyHtml, scripts, preload }: { headHtml: st
       {(preload || []).map((p) => (
         <link key={p.href + (p.media || '')} rel="preload" as="image" href={p.href} media={p.media} fetchPriority="high" />
       ))}
-      {/* the builder headline faces ("Poppins Headline" / "Poppins Headline Bold", 8 KB each, overrides/site.css): preloaded from
-          <head> so they arrive before the first render; preloaded only from the page markup they arrived late on phones and
-          the headlines re-wrapped when they swapped in (layout shift). Performance pass, October 2026. */}
-      <link rel="preload" as="font" type="font/woff2" crossOrigin="" href="/assets/gfonts/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1xlFQ.woff2" />
-      <link rel="preload" as="font" type="font/woff2" crossOrigin="" href="/assets/gfonts/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2" />
-      {/* __html is '' on the client (client.tsx): React keeps the server-rendered markup as long as the value does not change */}
-      <div data-ghl-page="" style={{ display: 'contents' }} suppressHydrationWarning dangerouslySetInnerHTML={{ __html: headHtml + bodyHtml }} />
+      {/* __html is '' on the client (client.tsx): React keeps the server-rendered markup as long as the value does not change;
+          the font preloads (FONT_PRELOADS) are added to the server markup only, so the client value stays '' */}
+      <div data-ghl-page="" style={{ display: 'contents' }} suppressHydrationWarning dangerouslySetInnerHTML={{ __html: headHtml ? FONT_PRELOADS + headHtml + bodyHtml : '' }} />
       {/* keeps a handle on the server-rendered nodes before React runs: third-party loaders (CallRail, tag managers)
           can insert elements between the wrapper and its siblings while the HTML is still streaming, and a hydration
           mismatch then makes React regenerate the tree with an empty wrapper; the effect above puts the nodes back */}
