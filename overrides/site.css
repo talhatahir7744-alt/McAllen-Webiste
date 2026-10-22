@@ -44,11 +44,11 @@
    tickers / marquees keep their own layout. Column side padding is folded into the row gutter so nested
    columns do not add a second, inconsistent inset. */
 @media (max-width: 767px) {
-  .hl_page-preview--content .c-section > .inner > .c-row:not(:has(.snz-logo-marquee, [id="ghl-trust-ticker"], .snooze-ticker-bar, .custom-brand-slider, .guar-section)):not(.snz-card) { padding-left: 20px !important; padding-right: 20px !important; }
-  .hl_page-preview--content .c-section > .inner > .c-row:not(:has(.snz-logo-marquee, [id="ghl-trust-ticker"], .snooze-ticker-bar, .custom-brand-slider, .guar-section)) > .inner > .c-column:not(.snz-card) { padding-left: 0 !important; padding-right: 0 !important; }
+  .hl_page-preview--content .c-section > .inner > .c-row:not(:has(.snz-cross, .snz-logo-marquee, [id="ghl-trust-ticker"], .snooze-ticker-bar, .custom-brand-slider, .guar-section)):not(.snz-card) { padding-left: 20px !important; padding-right: 20px !important; }
+  .hl_page-preview--content .c-section > .inner > .c-row:not(:has(.snz-cross, .snz-logo-marquee, [id="ghl-trust-ticker"], .snooze-ticker-bar, .custom-brand-slider, .guar-section)) > .inner > .c-column:not(.snz-card) { padding-left: 0 !important; padding-right: 0 !important; }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
-  .hl_page-preview--content .c-section > .inner > .c-row:not(:has(.snz-logo-marquee, [id="ghl-trust-ticker"], .snooze-ticker-bar, .custom-brand-slider, .guar-section)):not(.snz-card) { padding-left: 32px !important; padding-right: 32px !important; }
+  .hl_page-preview--content .c-section > .inner > .c-row:not(:has(.snz-cross, .snz-logo-marquee, [id="ghl-trust-ticker"], .snooze-ticker-bar, .custom-brand-slider, .guar-section)):not(.snz-card) { padding-left: 32px !important; padding-right: 32px !important; }
 }
 
 /* Timelines on phones: one column, the card centred with equal gutters (the left rail/spine column was

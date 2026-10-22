@@ -1,4 +1,4 @@
-/* The site's current promotion: ONE place to edit (copy + dates), rendered by components/CurrentOffer.tsx on the
+/* The site's current promotion: ONE place to edit (copy + dates), read by scripts/ribbon-band.mjs (ribbon A of the crossing-ribbons band on every page) and by components/SalesIntro.tsx on the
    home page (EN + ES) directly under the header, by components/SalesIntro.tsx at the top of the sales page, and
    by scripts/offer-ticker.mjs as an item of the home page's promotions ticker. It replaced the builder's expired
    "Memorial Day Savings Event / Save up to 75% … until June 6th" block (SEO audit, October 2026), which was removed

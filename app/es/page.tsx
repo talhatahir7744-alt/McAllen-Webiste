@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
-import { CurrentOffer } from '@/components/CurrentOffer';
 import { AreaLinks } from '@/components/AreaLinks';
 
 export const metadata: Metadata = {
@@ -50,8 +49,6 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      {/* the dated current-offer band (lib/offer.ts); renders nothing while the offer is off */}
-      <CurrentOffer locale="es" />
       {/* page-level JSON-LD (scripts/page-schema.mjs) */}
       <PageSchema items={PAGE_SCHEMA} />
       <PageClient />

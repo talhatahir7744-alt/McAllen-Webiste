@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { BlogArticle, BlogCta, BlogShell, Divider, PostCard } from '@/components/blog/BlogLayout';
 import { plain } from '@/components/blog/Rich';
+import { RibbonBand } from '@/components/RibbonBand';
 import { SITE } from '@/components/site-config';
 import styles from '@/components/blog/blog.module.css';
 import { getPost, postsFor, relatedPosts } from '@/lib/blog-posts';
@@ -44,6 +45,7 @@ export function BlogIndexPage({ locale }: { locale: Locale }) {
           <Divider />
         </div>
       </header>
+      <RibbonBand locale={locale} />
       <main className={`${styles.container} ${styles.indexGrid}`}>
         <div className={styles.cards}>
           {posts.map((p) => (
