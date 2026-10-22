@@ -124,14 +124,11 @@ html[lang="es"] .hl_page-preview--content .cheading-9UhGiuQIC6 h2 { font-size: c
 }
 html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5.6cqw) !important; } /* Spanish price-match headline (was h1) */
 
-/* ---- Sales page intro (components/SalesIntro.tsx): the dated offer header reuses .snz-offer; the "How mattress sales work"
-   intro is plain copy on a light band (SEO audit build pass, A4). */
-.snz-sales-intro { background: #f6f7fb; border-bottom: 1px solid rgba(0, 20, 137, 0.1); font-family: var(--font-poppins-stack); color: #1e223c; }
-.snz-sales-intro__inner { max-width: 900px; margin: 0 auto; padding: 28px 16px 30px; }
-.snz-sales-intro__title { margin: 0 0 10px; font-size: clamp(22px, 3vw, 30px); font-weight: 800; line-height: 1.2; color: #001489; }
-.snz-sales-intro__text { margin: 0 0 12px; font-size: 16px; line-height: 1.65; }
-.snz-sales-intro__text:last-child { margin-bottom: 0; }
+/* ---- Sales page: the dated offer block (scripts/sales-hero.mjs, a builder section right under the hero) reuses .snz-offer ---- */
 .snz-offer--sales .snz-offer__inner { padding-bottom: 4px; }
+/* the "Trusted by major brands" card of the next section rises 100px into the block above it (80px past that section's own top padding): keep the booking button clear of it */
+.snz-offer--sales { padding-bottom: 108px; }
+#section-snzSalesOffer, #section-snzSalesOffer > .inner, #section-snzSalesOffer .c-row, #section-snzSalesOffer .c-row > .inner, #section-snzSalesOffer .c-column, #section-snzSalesOffer .c-column > .inner, #section-snzSalesOffer .c-custom-code, #section-snzSalesOffer .custom-code-container { padding: 0 !important; margin: 0 !important; max-width: none !important; width: 100% !important; min-height: 0 !important; background: transparent !important; border: 0 !important; box-shadow: none !important; }
 
 /* ---- Service-area band (components/AreaLinks.tsx): "Shopping from Edinburg, Mission or Pharr?" at the end of the home
    page, linking the three area pages (SEO audit build pass, C1). Same palette as the offer band, on white. ---- */
@@ -244,3 +241,30 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
    (0,5,0 !important in overrides/site.css) outranked by id selectors */
 .hl_page-preview--content .section-x8iH4TeG-J, .hl_page-preview--content .section-x8iH4TeG-J > .inner, .hl_page-preview--content .row-EdKIR9VJhr, .hl_page-preview--content .row-EdKIR9VJhr > .inner, .hl_page-preview--content .col-44O5Jbh-BJ, .hl_page-preview--content .col-44O5Jbh-BJ > .inner, .hl_page-preview--content .custom-code-pO-5dtepaB, .hl_page-preview--content .custom-code-pO-5dtepaB .custom-code-container, #section-x8iH4TeG-J, #section-x8iH4TeG-J > .inner, #section-x8iH4TeG-J .c-row, #section-x8iH4TeG-J .c-row > .inner, #section-x8iH4TeG-J .c-column, #section-x8iH4TeG-J .c-column > .inner, #section-x8iH4TeG-J .c-custom-code, #section-x8iH4TeG-J .custom-code-container { padding: 0 !important; margin: 0 !important; max-width: none !important; width: 100% !important; min-height: 0 !important; background: transparent !important; border: 0 !important; box-shadow: none !important; overflow: visible !important; }
 #section-x8iH4TeG-J { position: relative; z-index: 5; }
+
+/* ---- Sales page hero (scripts/sales-hero.mjs, npm run section:sales-hero): the "How mattress sales work at Snooze" copy
+   lives inside the hero (desktop section CaKLDTKpp, mobile mjbWbTM8eI): H1, sub-headline, paragraph, a small H2, three
+   paragraphs (the last one smaller and muted, with the phone and address links) and the CTA. One left-aligned column of
+   at most 720px, even paragraph rhythm, no orphan lines; navy background, orange H1 and button untouched. ---- */
+.hl_page-preview--content .row-kv3e-sst2_, .hl_page-preview--content .row-VL5J96H5s_ { width: 100% !important; max-width: 760px !important; margin-left: auto !important; margin-right: auto !important; padding-left: 20px !important; padding-right: 20px !important; }
+.hl_page-preview--content .col-JfEdW9FUHD, .hl_page-preview--content .col-gVIdbkVC5E { width: 100% !important; padding-left: 0 !important; padding-right: 0 !important; }
+#col-JfEdW9FUHD .text-output, #col-JfEdW9FUHD .text-output *, #col-gVIdbkVC5E .text-output, #col-gVIdbkVC5E .text-output * { text-align: left !important; }
+.hl_page-preview--content .button-uwFb2Kphju, .hl_page-preview--content .button-OXd14_jbeY { text-align: left !important; }
+.hl_page-preview--content .csub-heading-mYqCj1bCt8 p, .hl_page-preview--content .csub-heading-ukMFKo6iLI p { margin: 0 !important; text-wrap: balance; }
+/* the builder drew a Font Awesome "money" icon before the sub-headline (its icon feature, a ::before glyph): off */
+.hl_page-preview--content .sub-heading-mYqCj1bCt8.text-output p:first-child::before, .hl_page-preview--content .sub-heading-ukMFKo6iLI.text-output p:first-child::before { content: none !important; display: none !important; }
+/* the hero used to keep 160px (desktop) / 100px (phone) of bottom padding for the brands card that overlapped it; the offer block follows it now */
+.hl_page-preview--content .section-CaKLDTKpp { padding-bottom: 80px !important; }
+@media (max-width: 767px) { .hl_page-preview--content .section-mjbWbTM8eI { padding-bottom: 60px !important; } }
+.hl_page-preview--content .csub-heading-qBu7fcf5l- p, .hl_page-preview--content .csub-heading-Q-TR52wCm0 p { font-size: 18px !important; line-height: 1.55 !important; margin: 0 0 14px !important; text-wrap: pretty; }
+.hl_page-preview--content .csub-heading-qBu7fcf5l- p:last-child, .hl_page-preview--content .csub-heading-Q-TR52wCm0 p:last-child { margin-bottom: 0 !important; }
+.hl_page-preview--content .csub-heading-qBu7fcf5l- .snz-sales-h2, .hl_page-preview--content .csub-heading-Q-TR52wCm0 .snz-sales-h2 { margin: 26px 0 10px !important; font-family: 'Poppins Headline', var(--font-poppins-stack) !important; font-weight: 900 !important; font-size: 26px !important; line-height: 1.2 !important; color: #fff !important; text-wrap: balance; }
+.hl_page-preview--content .csub-heading-qBu7fcf5l- .snz-sales-fine, .hl_page-preview--content .csub-heading-Q-TR52wCm0 .snz-sales-fine { font-size: 15px !important; line-height: 1.55 !important; color: rgba(255, 255, 255, 0.78) !important; }
+.hl_page-preview--content .csub-heading-qBu7fcf5l- .snz-sales-fine a, .hl_page-preview--content .csub-heading-Q-TR52wCm0 .snz-sales-fine a { color: #fff !important; text-decoration: underline !important; text-underline-offset: 3px; text-decoration-color: rgba(255, 255, 255, 0.6); }
+.hl_page-preview--content .csub-heading-qBu7fcf5l- .snz-sales-fine a:hover, .hl_page-preview--content .csub-heading-Q-TR52wCm0 .snz-sales-fine a:hover { text-decoration-color: #fff; }
+@media (max-width: 767px) {
+  .hl_page-preview--content .csub-heading-ukMFKo6iLI p { font-size: 18px !important; }
+  .hl_page-preview--content .csub-heading-Q-TR52wCm0 p { font-size: 16px !important; margin-bottom: 12px !important; }
+  .hl_page-preview--content .csub-heading-Q-TR52wCm0 .snz-sales-h2 { font-size: 21px !important; margin: 22px 0 8px !important; }
+  .hl_page-preview--content .csub-heading-Q-TR52wCm0 .snz-sales-fine { font-size: 14px !important; }
+}

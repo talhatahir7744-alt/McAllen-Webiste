@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
-import { SalesIntro } from '@/components/SalesIntro';
 import { isOfferActive } from '@/lib/offer';
 
 const BASE_METADATA: Metadata = {
@@ -53,8 +52,6 @@ export default function Page() {
     <>
       {/* page-level JSON-LD (scripts/page-schema.mjs) */}
       <PageSchema items={PAGE_SCHEMA} />
-      {/* dated current-offer header + "How mattress sales work" intro above the builder's offers (SEO audit build pass, A4) */}
-      <SalesIntro locale="en" />
       <PageClient />
     </>
   );
