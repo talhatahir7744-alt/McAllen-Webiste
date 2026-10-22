@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { RibbonBand } from '@/components/RibbonBand';
 import Script from 'next/script';
 import type { Locale } from '@/lib/i18n';
 import './sleep-quiz/sleep-fit-quiz.css';
@@ -67,7 +66,6 @@ export function SleepQuiz({ locale = 'en' }: { locale?: Locale }) {
           </main>
         </div>
       </div>
-      <RibbonBand locale={locale} />
       <Script src={QUIZ_SCRIPT} strategy="afterInteractive" />
     </>
   );

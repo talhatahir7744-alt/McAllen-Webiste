@@ -1,5 +1,4 @@
 import { Faq } from '@/components/blog/Faq';
-import { RibbonBand } from '@/components/RibbonBand';
 import { CheckItem } from '@/components/icons';
 import { PageSchema } from '@/components/PageSchema';
 import { LOCATION } from '@/lib/location';
@@ -29,7 +28,7 @@ export function ContentPage({ page, locale }: { page: ContentPageData; locale: L
   return (
     <main className={styles.page} data-content-page={page.slug}>
       <PageSchema items={schema} />
-      <div className={`${styles.container} ${styles.containerTop}`}>
+      <div className={styles.container}>
         <nav className={styles.crumbs} aria-label={locale === 'es' ? 'Ruta de navegación' : 'Breadcrumb'}>
           <a href={localizeHref('/', locale)}>{t.blog.home}</a>
           <span aria-hidden="true">/</span>
@@ -40,10 +39,6 @@ export function ContentPage({ page, locale }: { page: ContentPageData; locale: L
           <h1 className={styles.title}>{c.h1}</h1>
           {c.intro.map((p, i) => <p key={i} className={styles.lede}>{p}</p>)}
         </header>
-      </div>
-      {/* crossing ribbons: current offer + announcements, full-bleed, directly after the hero */}
-      <RibbonBand locale={locale} />
-      <div className={`${styles.container} ${styles.containerBottom}`}>
         <article className={styles.article}>
           {c.sections.map((s, i) => (
             <section key={i} className={styles.section}>

@@ -191,23 +191,41 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
 .snz-h2-line--big { font-weight: 800; }
 .snz-h2-line--small { font-size: 0.62em; font-weight: 800; letter-spacing: 0.03em; line-height: 1.25; margin-top: 0.4em; }
 
-/* ---- Crossing ribbons (scripts/ribbon-band.mjs → .snz-cross on the builder pages; the class block is snz-cross because the baked site stylesheet already owns .snz-ribbon for the hero mark, components/RibbonBand.tsx on the
-   hand-written ones), directly after the hero on every page. Ribbon A (orange, current offer, scrolls left, a link to
-   the sales page) crosses ribbon B (tan, announcements, scrolls right) in an X on a navy strip. Pure CSS marquee: each
-   track holds two identical copies and moves by exactly one copy (50%), linear and infinite, so the loop is seamless;
-   transform only; paused on hover; static for reduced motion. Not part of the scroll-reveal system. ---- */
+/* ---- Announcement ticker (components/AnnouncementTicker.tsx, rendered by both root layouts directly under the sticky
+   header on every page; items in lib/announcements.ts). These are the client's original custom-code ticker styles from
+   the home page (orange strip, edge fade, shimmer, spinning sparkle separators, a 32 s pure-CSS loop over two identical
+   item sets), moved out of the builder section so every page carries the same strip. ---- */
+.snooze-ticker-wrap { width: 100%; background: #F07B2E; overflow: hidden; position: relative; padding: 13px 0; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%); }
+.snooze-ticker-wrap::before { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.08) 50%, transparent 60%); background-size: 200% 100%; animation: tickerShimmer 3s linear infinite; pointer-events: none; z-index: 2; }
+@keyframes tickerShimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+.snooze-ticker-track { display: flex; width: max-content; animation: tickerScroll 32s linear infinite; will-change: transform; }
+.snooze-ticker-wrap:hover .snooze-ticker-track { animation-play-state: paused; }
+@keyframes tickerScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.snooze-ticker-item { display: flex; align-items: center; gap: 14px; padding: 0 36px; white-space: nowrap; flex-shrink: 0; }
+.snooze-ticker-text { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.03em; color: #ffffff; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); text-transform: uppercase; }
+.snooze-ticker-sep { display: inline-flex; align-items: center; justify-content: center; color: rgba(255, 255, 255, 0.6); font-size: 1rem; flex-shrink: 0; animation: sepSpin 6s linear infinite; }
+@keyframes sepSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .snooze-ticker-track, .snooze-ticker-sep, .snooze-ticker-wrap::before { animation: none !important; } }
+
+/* ---- Crossing ribbons (scripts/ribbon-band.mjs → .snz-cross, the home page only; the block is named snz-cross because
+   the baked site stylesheet already owns .snz-ribbon for the hero mark). Directly after the hero: a transparent band
+   whose negative margins pull it over the bottom of the hero and the top of the next section, so both backgrounds
+   show through and the X of the two ribbons sits on the seam, above both (z-index). Ribbon A (orange, current offer,
+   scrolls left) crosses ribbon B (tan, the same offer, scrolls right); both link to the sales page. Pure CSS marquee:
+   each track holds two identical copies and moves by exactly one copy (50%), linear and infinite, so the loop is
+   seamless; transform only; paused on hover; static for reduced motion. Clicks on the transparent parts fall through
+   to the sections underneath. Not part of the scroll-reveal system. ---- */
 :root { --ribbon-speed: 36s; }
-.snz-cross { position: relative; height: 140px; background: #001489; overflow: hidden; isolation: isolate; font-family: var(--font-poppins-stack); }
-.snz-cross__rb { position: absolute; top: 50%; left: -4vw; width: 108vw; display: block; overflow: hidden; text-decoration: none; will-change: transform; backface-visibility: hidden; }
+.snz-cross { position: relative; z-index: 5; height: 170px; margin: -75px 0; background: transparent; overflow: hidden; pointer-events: none; isolation: isolate; font-family: var(--font-poppins-stack); }
+.snz-cross__rb { position: absolute; top: 50%; left: -4vw; width: 108vw; display: block; overflow: hidden; text-decoration: none; pointer-events: auto; will-change: transform; backface-visibility: hidden; box-shadow: 0 10px 28px rgba(0, 20, 137, 0.24); }
 .snz-cross__rb--a { z-index: 2; background: #F58433; color: #001489; transform: translateY(-50%) rotate(-2.5deg); }
 .snz-cross__rb--b { z-index: 1; background: #E8DCC8; color: #001489; transform: translateY(-50%) rotate(2.5deg); }
-.snz-cross--single .snz-cross__rb--b { z-index: 2; }
 .snz-cross__track { display: flex; width: max-content; white-space: nowrap; will-change: transform; backface-visibility: hidden; }
 .snz-cross__rb--a .snz-cross__track { animation: snzRibbonLeft var(--ribbon-speed) linear infinite; }
 .snz-cross__rb--b .snz-cross__track { animation: snzRibbonRight var(--ribbon-speed) linear infinite; }
 .snz-cross__copy { display: flex; align-items: center; flex: 0 0 auto; }
-.snz-cross__item { flex: 0 0 auto; white-space: nowrap; padding: 12px 0; font-weight: 700; font-size: 15px; line-height: 1.2; letter-spacing: 0.04em; text-transform: uppercase; }
-.snz-cross__sep { flex: 0 0 auto; width: 18px; height: 18px; margin: 0 18px; }
+.snz-cross__item { flex: 0 0 auto; white-space: nowrap; padding: 15px 0; font-weight: 700; font-size: 19px; line-height: 1.2; letter-spacing: 0.04em; text-transform: uppercase; }
+.snz-cross__sep { flex: 0 0 auto; width: 22px; height: 22px; margin: 0 22px; }
 .snz-cross__rb--a .snz-cross__sep { color: #fff; }
 .snz-cross__rb--b .snz-cross__sep { color: #001489; }
 .snz-cross__rb:hover .snz-cross__track { animation-play-state: paused; }
@@ -215,14 +233,14 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
 @keyframes snzRibbonLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes snzRibbonRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 @media (max-width: 767px) {
-  .snz-cross { height: 96px; }
-  .snz-cross__rb { left: -6vw; width: 112vw; }
-  .snz-cross__item { font-size: 12.5px; padding: 10px 0; }
-  .snz-cross__sep { width: 14px; height: 14px; margin: 0 12px; }
+  .snz-cross { height: 118px; margin: -48px 0; }
+  .snz-cross__rb { left: -6vw; width: 112vw; box-shadow: 0 6px 18px rgba(0, 20, 137, 0.24); }
+  .snz-cross__item { font-size: 14.5px; padding: 11px 0; }
+  .snz-cross__sep { width: 16px; height: 16px; margin: 0 14px; }
 }
 @media (prefers-reduced-motion: reduce) { .snz-cross__track { animation: none !important; } }
-/* the builder section that carries the band (a copy of the empty custom-code section): no padding, width or background of its own */
-.hl_page-preview--content .section-x8iH4TeG-J, .hl_page-preview--content .section-x8iH4TeG-J > .inner, .hl_page-preview--content .row-EdKIR9VJhr, .hl_page-preview--content .row-EdKIR9VJhr > .inner, .hl_page-preview--content .col-44O5Jbh-BJ, .hl_page-preview--content .col-44O5Jbh-BJ > .inner, .hl_page-preview--content .custom-code-pO-5dtepaB, .hl_page-preview--content .custom-code-pO-5dtepaB .custom-code-container { padding: 0 !important; margin: 0 !important; max-width: none !important; width: 100% !important; background: transparent !important; border: 0 !important; }
-.hl_page-preview--content .section-x8iH4TeG-J { background: #001489 !important; overflow: hidden; }
-/* the baked site stylesheet gives every content row a 20px/32px side gutter on phones/tablets (0,5,0 !important, overrides/site.css); id selectors outrank it so the band stays full-bleed */
-#section-x8iH4TeG-J, #section-x8iH4TeG-J > .inner, #section-x8iH4TeG-J .c-row, #section-x8iH4TeG-J .c-row > .inner, #section-x8iH4TeG-J .c-column, #section-x8iH4TeG-J .c-column > .inner, #section-x8iH4TeG-J .c-custom-code, #section-x8iH4TeG-J .custom-code-container { padding: 0 !important; margin: 0 !important; width: 100% !important; max-width: none !important; }
+/* the builder section that carries the band (the home page's custom-code section): no padding, border, width limit or
+   background of its own, overflow visible so the band can bridge its neighbours, and the baked phone/tablet row gutter
+   (0,5,0 !important in overrides/site.css) outranked by id selectors */
+.hl_page-preview--content .section-x8iH4TeG-J, .hl_page-preview--content .section-x8iH4TeG-J > .inner, .hl_page-preview--content .row-EdKIR9VJhr, .hl_page-preview--content .row-EdKIR9VJhr > .inner, .hl_page-preview--content .col-44O5Jbh-BJ, .hl_page-preview--content .col-44O5Jbh-BJ > .inner, .hl_page-preview--content .custom-code-pO-5dtepaB, .hl_page-preview--content .custom-code-pO-5dtepaB .custom-code-container, #section-x8iH4TeG-J, #section-x8iH4TeG-J > .inner, #section-x8iH4TeG-J .c-row, #section-x8iH4TeG-J .c-row > .inner, #section-x8iH4TeG-J .c-column, #section-x8iH4TeG-J .c-column > .inner, #section-x8iH4TeG-J .c-custom-code, #section-x8iH4TeG-J .custom-code-container { padding: 0 !important; margin: 0 !important; max-width: none !important; width: 100% !important; min-height: 0 !important; background: transparent !important; border: 0 !important; box-shadow: none !important; overflow: visible !important; }
+#section-x8iH4TeG-J { position: relative; z-index: 5; }

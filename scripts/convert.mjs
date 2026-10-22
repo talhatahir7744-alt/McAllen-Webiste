@@ -1004,6 +1004,7 @@ export const SITE = {
 import Script from 'next/script';
 import { TopBar } from '@/components/TopBar';
 import { SiteHeader } from '@/components/SiteHeader';
+import { AnnouncementTicker } from '@/components/AnnouncementTicker';
 import { SiteFooter } from '@/components/SiteFooter';
 import { PageLoader } from '@/components/PageLoader';
 import { TrackingHead, TrackingBody } from '@/components/Tracking';
@@ -1047,6 +1048,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* slim NAP + language strip above the sticky header, on every page (components/TopBar.tsx) */}
         <TopBar locale=${JSON.stringify(l.code)} />
         <SiteHeader locale=${JSON.stringify(l.code)} />
+        {/* announcement ticker directly under the sticky header, on every page (lib/announcements.ts) */}
+        <AnnouncementTicker locale=${JSON.stringify(l.code)} />
         {children}
         <SiteFooter locale=${JSON.stringify(l.code)} />
         <Script src="/snz-motion.js?v=${BUILD_STAMP}" strategy="afterInteractive" />

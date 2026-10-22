@@ -5,7 +5,6 @@ import type { BlogPost } from '@/lib/blog-posts';
 import { localizeHref, ui, type Locale } from '@/lib/i18n';
 import { Faq } from './Faq';
 import { Rich } from './Rich';
-import { RibbonBand } from '@/components/RibbonBand';
 import { ArrowRightIcon } from '@/components/icons';
 import styles from './blog.module.css';
 
@@ -121,7 +120,6 @@ export function BlogArticle({ post, related, locale = 'en' }: { post: BlogPost; 
       <figure className={post.featuredFit === 'contain' ? `${styles.featured} ${styles.featuredContain}` : styles.featured}>
         <Image src={post.featured.src} alt={post.featured.alt} width={post.featured.width} height={post.featured.height} sizes="(max-width: 1100px) 100vw, 1040px" priority />
       </figure>
-      <RibbonBand locale={locale} />
 
       <main className={styles.article} id="article">
         {post.sections.map((s, i) => (

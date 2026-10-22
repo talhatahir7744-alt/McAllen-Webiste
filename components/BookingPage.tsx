@@ -1,5 +1,4 @@
 import Script from 'next/script';
-import { RibbonBand } from '@/components/RibbonBand';
 import { SITE } from './site-config';
 import { LOCATION } from '@/lib/location';
 import { PageSchema } from './PageSchema';
@@ -87,8 +86,6 @@ export function BookingPage({ locale = 'en' }: { locale?: Locale }) {
           <span className={styles.progressFill}>{t.almost}</span>
         </div>
       </header>
-      {/* crossing ribbons: current offer + announcements, directly after the hero */}
-      <RibbonBand locale={locale} />
 
       <iframe
         className={styles.calendar}
