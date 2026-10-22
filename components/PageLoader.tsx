@@ -1,7 +1,10 @@
 import { SITE } from './site-config';
 import type { Locale } from '@/lib/i18n';
 
-/* Branded page loader. Rendered as the first child of <body> by both root layouts, with its critical CSS inline
+/* Branded page loader (desktop and tablet only). Performance pass, October 2026: on phones (max-width 767px) it is never
+   shown — CSS hides it and the skip script marks the page as loader-free, so the page paints immediately (it held the
+   first contentful paint back to ~1.3 s in slow Lighthouse runs) — and on larger screens a CSS animation fades it
+   0.7 s after it appeared even if no script runs, so content is never hidden behind a script. Rendered as the first child of <body> by both root layouts, with its critical CSS inline
    so it paints before anything else. Behaviour (see the inline script): shown on the first page view of a browser
    session only (sessionStorage flag; later navigations skip it before first paint), hidden on window load or
    300 ms after it appeared, whichever comes first (SEO audit build pass, October 2026 — section B: an opaque overlay keeps
@@ -16,6 +19,9 @@ const CSS = `
 #snz-loader{position:fixed;inset:0;z-index:5000;display:flex;align-items:center;justify-content:center;background:radial-gradient(120% 90% at 50% 0%,#0b2aa8 0%,#001489 55%,#000b4a 100%);color:#fff;font-family:var(--font-poppins-stack);transition:opacity .4s ease,transform .4s ease,visibility 0s linear .4s;transform:scale(1);will-change:opacity,transform}
 #snz-loader.is-done{opacity:0;transform:scale(1.04);visibility:hidden;pointer-events:none}
 html.snz-loader-skip #snz-loader,#snz-loader.is-gone{display:none}
+#snz-loader{animation:snzLoaderAutoHide .25s ease .7s forwards}
+@keyframes snzLoaderAutoHide{to{opacity:0;visibility:hidden;pointer-events:none}}
+@media (max-width:767px){#snz-loader{display:none}}
 .snz-loader__box{display:flex;flex-direction:column;align-items:center;gap:22px;padding:24px;text-align:center}
 .snz-loader__logo{width:min(64vw,260px);height:auto;filter:brightness(0) invert(1);transform-origin:50% 60%;animation:snzLoaderRock 1.8s ease-in-out infinite}
 .snz-loader__zz{display:flex;gap:6px;height:22px;align-items:flex-end;margin-top:-10px}
@@ -33,7 +39,7 @@ html.snz-loader-skip #snz-loader,#snz-loader.is-gone{display:none}
 @media (prefers-reduced-motion:reduce){#snz-loader{transition:opacity .15s ease,visibility 0s linear .15s;transform:none}#snz-loader.is-done{transform:none}.snz-loader__logo,.snz-loader__zz span,.snz-loader__bar i{animation:none}.snz-loader__zz span{opacity:.9}.snz-loader__bar i{width:100%}}
 `;
 
-const SKIP_SCRIPT = `try{if(sessionStorage.getItem('snzLoaded'))document.documentElement.classList.add('snz-loader-skip')}catch(e){}`;
+const SKIP_SCRIPT = `try{if(sessionStorage.getItem('snzLoaded')||(window.matchMedia&&window.matchMedia('(max-width: 767px)').matches))document.documentElement.classList.add('snz-loader-skip')}catch(e){}`;
 
 const RUN_SCRIPT = `(function(){var el=document.getElementById('snz-loader');if(!el)return;var d=document.documentElement;var seen=false;try{seen=!!sessionStorage.getItem('snzLoaded')}catch(e){}if(seen||d.classList.contains('snz-loader-skip')){d.classList.add('snz-loader-skip');el.classList.add('is-gone');d.dispatchEvent(new Event('snz:loader-done'));return;}var t0=Date.now(),done=false,MIN=0,MAX=300;var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;function finish(){if(done)return;done=true;try{sessionStorage.setItem('snzLoaded','1')}catch(e){}el.classList.add('is-done');d.dispatchEvent(new Event('snz:loader-done'));setTimeout(function(){el.classList.add('is-gone')},rm?150:260)}function ready(){var wait=Math.max(0,MIN-(Date.now()-t0));setTimeout(finish,wait)}function heroReady(){var img=null;var secs=document.querySelectorAll('.c-section, main, header');for(var i=0;i<secs.length&&!img;i++){var im=secs[i].querySelector('img');if(im&&im.getBoundingClientRect().width>0)img=im}var p=[];if(img&&!img.complete)p.push(new Promise(function(r){img.addEventListener('load',r,{once:true});img.addEventListener('error',r,{once:true})}));if(document.fonts&&document.fonts.ready)p.push(document.fonts.ready);Promise.race([Promise.all(p),new Promise(function(r){setTimeout(r,900)})]).then(ready)}if(document.readyState==='complete')ready();else{window.addEventListener('load',ready,{once:true});if(document.readyState!=='loading')heroReady();else document.addEventListener('DOMContentLoaded',heroReady,{once:true})}setTimeout(finish,MAX);})();`;
 

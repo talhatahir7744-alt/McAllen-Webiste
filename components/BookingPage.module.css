@@ -41,3 +41,15 @@
 .visit { max-width: 820px; margin: 0 auto; padding: 8px 20px clamp(36px, 5vw, 64px); font-family: var(--font-poppins-stack); }
 .visitTitle { margin: 0 0 14px; font-weight: 700; font-size: clamp(22px, 3vw, 30px); line-height: 1.2; color: #001489; text-align: center; }
 .visitSteps { margin: 0; padding-left: 22px; display: grid; gap: 10px; font-size: clamp(15px, 1.6vw, 17px); line-height: 1.6; color: #1d2b64; }
+
+/* Performance pass (October 2026): until form_embed.js / the shim gives the calendar iframe its height (inline style),
+   it sits at the browser's 150px default and the "visit" section below jumped down by ~700px when the height arrived
+   (CLS 0.3). Reserve the calendar's first-step height only while no inline height exists; the moment the embed sets
+   one, this rule no longer matches and the embed's height is used exactly as before. */
+.calendar:not([style*="height"]) { min-height: 830px; }
+@media (min-width: 768px) and (max-width: 1023px) { .calendar:not([style*="height"]) { min-height: 990px; } }
+@media (min-width: 1024px) { .calendar:not([style*="height"]) { min-height: 780px; } }
+/* form_embed.js hides the iframe while the calendar loads by taking it out of the flow (position:absolute;
+   left:-9999px; opacity 0; visibility hidden) and puts it back about a second later, which moved the "visit" section
+   up and down again. The iframe stays in the flow (still invisible while loading), so nothing below it moves. */
+.calendar { position: relative !important; left: auto !important; }

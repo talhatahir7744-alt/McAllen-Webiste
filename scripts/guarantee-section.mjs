@@ -60,8 +60,10 @@ for (const file of files) {
   for (const id of BUTTONS) {
     const re = new RegExp(`(<a id="${id}_btn"[^>]*>)([\\s\\S]*?<\\/a>)`);
     markup = markup.replace(re, (m, open, rest) => {
-      if (open.includes(`aria-label="${escHtml(c.label)}`)) return m; counts.b++;
-      const o = open.replace(/href="[^"]*"/, `href="${c.href}"`).replace(/aria-label="[^"]*"/, `aria-label="${escHtml(c.label)} ${escHtml(c.sub)}"`);
+      counts.b++;
+      /* no aria-label: the button's accessible name is its own visible text (label + sub-label). An aria-label repeating it
+         failed WCAG 2.5.3 label-in-name, because the two spans sit together with no space between them in the text. */
+      const o = open.replace(/href="[^"]*"/, `href="${c.href}"`).replace(/\s*aria-label="[^"]*"/, '');
       const r = rest.replace(/(<span class="main-heading-button">)[^<]*(<\/span>)/, `$1${escHtml(c.label)}$2`).replace(/(<span class="sub-heading-button">)[^<]*(<\/span>)/, `$1${escHtml(c.sub)}$2`);
       return o + r;
     });

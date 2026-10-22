@@ -283,3 +283,10 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
 .hl_page-preview--content #section-6PvUGyH7jn { padding-top: 44px !important; }
 .hl_page-preview--content #custom-code-HLVM8l3CzV .pm-section { padding-top: 0 !important; }
 .hl_page-preview--content #custom-code-PlS5urY9jK .pm-section { padding-top: 20px !important; }
+
+/* ---- Content is never held invisible by a script (performance pass, October 2026). Three reveal systems started content
+   at opacity 0 and only showed it once a script saw it scroll into view: the GoHighLevel runtime (an inline opacity:0 on
+   elements with an entrance animation, set after hydration), the guarantee band's custom code (.guar-reveal / .guar-star)
+   and the Pressure Mapping timeline's custom code (.pm-step, .pm-benefits li). They now stay at full opacity; their
+   slide-in transforms still run. The site's own reveals (overrides/motion.css) are transform-only as well. ---- */
+.hl_page-preview--content [data-animation-class*="animate__"], .guar-reveal, .guar-star, .pm-section .pm-step, .pm-section .pm-benefits li { opacity: 1 !important; }

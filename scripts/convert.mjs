@@ -800,6 +800,7 @@ function convertPage(rel, loc = null) {
   const fluidCss = fluidTypography(pageCss);
   if (fluidCss) headParts.push(`<style data-snz-fluid="">${fluidCss}</style>`);
   headParts.push('<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/gfonts/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1xlFQ.woff2">'); // the "Poppins Headline" face (overrides/site.css)
+  headParts.push('<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/gfonts/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2">'); // the "Poppins Headline Bold" face: loading late, it re-wrapped the hero text (performance pass, October 2026)
   for (const cssFile of ['buttons.css', 'site.css', 'motion.css']) if (fs.existsSync(path.join(OVERRIDES_DIR, cssFile))) headParts.push(`<style data-snz-override="${cssFile}">${ovrFile(cssFile).split('{{not}}').join(notChain)}</style>`);
 
   // ---- 7. body
@@ -1009,6 +1010,7 @@ import { SiteFooter } from '@/components/SiteFooter';
 import { PageLoader } from '@/components/PageLoader';
 import { TrackingHead, TrackingBody } from '@/components/Tracking';
 import { GHL_SHIM } from '@/lib/ghl-shim';
+import { BODY_GUARD } from '@/lib/body-guard';
 import { Poppins } from 'next/font/google';
 import '../../overrides/global.css';
 
@@ -1029,11 +1031,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang=${JSON.stringify(l.htmlLang)} className={poppins.variable}>
       <head>
+        {/* keeps elements that tags append to <body> before the React wrapper exists from breaking hydration (lib/body-guard.ts) */}
+        <script dangerouslySetInnerHTML={{ __html: BODY_GUARD }} />
+        {/* tracking first, high in <head>, in the client's order (components/Tracking.tsx) */}
+        <TrackingHead />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://link.snoozesleep.com" />
         <link rel="dns-prefetch" href="https://reputationhub.site" />
         <link rel="dns-prefetch" href="https://tag.simpli.fi" />
-        <TrackingHead />
         {/* Safety net: rewrites any asset URL the GHL runtime still builds against the original CDNs to the
             local copies, provides window.__ghlOnReady for the site's own DOMContentLoaded scripts, and filters the
             review widget's height messages. A plain parser-blocking script on purpose: next/script's
@@ -1044,6 +1049,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <TrackingBody />
+        {/* Everything React renders in <body> sits in this one element (display: contents, so it adds no box and changes no
+            layout). Tags fired by Google Tag Manager append elements to <body> while a long page is still streaming;
+            with this wrapper they land after it, at the end of <body>, where React's hydration ignores them, instead of
+            between React-rendered siblings (React error #418, a full client re-render). Keeps GTM at parse time safe. */}
+        <div id="snz-app" style={{ display: 'contents' }}>
         <PageLoader locale=${JSON.stringify(l.code)} />
         {/* slim NAP + language strip above the sticky header, on every page (components/TopBar.tsx) */}
         <TopBar locale=${JSON.stringify(l.code)} />
@@ -1055,6 +1065,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script src="/snz-motion.js?v=${BUILD_STAMP}" strategy="afterInteractive" />
         {/* dataLayer events for GA4 key events: phone / directions clicks, booking and opt-in confirmations (SEO audit 7b) */}
         <Script src="/snz-events.js?v=${BUILD_STAMP}" strategy="afterInteractive" />
+        </div>
       </body>
     </html>
   );

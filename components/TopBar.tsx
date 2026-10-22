@@ -64,9 +64,10 @@ export function TopBar({ locale = 'en' }: { locale?: Locale }) {
               lang={l}
               className={`${styles.langLink} ${l === locale ? styles.langOn : ''}`}
               aria-current={l === locale ? 'true' : undefined}
-              aria-label={l === 'en' ? 'English' : 'Español'}
             >
-              {l.toUpperCase()}
+              {/* visible code for sighted users, full language name for screen readers (no aria-label: the visible text must be part of the accessible name) */}
+              <span aria-hidden="true">{l.toUpperCase()}</span>
+              <span className={styles.srOnly}>{l === 'en' ? 'English' : 'Español'}</span>
             </a>
           ))}
         </div>

@@ -65,6 +65,11 @@ export function GhlPage({ headHtml, bodyHtml, scripts, preload }: { headHtml: st
       {(preload || []).map((p) => (
         <link key={p.href + (p.media || '')} rel="preload" as="image" href={p.href} media={p.media} fetchPriority="high" />
       ))}
+      {/* the builder headline faces ("Poppins Headline" / "Poppins Headline Bold", 8 KB each, overrides/site.css): preloaded from
+          <head> so they arrive before the first render; preloaded only from the page markup they arrived late on phones and
+          the headlines re-wrapped when they swapped in (layout shift). Performance pass, October 2026. */}
+      <link rel="preload" as="font" type="font/woff2" crossOrigin="" href="/assets/gfonts/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1xlFQ.woff2" />
+      <link rel="preload" as="font" type="font/woff2" crossOrigin="" href="/assets/gfonts/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2" />
       {/* __html is '' on the client (client.tsx): React keeps the server-rendered markup as long as the value does not change */}
       <div data-ghl-page="" style={{ display: 'contents' }} suppressHydrationWarning dangerouslySetInnerHTML={{ __html: headHtml + bodyHtml }} />
       {/* keeps a handle on the server-rendered nodes before React runs: third-party loaders (CallRail, tag managers)

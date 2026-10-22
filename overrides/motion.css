@@ -2,16 +2,17 @@
    Motion system — scroll reveals + micro-interactions. Data-attribute driven:
      <div data-animate="fade-up" data-delay="120">
    Variants: fade-up | fade-down | fade-left | fade-right | zoom-in | fade
-   The hidden state only exists while <html class="js"> is present (set by public/ghl-offline-shim.js
-   before first paint, never under prefers-reduced-motion), so content is visible without JavaScript.
-   public/snz-motion.js adds .is-in once (IntersectionObserver, threshold 0.15). Transform + opacity only.
+   Content is NEVER hidden (performance pass, October 2026): reveals animate transform only, from a short offset to
+   none, at full opacity, so every section is painted immediately with or without JavaScript and the page is
+   visually complete as soon as it renders. The offset only exists while <html class="js"> is present (set by
+   public/ghl-offline-shim.js before first paint, never under prefers-reduced-motion). public/snz-motion.js adds
+   .is-in once (IntersectionObserver, threshold 0.15). No will-change on the hundreds of reveal elements (it put each
+   one on its own compositor layer).
    ===================================================================================== */
 
 html.js [data-animate] {
-  opacity: 0;
-  transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
   transition-delay: var(--snz-delay, 0ms);
-  will-change: opacity, transform;
 }
 html.js [data-animate="fade-up"]    { transform: translate3d(0, 26px, 0); }
 html.js [data-animate="fade-down"]  { transform: translate3d(0, -26px, 0); }
@@ -19,12 +20,12 @@ html.js [data-animate="fade-left"]  { transform: translate3d(-30px, 0, 0); } /* 
 html.js [data-animate="fade-right"] { transform: translate3d(30px, 0, 0); }  /* enters from the right */
 html.js [data-animate="zoom-in"]    { transform: scale(0.94); }
 html.js [data-animate="fade"]       { transform: none; }
-html.js [data-animate].is-in        { opacity: 1; transform: none; will-change: auto; }
+html.js [data-animate].is-in        { transform: none; }
 
 /* Hero sections (data-snz-hero on both copies: scripts/hero-mark.mjs, and scripts/convert.mjs for new conversions) paint on the first frame — LCP must not wait
    for JavaScript (SEO audit build pass, October 2026 — section B). Their reveal elements are never hidden by the gate above;
    a CSS-only entrance (a short slide, full opacity throughout, no observer) runs on top after first paint. */
-html.js [data-snz-hero] [data-animate] { opacity: 1; transform: none; transition: none; will-change: auto; animation: snzHeroIn 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both; animation-delay: var(--snz-delay, 0ms); }
+html.js [data-snz-hero] [data-animate] { transform: none; transition: none; animation: snzHeroIn 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both; animation-delay: var(--snz-delay, 0ms); }
 @keyframes snzHeroIn { from { transform: translate3d(0, 14px, 0); } to { transform: none; } }
 @media (prefers-reduced-motion: reduce) { html.js [data-snz-hero] [data-animate] { animation: none; } }
 
@@ -53,7 +54,7 @@ html.js [data-snz-hero] [data-animate] { opacity: 1; transform: none; transition
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html.js [data-animate] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  html.js [data-animate] { transform: none !important; transition: none !important; }
   .snz-pulse { animation: none; }
   .pm-section .pm-card { transition: none; }
 }

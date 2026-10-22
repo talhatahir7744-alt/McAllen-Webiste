@@ -42,7 +42,8 @@
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
+  left: 0;
+  transform: translateX(-100%); /* the sweep moves by transform (compositor only): animating left re-laid it out every frame and logged layout shifts */
   width: 100%;
   height: 100%;
   background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
@@ -54,7 +55,7 @@
   animation-delay: 1.5s;
 }
 @keyframes snzShine {
-  100% { left: 100%; }
+  100% { transform: translateX(100%); }
 }
 
 .c-button a.custom{{not}}:hover,
