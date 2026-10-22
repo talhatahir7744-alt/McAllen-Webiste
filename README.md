@@ -303,6 +303,14 @@ The "How mattress sales work at Snooze" copy lives inside the hero of `/mattress
 - Position: the band overlaps the hero by about 65% and the next section by about 35% (170px band, margins −110px / −60px; 118px band, −77px / −41px on phones). The headline "If you don't Snooze, you lose!" sits about 81px (desktop) / 58px (phone) below the ribbons. The phone hero, which ends with its CTA button and had no bottom padding, gets 40px so the raised ribbons clear the button.
 - Crawl hygiene: only the first item set of ribbon A's first copy is readable text; every repeat (the rest of that copy, the loop copy, and all of ribbon B) is `aria-hidden="true"` (repeats inside a copy sit in a `display: contents` wrapper, so copy widths and the seamless loop are unchanged). The band link's accessible name is fixed text: "See the Black Friday sale" / "Ver la venta de Black Friday".
 
+### GoHighLevel chat widget (October 23, 2026)
+
+- `components/ChatWidget.tsx`, rendered by both root layouts (and the converter's layout template): the client's snippet verbatim — `widgets.leadconnectorhq.com/loader.js` with `data-resources-url` and the widget id — English widget `6ada7129c5fa6117307c554f` on every page under `app/(en)`, Spanish widget `6ada73894325b023027e7371` on every page under `app/es`. Exactly one per page.
+- Loaded after the page: the script is appended to the end of `<body>` after the window `load` event, when the browser is idle (`requestIdleCallback`, 4 s timeout), once per page view; it never touches `<head>`, the critical path or hydration.
+- Language switch: the EN | ES links are plain `<a>` elements and each language has its own root layout, so switching is always a full page load that starts with only that language's widget; if a widget for the other language were ever still present, the component removes it (script and `<chat-widget>` element) before adding its own.
+- Stacking (`overrides/global.css`, "Chat widget"): the widget's own z-index (99999999) is replaced by 1250 on the `<chat-widget>` host — above the sticky header, so the open chat window (which reaches the top of the screen on short phones) is never covered — and drops to 1100 while the mobile menu is open, so the drawer covers the bubble. Bubble position and size are the widget's own (bottom right, 58px, 20px from the edges).
+- The GTM container already injects `loader.js` without a widget id (it renders nothing); it does not create a second widget, but it downloads the chat code on every page and can be removed from GTM once this widget is live.
+
 ### Home page: ribbon band position (October 23, 2026)
 
 - Position: the band is centred on the seam, half over the hero and half over the next section (170px band, margins −85px / −85px; 118px band, −59px / −59px on phones). It used to sit about 65% over the hero.

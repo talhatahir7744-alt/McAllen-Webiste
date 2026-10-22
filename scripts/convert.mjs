@@ -1009,6 +1009,7 @@ import { AnnouncementTicker } from '@/components/AnnouncementTicker';
 import { SiteFooter } from '@/components/SiteFooter';
 import { PageLoader } from '@/components/PageLoader';
 import { TrackingHead, TrackingBody } from '@/components/Tracking';
+import { ChatWidget } from '@/components/ChatWidget';
 import { GHL_SHIM } from '@/lib/ghl-shim';
 import { BODY_GUARD } from '@/lib/body-guard';
 import { Poppins } from 'next/font/google';
@@ -1065,6 +1066,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script src="/snz-motion.js?v=${BUILD_STAMP}" strategy="afterInteractive" />
         {/* dataLayer events for GA4 key events: phone / directions clicks, booking and opt-in confirmations (SEO audit 7b) */}
         <Script src="/snz-events.js?v=${BUILD_STAMP}" strategy="afterInteractive" />
+        {/* the GoHighLevel chat widget in this language, added after the page has loaded (components/ChatWidget.tsx) */}
+        <ChatWidget locale=${JSON.stringify(l.code)} />
         </div>
       </body>
     </html>
