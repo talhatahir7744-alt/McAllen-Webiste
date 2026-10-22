@@ -38,18 +38,25 @@ const ACTIVE = OFFER.enabled && (!OFFER.startDate || today >= OFFER.startDate) &
 /* ---- band HTML: one link holding two ribbons; each track = two identical copies of the items (3 × the offer items) so
    the 50% keyframe loop is seamless ---- */
 const CHEV = '<svg class="snz-cross__sep" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-const copy = (items, reps) => `<span class="snz-cross__copy">${Array.from({ length: reps }, () => items.map((t) => `<span class="snz-cross__item">${esc(t)}</span>${CHEV}`).join('')).join('')}</span>`;
-const track = (items, reps) => `<div class="snz-cross__track" aria-hidden="true">${copy(items, reps)}${copy(items, reps)}</div>`;
+/* a small tag icon anchors every repeat of the headline item (the first item, from lib/offer.ts) */
+const TAG = '<svg class="snz-cross__tag" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L2.5 12.5V2.5h10l8.1 8.1a2 2 0 0 1 0 2.8z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><circle cx="7.5" cy="7.5" r="1.6" fill="currentColor"/></svg>';
+const itemSet = (items) => items.map((t, i) => `<span class="snz-cross__item${i === 0 ? ' snz-cross__item--lead' : ''}">${i === 0 ? TAG : ''}${esc(t)}</span>${CHEV}`).join('');
+/* crawl hygiene: in ribbon A only the first item set of the first copy is readable text; every repeat (the rest of that
+   copy, the second copy that makes the loop seamless, and all of ribbon B, a visual twin) is aria-hidden, so screen
+   readers and text extraction see each item once. Repeats inside a copy sit in a display:contents wrapper so the
+   flex row and the copy widths are unchanged. */
+const copy = (items, reps, readable) => `<span class="snz-cross__copy"${readable ? '' : ' aria-hidden="true"'}>${readable ? itemSet(items) + `<span class="snz-cross__rep" aria-hidden="true">${Array.from({ length: reps - 1 }, () => itemSet(items)).join('')}</span>` : Array.from({ length: reps }, () => itemSet(items)).join('')}</span>`;
+const track = (items, reps, readable) => `<div class="snz-cross__track">${copy(items, reps, readable)}${copy(items, reps, false)}</div>`;
 /* the whole band is ONE link to the sales page (both ribbons, every item); the visible text is decorative
    (aria-hidden tracks), the link text is the label below */
-const LABEL = { en: (headline) => `See the ${headline}`, es: (headline) => `Ver la ${headline}` };
+const LABEL = { en: 'See the Black Friday sale', es: 'Ver la venta de Black Friday' };
 function bandHtml(loc) {
   if (!ACTIVE) return '';
   const items = OFFER.items(loc); const href = `${loc === 'es' ? '/es' : ''}${OFFER.href}`;
-  const a = `<div class="snz-cross__rb snz-cross__rb--a">${track(items, 3)}</div>`;
-  const b = `<div class="snz-cross__rb snz-cross__rb--b">${track(items, 3)}</div>`;
+  const a = `<div class="snz-cross__rb snz-cross__rb--a">${track(items, 3, true)}</div>`;
+  const b = `<div class="snz-cross__rb snz-cross__rb--b" aria-hidden="true">${track(items, 3, false)}</div>`;
   const expiry = OFFER.endDate ? `<script>(function(){var e=document.currentScript&&document.currentScript.parentNode;if(!e||!e.parentNode)return;var t=new Date('${OFFER.endDate}T23:59:59-06:00');if(!isNaN(t)&&Date.now()>t.getTime())e.parentNode.removeChild(e);})();</script>` : '';
-  return `<a class="snz-cross" href="${href}" aria-label="${esc((LABEL[loc] || LABEL.en)(offerField('headline', loc)))}" data-snz-cross="${loc}">${a}${b}${expiry}</a>`;
+  return `<a class="snz-cross" href="${href}" aria-label="${esc(LABEL[loc] || LABEL.en)}" data-snz-cross="${loc}">${a}${b}${expiry}</a>`;
 }
 
 /* ---- builder pages ---- */
