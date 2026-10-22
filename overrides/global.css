@@ -208,12 +208,12 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
    the baked site stylesheet already owns .snz-ribbon for the hero mark). Directly after the hero: a transparent band
    whose negative margins pull it over the bottom of the hero and the top of the next section, so both backgrounds
    show through and the X of the two ribbons sits on the seam, above both (z-index). Ribbon A (orange, current offer,
-   scrolls left) crosses ribbon B (tan, the same offer, scrolls right); both link to the sales page. Pure CSS marquee:
+   scrolls left) crosses ribbon B (tan, the same offer, scrolls right); the whole band is one link to the sales page. Pure CSS marquee:
    each track holds two identical copies and moves by exactly one copy (50%), linear and infinite, so the loop is
    seamless; transform only; paused on hover; static for reduced motion. Clicks on the transparent parts fall through
    to the sections underneath. Not part of the scroll-reveal system. ---- */
 :root { --ribbon-speed: 36s; }
-.snz-cross { position: relative; z-index: 5; height: 170px; margin: -75px 0; background: transparent; overflow: hidden; pointer-events: none; isolation: isolate; font-family: var(--font-poppins-stack); }
+.snz-cross { display: block; position: relative; z-index: 5; height: 170px; margin: -75px 0; background: transparent; overflow: hidden; pointer-events: none; isolation: isolate; cursor: pointer; text-decoration: none; color: inherit; font-family: var(--font-poppins-stack); }
 .snz-cross__rb { position: absolute; top: 50%; left: -4vw; width: 108vw; display: block; overflow: hidden; text-decoration: none; pointer-events: auto; will-change: transform; backface-visibility: hidden; box-shadow: 0 10px 28px rgba(0, 20, 137, 0.24); }
 .snz-cross__rb--a { z-index: 2; background: #F58433; color: #001489; transform: translateY(-50%) rotate(-2.5deg); }
 .snz-cross__rb--b { z-index: 1; background: #E8DCC8; color: #001489; transform: translateY(-50%) rotate(2.5deg); }
@@ -225,8 +225,9 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
 .snz-cross__sep { flex: 0 0 auto; width: 22px; height: 22px; margin: 0 22px; }
 .snz-cross__rb--a .snz-cross__sep { color: #fff; }
 .snz-cross__rb--b .snz-cross__sep { color: #001489; }
-.snz-cross__rb:hover .snz-cross__track { animation-play-state: paused; }
-.snz-cross__rb--a:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
+.snz-cross:hover .snz-cross__track { animation-play-state: paused; }
+.snz-cross:focus-visible { outline: none; }
+.snz-cross:focus-visible .snz-cross__rb--a { outline: 3px solid #fff; outline-offset: -3px; }
 @keyframes snzRibbonLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes snzRibbonRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 @media (max-width: 767px) {
@@ -268,3 +269,11 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
   .hl_page-preview--content .csub-heading-Q-TR52wCm0 .snz-sales-h2 { font-size: 21px !important; margin: 22px 0 8px !important; }
   .hl_page-preview--content .csub-heading-Q-TR52wCm0 .snz-sales-fine { font-size: 14px !important; }
 }
+
+/* ---- Home: room between the ribbon band and the "If you don't Snooze, you lose!" headline, and a tighter subheadline →
+   step one (the Pressure Mapping section: desktop Ji7YR_oUp7 / mobile 6PvUGyH7jn; the steps block is the custom code
+   HLVM8l3CzV / PlS5urY9jK, whose own top padding made most of the old gap). Set at the source, no negative margins. ---- */
+.hl_page-preview--content #section-Ji7YR_oUp7 { padding-top: 88px !important; }
+.hl_page-preview--content #section-6PvUGyH7jn { padding-top: 34px !important; }
+.hl_page-preview--content #custom-code-HLVM8l3CzV .pm-section { padding-top: 0 !important; }
+.hl_page-preview--content #custom-code-PlS5urY9jK .pm-section { padding-top: 20px !important; }

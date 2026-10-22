@@ -1,8 +1,8 @@
 /*
  * The crossing-ribbons band (October 2026): two diagonal marquee ribbons on the HOME page only (/ and /es), directly
  * after the hero, bridging it and the next section (overrides/global.css, the .snz-cross block). Both ribbons carry
- * the current offer from lib/offer.ts — ribbon A orange, scrolls left; ribbon B tan, scrolls right; both link to the
- * sales page. While the offer is date-gated off the band is left out entirely (the home section that carries it stays
+ * the current offer from lib/offer.ts — ribbon A orange, scrolls left; ribbon B tan, scrolls right; the whole band is
+ * one link to the sales page. While the offer is date-gated off the band is left out entirely (the home section that carries it stays
  * in place, empty, so the next run can fill it again); an inline script inside the band also removes it on the client
  * once the end date has passed.
  *
@@ -35,18 +35,21 @@ const OFFER = {
 const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Chicago', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
 const ACTIVE = OFFER.enabled && (!OFFER.startDate || today >= OFFER.startDate) && (!OFFER.endDate || today <= OFFER.endDate) && OFFER.items('en').length > 0;
 
-/* ---- band HTML: two ribbons, each a link, each track = two identical copies of the items (3 × the offer items) so the
-   50% keyframe loop is seamless; ribbon B is a visual twin of A and hidden from assistive tech ---- */
+/* ---- band HTML: one link holding two ribbons; each track = two identical copies of the items (3 × the offer items) so
+   the 50% keyframe loop is seamless ---- */
 const CHEV = '<svg class="snz-cross__sep" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const copy = (items, reps) => `<span class="snz-cross__copy">${Array.from({ length: reps }, () => items.map((t) => `<span class="snz-cross__item">${esc(t)}</span>${CHEV}`).join('')).join('')}</span>`;
 const track = (items, reps) => `<div class="snz-cross__track" aria-hidden="true">${copy(items, reps)}${copy(items, reps)}</div>`;
+/* the whole band is ONE link to the sales page (both ribbons, every item); the visible text is decorative
+   (aria-hidden tracks), the link text is the label below */
+const LABEL = { en: (headline) => `See the ${headline}`, es: (headline) => `Ver la ${headline}` };
 function bandHtml(loc) {
   if (!ACTIVE) return '';
   const items = OFFER.items(loc); const href = `${loc === 'es' ? '/es' : ''}${OFFER.href}`;
-  const a = `<a class="snz-cross__rb snz-cross__rb--a" href="${href}" aria-label="${esc(items.join(', '))}">${track(items, 3)}</a>`;
-  const b = `<a class="snz-cross__rb snz-cross__rb--b" href="${href}" aria-hidden="true" tabindex="-1">${track(items, 3)}</a>`;
+  const a = `<div class="snz-cross__rb snz-cross__rb--a">${track(items, 3)}</div>`;
+  const b = `<div class="snz-cross__rb snz-cross__rb--b">${track(items, 3)}</div>`;
   const expiry = OFFER.endDate ? `<script>(function(){var e=document.currentScript&&document.currentScript.parentNode;if(!e||!e.parentNode)return;var t=new Date('${OFFER.endDate}T23:59:59-06:00');if(!isNaN(t)&&Date.now()>t.getTime())e.parentNode.removeChild(e);})();</script>` : '';
-  return `<div class="snz-cross" data-snz-cross="${loc}">${a}${b}${expiry}</div>`;
+  return `<a class="snz-cross" href="${href}" aria-label="${esc((LABEL[loc] || LABEL.en)(offerField('headline', loc)))}" data-snz-cross="${loc}">${a}${b}${expiry}</a>`;
 }
 
 /* ---- builder pages ---- */
