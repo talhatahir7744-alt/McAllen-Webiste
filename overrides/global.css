@@ -247,14 +247,13 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
 .hl_page-preview--content .section-x8iH4TeG-J, .hl_page-preview--content .section-x8iH4TeG-J > .inner, .hl_page-preview--content .row-EdKIR9VJhr, .hl_page-preview--content .row-EdKIR9VJhr > .inner, .hl_page-preview--content .col-44O5Jbh-BJ, .hl_page-preview--content .col-44O5Jbh-BJ > .inner, .hl_page-preview--content .custom-code-pO-5dtepaB, .hl_page-preview--content .custom-code-pO-5dtepaB .custom-code-container, #section-x8iH4TeG-J, #section-x8iH4TeG-J > .inner, #section-x8iH4TeG-J .c-row, #section-x8iH4TeG-J .c-row > .inner, #section-x8iH4TeG-J .c-column, #section-x8iH4TeG-J .c-column > .inner, #section-x8iH4TeG-J .c-custom-code, #section-x8iH4TeG-J .custom-code-container { padding: 0 !important; margin: 0 !important; max-width: none !important; width: 100% !important; min-height: 0 !important; background: transparent !important; border: 0 !important; box-shadow: none !important; overflow: visible !important; }
 #section-x8iH4TeG-J { position: relative; z-index: 5; }
 
-/* ---- Chat widget (components/ChatWidget.tsx): the GoHighLevel widget renders its bubble and chat window as fixed elements
-   inside the <chat-widget> element's shadow root with z-index 99999999. A stacking context on the host puts the whole
-   widget at 1250 instead: above the sticky header (1200) and the top bar (1201), so an open chat window is not covered
-   (on short phones it reaches the top of the screen). The mobile menu's overlay and drawer sit inside the header, so they
-   stack at the header's 1200: while the menu is open (its toggle button is aria-expanded) the widget drops below the
-   header and the open menu covers the bubble. Position and size of the bubble are the widget's own. ---- */
-chat-widget { position: relative; z-index: 1250; }
-body:has(button[aria-controls$="-drawer"][aria-expanded="true"]) chat-widget { z-index: 1100; }
+/* ---- Open mobile menu above the chat widget (components/ChatWidget.tsx). The widget is styled only in the client's CRM
+   (position, look, copy, hours) and draws its bubble at z-index 99999999. The menu's overlay and drawer live inside the
+   sticky header (z-index 1200), so while the menu is open (its toggle button is aria-expanded) the header rises above the
+   widget, and the top bar, which sits just above the header, rises with it so the open menu looks exactly as before.
+   Closed, they are back at 1200 / 1201. ---- */
+body:has([data-site-header] button[aria-controls$="-drawer"][aria-expanded="true"]) [data-site-header] { z-index: 2147483646; }
+body:has([data-site-header] button[aria-controls$="-drawer"][aria-expanded="true"]) [data-site-topbar] { z-index: 2147483647; }
 
 /* ---- Sales page hero (scripts/sales-hero.mjs, npm run section:sales-hero): one centred block inside the hero (desktop
    section CaKLDTKpp, mobile mjbWbTM8eI): H1, paragraph, a small H2 "How mattress sales work at Snooze", three paragraphs
