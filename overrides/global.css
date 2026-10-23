@@ -255,6 +255,18 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
 body:has([data-site-header] button[aria-controls$="-drawer"][aria-expanded="true"]) [data-site-header] { z-index: 2147483646; }
 body:has([data-site-header] button[aria-controls$="-drawer"][aria-expanded="true"]) [data-site-topbar] { z-index: 2147483647; }
 
+/* ---- Financing partner cards (/mattress-financing and /es, "Mattress Payment Plans"): Synchrony, Wells Fargo and Snap —
+   desktop columns e6UhMdx0Cj / 5JX2mN7nt9 / fhV_DwS040, phone columns 6HMYAM9IgW / Vs2CXnLrvV / FmB8D540hm. The builder
+   centres each column's content vertically, so a card whose logo failed to load showed its navy header bar mid-card. Now:
+   header bar at the top of every card, and the logo below it in a 90px-tall box, contained and centred (its natural width,
+   never wider than the card), so the three bars share one top line, the three logos are the same height and the three cards
+   are the same height. The Synchrony logo is the local asset public/assets/logos/synchrony.svg (scripts/synchrony-logo.mjs). ---- */
+#col-e6UhMdx0Cj > .inner, #col-5JX2mN7nt9 > .inner, #col-fhV_DwS040 > .inner, #col-6HMYAM9IgW > .inner, #col-Vs2CXnLrvV > .inner, #col-FmB8D540hm > .inner { justify-content: flex-start !important; }
+#image--5renCqep5, #image-0ZKu02g8l1, #image-SFJd7sRsuB, #image-D4fcGQBl6w, #image-mn4E4RUoc5, #image-oLpxt9cLKQ { margin: 20px 0 0 !important; }
+#image--5renCqep5 .image-container img, #image-0ZKu02g8l1 .image-container img, #image-SFJd7sRsuB .image-container img, #image-D4fcGQBl6w .image-container img, #image-mn4E4RUoc5 .image-container img, #image-oLpxt9cLKQ .image-container img { display: inline-block; width: auto !important; height: 90px !important; max-width: 100% !important; max-height: 90px !important; object-fit: contain; }
+/* the SVG's own proportions (161×35), so the box has its width before the file arrives, like the two PNGs' aspect-ratio rules */
+#image--5renCqep5 .image-container img, #image-D4fcGQBl6w .image-container img { aspect-ratio: 161 / 35; }
+
 /* ---- Sales page hero (scripts/sales-hero.mjs, npm run section:sales-hero): one centred block inside the hero (desktop
    section CaKLDTKpp, mobile mjbWbTM8eI): H1, paragraph, a small H2 "How mattress sales work at Snooze", three paragraphs
    (the last smaller and muted, with the phone and address links) and the CTA. Text column centred, at most 760px; even

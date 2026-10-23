@@ -8,7 +8,8 @@
  "imageReplacements": {
   "_comment": "old media path -> new media path, applied to every reference (bare CDN URL, resize variants, payload). The new file and its r_320…r_1200 variants are added to the clone tree with `node scripts/image-variants.mjs <file> <mediaPath>`.",
   "BljrSmLCnm4gF9LpsTRZ/media/6a7577099a9c7792ea578a2c.jpeg": "ARD47WoZpqaZSQ9MSxLD/media/684480ff2c95c570cfc22e24.jpeg",
-  "ARD47WoZpqaZSQ9MSxLD/media/69a1d3acb617a750cec56a9b.jpg": "ARD47WoZpqaZSQ9MSxLD/media/684480ff2c95c570cfc22e24.jpeg"
+  "ARD47WoZpqaZSQ9MSxLD/media/69a1d3acb617a750cec56a9b.jpg": "ARD47WoZpqaZSQ9MSxLD/media/684480ff2c95c570cfc22e24.jpeg",
+  "https://www.synchrony.com/syc/img/2023_synchrony_basic_logo.svg": "/assets/logos/synchrony.svg"
  },
  "imageAlt": {
   "_comment": "alt text for client images that carry none, matched by media id (the id in the reference before or after replacement); translated through overrides/i18n/es.extra.json. Decorative icons (map pin, phone, clock, moon, truck, chevrons, underline, party popper, envelope, SMS) keep alt=\"\" on purpose. Only what each image clearly shows is described (SEO audit, October 2026 — section 8c).",
@@ -43,7 +44,7 @@
   "69a1d3acb617a7fa5cc56a9a": "Special 0% financing offers banner from Snooze Mattress + Wellness",
   "0cf92cb4-df70-4b7a-a70a-ec8e5665e838": "Wells Fargo logo",
   "4789c5da-b2ce-4978-ade7-81ea8ea3b3e9": "Snap Finance logo",
-  "2023_synchrony_basic_logo": "Synchrony logo",
+  "logos/synchrony.svg": "Synchrony financing at Snooze Mattress + Wellness McAllen",
   "b3092438-e9e0-485b-9843-e4ce1bac1dc7": "Helix mattresses at an unbeatable price: 20% off banner",
   "d754dc41-020b-42b5-a5ae-d3ac749de82b": "Snooze-O-Pedic queen mattress starting at $499 banner",
   "1584ae42-19e4-46f1-a705-e7de3a9a83ff": "Puffy Lux mattress, save $1,350 banner",
@@ -153,9 +154,7 @@
   "section-EZ3DGo6-8h",
   "section-ghjYZIxTU2",
   "section-zTxb2Wa9Nv",
-  "section-g0BQMsgMwp",
-  "image--5renCqep5",
-  "image-D4fcGQBl6w"
+  "section-g0BQMsgMwp"
  ],
  "site": {
   "phone": "(956) 586-5646",

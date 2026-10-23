@@ -29,7 +29,8 @@
     "reviews": "node scripts/recent-reviews.mjs",
     "marquee": "node scripts/logo-marquee-patch.mjs",
     "alts": "node scripts/image-alts.mjs",
-    "hero:mark": "node scripts/hero-mark.mjs"
+    "hero:mark": "node scripts/hero-mark.mjs",
+    "logo:synchrony": "node scripts/synchrony-logo.mjs"
   },
   "dependencies": {
     "next": "15.5.25",
