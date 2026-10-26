@@ -30,7 +30,7 @@ export const PAGE: ContentPage = {
           { h3: 'Hybrid', paragraphs: ['Comfort layers over pocketed coils: a cushioned top with the airflow and bounce of a coil core. Most of the Sealy, Stearns & Foster, Beautyrest, Helix and King Koil models in the showroom are hybrids.'] },
           { h3: 'Innerspring', paragraphs: ['A coil core with a thinner comfort layer: the firmest, most breathable feel, and usually the most budget-friendly.'] },
         ] },
-        { h2: '4. Decide on the extras', bullets: [
+        { h2: '4. Decide on the extras', listStyle: 'cards', bullets: [
           'An adjustable base raises the head and feet, helps relieve pressure, reduces snoring and supports a healthier sleep posture; a split king lets each side be set separately.',
           'A mattress protector guards against spills, stains and allergens without changing the feel.',
           'A pillow chosen for your sleep position keeps the neck in line with the spine the mattress is now supporting.',
@@ -87,7 +87,7 @@ export const PAGE: ContentPage = {
           { h3: 'Híbrido', paragraphs: ['Capas de confort sobre resortes ensacados: una superficie acolchada con la ventilación y el rebote de un núcleo de resortes. La mayoría de los modelos de Sealy, Stearns & Foster, Beautyrest, Helix y King Koil en la sala de exhibición son híbridos.'] },
           { h3: 'De resortes', paragraphs: ['Un núcleo de resortes con una capa de confort más delgada: la sensación más firme y más fresca, y normalmente la más económica.'] },
         ] },
-        { h2: '4. Decide los extras', bullets: [
+        { h2: '4. Decide los extras', listStyle: 'cards', bullets: [
           'Una base ajustable eleva la cabeza y los pies, ayuda a aliviar la presión, reduce los ronquidos y favorece una postura más sana al dormir; un split king permite configurar cada lado por separado.',
           'Un protector de colchón protege de derrames, manchas y alérgenos sin cambiar cómo se siente.',
           'Una almohada elegida para tu posición mantiene el cuello alineado con la columna que ahora sostiene el colchón.',

@@ -1,15 +1,66 @@
 import { Faq } from '@/components/blog/Faq';
-import { CheckItem } from '@/components/icons';
+import { CheckItem, Icon, iconFor } from '@/components/icons';
 import { PageSchema } from '@/components/PageSchema';
+import { SizeTypeGrid } from '@/components/SizeTypeGrid';
 import { LOCATION } from '@/lib/location';
 import { localizeHref, ui, type Locale } from '@/lib/i18n';
-import type { ContentPage as ContentPageData } from '@/lib/pages/types';
+import type { ContentPage as ContentPageData, ListStyle } from '@/lib/pages/types';
 import styles from './ContentPage.module.css';
 
 /* Renders a hand-written content page (lib/pages/*) in one locale: breadcrumb, H1, copy, optional table, FAQ
    accordion (the blog's), CTA to /booking, plus FAQPage + BreadcrumbList JSON-LD (and any extra schema the page
    defines). Server-rendered; the FAQ accordion is the same client component the blog uses. */
 const SITE_URL = 'https://mcallen.snoozemattresscompany.com';
+
+/* A bullet list in the style its data asks for (lib/pages/types.ts listStyle; October 27, 2026): icon cards for
+   benefits and features (an item written "Label: text" gets the label as its title), a numbered timeline for steps,
+   the check list in a navy card for key facts; otherwise the plain check list. The copy is the list's own. */
+function ListBlock({ items, style }: { items: string[]; style?: ListStyle }) {
+  if (style === 'facts') {
+    return (
+      <div className="snz-facts">
+        <ul className={`${styles.list} snz-check-list`}>{items.map((b, j) => <CheckItem key={j}>{b}</CheckItem>)}</ul>
+      </div>
+    );
+  }
+  if (style === 'steps') {
+    return (
+      <ol className="snz-steps">
+        {items.map((b, j) => (
+          <li key={j}>
+            <span className="snz-badge snz-badge--num" aria-hidden="true">{String(j + 1).padStart(2, '0')}</span>
+            <p className="snz-steps__text">{b}</p>
+          </li>
+        ))}
+      </ol>
+    );
+  }
+  if (style === 'cards') {
+    const parts = items.map((b) => b.match(/^([^:]{2,40}):\s+(.+)$/));
+    const titled = parts.every(Boolean);
+    const twoUp = items.length % 3 !== 0 && items.length % 2 === 0;
+    return (
+      <ul className={`snz-cards${twoUp ? ' snz-cards--2' : ''}`}>
+        {items.map((b, j) => (
+          <li key={j}>
+            <div className="snz-card">
+              <span className="snz-badge snz-badge--soft"><Icon name={iconFor(b)} /></span>
+              {titled ? (
+                <>
+                  <span className="snz-card__title">{parts[j]![1]}</span>
+                  <span className="snz-card__text">{parts[j]![2]}</span>
+                </>
+              ) : (
+                <span className="snz-card__text">{b}</span>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+  return <ul className={`${styles.list} snz-check-list`}>{items.map((b, j) => <CheckItem key={j}>{b}</CheckItem>)}</ul>;
+}
 
 export function ContentPage({ page, locale }: { page: ContentPageData; locale: Locale }) {
   const c = page.copy[locale] || page.copy.en;
@@ -25,6 +76,8 @@ export function ContentPage({ page, locale }: { page: ContentPageData; locale: L
     ...(page.extraSchema ? page.extraSchema(locale) : []),
   ];
   const L = LOCATION;
+  /* the size/type cards on the size/type pages and the buying guide, without the page's own card */
+  const sizeGrid = page.kind === 'product' || page.slug === '/how-to-choose-a-mattress';
   return (
     <main className={styles.page} data-content-page={page.slug}>
       <PageSchema items={schema} />
@@ -44,12 +97,12 @@ export function ContentPage({ page, locale }: { page: ContentPageData; locale: L
             <section key={i} className={styles.section}>
               <h2 className={styles.h2}>{s.h2}</h2>
               {(s.paragraphs || []).map((p, j) => <p key={j} className={styles.p}>{p}</p>)}
-              {s.bullets ? <ul className={`${styles.list} snz-check-list`}>{s.bullets.map((b, j) => <CheckItem key={j}>{b}</CheckItem>)}</ul> : null}
+              {s.bullets ? <ListBlock items={s.bullets} style={s.listStyle} /> : null}
               {(s.h3s || []).map((sub, j) => (
                 <div key={j} className={styles.sub}>
                   <h3 className={styles.h3}>{sub.h3}</h3>
                   {(sub.paragraphs || []).map((p, k) => <p key={k} className={styles.p}>{p}</p>)}
-                  {sub.bullets ? <ul className={`${styles.list} snz-check-list`}>{sub.bullets.map((b, k) => <CheckItem key={k}>{b}</CheckItem>)}</ul> : null}
+                  {sub.bullets ? <ListBlock items={sub.bullets} style={sub.listStyle} /> : null}
                 </div>
               ))}
             </section>
@@ -74,6 +127,7 @@ export function ContentPage({ page, locale }: { page: ContentPageData; locale: L
               <Faq items={c.faqs} />
             </section>
           ) : null}
+          {sizeGrid ? <SizeTypeGrid locale={locale} current={page.slug} inline /> : null}
         </article>
         <section className={styles.cta} aria-labelledby="content-cta-title">
           <h2 id="content-cta-title" className={styles.ctaTitle}>{c.cta.title}</h2>

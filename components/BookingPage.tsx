@@ -2,6 +2,7 @@ import Script from 'next/script';
 import { SITE } from './site-config';
 import { LOCATION } from '@/lib/location';
 import { PageSchema } from './PageSchema';
+import { Icon, type IconName } from './icons';
 import type { Locale } from '@/lib/i18n';
 import styles from './BookingPage.module.css';
 
@@ -26,9 +27,9 @@ const serviceSchema = (locale: Locale) => ({
 });
 
 /* The Dream Mapping booking page, hand-written (not generated from the GoHighLevel export).
-   The calendar is the client's exact embed placed directly in the page body: no wrapper, no container,
-   no card, no height or overflow rule anywhere around it. form_embed.js loads after the iframe exists and
-   resizes the iframe to the widget's content at every step; the page scrolls, the iframe never does. */
+   The calendar is the client's exact embed placed directly in the page body: no wrapper, no container, no card.
+   form_embed.js loads after the iframe exists and resizes the iframe to the widget's content at every step; the page
+   scrolls, the iframe never does. CALENDAR_HEIGHT_GUARD below corrects the one height the widget gets wrong. */
 
 const COPY = {
   en: {
@@ -38,6 +39,7 @@ const COPY = {
     subStrong: 'discover your perfect mattress.',
     almost: 'Almost There…',
     /* "What happens at your Dream Mapping visit" (SEO audit build pass, D2): the fitting as the site already describes it */
+    visitEyebrow: 'Your visit',
     visitTitle: 'What happens at your Dream Mapping visit',
     visitSteps: [
       'You lie down on the Dream Mapping sensor bed in the position you usually sleep in, and the sensors map where your body carries pressure.',
@@ -46,6 +48,8 @@ const COPY = {
       'It is free, and there is no obligation to buy.',
       'Couples are welcome: each of you is mapped individually, so the mattress works for both.',
     ],
+    pickTime: 'Pick a Time Above',
+    questions: (phone: string) => `Questions? Call ${phone}`,
   },
   es: {
     title: '¡Da el Primer Paso Hacia un',
@@ -53,6 +57,7 @@ const COPY = {
     sub: 'Agenda tu cita personalizada de Dream Mapping y ',
     subStrong: 'descubre tu colchón perfecto.',
     almost: 'Ya casi…',
+    visitEyebrow: 'Tu visita',
     visitTitle: 'Qué pasa en tu visita de Dream Mapping',
     visitSteps: [
       'Te recuestas en la cama con sensores de Dream Mapping en la posición en la que normalmente duermes, y los sensores mapean dónde carga presión tu cuerpo.',
@@ -61,19 +66,46 @@ const COPY = {
       'Es gratis y no hay obligación de comprar.',
       'Las parejas son bienvenidas: se mapea a cada uno por separado, para que el colchón funcione para los dos.',
     ],
+    pickTime: 'Elige un horario arriba',
+    questions: (phone: string) => `¿Preguntas? Llama al ${phone}`,
   },
 };
+/* one icon per step: the sensor bed, the five minutes, the Sleep Coach, free with no obligation, couples */
+const VISIT_ICONS: IconName[] = ['sensor-bed', 'clock', 'user', 'badge-check', 'people'];
 
 /* McAllen Dream Mapping calendar (the client's embed: id = `<calendarId>_<timestamp>`) */
 export const BOOKING_CALENDAR_ID = 'lrAns7Z8j3vEJW3DC0Yr';
 const BOOKING_EMBED_ID = `${BOOKING_CALENDAR_ID}_1788459899479`;
+
+/* Height guard for the calendar iframe (October 27, 2026). The widget reports its height two ways: its own
+   "highlevel.setHeight" message and iframe-resizer messages ("[iFrameSizer]<id>:<height>:<width>:<trigger>") that
+   form_embed.js applies. In the widget's wide layout (iframe 1024px and wider) the time slots scroll inside the widget,
+   but the resizer still measures its lowest element, so after the slots render it reports 2,100–2,700px for a widget
+   whose body is about 800px — the iframe grew to that and the page showed a tall white gap under the calendar. The
+   narrow and medium layouts (phones, tablets) stack the slots and report correctly, including the tall slot lists.
+   So: in the wide layout only, a resizer report above 1,200px is that over-report; the last accepted height (the
+   widget's own 830 at first) is put back once form_embed.js has applied the bad one. The listener is registered at
+   parse time, before form_embed.js, so it sees every message; it never touches the narrow layouts. It is also the
+   fallback when form_embed.js has not set any height a moment after the widget reported one. */
+const CALENDAR_HEIGHT_GUARD = `(function(){var ID=${JSON.stringify(BOOKING_EMBED_ID)},WIDE=1024,MAX_WIDE=1200,last=0;
+function frame(){return document.getElementById(ID)}
+function apply(h){var f=frame();if(!f||!(h>0))return;f.style.height=h+'px';f.setAttribute('height',String(Math.round(h)))}
+window.addEventListener('message',function(e){if(!/^https:\\/\\/[a-z0-9.-]+\\.snoozesleep\\.com$/.test(e.origin||''))return;
+var d=e.data,h=0,sizer=false;
+if(typeof d==='string'){var m=d.match(/^\\[iFrameSizer\\]([^:]+):([\\d.]+):[\\d.]+:/);if(!m||m[1]!==ID)return;h=parseFloat(m[2]);sizer=true}
+else if(d&&d[0]==='highlevel.setHeight'&&d[1]&&d[1].height>0){h=+d[1].height}else return;
+var f=frame();if(!f)return;var wide=f.getBoundingClientRect().width>=WIDE;
+if(sizer&&wide&&h>MAX_WIDE){var keep=last||830;setTimeout(function(){apply(keep)},0);return}
+last=h;setTimeout(function(){var g=frame();if(g&&!g.style.height)apply(h)},1500)})})();`;
 
 export function BookingPage({ locale = 'en' }: { locale?: Locale }) {
   const t = COPY[locale] || COPY.en;
   return (
     <>
       <PageSchema items={[serviceSchema(locale)]} />
-      <header className={styles.hero}>
+      {/* one main landmark; the hero is a div so the site header stays the page's only banner */}
+      <main className={styles.main}>
+      <div className={styles.hero}>
         <img className={styles.logo} src={SITE.logo} alt={SITE.logoAlt} width={190} height={53} />
         <h1 className={styles.title}>
           {t.title} <span className={styles.highlight}>{t.highlight}</span>
@@ -85,23 +117,40 @@ export function BookingPage({ locale = 'en' }: { locale?: Locale }) {
         <div className={styles.progress} aria-label={t.almost}>
           <span className={styles.progressFill}>{t.almost}</span>
         </div>
-      </header>
+      </div>
 
       <iframe
         className={styles.calendar}
         src={`https://link.snoozesleep.com/widget/booking/${BOOKING_CALENDAR_ID}`}
+        title={locale === 'es' ? 'Calendario de citas de Dream Mapping' : 'Dream Mapping booking calendar'}
         allow="payment"
         style={{ width: '100%', border: 'none', overflow: 'hidden' }}
         scrolling="no"
         id={BOOKING_EMBED_ID}
       />
-      <br />
+      <script dangerouslySetInnerHTML={{ __html: CALENDAR_HEIGHT_GUARD }} />
+
       <section className={styles.visit} aria-labelledby="visit-title">
-        <h2 id="visit-title" className={styles.visitTitle}>{t.visitTitle}</h2>
-        <ol className={styles.visitSteps}>
-          {t.visitSteps.map((step, i) => <li key={i}>{step}</li>)}
-        </ol>
+        <div className={styles.visitInner}>
+          <p className={styles.visitEyebrow}>{t.visitEyebrow}</p>
+          <h2 id="visit-title" className={styles.visitTitle}>{t.visitTitle}</h2>
+          <span className={styles.flourish} aria-hidden="true" />
+          <ol className={styles.steps}>
+            {t.visitSteps.map((step, i) => (
+              <li key={i} className={styles.step}>
+                <span className={styles.stepNum} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                <span className={styles.stepIcon}><Icon name={VISIT_ICONS[i]} /></span>
+                <p className={styles.stepText}>{step}</p>
+              </li>
+            ))}
+          </ol>
+          <div className={styles.visitCtas}>
+            <a className={styles.visitBtn} href={`#${BOOKING_EMBED_ID}`}>{t.pickTime}</a>
+            <a className={styles.visitCall} href={SITE.phoneHref}><Icon name="phone" /> {t.questions(SITE.phone)}</a>
+          </div>
+        </div>
       </section>
+      </main>
       <Script src="https://link.snoozesleep.com/js/form_embed.js" strategy="afterInteractive" />
     </>
   );

@@ -29,7 +29,7 @@ export const PAGE: ContentPage = {
         { h2: 'Adjustable bases for back pain', paragraphs: [
           'An adjustable base with customizable head and foot positioning helps relieve pressure, supports a healthier sleep posture and lets you raise your knees slightly, a position many back-pain sufferers find easier for falling asleep. Couples can set each side of a split king differently.',
         ] },
-        { h2: 'What to expect at the fitting', bullets: [
+        { h2: 'What to expect at the fitting', listStyle: 'steps', bullets: [
           'About five minutes on the sensor bed, lying in the position you usually sleep in; free, with no obligation to buy.',
           'A walk-through of your map with a Sleep Coach, then only the mattresses that match it.',
           'Couples are mapped individually.',
@@ -69,7 +69,7 @@ export const PAGE: ContentPage = {
         { h2: 'Bases ajustables para el dolor de espalda', paragraphs: [
           'Una base ajustable con posición de cabeza y pies personalizable ayuda a aliviar la presión, favorece una postura más sana al dormir y te permite elevar un poco las rodillas, una posición que a muchas personas con dolor de espalda les facilita conciliar el sueño. Las parejas pueden configurar cada lado de un split king por separado.',
         ] },
-        { h2: 'Qué esperar en el ajuste', bullets: [
+        { h2: 'Qué esperar en el ajuste', listStyle: 'steps', bullets: [
           'Unos cinco minutos en la cama con sensores, recostado en la posición en la que sueles dormir; gratis y sin obligación de comprar.',
           'Una explicación de tu mapa con un Sleep Coach, y después solo los colchones que coinciden con él.',
           'Las parejas se mapean por separado.',

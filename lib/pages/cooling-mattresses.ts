@@ -27,7 +27,7 @@ export const PAGE: ContentPage = {
         { h2: 'Cooling is only half the fitting', paragraphs: [
           'A cool mattress that does not support you is still the wrong mattress. The Dream Mapping bed records your pressure points in about five minutes, and the Sleep Coach shows you the cooling models that also match your map, in the comfort level the map calls for. Pair the mattress with breathable sheets and a pillow chosen for your sleep position, both on the McAllen floor, and the whole bed sleeps cooler.',
         ] },
-        { h2: 'Delivery, financing and the guarantee', bullets: [
+        { h2: 'Delivery, financing and the guarantee', listStyle: 'facts', bullets: [
           'Free delivery and setup on orders over $999, with haul-away of your old mattress if you no longer need it.',
           'Financing through Synchrony and Wells Fargo, and a lease-to-own option through Snap Finance.',
           'Every purchase at Snooze Mattress + Wellness is backed by the Sleep Comfort Guarantee; ask a Sleep Coach for the details.',
@@ -65,7 +65,7 @@ export const PAGE: ContentPage = {
         { h2: 'La frescura es solo la mitad del ajuste', paragraphs: [
           'Un colchón fresco que no te da soporte sigue siendo el colchón equivocado. La cama de Dream Mapping registra tus puntos de presión en unos cinco minutos, y el Sleep Coach te muestra los modelos frescos que además coinciden con tu mapa, en el nivel de comodidad que el mapa pide. Combina el colchón con sábanas transpirables y una almohada elegida para tu posición, ambas en el piso de McAllen, y toda la cama duerme más fresca.',
         ] },
-        { h2: 'Entrega, financiamiento y garantía', bullets: [
+        { h2: 'Entrega, financiamiento y garantía', listStyle: 'facts', bullets: [
           'Entrega e instalación gratis en compras mayores de $999, y nos llevamos tu colchón viejo si ya no lo necesitas.',
           'Financiamiento con Synchrony y Wells Fargo, y una opción de renta con opción a compra con Snap Finance.',
           'Toda compra en Snooze Mattress + Wellness está respaldada por la Sleep Comfort Guarantee; pide los detalles a un Sleep Coach.',

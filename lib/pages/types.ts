@@ -6,12 +6,16 @@
 import type { Locale } from '@/lib/i18n';
 
 export type Faq = { question: string; answer: string };
+/** how a bullet list renders (October 27, 2026): icon cards (benefits / features), a numbered timeline (steps), the
+    check list in a navy card (key facts); unset = the plain check list */
+export type ListStyle = 'cards' | 'steps' | 'facts';
 export type Section = {
   h2: string;
   paragraphs?: string[];
   bullets?: string[];
+  listStyle?: ListStyle;
   /** optional subsections */
-  h3s?: Array<{ h3: string; paragraphs?: string[]; bullets?: string[] }>;
+  h3s?: Array<{ h3: string; paragraphs?: string[]; bullets?: string[]; listStyle?: ListStyle }>;
 };
 export type Table = { caption: string; head: string[]; rows: string[][] };
 export type PageCopy = {

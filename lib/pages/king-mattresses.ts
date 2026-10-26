@@ -27,7 +27,7 @@ export const PAGE: ContentPage = {
         { h2: 'The fitting takes five minutes', paragraphs: [
           'Lie down on the Dream Mapping bed in your usual position, let the sensors read your pressure points, and walk with the Sleep Coach to the king mattresses that fit the map. The fitting is free, there is no obligation to buy, and the Sleep Coaches are not on commission.',
         ] },
-        { h2: 'Delivery, financing and the guarantee', bullets: [
+        { h2: 'Delivery, financing and the guarantee', listStyle: 'facts', bullets: [
           'Free delivery and setup on orders over $999, with haul-away of your old mattress if you no longer need it.',
           'Financing through Synchrony and Wells Fargo, and a lease-to-own option through Snap Finance.',
           'Every purchase at Snooze Mattress + Wellness is backed by the Sleep Comfort Guarantee; ask a Sleep Coach for the details.',
@@ -65,7 +65,7 @@ export const PAGE: ContentPage = {
         { h2: 'El ajuste tarda cinco minutos', paragraphs: [
           'Recuéstate en la cama de Dream Mapping en tu posición habitual, deja que los sensores lean tus puntos de presión y camina con el Sleep Coach hacia los colchones king que van con el mapa. El ajuste es gratis, no hay obligación de comprar y los Sleep Coaches no trabajan por comisión.',
         ] },
-        { h2: 'Entrega, financiamiento y garantía', bullets: [
+        { h2: 'Entrega, financiamiento y garantía', listStyle: 'facts', bullets: [
           'Entrega e instalación gratis en compras mayores de $999, y nos llevamos tu colchón viejo si ya no lo necesitas.',
           'Financiamiento con Synchrony y Wells Fargo, y una opción de renta con opción a compra con Snap Finance.',
           'Toda compra en Snooze Mattress + Wellness está respaldada por la Sleep Comfort Guarantee; pide los detalles a un Sleep Coach.',

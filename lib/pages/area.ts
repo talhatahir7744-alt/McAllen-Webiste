@@ -33,7 +33,7 @@ export function areaPage(city: string, slug: string): ContentPage {
           { h2: 'Financing', paragraphs: [
             'Financing is available through Synchrony and Wells Fargo, and Snap Finance offers a lease-to-own option for shoppers who may not qualify for traditional credit. Applications are handled in store; the financing partner makes the approval decision. The financing page has the details and the questions shoppers ask most.',
           ] },
-          { h2: 'Before you drive over', bullets: [
+          { h2: 'Before you drive over', listStyle: 'facts', bullets: [
             `Store hours: ${L.hours.en[0]}, ${L.hours.en[1]}.`,
             `Call ${L.phone} to ask about a specific brand or size, or book a Dream Mapping time online so a Sleep Coach is ready for you.`,
             'Take the 60-second Sleep Fit Quiz at home first if you like; the in-store map confirms the result.',
@@ -70,7 +70,7 @@ export function areaPage(city: string, slug: string): ContentPage {
           { h2: 'Financiamiento', paragraphs: [
             'Hay financiamiento con Synchrony y Wells Fargo, y Snap Finance ofrece una opción de renta con opción a compra para quienes quizá no califiquen para crédito tradicional. Las solicitudes se hacen en tienda; la decisión de aprobación la toma la institución financiera. La página de financiamiento tiene los detalles y las preguntas más frecuentes.',
           ] },
-          { h2: 'Antes de manejar para acá', bullets: [
+          { h2: 'Antes de manejar para acá', listStyle: 'facts', bullets: [
             `Horario: ${L.hours.es[0]}, ${L.hours.es[1]}.`,
             `Llama al ${L.phone} para preguntar por una marca o un tamaño, o reserva tu Dream Mapping en línea para que un Sleep Coach te esté esperando.`,
             'Si quieres, haz primero el Sleep Fit Quiz de 60 segundos en casa; el mapa en tienda confirma el resultado.',

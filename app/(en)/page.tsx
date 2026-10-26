@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
+import { SizeTypeGrid } from '@/components/SizeTypeGrid';
 import { AreaLinks } from '@/components/AreaLinks';
 
 export const metadata: Metadata = {
@@ -52,6 +53,8 @@ export default function Page() {
       {/* page-level JSON-LD (scripts/page-schema.mjs) */}
       <PageSchema items={PAGE_SCHEMA} />
       <PageClient />
+      {/* "Mattresses by size & type" — the six size/type pages as icon cards (October 27, 2026) */}
+      <SizeTypeGrid locale="en" />
       {/* "Shopping from Edinburg, Mission or Pharr?" — links to the service-area pages (SEO audit build pass, C1) */}
       <AreaLinks locale="en" />
     </>

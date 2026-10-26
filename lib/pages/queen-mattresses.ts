@@ -28,7 +28,7 @@ export const PAGE: ContentPage = {
           'Rather than lying on every bed in the store, start with the Dream Mapping bed. In about five minutes its pressure sensors map where your body needs support and where it needs relief, and the Sleep Coach walks you to the queen mattresses that fit that map. The fitting is free and there is no obligation to buy.',
           'Couples are mapped individually, so a queen that works for both of you is chosen from both profiles. An adjustable base is available for queen mattresses if you want to raise your head or feet.',
         ] },
-        { h2: 'Delivery, financing and what comes with your queen', bullets: [
+        { h2: 'Delivery, financing and what comes with your queen', listStyle: 'facts', bullets: [
           'Free delivery and setup on orders over $999, with haul-away of your old mattress if you no longer need it.',
           'Financing through Synchrony and Wells Fargo, and a lease-to-own option through Snap Finance.',
           'Every purchase at Snooze Mattress + Wellness is backed by the Sleep Comfort Guarantee; ask a Sleep Coach for the details.',
@@ -67,7 +67,7 @@ export const PAGE: ContentPage = {
           'En lugar de acostarte en todas las camas de la tienda, empieza en la cama de Dream Mapping. En unos cinco minutos sus sensores de presión mapean dónde tu cuerpo necesita soporte y dónde necesita alivio, y el Sleep Coach te lleva a los colchones queen que van con ese mapa. El ajuste es gratis y no hay obligación de comprar.',
           'Las parejas se mapean por separado, así que el queen que funciona para los dos se elige a partir de ambos perfiles. Hay bases ajustables para colchones queen si quieres elevar la cabeza o los pies.',
         ] },
-        { h2: 'Entrega, financiamiento y lo que incluye tu queen', bullets: [
+        { h2: 'Entrega, financiamiento y lo que incluye tu queen', listStyle: 'facts', bullets: [
           'Entrega e instalación gratis en compras mayores de $999, y nos llevamos tu colchón viejo si ya no lo necesitas.',
           'Financiamiento con Synchrony y Wells Fargo, y una opción de renta con opción a compra con Snap Finance.',
           'Toda compra en Snooze Mattress + Wellness está respaldada por la Sleep Comfort Guarantee; pide los detalles a un Sleep Coach.',
