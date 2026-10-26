@@ -37,6 +37,18 @@ const LOGO = '/assets/filesafe/ARD47WoZpqaZSQ9MSxLD/media/6adfbe1967528ab60776de
 const OLD_IMAGE_ID = 'e9c18929-46f8-41a8-be9c-48df84bd974c';
 const IMAGE = '/assets/lcimg/image/f_webp/q_80/r_1200/u/filesafe/ARD47WoZpqaZSQ9MSxLD/media/6adfbd9d67528ab60776d13c.png';
 const BRAND_LINK = '<a class="snz-brand-link" href="https://brooklynbedding.com/" target="_blank" rel="noopener noreferrer">Brooklyn Bedding</a>';
+/* the "Trusted by Major Brands such as…" card on /mattress-financing and /mattress-sales: one composite image of the brand
+   logos, which still showed Englander; the client's new composite (the same 13 brands with Brooklyn Bedding) takes its
+   place in every size variant, with the alt the agency supplied */
+const OLD_BANNER_ID = '80d3f6fe-5f3c-43ea-97c2-104bb74a7f69';
+const OLD_BANNER_PATH = `qR8peonBlnjGI3ZuLHQP/media/${OLD_BANNER_ID}.png`;
+const BANNER_PATH = 'ARD47WoZpqaZSQ9MSxLD/media/6adfc5b336aa4a07e8efaab0.webp';
+const BANNER = `/assets/lcimg/image/f_webp/q_80/r_1200/u/filesafe/${BANNER_PATH}`;
+const BANNER_IDS = ['vy3csFO5NT', 'pPrmy32EsW', 'qb2gUzQNgin', 'dreuIkARcM'];
+const OLD_BANNER_ALT = {
+  en: 'Mattress brands at Snooze: Tempur-Pedic, Stearns & Foster, Sealy, Spring Air, King Koil, Puffy, Beautyrest, Brooklyn Bedding, Bedgear, Serta, DreamFit, Helix and BedTech',
+  es: 'Marcas de colchones en Snooze: Tempur-Pedic, Stearns & Foster, Sealy, Spring Air, King Koil, Puffy, Beautyrest, Brooklyn Bedding, Bedgear, Serta, DreamFit, Helix y BedTech',
+};
 /* the block's element ids on /mattresses: the desktop copy, then the mobile copy */
 const BLOCKS = [
   { heading: 'heading-GHn5gHcXmM', intro: 'sub-heading-LH2pAtpA4z', bullets: ['bulletList-tzXRqRtT5Q', 'bulletList-qgGwZGcn_j', 'bulletList-uUC2QYROD2'], image: 'image-2psf4j47kF' },
@@ -46,6 +58,7 @@ const T = {
   en: {
     logoAlt: `Brooklyn Bedding mattresses at Snooze ${CITY}`,
     imageAlt: `Brooklyn Bedding Sedona hybrid mattress at Snooze ${CITY}`,
+    bannerAlt: `Mattress brands at Snooze Mattress + Wellness ${CITY} including Tempur-Pedic, Stearns & Foster, Sealy, Brooklyn Bedding, and more`,
     heading: `${BRAND_LINK} Sedona Mattress`,
     intro: 'The Brooklyn Bedding Sedona combines cooling comfort, pressure relief, and responsive support in a premium hybrid design. Thoughtful comfort layers and a dual-coil system help create a comfortable, supportive night\'s sleep.',
     features: [
@@ -63,6 +76,7 @@ const T = {
   es: {
     logoAlt: `Colchones Brooklyn Bedding en Snooze ${CITY}`,
     imageAlt: `Colchón híbrido Brooklyn Bedding Sedona en Snooze ${CITY}`,
+    bannerAlt: `Marcas de colchones en Snooze Mattress + Wellness ${CITY}, incluyendo Tempur-Pedic, Stearns & Foster, Sealy, Brooklyn Bedding y más`,
     heading: `Colchón Sedona de ${BRAND_LINK}`,
     intro: 'El Brooklyn Bedding Sedona combina confort fresco, alivio de presión y soporte con respuesta en un diseño híbrido premium. Sus capas de confort bien pensadas y su sistema de doble resorte ayudan a lograr una noche de sueño cómoda y con buen soporte.',
     features: [
@@ -79,9 +93,10 @@ const T = {
   },
 };
 
-for (const f of [LOGO, IMAGE]) if (!fs.existsSync(path.join(ROOT, 'public', f))) throw new Error('missing asset public' + f);
+for (const f of [LOGO, IMAGE, BANNER]) if (!fs.existsSync(path.join(ROOT, 'public', f))) throw new Error('missing asset public' + f);
 const logoMeta = await sharp(path.join(ROOT, 'public', LOGO)).metadata();
 const imageMeta = await sharp(path.join(ROOT, 'public', IMAGE)).metadata();
+const bannerMeta = await sharp(path.join(ROOT, 'public', BANNER)).metadata();
 
 /* an <img> tag string for the marquee: same tag, new src / size / alt */
 const retagLogo = (tag, alt) => tag.replace(/src="[^"]*"/, `src="${LOGO}"`).replace(/width="\d+"/, `width="${logoMeta.width}"`).replace(/height="\d+"/, `height="${logoMeta.height}"`).replace(/alt="[^"]*"/, `alt="${esc(alt)}"`);
@@ -108,6 +123,14 @@ for (const file of listContentFiles(ROOT)) {
   let dupPayload = 0;
   for (let i = 0; i < nodes.length; i++) if (typeof nodes[i] === 'string' && nodes[i].includes(OLD_BB_ID)) nodes[i] = nodes[i].replace(OLD_BB_ITEM, () => { dupPayload++; return ''; });
   if (dupPayload) notes.push(`old Brooklyn Bedding item ×${dupPayload} removed (payload)`);
+
+  // 1c. the brands composite in the "Trusted by Major Brands" card: new file (same path form, every size variant), the
+  // agency's alt, and width/height so the box is reserved before it loads
+  const banners = $(`img[src*="${OLD_BANNER_ID}"]`);
+  if (banners.length) { banners.each((_, el) => { $(el).attr('src', String($(el).attr('src')).split(OLD_BANNER_PATH).join(BANNER_PATH)); $(el).attr('alt', t.bannerAlt); $(el).attr('width', String(bannerMeta.width)); $(el).attr('height', String(bannerMeta.height)); }); notes.push(`brands banner ×${banners.length} (markup)`); }
+  let bannerPayload = 0;
+  for (let i = 0; i < nodes.length; i++) if (typeof nodes[i] === 'string') { if (nodes[i].includes(OLD_BANNER_PATH)) { nodes[i] = nodes[i].split(OLD_BANNER_PATH).join(BANNER_PATH); bannerPayload++; } else if (nodes[i] === OLD_BANNER_ALT[locale]) { nodes[i] = t.bannerAlt; bannerPayload++; } }
+  if (bannerPayload) notes.push(`brands banner ×${bannerPayload} (payload)`);
 
   // 2. the /mattresses block
   if (byId.has(BLOCKS[0].heading)) {
@@ -141,6 +164,7 @@ for (const file of listContentFiles(ROOT)) {
   // the block images' reserved-size rules in HEAD_HTML (`#image-… .image-container img{aspect-ratio:W/H}`, written for the
   // old image's proportions) follow the Sedona image, or its box would stretch it
   if (byId.has(BLOCKS[0].heading)) { const ratioRe = new RegExp(`(#image-(?:${BLOCKS.map((b) => b.image.replace('image-', '')).join('|')}) \\.image-container img\\{aspect-ratio:)\\d+\\/\\d+(\\})`, 'g'); let fixed = 0; next = next.replace(ratioRe, (m, a, z) => { const v = `${a}${imageMeta.width}/${imageMeta.height}${z}`; if (v !== m) fixed++; return v; }); if (fixed) notes.push(`reserved-size ratio ×${fixed}`); }
+  { const ratioRe = new RegExp(`(#image-(?:${BANNER_IDS.join('|')}) \\.image-container img\\{aspect-ratio:)\\d+\\/\\d+(\\})`, 'g'); let fixed = 0; next = next.replace(ratioRe, (m, a, z) => { const v = `${a}${bannerMeta.width}/${bannerMeta.height}${z}`; if (v !== m) fixed++; return v; }); if (fixed) notes.push(`banner reserved-size ratio ×${fixed}`); }
   for (const [from, to] of t.sweep) { const n = next.split(from).length - 1; if (n) { next = next.split(from).join(to); notes.push(`sweep "${from.slice(0, 40)}…" ×${n}`); } }
   if (next !== s) { filesChanged++; if (!CHECK) fs.writeFileSync(file, next); }
   const left = (next.match(/Englander/g) || []).length;

@@ -9,7 +9,8 @@
   "_comment": "old media path -> new media path, applied to every reference (bare CDN URL, resize variants, payload). The new file and its r_320…r_1200 variants are added to the clone tree with `node scripts/image-variants.mjs <file> <mediaPath>`.",
   "BljrSmLCnm4gF9LpsTRZ/media/6a7577099a9c7792ea578a2c.jpeg": "ARD47WoZpqaZSQ9MSxLD/media/684480ff2c95c570cfc22e24.jpeg",
   "ARD47WoZpqaZSQ9MSxLD/media/69a1d3acb617a750cec56a9b.jpg": "ARD47WoZpqaZSQ9MSxLD/media/684480ff2c95c570cfc22e24.jpeg",
-  "https://www.synchrony.com/syc/img/2023_synchrony_basic_logo.svg": "/assets/logos/synchrony.svg"
+  "https://www.synchrony.com/syc/img/2023_synchrony_basic_logo.svg": "/assets/logos/synchrony.svg",
+  "qR8peonBlnjGI3ZuLHQP/media/80d3f6fe-5f3c-43ea-97c2-104bb74a7f69.png": "ARD47WoZpqaZSQ9MSxLD/media/6adfc5b336aa4a07e8efaab0.webp"
  },
  "imageAlt": {
   "_comment": "alt text for client images that carry none, matched by media id (the id in the reference before or after replacement); translated through overrides/i18n/es.extra.json. Decorative icons (map pin, phone, clock, moon, truck, chevrons, underline, party popper, envelope, SMS) keep alt=\"\" on purpose. Only what each image clearly shows is described (SEO audit, October 2026 — section 8c).",
@@ -22,7 +23,7 @@
   "bae599bb-e93f-4cd3-95a1-31b6fdc0acef": "Google Verified Reviews badge with five stars",
   "75a57c26-ac9e-4878-b69c-a0ed8f8c73f6": "Woman in Snooze pajamas",
   "d466f631-310f-40f9-a947-aade6a446db7": "Snooze Sleep Coach pointing at a Dream Mapping pressure-map screen",
-  "80d3f6fe-5f3c-43ea-97c2-104bb74a7f69": "Mattress brands at Snooze: Tempur-Pedic, Stearns & Foster, Sealy, Spring Air, King Koil, Puffy, Beautyrest, Brooklyn Bedding, Bedgear, Serta, DreamFit, Helix and BedTech",
+  "6adfc5b336aa4a07e8efaab0": "Mattress brands at Snooze Mattress + Wellness McAllen including Tempur-Pedic, Stearns & Foster, Sealy, Brooklyn Bedding, and more",
   "38eee3d4-abcb-49e3-94e6-cd7ebd89d910": "Snooze Sleep Coaches with a customer holding an 'I said yes to better rest' sign",
   "aea03256-4a88-40a6-aafc-a52d33bf668b": "Snooze Mattress + Wellness logo with Dream Mapping station photos",
   "b6b75ca5-7001-49ea-8871-26fafebd26e5": "Couple sitting on a mattress",
