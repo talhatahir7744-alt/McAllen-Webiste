@@ -22,7 +22,7 @@ export const PAGE: ContentPage = {
         ] },
         { h2: 'Why couples choose a king at Snooze', paragraphs: [
           'Two people rarely need the same mattress. Dream Mapping maps each of you individually, and the Sleep Coach uses both profiles to find a king that works for both, or a split king where each side is fitted separately. Adjustable bases with customizable head and foot positioning are available for king and split king setups, which couples with different reading or snoring habits appreciate.',
-          'The showroom carries Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, Puffy, King Koil, Englander, Spring Air and Snooze-O-Pedic. Ask a Sleep Coach which models are on the floor in king and split king.',
+          'The showroom carries Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, Puffy, King Koil, Brooklyn Bedding, Spring Air and Snooze-O-Pedic. Ask a Sleep Coach which models are on the floor in king and split king.',
         ] },
         { h2: 'The fitting takes five minutes', paragraphs: [
           'Lie down on the Dream Mapping bed in your usual position, let the sensors read your pressure points, and walk with the Sleep Coach to the king mattresses that fit the map. The fitting is free, there is no obligation to buy, and the Sleep Coaches are not on commission.',
@@ -60,7 +60,7 @@ export const PAGE: ContentPage = {
         ] },
         { h2: 'Por qué las parejas eligen un king en Snooze', paragraphs: [
           'Dos personas rara vez necesitan el mismo colchón. Dream Mapping mapea a cada uno por separado, y el Sleep Coach usa los dos perfiles para encontrar un king que funcione para ambos, o un split king en el que cada lado se ajusta aparte. Hay bases ajustables con posición de cabeza y pies personalizable para king y split king, algo que agradecen las parejas con distintos hábitos de lectura o de ronquidos.',
-          'La sala de exhibición tiene Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, Puffy, King Koil, Englander, Spring Air y Snooze-O-Pedic. Pregunta a un Sleep Coach qué modelos están en piso en king y split king.',
+          'La sala de exhibición tiene Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, Puffy, King Koil, Brooklyn Bedding, Spring Air y Snooze-O-Pedic. Pregunta a un Sleep Coach qué modelos están en piso en king y split king.',
         ] },
         { h2: 'El ajuste tarda cinco minutos', paragraphs: [
           'Recuéstate en la cama de Dream Mapping en tu posición habitual, deja que los sensores lean tus puntos de presión y camina con el Sleep Coach hacia los colchones king que van con el mapa. El ajuste es gratis, no hay obligación de comprar y los Sleep Coaches no trabajan por comisión.',

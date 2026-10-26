@@ -30,7 +30,8 @@
     "marquee": "node scripts/logo-marquee-patch.mjs",
     "alts": "node scripts/image-alts.mjs",
     "hero:mark": "node scripts/hero-mark.mjs",
-    "logo:synchrony": "node scripts/synchrony-logo.mjs"
+    "logo:synchrony": "node scripts/synchrony-logo.mjs",
+    "brand:brooklyn": "node scripts/brand-brooklyn.mjs"
   },
   "dependencies": {
     "next": "15.5.25",

@@ -18,7 +18,7 @@ const EN: Group[] = [
   { h2: 'The store', faqs: [
     { question: 'Where is Snooze Mattress + Wellness?', answer: `At ${L.street}, ${L.city}, ${L.region} ${L.postalCode}, open ${L.hours.en[0]} and ${L.hours.en[1]}; call ${L.phone}.` },
     { question: 'Why choose Snooze Mattress + Wellness in McAllen, TX?', answer: 'Because the fitting is measured, not guessed: a free Dream Mapping scan, Sleep Coaches who are not on commission, competitive sales, the Sleep Comfort Guarantee on your new mattress, and a family business that will be honored to serve you.' },
-    { question: 'What kind of mattresses do you carry?', answer: 'All the major brands, including Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, Puffy, King Koil, Englander and Spring Air, plus the Snooze-O-Pedic line available only at Snooze.' },
+    { question: 'What kind of mattresses do you carry?', answer: 'All the major brands, including Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, Puffy, King Koil, Brooklyn Bedding and Spring Air, plus the Snooze-O-Pedic line available only at Snooze.' },
     { question: 'Do you sell adjustable bases, pillows, protectors and sheets?', answer: 'Yes. Adjustable bases, pillows, mattress protectors, premium sheets, massage chairs and the Zcliner sleep recliner are all in the McAllen showroom.' },
     { question: 'Do you offer mattress delivery?', answer: 'Yes. We deliver and set up your new mattress, free on orders over $999, and haul away your old mattress if you no longer need it.' },
   ] },
@@ -49,7 +49,7 @@ const ES: Group[] = [
   { h2: 'La tienda', faqs: [
     { question: '¿Dónde está Snooze Mattress + Wellness?', answer: `En ${L.street}, ${L.city}, ${L.region} ${L.postalCode}, abierto ${L.hours.es[0]} y ${L.hours.es[1]}; llama al ${L.phone}.` },
     { question: '¿Por qué elegir Snooze Mattress + Wellness en McAllen, TX?', answer: 'Porque el ajuste se mide, no se adivina: un escaneo gratis de Dream Mapping, Sleep Coaches que no trabajan por comisión, ofertas competitivas, la Sleep Comfort Guarantee en tu colchón nuevo, y un negocio familiar al que le honraría atenderte.' },
-    { question: '¿Qué tipo de colchones manejan?', answer: 'Todas las principales marcas, incluidas Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, Puffy, King Koil, Englander y Spring Air, además de la línea Snooze-O-Pedic, disponible únicamente en Snooze.' },
+    { question: '¿Qué tipo de colchones manejan?', answer: 'Todas las principales marcas, incluidas Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, Puffy, King Koil, Brooklyn Bedding y Spring Air, además de la línea Snooze-O-Pedic, disponible únicamente en Snooze.' },
     { question: '¿Venden bases ajustables, almohadas, protectores y sábanas?', answer: 'Sí. Bases ajustables, almohadas, protectores de colchón, sábanas premium, sillas de masaje y el sillón reclinable Zcliner están en la sala de exhibición de McAllen.' },
     { question: '¿Ofrecen entrega de colchones?', answer: 'Sí. Entregamos e instalamos tu colchón nuevo, gratis en compras mayores de $999, y nos llevamos tu colchón viejo si ya no lo necesitas.' },
   ] },

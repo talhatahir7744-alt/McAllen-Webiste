@@ -25,7 +25,7 @@ const BRANDS = {
   '6a7f503a84abba640bb0b486': { name: 'BedTech' },
   '6a7f5039dc6b0a15e53bc0be': { name: 'Helix' },
   '6a7f503999074f5ef6d34d4b': { name: 'Bedgear', bedding: true },
-  '6a7f5039255b571c8e272951': { name: 'Englander' },
+  '6adfbe1967528ab60776dea7': { name: 'Brooklyn Bedding' }, // in Englander's place since October 27, 2026 (scripts/brand-brooklyn.mjs)
   '6a7f5039fe4291bd1091759a': { name: 'Beautyrest' },
   '6a7f5039cf50f900f2814ec2': { name: 'DreamFit', bedding: true },
   '6a7f5039fe4291bd109175a0': { name: 'Serta' },
@@ -38,7 +38,6 @@ const BRANDS = {
   '6a7f502ddc6b0a15e53b8cba': { name: 'Snooze-O-Pedic' },
   '6a7f502da6a03cda06a1aa88': { name: 'Sleeptone', bedding: true },
   '6a7f502df762745222a0f105': { name: 'Flowt by King Koil' },
-  '6a7f502da6a03cda06a1aa99': { name: 'Brooklyn Bedding' },
 };
 const altFor = (id, locale) => { const b = BRANDS[id]; if (!b) return null; const n = b.name.replace(/&/g, '&amp;'); if (locale === 'es') return b.bedding ? `${n} en Snooze McAllen` : `Colchones ${n} en Snooze McAllen`; return b.bedding ? `${n} at Snooze McAllen` : `${n} mattresses at Snooze McAllen`; };
 

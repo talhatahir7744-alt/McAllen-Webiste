@@ -31,14 +31,14 @@ const COPY = {
     p1: 'You’re in the right place. At Snooze Mattress + Wellness, we help you find the perfect mattress at the perfect price — without pressure, gimmicks, or confusing fine print. Whether you’re upgrading your master bedroom, shopping for a guest room, or finally replacing that sagging mattress, we make it simple, affordable, and comfortable.',
     h2: 'How mattress sales work at Snooze',
     p2: 'Every sale starts the same way: a free Dream Mapping fitting. In about five minutes the pressure-mapping bed shows which mattresses fit your body, so the offer you leave with is one that actually suits how you sleep.',
-    p3: 'Sale pricing applies to the brands on our McAllen showroom floor — Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, King Koil, Englander, Spring Air, Helix, Puffy and Snooze-O-Pedic. Financing is available through Synchrony, Wells Fargo and Snap, and delivery is free on orders over $999.',
+    p3: 'Sale pricing applies to the brands on our McAllen showroom floor — Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, King Koil, Brooklyn Bedding, Spring Air, Helix, Puffy and Snooze-O-Pedic. Financing is available through Synchrony, Wells Fargo and Snap, and delivery is free on orders over $999.',
     p4: (addr, tel) => `Details, dates and any exclusions for a specific offer are confirmed in store at ${addr}, or by phone at ${tel}.`,
   },
   es: {
     p1: 'Estás en el lugar correcto. En Snooze Mattress + Wellness te ayudamos a encontrar el colchón perfecto al precio perfecto — sin presiones, trucos ni letras chiquitas confusas. Ya sea que estés renovando tu recámara principal, buscando algo para el cuarto de visitas o por fin reemplazando ese colchón hundido, lo hacemos sencillo, accesible y cómodo.',
     h2: 'Cómo funcionan las ofertas de colchones en Snooze',
     p2: 'Toda oferta empieza igual: con una sesión gratis de Dream Mapping. En unos cinco minutos, la cama de mapeo de presión muestra qué colchones se ajustan a tu cuerpo, así que la oferta con la que te vas es una que de verdad va con tu forma de dormir.',
-    p3: 'Los precios de oferta aplican a las marcas de nuestra sala de exhibición en McAllen: Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, King Koil, Englander, Spring Air, Helix, Puffy y Snooze-O-Pedic. Hay financiamiento con Synchrony, Wells Fargo y Snap, y la entrega es gratis en compras mayores a $999.',
+    p3: 'Los precios de oferta aplican a las marcas de nuestra sala de exhibición en McAllen: Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, King Koil, Brooklyn Bedding, Spring Air, Helix, Puffy y Snooze-O-Pedic. Hay financiamiento con Synchrony, Wells Fargo y Snap, y la entrega es gratis en compras mayores a $999.',
     p4: (addr, tel) => `Los detalles, fechas y exclusiones de cada oferta se confirman en la tienda, en ${addr}, o por teléfono al ${tel}.`,
   },
 };

@@ -26,7 +26,7 @@ export const PAGE: ContentPage = {
           'Full: a teenager or an adult sleeping alone, a guest room, a smaller primary bedroom.',
         ] },
         { h2: 'Fitted like every other size', paragraphs: [
-          'Smaller sizes get the same fitting as a king. Dream Mapping takes about five minutes on the sensor bed, costs nothing, and shows the Sleep Coach which comfort level and support the sleeper needs, which matters for a growing child as much as for an adult. The showroom carries Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, Puffy, King Koil, Englander, Spring Air and Snooze-O-Pedic; ask which models are on the floor in twin, twin XL and full.',
+          'Smaller sizes get the same fitting as a king. Dream Mapping takes about five minutes on the sensor bed, costs nothing, and shows the Sleep Coach which comfort level and support the sleeper needs, which matters for a growing child as much as for an adult. The showroom carries Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, Puffy, King Koil, Brooklyn Bedding, Spring Air and Snooze-O-Pedic; ask which models are on the floor in twin, twin XL and full.',
           'Mattress protectors are a sensible addition for kids’ and guest beds: they guard the mattress against spills, stains and allergens while keeping the feel of the mattress.',
         ] },
         { h2: 'Delivery, financing and the guarantee', listStyle: 'facts', bullets: [
@@ -66,7 +66,7 @@ export const PAGE: ContentPage = {
           'Full: un adolescente o un adulto que duerme solo, un cuarto de visitas, una recámara principal pequeña.',
         ] },
         { h2: 'Ajustados como cualquier otro tamaño', paragraphs: [
-          'Los tamaños chicos reciben el mismo ajuste que un king. Dream Mapping tarda unos cinco minutos en la cama con sensores, no cuesta nada y le muestra al Sleep Coach qué nivel de comodidad y de soporte necesita quien va a dormir ahí, algo que importa tanto para un niño en crecimiento como para un adulto. La sala de exhibición tiene Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, Puffy, King Koil, Englander, Spring Air y Snooze-O-Pedic; pregunta qué modelos están en piso en twin, twin XL y full.',
+          'Los tamaños chicos reciben el mismo ajuste que un king. Dream Mapping tarda unos cinco minutos en la cama con sensores, no cuesta nada y le muestra al Sleep Coach qué nivel de comodidad y de soporte necesita quien va a dormir ahí, algo que importa tanto para un niño en crecimiento como para un adulto. La sala de exhibición tiene Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, Puffy, King Koil, Brooklyn Bedding, Spring Air y Snooze-O-Pedic; pregunta qué modelos están en piso en twin, twin XL y full.',
           'Un protector de colchón es una buena adición para camas de niños y de visitas: protege el colchón de derrames, manchas y alérgenos sin cambiar cómo se siente.',
         ] },
         { h2: 'Entrega, financiamiento y garantía', listStyle: 'facts', bullets: [

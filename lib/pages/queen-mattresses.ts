@@ -21,7 +21,7 @@ export const PAGE: ContentPage = {
           'Couples who want more space than a full without going to a king, taller sleepers who need the extra five inches of length over a full, and anyone who shares the bed with a child or a pet on weekend mornings all tend to land on a queen.',
         ] },
         { h2: 'Queen brands and comfort levels at Snooze', paragraphs: [
-          'The McAllen showroom carries Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, Puffy, King Koil, Englander, Spring Air and Snooze-O-Pedic, from luxury comfort and advanced sleep technology to budget-friendly options. Comfort levels run from plush to firm, so there is a queen for side sleepers who need pressure relief at the shoulders and hips as well as for back and stomach sleepers who need firmer support.',
+          'The McAllen showroom carries Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, Puffy, King Koil, Brooklyn Bedding, Spring Air and Snooze-O-Pedic, from luxury comfort and advanced sleep technology to budget-friendly options. Comfort levels run from plush to firm, so there is a queen for side sleepers who need pressure relief at the shoulders and hips as well as for back and stomach sleepers who need firmer support.',
           'Ask a Sleep Coach which models are on the floor in queen; the selection changes with the season and the current sale.',
         ] },
         { h2: 'Find your queen with Dream Mapping', paragraphs: [
@@ -60,7 +60,7 @@ export const PAGE: ContentPage = {
           'Las parejas que quieren más espacio que un full sin llegar al king, las personas altas que necesitan las cinco pulgadas extra de largo sobre un full, y quien comparte la cama con un hijo o una mascota los fines de semana suelen terminar en un queen.',
         ] },
         { h2: 'Marcas y niveles de comodidad en queen', paragraphs: [
-          'La sala de exhibición de McAllen tiene Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, Puffy, King Koil, Englander, Spring Air y Snooze-O-Pedic, desde comodidad de lujo y tecnología avanzada de sueño hasta opciones económicas. Los niveles de comodidad van de plush a firme, así que hay un queen tanto para quien duerme de lado y necesita alivio de presión en hombros y caderas como para quien duerme boca arriba o boca abajo y necesita soporte más firme.',
+          'La sala de exhibición de McAllen tiene Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, Puffy, King Koil, Brooklyn Bedding, Spring Air y Snooze-O-Pedic, desde comodidad de lujo y tecnología avanzada de sueño hasta opciones económicas. Los niveles de comodidad van de plush a firme, así que hay un queen tanto para quien duerme de lado y necesita alivio de presión en hombros y caderas como para quien duerme boca arriba o boca abajo y necesita soporte más firme.',
           'Pregunta a un Sleep Coach qué modelos están en piso en tamaño queen; la selección cambia con la temporada y con la oferta vigente.',
         ] },
         { h2: 'Encuentra tu queen con Dream Mapping', paragraphs: [

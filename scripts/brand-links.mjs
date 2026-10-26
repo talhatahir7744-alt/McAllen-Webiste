@@ -20,7 +20,7 @@ const BRANDS = [
   [/Stearns/i, 'https://www.stearnsandfoster.com/'],
   [/Beautyrest/i, 'https://www.beautyrest.com/'],
   [/King Koil/i, 'https://www.kingkoil.com/'],
-  [/Englander/i, 'https://www.englander.com/'],
+  [/Brooklyn Bedding/i, 'https://brooklynbedding.com/'],
   [/Spring Air/i, 'https://www.springair.com/'],
   [/Helix/i, 'https://helixsleep.com/'],
   [/Puffy/i, 'https://puffy.com/'],
