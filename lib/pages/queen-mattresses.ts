@@ -7,7 +7,7 @@ export const PAGE: ContentPage = {
   kind: 'product',
   copy: {
     en: {
-      title: 'Queen Mattresses in McAllen, TX — Fitted to You | Snooze',
+      title: 'Queen Mattresses in McAllen, TX | Snooze Mattress',
       description: 'Queen mattresses in McAllen, TX from Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix and more, fitted to you in a free Dream Mapping session.',
       crumb: 'Queen Mattresses',
       eyebrow: 'Mattresses by size',
@@ -46,7 +46,7 @@ export const PAGE: ContentPage = {
       cta: { title: 'Try queen mattresses in McAllen', text: 'A free five-minute Dream Mapping fitting shows you which queen models fit the way you sleep.', button: 'Book a free fitting' },
     },
     es: {
-      title: 'Colchones Queen en McAllen, TX, Ajustados a Ti | Snooze',
+      title: 'Colchones Queen en McAllen, TX | Snooze Mattress',
       description: 'Colchones queen en McAllen, TX de Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix y más, ajustados a ti con Dream Mapping gratis.',
       crumb: 'Colchones Queen',
       eyebrow: 'Colchones por tamaño',

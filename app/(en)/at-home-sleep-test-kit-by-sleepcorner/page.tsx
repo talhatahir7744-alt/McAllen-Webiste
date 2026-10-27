@@ -5,8 +5,8 @@ import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
 
 export const metadata: Metadata = {
-  "title": "Discover What's Disrupting Your Sleep—From Home",
-  "description": "Struggling with snoring, fatigue, or restless nights? The At-Home Sleep Test Kit by SleepCorner, available at Snooze Mattress + Wellness in McAllen, gives you answers without the hassle of a sleep lab. This FDA-cleared, easy-to-use test monitors your sleep patterns overnight and is reviewed by licensed sleep professionals to help identify potential sleep disorders like sleep apnea.",
+  "title": "At-Home Sleep Test Kit in McAllen, TX | Snooze Mattress",
+  "description": "The At-Home Sleep Test Kit by SleepCorner at Snooze Mattress + Wellness in McAllen: an FDA-cleared overnight test reviewed by licensed sleep professionals.",
   "alternates": {
     "canonical": "/at-home-sleep-test-kit-by-sleepcorner",
     "languages": {
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Discover What's Disrupting Your Sleep—From Home",
-    "description": "Struggling with snoring, fatigue, or restless nights? The At-Home Sleep Test Kit by SleepCorner, available at Snooze Mattress + Wellness in McAllen, gives you answers without the hassle of a sleep lab. This FDA-cleared, easy-to-use test monitors your sleep patterns overnight and is reviewed by licensed sleep professionals to help identify potential sleep disorders like sleep apnea.",
+    "title": "At-Home Sleep Test Kit in McAllen, TX | Snooze Mattress",
+    "description": "The At-Home Sleep Test Kit by SleepCorner at Snooze Mattress + Wellness in McAllen: an FDA-cleared overnight test reviewed by licensed sleep professionals.",
     "url": "/at-home-sleep-test-kit-by-sleepcorner",
     "type": "website",
     "images": [

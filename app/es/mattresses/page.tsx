@@ -5,7 +5,7 @@ import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
 
 export const metadata: Metadata = {
-  "title": "Colchones en McAllen, TX: Tempur-Pedic, Sealy y Más | Snooze",
+  "title": "Colchones en McAllen, TX: Marcas Líderes | Snooze Mattress",
   "description": "Colchones en McAllen, TX: Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, King Koil y más, ajustados a ti en una sesión gratis de Dream Mapping.",
   "alternates": {
     "canonical": "/es/mattresses",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Colchones en McAllen, TX: Tempur-Pedic, Sealy y Más | Snooze",
+    "title": "Colchones en McAllen, TX: Marcas Líderes | Snooze Mattress",
     "description": "Colchones en McAllen, TX: Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, King Koil y más, ajustados a ti en una sesión gratis de Dream Mapping.",
     "url": "/es/mattresses",
     "type": "website",

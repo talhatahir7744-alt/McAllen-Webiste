@@ -5,8 +5,8 @@ import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
 
 export const metadata: Metadata = {
-  "title": "Descubre Qué Interrumpe tu Sueño, Desde Casa",
-  "description": "¿Batallas con ronquidos, cansancio o noches inquietas? El Kit de Prueba de Sueño en Casa de SleepCorner, disponible en Snooze Mattress + Wellness en McAllen, te da respuestas sin la molestia de un laboratorio del sueño. Esta prueba fácil de usar y aprobada por la FDA monitorea tus patrones de sueño durante la noche y la revisan profesionales del sueño certificados para identificar posibles trastornos como la apnea del sueño.",
+  "title": "Kit de Prueba de Sueño en Casa en McAllen | Snooze Mattress",
+  "description": "El Kit de Prueba de Sueño en Casa de SleepCorner en Snooze Mattress + Wellness, McAllen: prueba nocturna aprobada por la FDA y revisada por profesionales.",
   "alternates": {
     "canonical": "/es/at-home-sleep-test-kit-by-sleepcorner",
     "languages": {
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Descubre Qué Interrumpe tu Sueño, Desde Casa",
-    "description": "¿Batallas con ronquidos, cansancio o noches inquietas? El Kit de Prueba de Sueño en Casa de SleepCorner, disponible en Snooze Mattress + Wellness en McAllen, te da respuestas sin la molestia de un laboratorio del sueño. Esta prueba fácil de usar y aprobada por la FDA monitorea tus patrones de sueño durante la noche y la revisan profesionales del sueño certificados para identificar posibles trastornos como la apnea del sueño.",
+    "title": "Kit de Prueba de Sueño en Casa en McAllen | Snooze Mattress",
+    "description": "El Kit de Prueba de Sueño en Casa de SleepCorner en Snooze Mattress + Wellness, McAllen: prueba nocturna aprobada por la FDA y revisada por profesionales.",
     "url": "/es/at-home-sleep-test-kit-by-sleepcorner",
     "type": "website",
     "images": [

@@ -4,9 +4,9 @@ import { IMG } from '@/lib/blog-images';
 export const POST_ES: BlogPost = {
   slug: 'mattresses-that-relieve-aches',
   title: 'Colchones que Alivian los Dolores',
-  metaTitle: 'Colchones para Aliviar el Dolor de Espalda | Snooze',
+  metaTitle: 'Colchones para Dolor de Espalda en McAllen | Snooze Mattress',
   metaDescription:
-    'Despierta sin dolores: cómo el colchón correcto apoya tu columna, alivia los puntos de presión y va con tu postura al dormir. Pruébalo en Snooze McAllen.',
+    'Colchones para el dolor de espalda en McAllen: cómo el colchón correcto apoya tu columna, alivia los puntos de presión y va con tu postura al dormir.',
   keywords: ['colchón para dolor de espalda', 'colchón dolores y molestias', 'soporte según postura al dormir', 'dormir mejor', 'tienda de colchones en McAllen'],
   datePublished: '2026-02-25',
   dateDisplay: '25 de febrero de 2026',

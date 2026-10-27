@@ -20,14 +20,14 @@ export const QUIZ_SCRIPT = '/sleep-fit-quiz.js?v=3';
 
 const META: Record<Locale, { title: string; description: string; ogLocale: string; noscript: string }> = {
   en: {
-    title: 'Sleep Fit Quiz | Snooze Mattress + Wellness McAllen',
-    description: 'Answer 5 quick questions about how you sleep and find the comfort level, support level and mattress features your body needs. Free, 60 seconds, from Snooze Mattress + Wellness in McAllen.',
+    title: 'Sleep Fit Quiz | Snooze Mattress in McAllen',
+    description: 'Answer 5 quick questions about how you sleep and find the comfort level, support level and mattress features your body needs. Free, in 60 seconds.',
     ogLocale: 'en_US',
     noscript: 'The Sleep Fit Quiz needs JavaScript. Call (956) 586-5646 or visit Snooze Mattress + Wellness at 7913 N 10th St, Suite 130, McAllen, TX 78504 and we will find your fit in person.',
   },
   es: {
-    title: 'Sleep Fit Quiz | Snooze Mattress + Wellness McAllen',
-    description: 'Responde 5 preguntas rápidas sobre cómo duermes y descubre el nivel de comodidad, el nivel de soporte y las características de colchón que tu cuerpo necesita. Gratis, en 60 segundos, de Snooze Mattress + Wellness en McAllen.',
+    title: 'Sleep Fit Quiz | Snooze Mattress en McAllen',
+    description: 'Responde 5 preguntas rápidas sobre cómo duermes y descubre la comodidad, el soporte y las características de colchón que necesitas. Gratis, 60 segundos.',
     ogLocale: 'es_US',
     noscript: 'El Sleep Fit Quiz necesita JavaScript. Llama al (956) 586-5646 o visita Snooze Mattress + Wellness en 7913 N 10th St, Suite 130, McAllen, TX 78504 y encontraremos tu ajuste en persona.',
   },

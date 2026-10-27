@@ -6,7 +6,7 @@ import { PAGE_SCHEMA } from './schema';
 import { AccessoryGuide } from '@/components/AccessoryGuide';
 
 export const metadata: Metadata = {
-  "title": "Pillows in McAllen, TX — Fitted to How You Sleep | Snooze",
+  "title": "Pillows in McAllen, TX for How You Sleep | Snooze Mattress",
   "description": "Pillows in McAllen, TX fitted to how you sleep: side, back and stomach sleepers. Premium pillows at Snooze Mattress + Wellness for your sleep style.",
   "alternates": {
     "canonical": "/pillows",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Pillows in McAllen, TX — Fitted to How You Sleep | Snooze",
+    "title": "Pillows in McAllen, TX for How You Sleep | Snooze Mattress",
     "description": "Pillows in McAllen, TX fitted to how you sleep: side, back and stomach sleepers. Premium pillows at Snooze Mattress + Wellness for your sleep style.",
     "url": "/pillows",
     "type": "website",

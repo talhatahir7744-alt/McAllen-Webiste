@@ -5,7 +5,7 @@ import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
 
 export const metadata: Metadata = {
-  "title": "Snooze McAllen: Tienda de Colchones de Dueños Locales",
+  "title": "Nosotros: Tienda Local en McAllen, TX | Snooze Mattress",
   "description": "Snooze Mattress + Wellness, McAllen, TX: Dream Mapping respaldado por la ciencia, Sleep Coaches reales y sin presión de comisiones para elegir tu colchón.",
   "alternates": {
     "canonical": "/es/about-us",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Snooze McAllen: Tienda de Colchones de Dueños Locales",
+    "title": "Nosotros: Tienda Local en McAllen, TX | Snooze Mattress",
     "description": "Snooze Mattress + Wellness, McAllen, TX: Dream Mapping respaldado por la ciencia, Sleep Coaches reales y sin presión de comisiones para elegir tu colchón.",
     "url": "/es/about-us",
     "type": "website",

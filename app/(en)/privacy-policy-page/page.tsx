@@ -5,8 +5,8 @@ import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
 
 export const metadata: Metadata = {
-  "title": "Privacy Policy",
-  "description": "Snooze Mattress + Wellness – McAllen (“Company,” “we,” “us,” or “our”) respects your privacy and is committed to protecting your personal information.\n\nThis Privacy Policy describes how we collect, use, and share information when you visit:",
+  "title": "Privacy Policy | Snooze Mattress",
+  "description": "How Snooze Mattress + Wellness – McAllen collects, uses and shares your personal information when you visit our website, contact us or use our services.",
   "alternates": {
     "canonical": "/privacy-policy-page",
     "languages": {
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Privacy Policy",
-    "description": "Snooze Mattress + Wellness – McAllen (“Company,” “we,” “us,” or “our”) respects your privacy and is committed to protecting your personal information.\n\nThis Privacy Policy describes how we collect, use, and share information when you visit:",
+    "title": "Privacy Policy | Snooze Mattress",
+    "description": "How Snooze Mattress + Wellness – McAllen collects, uses and shares your personal information when you visit our website, contact us or use our services.",
     "url": "/privacy-policy-page",
     "type": "website",
     "images": [

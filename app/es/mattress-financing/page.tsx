@@ -5,8 +5,8 @@ import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
 
 export const metadata: Metadata = {
-  "title": "Financiamiento de Colchones en McAllen, TX: 0% | Snooze",
-  "description": "Financiamiento de colchones en McAllen, TX: opciones al 0% con Synchrony y Wells Fargo, más Snap con renta con opción a compra. Pagos mensuales flexibles.",
+  "title": "Financiamiento de Colchones en McAllen, TX | Snooze Mattress",
+  "description": "Financiamiento especial de colchones en McAllen, TX. Con crédito aprobado; los términos varían según la promoción. Detalles en tienda o agenda tu visita.",
   "alternates": {
     "canonical": "/es/mattress-financing",
     "languages": {
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Financiamiento de Colchones en McAllen, TX: 0% | Snooze",
-    "description": "Financiamiento de colchones en McAllen, TX: opciones al 0% con Synchrony y Wells Fargo, más Snap con renta con opción a compra. Pagos mensuales flexibles.",
+    "title": "Financiamiento de Colchones en McAllen, TX | Snooze Mattress",
+    "description": "Financiamiento especial de colchones en McAllen, TX. Con crédito aprobado; los términos varían según la promoción. Detalles en tienda o agenda tu visita.",
     "url": "/es/mattress-financing",
     "type": "website",
     "images": [

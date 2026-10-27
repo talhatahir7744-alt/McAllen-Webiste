@@ -4,7 +4,7 @@ import { IMG } from '@/lib/blog-images';
 export const POST_ES: BlogPost = {
   slug: 'custom-mattresses-improving-health',
   title: 'Colchones a tu Medida que Mejoran tu Salud',
-  metaTitle: 'Colchones a tu Medida para Dormir Mejor | Snooze',
+  metaTitle: 'Colchones a tu Medida para Dormir Mejor | Snooze Mattress',
   metaDescription:
     'Cómo un colchón ajustado a tu cuerpo alivia los puntos de presión, mejora tu descanso y cuida tu salud a largo plazo. Visita Snooze en McAllen.',
   keywords: ['colchón a la medida', 'dormir mejor', 'puntos de presión', 'colchón para el dolor de espalda', 'tienda de colchones en McAllen'],

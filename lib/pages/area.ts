@@ -14,7 +14,7 @@ export function areaPage(city: string, slug: string): ContentPage {
     kind: 'area',
     copy: {
       en: {
-        title: `Mattress Store Serving ${city}, TX — Snooze McAllen`,
+        title: `Mattress Store Serving ${city}, TX | Snooze Mattress`,
         description: `Mattress shopping from ${city}? Snooze Mattress + Wellness in McAllen fits you with free Dream Mapping and delivers free on orders over $999.`,
         crumb: `Serving ${city}`,
         eyebrow: 'Service area',
@@ -51,7 +51,7 @@ export function areaPage(city: string, slug: string): ContentPage {
         cta: { title: `Book your free fitting from ${city}`, text: 'Five minutes on the Dream Mapping bed in McAllen, and you leave knowing which mattresses fit the way you sleep.', button: 'Book a free fitting' },
       },
       es: {
-        title: `Tienda de Colchones para ${city}, TX: Snooze McAllen`,
+        title: `Tienda de Colchones para ${city}, TX | Snooze Mattress`,
         description: `¿Buscas colchón desde ${city}? Snooze Mattress + Wellness en McAllen te ajusta con Dream Mapping gratis y entrega gratis en compras mayores de $999.`,
         crumb: `Atendemos ${city}`,
         eyebrow: 'Zona de servicio',

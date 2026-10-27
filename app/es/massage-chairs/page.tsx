@@ -5,7 +5,7 @@ import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
 
 export const metadata: Metadata = {
-  "title": "Sillas de Masaje Infinity en McAllen, TX | Snooze",
+  "title": "Sillas de Masaje Infinity en McAllen, TX | Snooze Mattress",
   "description": "Sillas de masaje Infinity en McAllen, TX en Snooze Mattress + Wellness: tecnología de masaje avanzada para relajarte y recuperarte. Pruébalas en la tienda.",
   "alternates": {
     "canonical": "/es/massage-chairs",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Sillas de Masaje Infinity en McAllen, TX | Snooze",
+    "title": "Sillas de Masaje Infinity en McAllen, TX | Snooze Mattress",
     "description": "Sillas de masaje Infinity en McAllen, TX en Snooze Mattress + Wellness: tecnología de masaje avanzada para relajarte y recuperarte. Pruébalas en la tienda.",
     "url": "/es/massage-chairs",
     "type": "website",

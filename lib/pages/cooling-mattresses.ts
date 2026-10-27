@@ -7,7 +7,7 @@ export const PAGE: ContentPage = {
   kind: 'product',
   copy: {
     en: {
-      title: 'Cooling Mattresses for the RGV — McAllen, TX | Snooze',
+      title: 'Cooling Mattresses in McAllen, TX | Snooze Mattress',
       description: 'Cooling mattresses in McAllen, TX for Rio Grande Valley nights: Tempur-Pedic cooling models and the Spring Air Copper Collection, fitted free at Snooze.',
       crumb: 'Cooling Mattresses',
       eyebrow: 'Mattresses by type',
@@ -45,7 +45,7 @@ export const PAGE: ContentPage = {
       cta: { title: 'Sleep cooler in McAllen', text: 'A free five-minute Dream Mapping fitting shows which cooling mattress also fits your body.', button: 'Book a free fitting' },
     },
     es: {
-      title: 'Colchones Frescos para el Valle en McAllen, TX | Snooze',
+      title: 'Colchones Frescos en McAllen, TX | Snooze Mattress',
       description: 'Colchones frescos en McAllen, TX para las noches del Valle: modelos Tempur-Pedic con enfriamiento y la Copper Collection de Spring Air, ajustados gratis.',
       crumb: 'Colchones Frescos',
       eyebrow: 'Colchones por tipo',

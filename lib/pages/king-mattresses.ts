@@ -7,7 +7,7 @@ export const PAGE: ContentPage = {
   kind: 'product',
   copy: {
     en: {
-      title: 'King Mattresses in McAllen, TX — Room for Two | Snooze',
+      title: 'King Mattresses in McAllen: Room for Two | Snooze Mattress',
       description: 'King and split king mattresses in McAllen, TX from Tempur-Pedic, Sealy, Beautyrest, King Koil and more, fitted to both of you with free Dream Mapping.',
       crumb: 'King Mattresses',
       eyebrow: 'Mattresses by size',
@@ -45,7 +45,7 @@ export const PAGE: ContentPage = {
       cta: { title: 'Try king mattresses in McAllen', text: 'A free Dream Mapping fitting for both of you shows which king or split king fits the way each of you sleeps.', button: 'Book a free fitting' },
     },
     es: {
-      title: 'Colchones King en McAllen, TX: Espacio para Dos | Snooze',
+      title: 'Colchones King en McAllen, TX | Snooze Mattress',
       description: 'Colchones king y split king en McAllen, TX de Tempur-Pedic, Sealy, Beautyrest, King Koil y más, ajustados a los dos con Dream Mapping gratis.',
       crumb: 'Colchones King',
       eyebrow: 'Colchones por tamaño',

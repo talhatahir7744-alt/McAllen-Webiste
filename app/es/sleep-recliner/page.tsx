@@ -5,8 +5,8 @@ import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
 
 export const metadata: Metadata = {
-  "title": "Duerme Mejor y Reclínate con Inteligencia con el Zcliner®",
-  "description": "Descubre una nueva forma de descansar con el SleepRecliner (Zcliner®) de Flexsteel, disponible exclusivamente en Snooze Mattress + Wellness en McAllen. Mucho más que un reclinable, el Zcliner® combina tecnología de confort avanzada con posiciones terapéuticas para ayudarte a relajarte, aliviar la presión y descansar mejor.",
+  "title": "Sillón Reclinable Zcliner en McAllen, TX | Snooze Mattress",
+  "description": "El SleepRecliner (Zcliner®) de Flexsteel, disponible en Snooze Mattress + Wellness en McAllen: tecnología de confort avanzada con posiciones terapéuticas.",
   "alternates": {
     "canonical": "/es/sleep-recliner",
     "languages": {
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Duerme Mejor y Reclínate con Inteligencia con el Zcliner®",
-    "description": "Descubre una nueva forma de descansar con el SleepRecliner (Zcliner®) de Flexsteel, disponible exclusivamente en Snooze Mattress + Wellness en McAllen. Mucho más que un reclinable, el Zcliner® combina tecnología de confort avanzada con posiciones terapéuticas para ayudarte a relajarte, aliviar la presión y descansar mejor.",
+    "title": "Sillón Reclinable Zcliner en McAllen, TX | Snooze Mattress",
+    "description": "El SleepRecliner (Zcliner®) de Flexsteel, disponible en Snooze Mattress + Wellness en McAllen: tecnología de confort avanzada con posiciones terapéuticas.",
     "url": "/es/sleep-recliner",
     "type": "website",
     "images": [

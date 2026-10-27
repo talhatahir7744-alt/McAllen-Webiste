@@ -7,7 +7,7 @@ export const PAGE: ContentPage = {
   kind: 'product',
   copy: {
     en: {
-      title: 'Memory Foam Mattresses in McAllen, TX | Snooze',
+      title: 'Memory Foam Mattresses in McAllen, TX | Snooze Mattress',
       description: 'Memory foam mattresses in McAllen, TX: Tempur-Pedic, Puffy and Snooze-O-Pedic at Snooze Mattress + Wellness, fitted to your pressure points for free.',
       crumb: 'Memory Foam Mattresses',
       eyebrow: 'Mattresses by type',
@@ -46,7 +46,7 @@ export const PAGE: ContentPage = {
       cta: { title: 'Try memory foam in McAllen', text: 'Lie on the Dream Mapping bed for five minutes and find out whether foam, hybrid or coils fit the way you sleep.', button: 'Book a free fitting' },
     },
     es: {
-      title: 'Colchones de Memory Foam en McAllen, TX | Snooze',
+      title: 'Colchones de Memory Foam en McAllen, TX | Snooze Mattress',
       description: 'Colchones de memory foam en McAllen, TX: Tempur-Pedic, Puffy y Snooze-O-Pedic en Snooze Mattress + Wellness, ajustados gratis a tus puntos de presión.',
       crumb: 'Colchones de Memory Foam',
       eyebrow: 'Colchones por tipo',

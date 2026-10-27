@@ -3,11 +3,10 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
-import { isOfferActive } from '@/lib/offer';
 
-const BASE_METADATA: Metadata = {
-  "title": "Mattress Sales & Deals in McAllen, TX | Snooze",
-  "description": "Mattress deals in McAllen, TX: Helix, Puffy, King Koil, Snooze-O-Pedic and adjustable base bundles at local prices. Visit the showroom or book a fitting.",
+export const metadata: Metadata = {
+  "title": "Mattress Sales & Deals in McAllen, TX | Snooze Mattress",
+  "description": "Current mattress deals at Snooze Mattress in McAllen, TX: brand savings, special financing and a free Dream Mapping fitting. See store for details.",
   "alternates": {
     "canonical": "/mattress-sales",
     "languages": {
@@ -17,8 +16,8 @@ const BASE_METADATA: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Mattress Sales & Deals in McAllen, TX | Snooze",
-    "description": "Mattress deals in McAllen, TX: Helix, Puffy, King Koil, Snooze-O-Pedic and adjustable base bundles at local prices. Visit the showroom or book a fitting.",
+    "title": "Mattress Sales & Deals in McAllen, TX | Snooze Mattress",
+    "description": "Current mattress deals at Snooze Mattress in McAllen, TX: brand savings, special financing and a free Dream Mapping fitting. See store for details.",
     "url": "/mattress-sales",
     "type": "website",
     "images": [
@@ -40,12 +39,6 @@ const BASE_METADATA: Metadata = {
   }
 };
 
-/* while the current offer (lib/offer.ts) is active at build time the title and description name the sale (SEO audit build pass, A4) */
-const SALE_TITLE = "Black Friday Mattress Sale in McAllen, TX | Snooze";
-const SALE_DESCRIPTION = "Black Friday Sale at Snooze Mattress + Wellness, McAllen, TX, November 3 – December 1: sale pricing on Helix, Puffy, King Koil, Snooze-O-Pedic and adjustable base bundles. Details in store.";
-export const metadata: Metadata = isOfferActive()
-  ? { ...BASE_METADATA, title: SALE_TITLE, description: SALE_DESCRIPTION, openGraph: { ...(BASE_METADATA.openGraph || {}), title: SALE_TITLE, description: SALE_DESCRIPTION } }
-  : BASE_METADATA;
 
 export default function Page() {
   return (

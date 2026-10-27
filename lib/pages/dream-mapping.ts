@@ -24,7 +24,7 @@ export const PAGE: ContentPage = {
   extraSchema: (locale) => [service(locale)],
   copy: {
     en: {
-      title: 'Dream Mapping in McAllen — Free 5-Minute Fitting | Snooze',
+      title: 'Dream Mapping Fitting in McAllen, TX | Snooze Mattress',
       description: 'What Dream Mapping measures, how long it takes and how it finds your mattress: a free 5-minute fitting at Snooze Mattress + Wellness in McAllen, TX.',
       crumb: 'Dream Mapping',
       eyebrow: 'Free in-store fitting',
@@ -69,7 +69,7 @@ export const PAGE: ContentPage = {
       cta: { title: 'Book your free Dream Mapping fitting', text: 'Five minutes on the sensor bed in McAllen, and you will know which mattresses fit the way you sleep.', button: 'Book a free fitting' },
     },
     es: {
-      title: 'Dream Mapping en McAllen: Ajuste Gratis | Snooze',
+      title: 'Dream Mapping Gratis en McAllen, TX | Snooze Mattress',
       description: 'Qué mide Dream Mapping, cuánto tarda y cómo encuentra tu colchón: un ajuste gratis de 5 minutos en Snooze Mattress + Wellness, McAllen, TX.',
       crumb: 'Dream Mapping',
       eyebrow: 'Ajuste gratis en tienda',

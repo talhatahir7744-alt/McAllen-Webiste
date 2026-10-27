@@ -5,8 +5,8 @@ import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
 
 export const metadata: Metadata = {
-  "title": "Terms & Conditions",
-  "description": "Welcome to Snooze Mattress + Wellness – McAllen (“Company,” “we,” “us,” or “our”).\nBy accessing or using  (“Website”), you agree to the following Terms & Conditions. If you do not agree, please do not use this Website.",
+  "title": "Terms & Conditions | Snooze Mattress",
+  "description": "The terms and conditions for using the Snooze Mattress + Wellness – McAllen website. By accessing or using the website, you agree to these terms.",
   "alternates": {
     "canonical": "/terms-conditions-page",
     "languages": {
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Terms & Conditions",
-    "description": "Welcome to Snooze Mattress + Wellness – McAllen (“Company,” “we,” “us,” or “our”).\nBy accessing or using  (“Website”), you agree to the following Terms & Conditions. If you do not agree, please do not use this Website.",
+    "title": "Terms & Conditions | Snooze Mattress",
+    "description": "The terms and conditions for using the Snooze Mattress + Wellness – McAllen website. By accessing or using the website, you agree to these terms.",
     "url": "/terms-conditions-page",
     "type": "website",
     "images": [

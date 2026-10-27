@@ -6,8 +6,8 @@ import { PAGE_SCHEMA } from './schema';
 import { AccessoryGuide } from '@/components/AccessoryGuide';
 
 export const metadata: Metadata = {
-  "title": "Wrap Yourself in Luxury Every Night",
-  "description": "The right sheets can transform your sleep experience. At Snooze Mattress + Wellness in McAllen, our premium sheet collection combines softness, breathability, and durability to create the ultimate sleep sanctuary.",
+  "title": "Premium Sheets in McAllen, TX | Snooze Mattress",
+  "description": "The right sheets can transform your sleep. The premium sheets at Snooze Mattress + Wellness in McAllen combine softness, breathability and durability.",
   "alternates": {
     "canonical": "/premium-sheets",
     "languages": {
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Wrap Yourself in Luxury Every Night",
-    "description": "The right sheets can transform your sleep experience. At Snooze Mattress + Wellness in McAllen, our premium sheet collection combines softness, breathability, and durability to create the ultimate sleep sanctuary.",
+    "title": "Premium Sheets in McAllen, TX | Snooze Mattress",
+    "description": "The right sheets can transform your sleep. The premium sheets at Snooze Mattress + Wellness in McAllen combine softness, breathability and durability.",
     "url": "/premium-sheets",
     "type": "website",
     "images": [

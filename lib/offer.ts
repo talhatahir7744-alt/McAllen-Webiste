@@ -1,5 +1,6 @@
 /* The site's current promotion: ONE place to edit (copy + dates), read by scripts/ribbon-band.mjs (the crossing-ribbons
-   band under the home page hero, EN + ES), and by the sales page's metadata (title / description name the sale while it is on). It replaced the builder's expired
+   band under the home page hero, EN + ES) and by scripts/sales-hero.mjs (the dated block under the sales hero). The sales page's
+   <title> / meta description no longer name the sale (SEO report, October 27, 2026: the agency's title and description hold). It replaced the builder's expired
    "Memorial Day Savings Event / Save up to 75% … until June 6th" block (SEO audit, October 2026), which was removed
    from the page markup and the page payload (overrides.json -> removeElements: section-g0BQMsgMwp).
 

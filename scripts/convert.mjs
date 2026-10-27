@@ -891,12 +891,11 @@ function convertPage(rel, loc = null) {
     "import type { Metadata } from 'next';",
     "import PageClient from './client';",
     ...(isHome ? ["import { SizeTypeGrid } from '@/components/SizeTypeGrid';", "import { AreaLinks } from '@/components/AreaLinks';"] : []),
-    ...(isSales ? ["import { isOfferActive } from '@/lib/offer';"] : []),
     ...(isGuide ? ["import { AccessoryGuide } from '@/components/AccessoryGuide';"] : []),
     '',
-    ...(isSales
-      ? [`const BASE_METADATA: Metadata = ${JSON.stringify(metadata, null, 2)};`, '', '/* while the current offer (lib/offer.ts) is active at build time the title and description name the sale (SEO audit build pass, A4) */', `const SALE_TITLE = ${JSON.stringify(loc && loc.code === 'es' ? 'Venta de Black Friday de Colchones en McAllen, TX | Snooze' : 'Black Friday Mattress Sale in McAllen, TX | Snooze')};`, `const SALE_DESCRIPTION = ${JSON.stringify(loc && loc.code === 'es' ? 'Venta de Black Friday en Snooze Mattress + Wellness, McAllen, TX, del 3 de noviembre al 1 de diciembre: precios de oferta en Helix, Puffy, King Koil, Snooze-O-Pedic y bases ajustables. Detalles en tienda.' : 'Black Friday Sale at Snooze Mattress + Wellness, McAllen, TX, November 3 – December 1: sale pricing on Helix, Puffy, King Koil, Snooze-O-Pedic and adjustable base bundles. Details in store.')};`, 'export const metadata: Metadata = isOfferActive()', '  ? { ...BASE_METADATA, title: SALE_TITLE, description: SALE_DESCRIPTION, openGraph: { ...(BASE_METADATA.openGraph || {}), title: SALE_TITLE, description: SALE_DESCRIPTION } }', '  : BASE_METADATA;']
-      : [`export const metadata: Metadata = ${JSON.stringify(metadata, null, 2)};`]),
+    // the sales page's title and description no longer follow the offer (SEO report, October 27, 2026: the agency's
+    // title/meta hold while a sale is on; the dated offer stays in the page's hero block, scripts/sales-hero.mjs)
+    `export const metadata: Metadata = ${JSON.stringify(metadata, null, 2)};`,
     '',
     'export default function Page() {',
     ...(isHome

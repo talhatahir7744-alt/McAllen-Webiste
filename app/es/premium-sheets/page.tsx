@@ -6,8 +6,8 @@ import { PAGE_SCHEMA } from './schema';
 import { AccessoryGuide } from '@/components/AccessoryGuide';
 
 export const metadata: Metadata = {
-  "title": "Envuélvete en Lujo Cada Noche",
-  "description": "Las sábanas correctas pueden transformar tu descanso. En Snooze Mattress + Wellness en McAllen, nuestra colección de sábanas premium combina suavidad, frescura y durabilidad para crear el santuario de sueño perfecto.",
+  "title": "Sábanas Premium en McAllen, TX | Snooze Mattress",
+  "description": "Las sábanas correctas pueden transformar tu descanso. Las sábanas premium de Snooze Mattress + Wellness en McAllen: suavidad, frescura y durabilidad.",
   "alternates": {
     "canonical": "/es/premium-sheets",
     "languages": {
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Envuélvete en Lujo Cada Noche",
-    "description": "Las sábanas correctas pueden transformar tu descanso. En Snooze Mattress + Wellness en McAllen, nuestra colección de sábanas premium combina suavidad, frescura y durabilidad para crear el santuario de sueño perfecto.",
+    "title": "Sábanas Premium en McAllen, TX | Snooze Mattress",
+    "description": "Las sábanas correctas pueden transformar tu descanso. Las sábanas premium de Snooze Mattress + Wellness en McAllen: suavidad, frescura y durabilidad.",
     "url": "/es/premium-sheets",
     "type": "website",
     "images": [

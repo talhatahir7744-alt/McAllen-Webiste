@@ -7,8 +7,8 @@ import { SizeTypeGrid } from '@/components/SizeTypeGrid';
 import { AreaLinks } from '@/components/AreaLinks';
 
 export const metadata: Metadata = {
-  "title": "Colchones en McAllen, TX | Dream Mapping Gratis | Snooze",
-  "description": "Tienda de colchones en McAllen, TX: sesión gratis de Dream Mapping de 5 minutos, marcas líderes y financiamiento al 0% en 7913 N 10th St, Suite 130.",
+  "title": "Colchones en McAllen | Dream Mapping | Snooze Mattress",
+  "description": "Tienda de colchones en McAllen, TX con Dream Mapping gratis, marcas líderes y financiamiento en 7913 N 10th St, Suite 130. Abrimos domingos 12–6.",
   "authors": [
     {
       "name": "Snooze Mattress + Wellness"
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Colchones en McAllen, TX | Dream Mapping Gratis | Snooze",
-    "description": "Tienda de colchones en McAllen, TX: sesión gratis de Dream Mapping de 5 minutos, marcas líderes y financiamiento al 0% en 7913 N 10th St, Suite 130.",
+    "title": "Colchones en McAllen | Dream Mapping | Snooze Mattress",
+    "description": "Tienda de colchones en McAllen, TX con Dream Mapping gratis, marcas líderes y financiamiento en 7913 N 10th St, Suite 130. Abrimos domingos 12–6.",
     "url": "/es",
     "type": "website",
     "images": [

@@ -74,7 +74,7 @@ export const PAGE: ContentPage = {
   kind: 'faq',
   copy: {
     en: {
-      title: 'FAQ — Snooze Mattress + Wellness, McAllen, TX',
+      title: 'Mattress FAQ for McAllen Shoppers | Snooze Mattress',
       description: 'Answers to what McAllen shoppers ask Snooze: Dream Mapping, the store and its brands, delivery, and financing with Synchrony, Wells Fargo and Snap.',
       crumb: 'FAQ',
       eyebrow: 'Questions and answers',
@@ -87,7 +87,7 @@ export const PAGE: ContentPage = {
       cta: { title: 'Still have a question?', text: `Call ${L.phone} or come by ${L.street}, ${L.city}; a Sleep Coach will answer it in person, and a free Dream Mapping fitting takes about five minutes.`, button: 'Book a free fitting' },
     },
     es: {
-      title: 'Preguntas Frecuentes | Snooze Mattress + Wellness McAllen',
+      title: 'Preguntas Frecuentes de McAllen | Snooze Mattress',
       description: 'Respuestas a lo que preguntan los clientes de McAllen a Snooze: Dream Mapping, la tienda y sus marcas, la entrega y el financiamiento.',
       crumb: 'Preguntas frecuentes',
       eyebrow: 'Preguntas y respuestas',

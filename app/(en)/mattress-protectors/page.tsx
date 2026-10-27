@@ -6,7 +6,7 @@ import { PAGE_SCHEMA } from './schema';
 import { AccessoryGuide } from '@/components/AccessoryGuide';
 
 export const metadata: Metadata = {
-  "title": "Mattress Protectors in McAllen, TX | Snooze",
+  "title": "Mattress Protectors in McAllen, TX | Snooze Mattress",
   "description": "Mattress protectors in McAllen, TX from Snooze Mattress + Wellness: breathable, waterproof protection from spills and allergens for your mattress.",
   "alternates": {
     "canonical": "/mattress-protectors",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     }
   },
   "openGraph": {
-    "title": "Mattress Protectors in McAllen, TX | Snooze",
+    "title": "Mattress Protectors in McAllen, TX | Snooze Mattress",
     "description": "Mattress protectors in McAllen, TX from Snooze Mattress + Wellness: breathable, waterproof protection from spills and allergens for your mattress.",
     "url": "/mattress-protectors",
     "type": "website",

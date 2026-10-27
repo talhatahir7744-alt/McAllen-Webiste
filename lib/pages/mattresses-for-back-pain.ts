@@ -7,7 +7,7 @@ export const PAGE: ContentPage = {
   kind: 'guide',
   copy: {
     en: {
-      title: 'Mattresses for Back Pain & Side Sleepers in McAllen | Snooze',
+      title: 'Mattresses for Back Pain in McAllen, TX | Snooze Mattress',
       description: 'Mattresses for back pain and side sleepers in McAllen, TX: a free Dream Mapping scan finds your pressure points and the Sleep Coach finds the support.',
       crumb: 'Back Pain & Side Sleepers',
       eyebrow: 'Mattresses by need',
@@ -47,7 +47,7 @@ export const PAGE: ContentPage = {
       cta: { title: 'Map your pressure points, free', text: 'Five minutes on the Dream Mapping bed in McAllen shows what your back needs from a mattress.', button: 'Book a free fitting' },
     },
     es: {
-      title: 'Colchones para Dolor de Espalda en McAllen | Snooze',
+      title: 'Colchones para Dolor de Espalda y de Lado | Snooze Mattress',
       description: 'Colchones para dolor de espalda y dormir de lado en McAllen, TX: un escaneo gratis de Dream Mapping encuentra tus puntos de presión y el soporte.',
       crumb: 'Dolor de Espalda y Dormir de Lado',
       eyebrow: 'Colchones por necesidad',

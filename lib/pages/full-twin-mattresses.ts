@@ -7,7 +7,7 @@ export const PAGE: ContentPage = {
   kind: 'product',
   copy: {
     en: {
-      title: 'Full & Twin Mattresses in McAllen, TX | Snooze',
+      title: 'Full & Twin Mattresses in McAllen, TX | Snooze Mattress',
       description: 'Twin, twin XL and full mattresses in McAllen, TX for kids, guest rooms and smaller bedrooms, from the brands at Snooze, fitted with free Dream Mapping.',
       crumb: 'Full & Twin Mattresses',
       eyebrow: 'Mattresses by size',
@@ -47,7 +47,7 @@ export const PAGE: ContentPage = {
       cta: { title: 'Find the right twin or full in McAllen', text: 'Bring the sleeper in for a free five-minute Dream Mapping fitting and try the smaller sizes on the showroom floor.', button: 'Book a free fitting' },
     },
     es: {
-      title: 'Colchones Full y Twin en McAllen, TX | Snooze',
+      title: 'Colchones Full y Twin en McAllen, TX | Snooze Mattress',
       description: 'Colchones twin, twin XL y full en McAllen, TX para niños, cuartos de visitas y recámaras pequeñas, de las marcas de Snooze, con Dream Mapping gratis.',
       crumb: 'Colchones Full y Twin',
       eyebrow: 'Colchones por tamaño',

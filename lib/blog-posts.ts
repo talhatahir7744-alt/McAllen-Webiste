@@ -47,7 +47,7 @@ export const POSTS: BlogPost[] = [
   {
     slug: 'custom-mattresses-improving-health',
     title: 'Custom Mattresses Improving Health',
-    metaTitle: 'Custom Mattresses for Better Health & Sleep | Snooze',
+    metaTitle: 'Custom Mattresses for Better Health | Snooze Mattress',
     metaDescription:
       'How a custom mattress fitted to your body relieves pressure points, improves sleep quality and supports long-term health. Visit Snooze in McAllen.',
     keywords: ['custom mattress', 'better sleep', 'pressure points', 'mattress for back pain relief', 'McAllen mattress store'],
@@ -248,7 +248,7 @@ export const POSTS: BlogPost[] = [
   {
     slug: 'mattresses-that-relieve-aches',
     title: 'Mattresses That Relieve Aches',
-    metaTitle: 'Mattresses for Back Pain Relief & Aches | Snooze',
+    metaTitle: 'Mattresses for Back Pain Relief & Aches | Snooze Mattress',
     metaDescription:
       'Wake up without aches: how the right mattress supports your spine, relieves pressure points and matches your sleep position. Try one at Snooze McAllen.',
     keywords: ['mattress for back pain relief', 'mattress aches and pains', 'sleep position support', 'better sleep', 'McAllen mattress store'],
