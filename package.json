@@ -19,6 +19,7 @@
     "faq:direct": "node scripts/faq-direct.mjs",
     "icons": "node scripts/icons.mjs",
     "section:guarantee": "node scripts/guarantee-section.mjs",
+    "section:about-cards": "node scripts/about-cards.mjs",
     "ribbon": "node scripts/ribbon-band.mjs",
     "section:sales-hero": "node scripts/sales-hero.mjs",
     "embeds:async": "node scripts/async-embeds.mjs",

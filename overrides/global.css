@@ -354,3 +354,21 @@ body:has([data-site-header] button[aria-controls$="-drawer"][aria-expanded="true
    and the Pressure Mapping timeline's custom code (.pm-step, .pm-benefits li). They now stay at full opacity; their
    slide-in transforms still run. The site's own reveals (overrides/motion.css) are transform-only as well. ---- */
 .hl_page-preview--content [data-animation-class*="animate__"], .guar-reveal, .guar-star, .pm-section .pm-step, .pm-section .pm-benefits li { opacity: 1 !important; }
+
+/* ---- About page, "This Isn't Your Typical Mattress Store." cards (copy: scripts/about-cards.mjs, npm run section:about-cards).
+   Desktop section BmqcJGH-kR, rows --kv3BRGUwz (Science-Backed Fitting / Real Sleep Coaches / Best Price Guaranteed) and
+   SVc04VBjk3 (White-Glove Delivery / Flexible Financing / Sleep Cooler); the phone copy (section defONbS5bl, ≤ 767px) stacks
+   one card per row. The builder centred each card's content vertically (justify-content: center on the card box), so the
+   card with the least text floated its icon and heading mid-card. From 768px each row is one grid of three columns with
+   three shared rows (subgrid): icon, heading, body. The cards are the same height, their icons sit on one line, their
+   headings on one line (however many lines the longest heading takes) and their body text starts on one line, from the top.
+   The icon box is a fixed 50px (the builder's image width, aspect-ratio 1) plus the builder's 20px gap, so it holds its
+   height before the image arrives. Card colours, borders, padding and the builder's 15px column gutters are unchanged.
+   Browsers without subgrid still get equal-height, top-aligned cards (the inner grids fall back to auto rows). ---- */
+@media (min-width: 768px) {
+  .hl_page-preview--content #row--kv3BRGUwz > .inner, .hl_page-preview--content #row-SVc04VBjk3 > .inner { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto auto 1fr; align-items: stretch; }
+  .hl_page-preview--content #row--kv3BRGUwz > .inner > .c-column, .hl_page-preview--content #row-SVc04VBjk3 > .inner > .c-column { display: grid; grid-row: 1 / -1; grid-template-rows: subgrid; width: auto !important; }
+  .hl_page-preview--content #row--kv3BRGUwz .c-column > .inner, .hl_page-preview--content #row-SVc04VBjk3 .c-column > .inner { display: grid; grid-row: 1 / -1; grid-template-rows: subgrid; height: auto !important; margin-top: 0 !important; margin-bottom: 0 !important; justify-content: stretch !important; align-content: start; }
+  .hl_page-preview--content #row--kv3BRGUwz .c-column > .inner > .c-image, .hl_page-preview--content #row-SVc04VBjk3 .c-column > .inner > .c-image { height: 50px !important; margin: 0 0 20px !important; align-self: start; }
+  .hl_page-preview--content #row--kv3BRGUwz .c-column > .inner > .c-paragraph, .hl_page-preview--content #row-SVc04VBjk3 .c-column > .inner > .c-paragraph { align-self: start; }
+}
