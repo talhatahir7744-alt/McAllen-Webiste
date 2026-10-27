@@ -19,6 +19,7 @@ export const PAGE: ContentPage = {
         { h2: 'Twin, twin XL or full: the sizes', paragraphs: [
           'A twin is 38 inches wide and 75 inches long, the standard size for a child’s bed, a bunk bed or a daybed. A twin XL adds five inches of length (38 by 80 inches): the size of a dorm bed, the right call for a tall teenager, and the size that pairs up to form a split king on an adjustable base. A full, also called a double, is 54 inches wide and 75 inches long, a generous single bed and a workable size for a guest room where a queen will not fit.',
           'Two adults can share a full, but with only 27 inches each it suits occasional use rather than every night. Couples are usually better served by a queen or a king.',
+          'Our [mattress size guide](/blog/mattress-size-guide-mcallen) compares every size, from twin to California king, with the room each one needs.',
         ] },
         { h2: 'Who buys which size', listStyle: 'cards', bullets: [
           'Twin: children moving out of a toddler bed, bunk beds, daybeds and trundles.',
@@ -59,6 +60,7 @@ export const PAGE: ContentPage = {
         { h2: 'Twin, twin XL o full: los tamaños', paragraphs: [
           'Un twin mide 38 pulgadas de ancho por 75 de largo, el tamaño estándar para la cama de un niño, una litera o un sofá cama. Un twin XL agrega cinco pulgadas de largo (38 por 80): el tamaño de una cama de dormitorio estudiantil, la opción correcta para un adolescente alto y el tamaño que en pareja forma un split king sobre una base ajustable. Un full, también llamado matrimonial, mide 54 pulgadas de ancho por 75 de largo: una cama individual generosa y un tamaño práctico para un cuarto de visitas donde no cabe un queen.',
           'Dos adultos pueden compartir un full, pero con solo 27 pulgadas para cada uno sirve más para uso ocasional que para todas las noches. A las parejas casi siempre les conviene un queen o un king.',
+          'Nuestra [guía de tamaños de colchón](/es/blog/guia-tamanos-de-colchon-mcallen) compara todos los tamaños, de twin a California king, con el espacio que necesita cada uno.',
         ] },
         { h2: 'Quién compra cada tamaño', listStyle: 'cards', bullets: [
           'Twin: niños que dejan la cuna, literas, sofás cama y camas nido.',

@@ -5,7 +5,7 @@ import { BlogArticle, BlogCta, BlogShell, Divider, PostCard } from '@/components
 import { plain } from '@/components/blog/Rich';
 import { SITE } from '@/components/site-config';
 import styles from '@/components/blog/blog.module.css';
-import { getPost, postsFor, relatedPosts } from '@/lib/blog-posts';
+import { altBlogPath, getPost, postsFor, relatedPosts, type BlogPost } from '@/lib/blog-posts';
 import { localizeHref, ui, type Locale } from '@/lib/i18n';
 
 const SITE_URL = 'https://mcallen.snoozemattresscompany.com';
@@ -17,6 +17,13 @@ const alternates = (path: string, locale: Locale) => ({
   canonical: localizeHref(path, locale),
   languages: { 'en-US': localizeHref(path, 'en'), 'es-US': localizeHref(path, 'es'), 'x-default': localizeHref(path, 'en') },
 });
+/* a post's alternates: its own path as canonical, the English and Spanish paths (which differ for the October 2026
+   posts, BlogPost.altSlug) as en-US / es-US, the English one as x-default */
+const postAlternates = (post: BlogPost, locale: Locale) => {
+  const own = `/blog/${post.slug}`; const other = altBlogPath(post);
+  const en = locale === 'en' ? own : other; const es = localizeHref(locale === 'es' ? own : other, 'es');
+  return { canonical: localizeHref(own, locale), languages: { 'en-US': en, 'es-US': es, 'x-default': en } };
+};
 
 export function blogIndexMetadata(locale: Locale): Metadata {
   const t = ui(locale).blog;
@@ -67,7 +74,7 @@ export function postMetadata(slug: string, locale: Locale): Metadata {
     title: post.metaTitle,
     description: post.metaDescription,
     keywords: post.keywords,
-    alternates: alternates(path, locale),
+    alternates: postAlternates(post, locale),
     openGraph: {
       type: 'article',
       title: post.metaTitle,

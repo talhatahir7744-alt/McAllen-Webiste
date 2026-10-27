@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 
 // static export (next.config output: 'export'): generated once at build time, served as a plain file
 export const dynamic = 'force-static';
-import { POSTS } from '@/lib/blog-posts';
+import { altBlogPath, postsFor } from '@/lib/blog-posts';
 import { localizeHref } from '@/lib/i18n';
 import LASTMOD from '@/lib/lastmod.json';
 
@@ -63,11 +63,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       out.push({ url: abs(url), lastModified: lastmod(url, now), changeFrequency: 'monthly', priority, alternates: { languages: languages(path) } });
     }
   }
-  for (const p of POSTS) {
-    const path = `/blog/${p.slug}`;
-    const date = new Date(p.dateModified || p.datePublished);
-    for (const locale of ['en', 'es'] as const) {
-      out.push({ url: abs(localizeHref(path, locale)), lastModified: date, changeFrequency: 'yearly', priority: 0.6, alternates: { languages: languages(path) } });
+  // blog posts: one entry per language; the October 2026 posts carry different slugs per language (BlogPost.altSlug)
+  for (const locale of ['en', 'es'] as const) {
+    for (const p of postsFor(locale)) {
+      const own = `/blog/${p.slug}`; const other = altBlogPath(p);
+      const en = locale === 'en' ? own : other; const es = localizeHref(locale === 'es' ? own : other, 'es');
+      out.push({ url: abs(localizeHref(own, locale)), lastModified: new Date(p.dateModified || p.datePublished), changeFrequency: 'yearly', priority: 0.6, alternates: { languages: { 'en-US': abs(en), 'es-US': abs(es), 'x-default': abs(en) } } });
     }
   }
   return out;

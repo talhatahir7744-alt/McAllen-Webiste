@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
+import { GuideLinks } from '@/components/GuideLinks';
 
 export const metadata: Metadata = {
   "title": "Colchones en McAllen, TX: Marcas Líderes | Snooze Mattress",
@@ -45,6 +46,8 @@ export default function Page() {
       {/* page-level JSON-LD (scripts/page-schema.mjs) */}
       <PageSchema items={PAGE_SCHEMA} />
       <PageClient />
+      {/* "Not sure what size you need?" — the two blog guides (SEO report, October 27, 2026) */}
+      <GuideLinks locale="es" />
     </>
   );
 }

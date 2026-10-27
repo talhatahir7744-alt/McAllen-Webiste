@@ -2,6 +2,8 @@
    helpers that map a path between the English site and its /es mirror. Page copy of the GoHighLevel
    pages is translated by scripts/convert.mjs from overrides/i18n/*.json. */
 
+import { blogSlugFor } from './blog-nav';
+
 export type Locale = 'en' | 'es';
 export const LOCALES: Locale[] = ['en', 'es'];
 export const DEFAULT_LOCALE: Locale = 'en';
@@ -20,9 +22,12 @@ export function splitLocale(pathname: string): { locale: Locale; path: string } 
   return { locale: 'en', path: p || '/' };
 }
 
-/** The same page in the other language (used by the EN | ES switcher). */
+/** The same page in the other language (used by the EN | ES switcher). Blog posts whose slug differs per language
+    (lib/blog-nav.ts BLOG_SLUG_ES) are mapped to their counterpart. */
 export function alternateHref(pathname: string, target: Locale): string {
   const { path } = splitLocale(pathname);
+  const post = path.match(/^\/blog\/([^/]+)$/);
+  if (post) return localizeHref(`/blog/${blogSlugFor(post[1], target)}`, target);
   return localizeHref(path, target);
 }
 

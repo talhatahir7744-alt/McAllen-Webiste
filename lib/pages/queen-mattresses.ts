@@ -19,6 +19,7 @@ export const PAGE: ContentPage = {
         { h2: 'Who a queen is right for', paragraphs: [
           'Queen is the size most bedrooms are planned around: wide enough for two adults to sleep comfortably without the footprint of a king, and long enough for most sleepers. It leaves room for nightstands in a 10-by-10-foot room, which is why it is the most common choice for primary bedrooms and the usual pick for a well-furnished guest room.',
           'Couples who want more space than a full without going to a king, taller sleepers who need the extra five inches of length over a full, and anyone who shares the bed with a child or a pet on weekend mornings all tend to land on a queen.',
+          'Not sure between full, queen and king? Our [mattress size guide](/blog/mattress-size-guide-mcallen) has the real dimensions, room sizes and who each size suits.',
         ] },
         { h2: 'Queen brands and comfort levels at Snooze', paragraphs: [
           'The McAllen showroom carries Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, Puffy, King Koil, Brooklyn Bedding, Spring Air and Snooze-O-Pedic, from luxury comfort and advanced sleep technology to budget-friendly options. Comfort levels run from plush to firm, so there is a queen for side sleepers who need pressure relief at the shoulders and hips as well as for back and stomach sleepers who need firmer support.',
@@ -58,6 +59,7 @@ export const PAGE: ContentPage = {
         { h2: 'Para quién es un queen', paragraphs: [
           'Queen es el tamaño alrededor del cual se planean la mayoría de las recámaras: lo bastante ancho para que dos adultos duerman cómodos sin ocupar lo que ocupa un king, y lo bastante largo para casi cualquier persona. Deja espacio para los burós en una recámara de 10 por 10 pies, por eso es la elección más común para la recámara principal y la habitual para un cuarto de visitas bien amueblado.',
           'Las parejas que quieren más espacio que un full sin llegar al king, las personas altas que necesitan las cinco pulgadas extra de largo sobre un full, y quien comparte la cama con un hijo o una mascota los fines de semana suelen terminar en un queen.',
+          '¿No sabes si elegir full, queen o king? Nuestra [guía de tamaños de colchón](/es/blog/guia-tamanos-de-colchon-mcallen) tiene las medidas reales, los tamaños de recámara y para quién es cada tamaño.',
         ] },
         { h2: 'Marcas y niveles de comodidad en queen', paragraphs: [
           'La sala de exhibición de McAllen tiene Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, Puffy, King Koil, Brooklyn Bedding, Spring Air y Snooze-O-Pedic, desde comodidad de lujo y tecnología avanzada de sueño hasta opciones económicas. Los niveles de comodidad van de plush a firme, así que hay un queen tanto para quien duerme de lado y necesita alivio de presión en hombros y caderas como para quien duerme boca arriba o boca abajo y necesita soporte más firme.',

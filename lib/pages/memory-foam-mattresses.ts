@@ -27,6 +27,7 @@ export const PAGE: ContentPage = {
         ] },
         { h2: 'Is memory foam right for you? Let the map decide', paragraphs: [
           'A Dream Mapping fitting takes about five minutes on the sensor bed. The map shows where your body carries the most pressure; heavy pressure at the shoulders and hips is the pattern that memory foam relieves best, while a sag through the lower back points to a mattress with firmer support. The Sleep Coach reads the map with you and walks you to the foam, hybrid or innerspring models that fit it. The fitting is free, and nobody at Snooze is on commission.',
+          'Still weighing foam against coils? Our guide to [memory foam vs hybrid](/blog/memory-foam-vs-hybrid-mattress-mcallen) compares how each handles McAllen heat, back comfort, couples and lifespan.',
         ] },
         { h2: 'Delivery, financing and the guarantee', listStyle: 'facts', bullets: [
           'Free delivery and setup on orders over $999, with haul-away of your old mattress if you no longer need it.',
@@ -66,6 +67,7 @@ export const PAGE: ContentPage = {
         ] },
         { h2: '¿El memory foam es para ti? Que lo decida el mapa', paragraphs: [
           'Una sesión de Dream Mapping tarda unos cinco minutos en la cama con sensores. El mapa muestra dónde tu cuerpo carga más presión; la presión alta en hombros y caderas es el patrón que el memory foam alivia mejor, mientras que un hundimiento en la zona lumbar apunta a un colchón con soporte más firme. El Sleep Coach lee el mapa contigo y te lleva a los modelos de espuma, híbridos o de resortes que van con él. El ajuste es gratis y nadie en Snooze trabaja por comisión.',
+          '¿Sigues dudando entre espuma y resortes? Nuestra guía de [memory foam vs híbrido](/es/blog/colchon-memory-foam-vs-hibrido-mcallen) compara cómo responde cada uno al calor de McAllen, al dolor de espalda, a las parejas y al paso del tiempo.',
         ] },
         { h2: 'Entrega, financiamiento y garantía', listStyle: 'facts', bullets: [
           'Entrega e instalación gratis en compras mayores de $999, y nos llevamos tu colchón viejo si ya no lo necesitas.',

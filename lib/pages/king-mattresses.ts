@@ -19,6 +19,7 @@ export const PAGE: ContentPage = {
         { h2: 'King, California king and split king', paragraphs: [
           'A king (76 by 80 inches) is the widest standard size. A California king trades four inches of width for four inches of length (72 by 84 inches), which taller sleepers prefer. A split king is two twin XL mattresses (38 by 80 inches each) side by side in a king frame, so each side can be a different comfort level and, on an adjustable base, a different position.',
           'A king needs a bedroom of roughly 12 by 12 feet to leave walking room and space for nightstands. Measure the doorway and the stairs as well: a one-piece king mattress is the hardest size to move, which is one more reason couples choose a split king.',
+          'For every size side by side, with room sizes and tips for couples and guests, see our [mattress size guide](/blog/mattress-size-guide-mcallen).',
         ] },
         { h2: 'Why couples choose a king at Snooze', paragraphs: [
           'Two people rarely need the same mattress. Dream Mapping maps each of you individually, and the Sleep Coach uses both profiles to find a king that works for both, or a split king where each side is fitted separately. Adjustable bases with customizable head and foot positioning are available for king and split king setups, which couples with different reading or snoring habits appreciate.',
@@ -57,6 +58,7 @@ export const PAGE: ContentPage = {
         { h2: 'King, California king y split king', paragraphs: [
           'Un king (76 por 80 pulgadas) es el tamaño estándar más ancho. Un California king cambia cuatro pulgadas de ancho por cuatro de largo (72 por 84 pulgadas), que las personas altas prefieren. Un split king son dos colchones twin XL (38 por 80 pulgadas cada uno) lado a lado en una base king, así que cada lado puede tener un nivel de comodidad distinto y, sobre una base ajustable, una posición distinta.',
           'Un king necesita una recámara de unos 12 por 12 pies para dejar paso y lugar para los burós. Mide también la puerta y la escalera: un colchón king de una pieza es el tamaño más difícil de mover, una razón más por la que las parejas eligen un split king.',
+          'Para ver todos los tamaños lado a lado, con medidas de recámara y consejos para parejas y visitas, lee nuestra [guía de tamaños de colchón](/es/blog/guia-tamanos-de-colchon-mcallen).',
         ] },
         { h2: 'Por qué las parejas eligen un king en Snooze', paragraphs: [
           'Dos personas rara vez necesitan el mismo colchón. Dream Mapping mapea a cada uno por separado, y el Sleep Coach usa los dos perfiles para encontrar un king que funcione para ambos, o un split king en el que cada lado se ajusta aparte. Hay bases ajustables con posición de cabeza y pies personalizable para king y split king, algo que agradecen las parejas con distintos hábitos de lectura o de ronquidos.',

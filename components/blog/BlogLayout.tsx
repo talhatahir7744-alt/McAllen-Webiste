@@ -130,6 +130,18 @@ export function BlogArticle({ post, related, locale = 'en' }: { post: BlogPost; 
                 <Rich text={p} />
               </p>
             ))}
+            {s.table && (
+              <>
+                <div className={styles.tableWrap}>
+                  <table className={styles.table}>
+                    {s.table.caption && <caption>{s.table.caption}</caption>}
+                    <thead><tr>{s.table.head.map((h, k) => <th key={k} scope="col">{h}</th>)}</tr></thead>
+                    <tbody>{s.table.rows.map((r, k) => <tr key={k}>{r.map((cell, m) => (m === 0 ? <th key={m} scope="row">{cell}</th> : <td key={m}>{cell}</td>))}</tr>)}</tbody>
+                  </table>
+                </div>
+                {s.table.note && <p className={styles.tableNote}>{s.table.note}</p>}
+              </>
+            )}
             {s.image && (
               <figure className={styles.figure}>
                 <Image src={s.image.src} alt={s.image.alt} width={s.image.width} height={s.image.height} sizes="(max-width: 820px) 100vw, 780px" loading="lazy" />
@@ -143,6 +155,16 @@ export function BlogArticle({ post, related, locale = 'en' }: { post: BlogPost; 
           <h2 id="faq-title" className={styles.h2}>{t.faq}</h2>
           <Faq items={post.faqs} />
         </section>
+
+        {post.visit && (
+          <section className={styles.visit} aria-labelledby="visit-title">
+            <h2 id="visit-title" className={styles.h2}>{post.visit.heading}</h2>
+            <div className={styles.visitCard}>
+              {post.visit.lines.map((l, i) => <p key={i} className={styles.visitLine}><Rich text={l} /></p>)}
+              {post.visit.fine && <p className={styles.fine}>{post.visit.fine}</p>}
+            </div>
+          </section>
+        )}
 
         {post.sources?.length ? (
           <section className={styles.sources} aria-labelledby="sources-title">

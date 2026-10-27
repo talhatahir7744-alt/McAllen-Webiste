@@ -18,6 +18,7 @@ export const PAGE: ContentPage = {
       sections: [
         { h2: 'Why a mattress sleeps hot', paragraphs: [
           'Foam that hugs the body also holds the warmth the body gives off, and the deeper you sink the more surface is in contact with you. Cooling designs work on that problem in different ways: open or breathable foams, covers and layers that pull heat away, and coil or hybrid cores that let air move. The feel you want decides which approach fits you.',
+          'Wondering [does memory foam sleep hotter than a hybrid](/blog/memory-foam-vs-hybrid-mattress-mcallen)? Our guide compares the two for McAllen nights.',
         ] },
         { h2: 'Cooling models on the McAllen floor', h3s: [
           { h3: 'Tempur-Pedic', paragraphs: ['Tempur-Pedic’s cooling models bring the brand’s all-night cooling technology to its contouring foam, for sleepers who want the Tempur feel without the warmth.'] },
@@ -56,6 +57,7 @@ export const PAGE: ContentPage = {
       sections: [
         { h2: 'Por qué un colchón da calor', paragraphs: [
           'La espuma que abraza el cuerpo también guarda el calor que el cuerpo desprende, y entre más te hundes, más superficie está en contacto contigo. Los diseños frescos atacan ese problema de distintas maneras: espumas abiertas o transpirables, fundas y capas que alejan el calor, y núcleos de resortes o híbridos que dejan circular el aire. La sensación que buscas decide cuál enfoque es para ti.',
+          '¿Te preguntas si [el memory foam da más calor que un híbrido](/es/blog/colchon-memory-foam-vs-hibrido-mcallen)? Nuestra guía compara los dos para las noches de McAllen.',
         ] },
         { h2: 'Modelos frescos en el piso de McAllen', h3s: [
           { h3: 'Tempur-Pedic', paragraphs: ['Los modelos frescos de Tempur-Pedic traen la tecnología de enfriamiento para toda la noche de la marca a su espuma que se amolda, para quienes quieren la sensación Tempur sin el calor.'] },

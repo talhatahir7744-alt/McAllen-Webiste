@@ -72,6 +72,14 @@ export const PAGE_SCHEMA: JsonLd[] = [
       },
       {
         "@type": "Question",
+        "name": "¿Qué tamaño de colchón debo comprar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Depende de quién duerme en la cama, cómo duerme y del espacio de la recámara. Un queen (60 x 80 pulgadas) le queda a la mayoría de las parejas, un king (76 x 80) le da 38 pulgadas a cada persona y un full (54 x 75) es para un adulto o un cuarto de visitas pequeño. Consulta nuestra guía de tamaños de colchón y deja que Dream Mapping confirme el soporte que necesitas."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "¿Por qué elegir Snooze Mattress + Wellness en McAllen?",
         "acceptedAnswer": {
           "@type": "Answer",

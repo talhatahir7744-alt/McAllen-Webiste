@@ -14,9 +14,15 @@
 import type { BlogImage } from './blog-images';
 export type { BlogImage };
 
+/** a data table inside a section (the size guide, October 27, 2026): scrolls horizontally on narrow screens */
+export type BlogTable = { caption?: string; head: string[]; rows: string[][]; note?: string };
+/** the store block after the FAQ ("Visit Snooze Mattress in McAllen"): heading, lines (inline links allowed), fine print */
+export type BlogVisit = { heading: string; lines: string[]; fine?: string };
+
 export type BlogSection = {
   heading?: string; // rendered as <h2>; the intro has none
   paragraphs: string[];
+  table?: BlogTable; // rendered after the paragraphs, before the image
   image?: BlogImage & { caption?: string }; // supporting image shown after the section
 };
 
@@ -25,6 +31,8 @@ export type BlogSource = { label: string; href: string }; // cited source, rende
 
 export type BlogPost = {
   slug: string;
+  /** the slug of the same post in the other language when it differs (the October 2026 posts); undefined = same slug */
+  altSlug?: string;
   title: string; // <h1> + BlogPosting.headline
   metaTitle: string; // < 60 chars
   metaDescription: string; // < 160 chars
@@ -38,6 +46,7 @@ export type BlogPost = {
   excerpt: string; // first sentence of the post, verbatim — used on cards
   sections: BlogSection[];
   faqs: BlogFaq[];
+  visit?: BlogVisit; // store block between the FAQ and the sources
   sources?: BlogSource[]; // "Sources" list after the FAQ (SEO audit build pass, D3)
 };
 
@@ -199,7 +208,7 @@ export const POSTS: BlogPost[] = [
         heading: 'Temperature and Pressure Connection',
         paragraphs: [
           'An often-overlooked insight from pressure mapping involves the relationship between pressure points and temperature regulation. Areas of high pressure concentration not only cause discomfort but also trap body heat. The reduced airflow at these pressure points can create localized hot spots that disrupt sleep quality.',
-          'Sleep surfaces that distribute pressure more evenly also tend to allow better air circulation around the body. This connection between pressure distribution and temperature management explains why some people find that [upgrading their mattress](/mattress-financing) improves both comfort and temperature regulation simultaneously.',
+          'Sleep surfaces that distribute pressure more evenly also tend to allow better air circulation around the body. This connection between pressure distribution and temperature management explains why some people find that [upgrading their mattress](/mattress-financing) improves both comfort and temperature regulation simultaneously. If heat is your main complaint, our guide to [memory foam vs hybrid for hot McAllen nights](/blog/memory-foam-vs-hybrid-mattress-mcallen) compares how each type handles it.',
         ],
       },
       {
@@ -215,7 +224,7 @@ export const POSTS: BlogPost[] = [
         paragraphs: [
           'Pressure mapping has also been instrumental in understanding how sleep surfaces change over time. A new mattress may show excellent pressure distribution, but repeated compression in high-use areas can alter these patterns. Regular pressure mapping throughout a mattress\'s lifespan reveals when materials have degraded to the point where pressure hot spots begin developing.',
           'This research has informed recommendations about mattress replacement timelines and helped manufacturers develop more durable materials that maintain their pressure-distributing properties longer. It has also validated what many people experience—that a mattress that once felt comfortable can gradually develop problem areas as materials break down.',
-          '[Visit our showroom](/booking) to try our sleep surfaces and discover how personalized comfort can improve your nightly rest. [Our sleep specialists](/booking) can help you understand which materials and support systems align with your body type, preferred sleeping positions, and comfort preferences. Stop by today and take the first step toward more restful, rejuvenating sleep. Your body will thank you every morning.',
+          '[Visit our showroom](/booking) to try our sleep surfaces and discover how personalized comfort can improve your nightly rest. [Our sleep specialists](/booking) can help you understand which materials and support systems align with your body type, preferred sleeping positions, and comfort preferences. If you are also [choosing the right mattress size](/blog/mattress-size-guide-mcallen), our size guide covers full, queen and king. Stop by today and take the first step toward more restful, rejuvenating sleep. Your body will thank you every morning.',
         ],
       },
     ],
@@ -336,13 +345,24 @@ export const POSTS: BlogPost[] = [
   },
 ];
 
-/* Spanish versions (hand-translated, same slugs and images) live in lib/i18n/blog-es/. */
+/* The two posts published October 27, 2026 from the agency's drafts (lib/blog-posts-2026-10.ts). */
+import { MEMORY_FOAM_POST, SIZE_GUIDE_POST } from './blog-posts-2026-10';
+POSTS.push(MEMORY_FOAM_POST, SIZE_GUIDE_POST);
+
+/* Spanish versions (hand-translated, same images; the October 2026 posts carry their own Spanish slugs, see altSlug)
+   live in lib/i18n/blog-es/. */
 import { POST_ES as ES_HEALTH } from './i18n/blog-es/custom-mattresses-improving-health';
 import { POST_ES as ES_PRESSURE } from './i18n/blog-es/pressure-mapping-for-sleep';
 import { POST_ES as ES_ACHES } from './i18n/blog-es/mattresses-that-relieve-aches';
-export const POSTS_ES: BlogPost[] = [ES_HEALTH, ES_PRESSURE, ES_ACHES];
+import { POST_ES as ES_MEMORY_FOAM } from './i18n/blog-es/colchon-memory-foam-vs-hibrido-mcallen';
+import { POST_ES as ES_SIZE_GUIDE } from './i18n/blog-es/guia-tamanos-de-colchon-mcallen';
+export const POSTS_ES: BlogPost[] = [ES_HEALTH, ES_PRESSURE, ES_ACHES, ES_MEMORY_FOAM, ES_SIZE_GUIDE];
 
 export type BlogLocale = 'en' | 'es';
 export const postsFor = (locale: BlogLocale = 'en') => (locale === 'es' ? POSTS_ES : POSTS);
 export const getPost = (slug: string, locale: BlogLocale = 'en') => postsFor(locale).find((p) => p.slug === slug);
-export const relatedPosts = (slug: string, locale: BlogLocale = 'en') => postsFor(locale).filter((p) => p.slug !== slug);
+/** the three most recent other posts (newest first): every post cross-links the October 2026 posts and vice versa */
+export const relatedPosts = (slug: string, locale: BlogLocale = 'en') =>
+  postsFor(locale).filter((p) => p.slug !== slug).sort((a, b) => (a.datePublished < b.datePublished ? 1 : a.datePublished > b.datePublished ? -1 : 0)).slice(0, 3);
+/** the post's path in the other language (its own slug when both languages share it) */
+export const altBlogPath = (post: BlogPost) => `/blog/${post.altSlug || post.slug}`;

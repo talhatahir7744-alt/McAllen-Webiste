@@ -72,6 +72,14 @@ export const PAGE_SCHEMA: JsonLd[] = [
       },
       {
         "@type": "Question",
+        "name": "What size mattress should I get?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on who sleeps in the bed, how they sleep and the room. A queen (60 x 80 inches) suits most couples, a king (76 x 80) gives each sleeper 38 inches, and a full (54 x 75) fits one adult or a small guest room. See our mattress size guide, then let Dream Mapping confirm the support you need."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "Why choose Snooze Mattress + Wellness in McAllen?",
         "acceptedAnswer": {
           "@type": "Answer",

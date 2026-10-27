@@ -23,6 +23,7 @@ const ANSWERS = {
     'Why choose Snooze Mattress + Wellness in McAllen, TX?': '<p>Because you get the best mattress prices in town through our competitive sales and price matching, a one-of-a-kind Sleep Comfort Guarantee on your new mattress, and a family business that greets you with a smile in our Snooze Blues pajamas. We would be honored to serve you!</p>',
     'Why choose Snooze Mattress + Wellness in McAllen?': '<p>Because you get the best mattress prices in town through our competitive sales and price matching, a one-of-a-kind Sleep Comfort Guarantee on your new mattress, and a family business that greets you with a smile in our Snooze Blues pajamas. We would be honored to serve you!</p>',
     'What is Dream Mapping?': '<p><a href="/dream-mapping">Dream Mapping</a> is a free five-minute pressure-mapping fitting: it analyzes your pressure points and preferences to recommend the mattress that fits your body.</p>',
+    "What size mattress should I get?": "<p>It depends on who sleeps in the bed, how they sleep and the room. A queen (60 x 80 inches) suits most couples, a king (76 x 80) gives each sleeper 38 inches, and a full (54 x 75) fits one adult or a small guest room. See our <a href=\"/blog/mattress-size-guide-mcallen\">mattress size guide</a>, then let Dream Mapping confirm the support you need.</p>",
     'How long does it take to complete the Dream Mapping process?': '<p>About five minutes. Then our Sleep Coaches take you to only the mattresses that match your body.</p>',
     'Can couples use Dream Mapping?': '<p>Yes. We tailor mattress recommendations for both individuals and couples.</p>',
     'Is there any pressure to buy?': '<p>No. Our Dream Mapping technology takes all of the guesswork out of finding the perfect mattress for you: after you have completed the Dream Map, the technology essentially eliminates around 85% of our products, so you get a true custom-fit mattress for your body.</p>',
@@ -45,6 +46,7 @@ const ANSWERS = {
     '¿Por qué elegir Snooze Mattress + Wellness en McAllen, TX?': '<p>Porque tienes los mejores precios de colchones de la ciudad gracias a nuestras ofertas competitivas y a que igualamos precios, una Garantía de Confort de Sueño única para tu colchón nuevo, y un negocio familiar que te recibe con una sonrisa en nuestras pijamas Snooze Blues. ¡Sería un honor atenderte!</p>',
     '¿Por qué elegir Snooze Mattress + Wellness en McAllen?': '<p>Porque tienes los mejores precios de colchones de la ciudad gracias a nuestras ofertas competitivas y a que igualamos precios, una Garantía de Confort de Sueño única para tu colchón nuevo, y un negocio familiar que te recibe con una sonrisa en nuestras pijamas Snooze Blues. ¡Sería un honor atenderte!</p>',
     '¿Qué es Dream Mapping?': '<p><a href="/es/dream-mapping">Dream Mapping</a> es un ajuste gratis de unos cinco minutos sobre una cama con sensores de presión: analiza tus puntos de presión y tus preferencias para recomendarte el colchón que va con tu cuerpo.</p>',
+    "¿Qué tamaño de colchón debo comprar?": "<p>Depende de quién duerme en la cama, cómo duerme y del espacio de la recámara. Un queen (60 x 80 pulgadas) le queda a la mayoría de las parejas, un king (76 x 80) le da 38 pulgadas a cada persona y un full (54 x 75) es para un adulto o un cuarto de visitas pequeño. Consulta nuestra <a href=\"/es/blog/guia-tamanos-de-colchon-mcallen\">guía de tamaños de colchón</a> y deja que Dream Mapping confirme el soporte que necesitas.</p>",
     '¿Cuánto tiempo toma completar el proceso de Dream Mapping?': '<p>Unos cinco minutos. Después, nuestros Sleep Coaches te llevan únicamente a los colchones que coinciden con tu cuerpo.</p>',
     '¿Las parejas pueden usar Dream Mapping?': '<p>Sí. Personalizamos las recomendaciones de colchón tanto para personas que duermen solas como para parejas.</p>',
     '¿Hay presión para comprar?': '<p>No. Nuestra tecnología Dream Mapping elimina las adivinanzas al buscar el colchón perfecto para ti: una vez que completas tu Dream Map, la tecnología descarta prácticamente el 85% de nuestros productos, así que obtienes un colchón verdaderamente a la medida de tu cuerpo.</p>',
@@ -82,6 +84,23 @@ function rewriteAccordion(html, table, seen, unknown) {
   });
 }
 
+/* New questions appended to a page's accordion (SEO report, October 27, 2026 — the home page FAQ gets "What size
+   mattress should I get?" linking the mattress size guide). Applied to the static markup and to the payload copies of
+   the accordion (the custom-code string), with the item markup of overrides/faq-accordion.html; idempotent. */
+const INSERTS = {
+  'app/(en)/content.ts': [["What size mattress should I get?", "<p>It depends on who sleeps in the bed, how they sleep and the room. A queen (60 x 80 inches) suits most couples, a king (76 x 80) gives each sleeper 38 inches, and a full (54 x 75) fits one adult or a small guest room. See our <a href=\"/blog/mattress-size-guide-mcallen\">mattress size guide</a>, then let Dream Mapping confirm the support you need.</p>"]],
+  'app/es/content.ts': [["¿Qué tamaño de colchón debo comprar?", "<p>Depende de quién duerme en la cama, cómo duerme y del espacio de la recámara. Un queen (60 x 80 pulgadas) le queda a la mayoría de las parejas, un king (76 x 80) le da 38 pulgadas a cada persona y un full (54 x 75) es para un adulto o un cuarto de visitas pequeño. Consulta nuestra <a href=\"/es/blog/guia-tamanos-de-colchon-mcallen\">guía de tamaños de colchón</a> y deja que Dream Mapping confirme el soporte que necesitas.</p>"]],
+};
+const itemHtml = (id, n, q, a) => `<div class="snz-faq__item"><h3 class="snz-faq__q"><button type="button" class="snz-faq__btn snz-headline-font" id="${id}-q${n}" aria-expanded="false" aria-controls="${id}-a${n}"><span>${q}</span><svg class="snz-faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></h3><div class="snz-faq__panel" id="${id}-a${n}" role="region" aria-labelledby="${id}-q${n}"><div class="snz-faq__inner"><div class="snz-faq__a">${a}</div></div></div></div>`;
+function insertItems(html, rel) {
+  const adds = INSERTS[rel]; if (!adds) return html;
+  return html.replace(/(<div class="snz-faq" data-snz-faq="([^"]+)">)([\s\S]*?)(\n<\/div>\n<!-- Sleep Fit Quiz)/g, (m, open, id, items, close) => {
+    let body = items;
+    for (const [q, a] of adds) { if (body.includes(`<span>${q}</span>`)) continue; const n = (body.match(/class="snz-faq__item/g) || []).length; body += itemHtml(id, n, q, a); }
+    return open + body + close;
+  });
+}
+
 const files = []; (function walk(d) { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walk(p); else if (e.name === 'content.ts') files.push(p); } })(path.join(ROOT, 'app'));
 let changedFiles = 0; const unknown = new Set(); let totalItems = 0, totalOrphans = 0;
 for (const file of files) {
@@ -91,7 +110,7 @@ for (const file of files) {
   const pm = body.match(/(<script[^>]*id="__NUXT_DATA__"[^>]*>)([\s\S]*?)(<\/script>)/);
   const markup = pm ? body.replace(pm[0], '\u0000PAYLOAD\u0000') : body;
   const seen = new Map(); // old answer HTML -> new answer HTML (for the builder's orphaned FAQ element strings)
-  const newMarkup = rewriteAccordion(markup, TABLE[loc], seen, unknown);
+  const newMarkup = insertItems(rewriteAccordion(markup, TABLE[loc], seen, unknown), rel);
   const items = (newMarkup.match(ITEM) || []).length; totalItems += items;
   let payload = pm ? pm[0] : ''; let orphans = 0;
   if (pm) {
@@ -99,7 +118,7 @@ for (const file of files) {
     const oldText = new Map(); for (const [o, n] of seen) oldText.set(toText(o), toText(n));
     for (let i = 0; i < nodes.length; i++) {
       const n = nodes[i]; if (typeof n !== 'string') continue;
-      if (n.includes('snz-faq__a')) { const v = rewriteAccordion(n, TABLE[loc], seen, unknown); if (v !== n) { nodes[i] = v; touched = true; } continue; }
+      if (n.includes('snz-faq__a')) { const v = insertItems(rewriteAccordion(n, TABLE[loc], seen, unknown), rel); if (v !== n) { nodes[i] = v; touched = true; } continue; }
       // the builder's original FAQ element answer (HTML) and its plain-text copy: whole-string matches only, so a
       // string shared with anything else is never touched (devalue deduplicates strings)
       if (seen.has(n)) { nodes[i] = seen.get(n); touched = true; orphans++; continue; }
