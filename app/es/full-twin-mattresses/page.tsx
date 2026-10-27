@@ -7,7 +7,7 @@ const c = PAGE.copy.es;
 export const metadata: Metadata = {
   title: c.title,
   description: c.description,
-  alternates: { canonical: '/es/full-twin-mattresses', languages: { en: '/full-twin-mattresses', es: '/es/full-twin-mattresses', 'x-default': '/full-twin-mattresses' } },
+  alternates: { canonical: '/es/full-twin-mattresses', languages: { 'en-US': '/full-twin-mattresses', 'es-US': '/es/full-twin-mattresses', 'x-default': '/full-twin-mattresses' } },
   openGraph: { title: c.title, description: c.description, url: '/es/full-twin-mattresses', type: 'website', images: ['/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4e747464c6b3a3be10.png.webp'], locale: 'es_US' },
   twitter: { card: 'summary_large_image', images: ['/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4e747464c6b3a3be10.png.webp'] },
   icons: { icon: '/assets/filesafe/qR8peonBlnjGI3ZuLHQP/media/695b9e7d17768458ae206a19.png' },

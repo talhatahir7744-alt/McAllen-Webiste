@@ -7,7 +7,7 @@ const c = PAGE.copy.en;
 export const metadata: Metadata = {
   title: c.title,
   description: c.description,
-  alternates: { canonical: '/memory-foam-mattresses', languages: { en: '/memory-foam-mattresses', es: '/es/memory-foam-mattresses', 'x-default': '/memory-foam-mattresses' } },
+  alternates: { canonical: '/memory-foam-mattresses', languages: { 'en-US': '/memory-foam-mattresses', 'es-US': '/es/memory-foam-mattresses', 'x-default': '/memory-foam-mattresses' } },
   openGraph: { title: c.title, description: c.description, url: '/memory-foam-mattresses', type: 'website', images: ['/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4e747464c6b3a3be10.png.webp'], locale: 'en_US' },
   twitter: { card: 'summary_large_image', images: ['/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4e747464c6b3a3be10.png.webp'] },
   icons: { icon: '/assets/filesafe/qR8peonBlnjGI3ZuLHQP/media/695b9e7d17768458ae206a19.png' },

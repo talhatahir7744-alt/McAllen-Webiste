@@ -15,7 +15,7 @@ const LANG: Record<Locale, string> = { en: 'en-US', es: 'es-US' };
 
 const alternates = (path: string, locale: Locale) => ({
   canonical: localizeHref(path, locale),
-  languages: { en: localizeHref(path, 'en'), es: localizeHref(path, 'es'), 'x-default': localizeHref(path, 'en') },
+  languages: { 'en-US': localizeHref(path, 'en'), 'es-US': localizeHref(path, 'es'), 'x-default': localizeHref(path, 'en') },
 });
 
 export function blogIndexMetadata(locale: Locale): Metadata {

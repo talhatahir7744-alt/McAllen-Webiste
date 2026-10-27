@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   "alternates": {
     "canonical": "/es/thank/you",
     "languages": {
-      "en": "/thank/you",
-      "es": "/es/thank/you",
+      "en-US": "/thank/you",
+      "es-US": "/es/thank/you",
       "x-default": "/thank/you"
     }
   },

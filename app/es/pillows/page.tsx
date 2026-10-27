@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   "alternates": {
     "canonical": "/es/pillows",
     "languages": {
-      "en": "/pillows",
-      "es": "/es/pillows",
+      "en-US": "/pillows",
+      "es-US": "/es/pillows",
       "x-default": "/pillows"
     }
   },

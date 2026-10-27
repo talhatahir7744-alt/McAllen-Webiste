@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   "alternates": {
     "canonical": "/at-home-sleep-test-kit-by-sleepcorner",
     "languages": {
-      "en": "/at-home-sleep-test-kit-by-sleepcorner",
-      "es": "/es/at-home-sleep-test-kit-by-sleepcorner",
+      "en-US": "/at-home-sleep-test-kit-by-sleepcorner",
+      "es-US": "/es/at-home-sleep-test-kit-by-sleepcorner",
       "x-default": "/at-home-sleep-test-kit-by-sleepcorner"
     }
   },

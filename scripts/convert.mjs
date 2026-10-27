@@ -66,7 +66,7 @@ const RIBBON_FILES = { en: { src: '/assets/filesafe/ARD47WoZpqaZSQ9MSxLD/media/6
 const SITE_LOGO = '/assets/lcimg/image/f_webp/q_80/r_1200/u/filesafe/qR8peonBlnjGI3ZuLHQP/media/8d16458d-661d-4d16-bec0-14dea766bf45.webp';
 // ---- locales: overrides/i18n/<code>.part-*.json (+ <code>.extra.json) dictionaries; each page is generated once per locale
 const I18N_DIR = path.join(OVERRIDES_DIR, 'i18n');
-const LOCALES = [{ code: 'en', prefix: '', lang: 'en', htmlLang: 'en', ogLocale: 'en_US' }, { code: 'es', prefix: '/es', lang: 'es', htmlLang: 'es', ogLocale: 'es_US' }];
+const LOCALES = [{ code: 'en', prefix: '', lang: 'en', hreflang: 'en-US', htmlLang: 'en', ogLocale: 'en_US' }, { code: 'es', prefix: '/es', lang: 'es', hreflang: 'es-US', htmlLang: 'es', ogLocale: 'es_US' }]; // hreflang: region-qualified (SEO report, October 27, 2026)
 const EXTRA_LOCALES = fs.existsSync(I18N_DIR) ? LOCALES.filter((l) => l.code !== 'en' && fs.readdirSync(I18N_DIR).some((f) => f.startsWith(l.code + '.part-'))).map((l) => Object.assign(loadLocale(I18N_DIR, l.code), l)) : [];
 const SITE_HOSTS = new Set([new URL(SITE_URL).host.toLowerCase(), 'brownsville.snoozemattresscompany.com', 'www.brownsville.snoozemattresscompany.com']);
 const localized = (route, loc) => (loc && loc.prefix ? loc.prefix + (route === '/' ? '' : route) : route);
@@ -570,7 +570,7 @@ function convertPage(rel, loc = null) {
 
   // ---- head: metadata first (before anything is rewritten/removed)
   const metadata = metaFromHead($, route, pageDir);
-  metadata.alternates = { canonical: outRoute, languages: Object.fromEntries([...LOCALES.map((l) => [l.lang, localized(route, l)]), ['x-default', route]]) };
+  metadata.alternates = { canonical: outRoute, languages: Object.fromEntries([...LOCALES.map((l) => [l.hreflang, localized(route, l)]), ['x-default', route]]) };
   if (metadata.openGraph) { metadata.openGraph.url = outRoute; metadata.openGraph.locale = (loc || LOCALES[0]).ogLocale; }
   if (loc) {
     const st = ctx.i18n;

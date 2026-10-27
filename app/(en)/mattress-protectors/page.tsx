@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   "alternates": {
     "canonical": "/mattress-protectors",
     "languages": {
-      "en": "/mattress-protectors",
-      "es": "/es/mattress-protectors",
+      "en-US": "/mattress-protectors",
+      "es-US": "/es/mattress-protectors",
       "x-default": "/mattress-protectors"
     }
   },

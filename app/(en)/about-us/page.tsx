@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   "alternates": {
     "canonical": "/about-us",
     "languages": {
-      "en": "/about-us",
-      "es": "/es/about-us",
+      "en-US": "/about-us",
+      "es-US": "/es/about-us",
       "x-default": "/about-us"
     }
   },

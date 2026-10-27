@@ -7,7 +7,7 @@ const c = PAGE.copy.es;
 export const metadata: Metadata = {
   title: c.title,
   description: c.description,
-  alternates: { canonical: '/es/king-mattresses', languages: { en: '/king-mattresses', es: '/es/king-mattresses', 'x-default': '/king-mattresses' } },
+  alternates: { canonical: '/es/king-mattresses', languages: { 'en-US': '/king-mattresses', 'es-US': '/es/king-mattresses', 'x-default': '/king-mattresses' } },
   openGraph: { title: c.title, description: c.description, url: '/es/king-mattresses', type: 'website', images: ['/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4e747464c6b3a3be10.png.webp'], locale: 'es_US' },
   twitter: { card: 'summary_large_image', images: ['/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4e747464c6b3a3be10.png.webp'] },
   icons: { icon: '/assets/filesafe/qR8peonBlnjGI3ZuLHQP/media/695b9e7d17768458ae206a19.png' },

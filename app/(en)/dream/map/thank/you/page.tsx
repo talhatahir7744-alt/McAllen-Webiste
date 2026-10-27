@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   "alternates": {
     "canonical": "/dream/map/thank/you",
     "languages": {
-      "en": "/dream/map/thank/you",
-      "es": "/es/dream/map/thank/you",
+      "en-US": "/dream/map/thank/you",
+      "es-US": "/es/dream/map/thank/you",
       "x-default": "/dream/map/thank/you"
     }
   },

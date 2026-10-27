@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   "alternates": {
     "canonical": "/es/privacy-policy-page",
     "languages": {
-      "en": "/privacy-policy-page",
-      "es": "/es/privacy-policy-page",
+      "en-US": "/privacy-policy-page",
+      "es-US": "/es/privacy-policy-page",
       "x-default": "/privacy-policy-page"
     }
   },

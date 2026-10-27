@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   "alternates": {
     "canonical": "/mattress-financing",
     "languages": {
-      "en": "/mattress-financing",
-      "es": "/es/mattress-financing",
+      "en-US": "/mattress-financing",
+      "es-US": "/es/mattress-financing",
       "x-default": "/mattress-financing"
     }
   },

@@ -51,7 +51,7 @@ const PAGES: Array<[path: string, priority: number]> = [
 
 // the home page canonical is the bare origin (no trailing slash): the sitemap uses the identical string
 const abs = (path: string) => (path === '/' ? SITE_URL : `${SITE_URL}${path}`);
-const languages = (path: string) => ({ en: abs(localizeHref(path, 'en')), es: abs(localizeHref(path, 'es')), 'x-default': abs(path) });
+const languages = (path: string) => ({ 'en-US': abs(localizeHref(path, 'en')), 'es-US': abs(localizeHref(path, 'es')), 'x-default': abs(path) });
 const lastmod = (path: string, fallback: Date) => { const d = (LASTMOD as Record<string, string>)[path]; return d ? new Date(d) : fallback; };
 
 export default function sitemap(): MetadataRoute.Sitemap {

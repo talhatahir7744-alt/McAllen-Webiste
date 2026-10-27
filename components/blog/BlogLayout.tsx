@@ -55,7 +55,7 @@ export function PostCard({ post, headingLevel = 'h3', locale = 'en' }: { post: B
   return (
     <article className={styles.card}>
       <a href={href} className={styles.cardImg} tabIndex={-1} aria-hidden="true">
-        <Image src={post.featured.src} alt="" width={post.featured.width} height={post.featured.height} sizes="(max-width: 720px) 100vw, 33vw" />
+        <Image src={post.featured.src} alt={post.featured.alt} width={post.featured.width} height={post.featured.height} sizes="(max-width: 720px) 100vw, 33vw" />
       </a>
       <div className={styles.cardBody}>
         <Meta post={post} byline={t.byline} />

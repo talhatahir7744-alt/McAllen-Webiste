@@ -7,7 +7,7 @@ const c = PAGE.copy.en;
 export const metadata: Metadata = {
   title: c.title,
   description: c.description,
-  alternates: { canonical: '/mattress-store-pharr', languages: { en: '/mattress-store-pharr', es: '/es/mattress-store-pharr', 'x-default': '/mattress-store-pharr' } },
+  alternates: { canonical: '/mattress-store-pharr', languages: { 'en-US': '/mattress-store-pharr', 'es-US': '/es/mattress-store-pharr', 'x-default': '/mattress-store-pharr' } },
   openGraph: { title: c.title, description: c.description, url: '/mattress-store-pharr', type: 'website', images: ['/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4e747464c6b3a3be10.png.webp'], locale: 'en_US' },
   twitter: { card: 'summary_large_image', images: ['/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4e747464c6b3a3be10.png.webp'] },
   icons: { icon: '/assets/filesafe/qR8peonBlnjGI3ZuLHQP/media/695b9e7d17768458ae206a19.png' },

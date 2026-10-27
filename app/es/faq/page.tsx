@@ -7,7 +7,7 @@ const c = PAGE.copy.es;
 export const metadata: Metadata = {
   title: c.title,
   description: c.description,
-  alternates: { canonical: '/es/faq', languages: { en: '/faq', es: '/es/faq', 'x-default': '/faq' } },
+  alternates: { canonical: '/es/faq', languages: { 'en-US': '/faq', 'es-US': '/es/faq', 'x-default': '/faq' } },
   openGraph: { title: c.title, description: c.description, url: '/es/faq', type: 'website', images: ['/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4e747464c6b3a3be10.png.webp'], locale: 'es_US' },
   twitter: { card: 'summary_large_image', images: ['/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4e747464c6b3a3be10.png.webp'] },
   icons: { icon: '/assets/filesafe/qR8peonBlnjGI3ZuLHQP/media/695b9e7d17768458ae206a19.png' },

@@ -117,7 +117,7 @@ html[lang="es"] .hl_page-preview--content .cheading-9UhGiuQIC6 h2 { font-size: c
 .hl_page-preview--content .text-output p.snz-h { margin: 0; }
 /* a hero the builder split into several heading lines is one <h1> whose lines are separated by a newline (not a <br>
    element, which would shift the span:nth-child() rules the baked site.css keys on the home hero) */
-.hl_page-preview--content .text-output h1.snz-h1-merged { white-space: pre-line; }
+.hl_page-preview--content .text-output :is(h1, .snz-h1-alt).snz-h1-merged { white-space: pre-line; }
 /* page-fix rules in the baked site.css that named the old tag, repeated here for the new one */
 @media (max-width: 767px) {
   .hl_page-preview--content .snz-card.c-row .c-column + .c-column .c-heading h3 { margin: 0 0 6px !important; } /* location-card labels (were h1) */
@@ -321,7 +321,7 @@ body:has([data-site-header] button[aria-controls$="-drawer"][aria-expanded="true
 .hl_page-preview--content .col-JfEdW9FUHD, .hl_page-preview--content .col-gVIdbkVC5E { width: 100% !important; margin: 0 !important; padding: 0 !important; }
 #col-JfEdW9FUHD .text-output, #col-JfEdW9FUHD .text-output *, #col-gVIdbkVC5E .text-output, #col-gVIdbkVC5E .text-output * { text-align: center !important; }
 .hl_page-preview--content #heading-8Vk5MZ1mLu, .hl_page-preview--content #heading-V697fYq0it { margin: 0 !important; }
-.hl_page-preview--content #heading-8Vk5MZ1mLu h1, .hl_page-preview--content #heading-V697fYq0it h1 { margin: 0 !important; text-wrap: balance; }
+.hl_page-preview--content #heading-8Vk5MZ1mLu :is(h1, .snz-h1-alt), .hl_page-preview--content #heading-V697fYq0it :is(h1, .snz-h1-alt) { margin: 0 !important; text-wrap: balance; }
 .hl_page-preview--content #sub-heading-qBu7fcf5l-, .hl_page-preview--content #sub-heading-Q-TR52wCm0 { margin: 24px 0 0 !important; }
 .hl_page-preview--content .button-uwFb2Kphju, .hl_page-preview--content .button-OXd14_jbeY { margin: 28px 0 0 !important; text-align: center !important; }
 .hl_page-preview--content .csub-heading-qBu7fcf5l- p, .hl_page-preview--content .csub-heading-Q-TR52wCm0 p { font-size: 18px !important; line-height: 1.6 !important; margin: 0 0 18px !important; text-wrap: pretty; }

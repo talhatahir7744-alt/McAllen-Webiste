@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   "alternates": {
     "canonical": "/premium-sheets",
     "languages": {
-      "en": "/premium-sheets",
-      "es": "/es/premium-sheets",
+      "en-US": "/premium-sheets",
+      "es-US": "/es/premium-sheets",
       "x-default": "/premium-sheets"
     }
   },

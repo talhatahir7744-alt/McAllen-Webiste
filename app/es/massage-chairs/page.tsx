@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   "alternates": {
     "canonical": "/es/massage-chairs",
     "languages": {
-      "en": "/massage-chairs",
-      "es": "/es/massage-chairs",
+      "en-US": "/massage-chairs",
+      "es-US": "/es/massage-chairs",
       "x-default": "/massage-chairs"
     }
   },

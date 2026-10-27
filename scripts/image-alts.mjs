@@ -7,7 +7,8 @@
  * pages up to date and is idempotent.
  *   node scripts/image-alts.mjs            (npm run alts)   — after `npm run convert` and the other post-convert scripts
  *   node scripts/image-alts.mjs --check                     — report only
- * Decorative images (icons, the map/phone/clock glyphs) keep alt="" on purpose: the map lists only images that convey content.
+ * The map lists the images that convey content plus, since the SEO report of October 27, 2026, the location-bar glyphs
+ * (map pin, phone, clock) and the two decorative dividers: the client's audit tool flags every empty alt, so none is left empty.
  */
 import fs from 'node:fs';
 import path from 'node:path';

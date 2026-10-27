@@ -162,7 +162,7 @@
 /* Spanish home hero headline on tablet/desktop: three lines like the English one ("McAllen, Consigue un /
    Ajuste a tu Medida para / Tu Colchón Perfecto"); the longer Spanish words need a slightly smaller size. Phones untouched. */
 @media (min-width: 768px) {
-  html[lang="es"] #section-aEXJsrtqRn .c-heading h1 { font-size: min(52px, 4.1vw) !important; }
+  html[lang="es"] #section-aEXJsrtqRn .c-heading :is(h1, .snz-h1-alt) { font-size: min(52px, 4.1vw) !important; }
 }
 
 /* Two-column text-card + photo sections (navy card with the orange border, photo column overlapping it by 100px
@@ -220,13 +220,13 @@ html { scroll-behavior: smooth; scroll-padding-top: 96px; }
    Mattress" ("McAllen, Consigue un / Ajuste a tu Medida para / Tu Colchón Perfecto"). The shorter city name let the
    first line run on and the browser then broke inside "Custom-Fit" at the hyphen. The break is forced after the first
    span; the highlighted phrase never wraps at its hyphen at any width. Phones keep their own flow. */
-.hl_page-preview--content .cheading-yMj0fYz3M- h1 > span:nth-child(2),
-.hl_page-preview--content .cheading-yMj0fYz3M- h1 > span:nth-child(3) { white-space: nowrap; }
+.hl_page-preview--content .cheading-yMj0fYz3M- :is(h1, .snz-h1-alt) > span:nth-child(2),
+.hl_page-preview--content .cheading-yMj0fYz3M- :is(h1, .snz-h1-alt) > span:nth-child(3) { white-space: nowrap; }
 @media (min-width: 768px) {
-  .hl_page-preview--content .cheading-yMj0fYz3M- h1:first-child > span:first-child::after { content: "\A"; white-space: pre; }
+  .hl_page-preview--content .cheading-yMj0fYz3M- :is(h1, .snz-h1-alt):first-child > span:first-child::after { content: "\A"; white-space: pre; }
   /* the desktop copy was a fixed 65px; from 768 to 1279px the column is narrower than "Your Perfect Mattress" at
      that size, so the type scales with the viewport and reaches 65px at 1275px (the Spanish rule above keeps its own size) */
-  html[lang="en"] .hl_page-preview--content .cheading-yMj0fYz3M- h1 { font-size: min(65px, 5.1vw) !important; }
+  html[lang="en"] .hl_page-preview--content .cheading-yMj0fYz3M- :is(h1, .snz-h1-alt) { font-size: min(65px, 5.1vw) !important; }
 }
 /* Phone copy of the same hero (heading-g47b3UHIU-): the same three lines, "McAllen, Get / Custom-Fit for / Your Perfect
    Mattress" (the city name is added by scripts/relocate.mjs); the size scales so the last line fits a 375px screen. */

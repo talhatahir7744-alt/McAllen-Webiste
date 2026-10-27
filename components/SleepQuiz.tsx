@@ -42,7 +42,7 @@ export function sleepQuizMetadata(locale: Locale): Metadata {
     title: m.title,
     description: m.description,
     robots: 'index, follow',
-    alternates: { canonical: path, languages: { en: '/sleep-quiz', es: '/es/sleep-quiz', 'x-default': '/sleep-quiz' } },
+    alternates: { canonical: path, languages: { 'en-US': '/sleep-quiz', 'es-US': '/es/sleep-quiz', 'x-default': '/sleep-quiz' } },
     openGraph: { title: m.title, description: m.description, url: path, type: 'website', locale: m.ogLocale, siteName: 'Snooze Mattress + Wellness', images: [`${SITE_URL}${OG_IMAGE}`] },
     twitter: { card: 'summary_large_image', title: m.title, description: m.description, images: [`${SITE_URL}${OG_IMAGE}`] },
     icons: { icon: FAVICON },

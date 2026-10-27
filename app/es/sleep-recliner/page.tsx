@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   "alternates": {
     "canonical": "/es/sleep-recliner",
     "languages": {
-      "en": "/sleep-recliner",
-      "es": "/es/sleep-recliner",
+      "en-US": "/sleep-recliner",
+      "es-US": "/es/sleep-recliner",
       "x-default": "/sleep-recliner"
     }
   },

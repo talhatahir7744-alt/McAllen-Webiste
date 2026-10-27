@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   "alternates": {
     "canonical": "/adjustable-mattress-bases",
     "languages": {
-      "en": "/adjustable-mattress-bases",
-      "es": "/es/adjustable-mattress-bases",
+      "en-US": "/adjustable-mattress-bases",
+      "es-US": "/es/adjustable-mattress-bases",
       "x-default": "/adjustable-mattress-bases"
     }
   },

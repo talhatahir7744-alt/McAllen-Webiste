@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   "alternates": {
     "canonical": "/mattresses",
     "languages": {
-      "en": "/mattresses",
-      "es": "/es/mattresses",
+      "en-US": "/mattresses",
+      "es-US": "/es/mattresses",
       "x-default": "/mattresses"
     }
   },

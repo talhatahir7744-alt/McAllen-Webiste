@@ -52,7 +52,7 @@ export function PageLoader({ locale = 'en' }: { locale?: Locale }) {
       <script dangerouslySetInnerHTML={{ __html: SKIP_SCRIPT }} />
       <div id="snz-loader" role="status" aria-live="polite" aria-label={TEXT[locale] || TEXT.en}>
         <div className="snz-loader__box">
-          <img className="snz-loader__logo" src={SITE.logo} alt="" width={252} height={80} decoding="sync" />
+          <img className="snz-loader__logo" src={SITE.logo} alt="Snooze Mattress + Wellness" width={252} height={80} decoding="sync" />
           <div className="snz-loader__zz" aria-hidden="true"><span>z</span><span>z</span><span>z</span></div>
           <div className="snz-loader__bar" aria-hidden="true"><i /></div>
           <p className="snz-loader__text">{TEXT[locale] || TEXT.en}</p>

@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   "alternates": {
     "canonical": "/terms-conditions-page",
     "languages": {
-      "en": "/terms-conditions-page",
-      "es": "/es/terms-conditions-page",
+      "en-US": "/terms-conditions-page",
+      "es-US": "/es/terms-conditions-page",
       "x-default": "/terms-conditions-page"
     }
   },

@@ -11,8 +11,8 @@ const BASE_METADATA: Metadata = {
   "alternates": {
     "canonical": "/es/mattress-sales",
     "languages": {
-      "en": "/mattress-sales",
-      "es": "/es/mattress-sales",
+      "en-US": "/mattress-sales",
+      "es-US": "/es/mattress-sales",
       "x-default": "/mattress-sales"
     }
   },

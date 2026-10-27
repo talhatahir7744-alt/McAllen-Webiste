@@ -13,6 +13,12 @@
  *   - heading components that hold a stat label ("5 Min", "85%"), a sentence (twelve words or more ending in a
  *     period) or nothing at all become <p>, as do the heading tags inside sub-heading components (taglines, brand
  *     descriptions) and inside paragraph components unless the text is a short title (≤ 10 words -> <h2>);
+ *   - ONE <h1> in the DOM (SEO report, October 27, 2026): the builder exports the hero twice (a desktop-only and a
+ *     phone-only copy; one is display:none at any width), so every page carried two <h1> tags and the client's audit
+ *     tool reported it. The phone copy, the one Googlebot's smartphone crawler renders, keeps the real <h1>; the
+ *     desktop copy becomes <p class="snz-h snz-h1-alt" role="heading" aria-level="1"> (same builder CSS, since the
+ *     typography rules target the component container as well as h1…h6; the hero rules in overrides/site.css and
+ *     overrides/global.css select :is(h1, .snz-h1-alt); same level-1 heading in the accessibility tree). Legal pages too.
  *   - the legal pages keep their document outline: the first bold title of each layout ("Privacy Policy" /
  *     "Terms & Conditions") -> <h1>, the numbered section titles stay <h2>, sub-sections stay <h3>, body lines -> <p>.
  * A retagged element keeps its builder CSS (every component rule targets h1…h6 and the container alike) and gets the
@@ -76,11 +82,13 @@ const retag = ($, el, tag, cls, style) => {
 /** some pages' builder stylesheet makes <strong> inside a heading inherit the heading's weight
     (":is(h1,…,h6) :is(strong) { font-weight: unset }"); inside a <p> the browser's bolder would apply instead */
 const strongInheritsOn = (headHtml) => /:is\(h1,h2,h3,h4,h5,h6\)\s*:is\(strong\)\s*\{\s*font-weight:\s*unset/.test(headHtml);
+/** the desktop hero copy: a <p> that is still a level-1 heading for assistive technology, never a second <h1> */
+const toAlt = ($, h, pStyle, strongInherit) => { const $n = toP($, h, pStyle, strongInherit); $n.addClass('snz-h1-alt').attr('role', 'heading').attr('aria-level', '1'); return $n; };
 const toP = ($, h, pStyle, strongInherit) => { const $n = retag($, h, 'p', 'snz-h', pStyle); if (strongInherit) $n.find('strong, b').each((_, s) => { if (!/font-weight/.test($(s).attr('style') || '')) $(s).attr('style', (($(s).attr('style') || '').replace(/;?\s*$/, '; ') + 'font-weight:inherit').replace(/^; /, '')); }); return $n; };
 
 /** apply one decision to a fragment root; returns the counters it touched */
 function apply($, $root, decision, weight, strongInherit = false) {
-  const c = { merged: 0, toH1: 0, toH2: 0, toH3: 0, toP: 0 };
+  const c = { merged: 0, toH1: 0, toH2: 0, toH3: 0, toP: 0, toAlt: 0 };
   const hs = heads($, $root);
   const pStyle = `font-weight:${weight || '500'}`;
   switch (decision) {
@@ -88,6 +96,7 @@ function apply($, $root, decision, weight, strongInherit = false) {
     // .snz-h1-merged in overrides/global.css): a <br> element would shift the span:nth-child() positions that the
     // baked site.css rules for the home hero depend on
     case 'hero': { const lines = hs.filter((h) => $(h).text().trim()); if (lines.length > 1) { $(lines[0]).html(lines.map((h) => $(h).html()).join('\n')); $(lines[0]).addClass('snz-h1-merged'); for (const h of lines.slice(1)) $(h).remove(); c.merged++; } for (const h of heads($, $root)) if (h.tagName.toLowerCase() !== 'h1') { retag($, h, 'h1'); c.toH1++; } break; }
+    case 'h1-alt': for (const h of hs) if (h.tagName.toLowerCase() === 'h1') { toAlt($, h, pStyle, strongInherit); c.toAlt++; } break;
     case 'h2': for (const h of hs) if (h.tagName.toLowerCase() === 'h1') { retag($, h, 'h2', 'snz-h'); c.toH2++; } break;
     case 'h3': for (const h of hs) if (h.tagName.toLowerCase() !== 'h3') { retag($, h, 'h3', 'snz-h'); c.toH3++; } break;
     case 'p': for (const h of hs) { toP($, h, pStyle, strongInherit); c.toP++; } break;
@@ -98,7 +107,7 @@ function apply($, $root, decision, weight, strongInherit = false) {
   return c;
 }
 
-const summary = { pages: 0, merged: 0, toH1: 0, toH2: 0, toH3: 0, toP: 0, payloadMirrored: 0, payloadShared: 0, payloadMissed: 0, payloadSkipped: 0 };
+const summary = { pages: 0, merged: 0, toH1: 0, toH2: 0, toH3: 0, toP: 0, toAlt: 0, payloadMirrored: 0, payloadShared: 0, payloadMissed: 0, payloadSkipped: 0 };
 const add = (c) => { for (const k of Object.keys(c)) summary[k] += c[k]; };
 const missed = [];
 for (const file of pages) {
@@ -121,8 +130,10 @@ for (const file of pages) {
   for (const el of comps) {
     const $c = $(el); const id = $c.attr('id'); const kind = id.startsWith('sub-heading') ? 'sub-heading' : id.split('-')[0];
     const $out = $c.find('.text-output').first(); if (!$out.length) continue;
+    const layout = layoutOf($c);
+    if ($out.find('.snz-h1-alt').length) { if (layout === 'desktop' || layout === 'all') heroDone.desktop = true; if (layout === 'mobile' || layout === 'all') heroDone.mobile = true; continue; } // the demoted desktop hero (earlier run)
     const hs = heads($, $out); if (!hs.length) continue;
-    const layout = layoutOf($c); const text = $out.text().replace(/\s+/g, ' ').trim();
+    const text = $out.text().replace(/\s+/g, ' ').trim();
     const cls = ($out.attr('class') || '').split(/\s+/).find((k) => /^(?:sub-)?heading-|^paragraph-/.test(k)) || id;
     const weight = weights.get(cls);
     let decision = null, note = '';
@@ -149,6 +160,21 @@ for (const file of pages) {
     const c = apply($, $out, decision, weight, strongInherit);
     if ($out.html() !== before) { changedComponents++; decisions.push([id, decision, weight]); if (!REPORT) add(c); }
     outline.push(`${layout.padEnd(8)} ${id.padEnd(26)} ${note.padEnd(34)} w=${(weight || '500').padEnd(4)} "${text.slice(0, 60)}"`);
+  }
+  // ---- one <h1> in the DOM: when both layout copies carry an <h1>, the desktop copy is demoted (see the header comment)
+  {
+    const h1s = $('h1').toArray().filter((h) => !$(h).parents(HEAD_TAGS).length);
+    const lay = (h) => layoutOf($(h));
+    if (h1s.some((h) => lay(h) === 'mobile') && h1s.some((h) => lay(h) === 'desktop')) {
+      for (const h of h1s.filter((h) => lay(h) === 'desktop')) {
+        const $c = $(h).closest('[id^="heading-"], [id^="sub-heading-"], [id^="paragraph-"]'); const id = $c.attr('id') || '';
+        const $out = $c.find('.text-output').first(); if (!$out.length) continue;
+        const cls = ($out.attr('class') || '').split(/\s+/).find((k) => /^(?:sub-)?heading-|^paragraph-/.test(k)) || id;
+        const weight = weights.get(cls);
+        const c = apply($, $out, 'h1-alt', weight, strongInherit);
+        if (c.toAlt) { changedComponents++; decisions.push([id, 'h1-alt', weight]); if (!REPORT) add(c); outline.push(`${'desktop'.padEnd(8)} ${id.padEnd(26)} ${'hero copy → p[role=heading]'.padEnd(34)} w=${(weight || '500').padEnd(4)} "${$out.text().replace(/\s+/g, ' ').trim().slice(0, 60)}"`); }
+      }
+    }
   }
   if (REPORT) { console.log(`\n== ${route}: ${changedComponents} components would change`); for (const o of outline) console.log('   ' + o); continue; }
   if (!changedComponents) continue;
@@ -181,6 +207,6 @@ for (const file of pages) {
   console.log(`${rel(file).padEnd(60)} ${changedComponents} components`);
 }
 if (!REPORT) {
-  console.log(`\n${summary.pages} pages written: ${summary.merged} hero headlines merged, ${summary.toH1} tags promoted to h1, ${summary.toH2} h1→h2, ${summary.toH3} →h3, ${summary.toP} →p; payload: ${summary.payloadMirrored} fragments mirrored, ${summary.payloadShared} shared strings already converted, ${summary.payloadMissed} components with no payload copy (the runtime leaves their markup as is; verify in a browser after the build), ${summary.payloadSkipped} fragments skipped (not round-trip safe)`);
+  console.log(`\n${summary.pages} pages written: ${summary.merged} hero headlines merged, ${summary.toH1} tags promoted to h1, ${summary.toH2} h1→h2, ${summary.toH3} →h3, ${summary.toP} →p, ${summary.toAlt} desktop hero copies →p[role=heading]; payload: ${summary.payloadMirrored} fragments mirrored, ${summary.payloadShared} shared strings already converted, ${summary.payloadMissed} components with no payload copy (the runtime leaves their markup as is; verify in a browser after the build), ${summary.payloadSkipped} fragments skipped (not round-trip safe)`);
   if (missed.length && process.argv.includes('--verbose')) for (const m of missed) console.log('   ' + m);
 } else console.log('\n(report only, nothing written)');

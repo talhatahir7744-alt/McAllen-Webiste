@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   "alternates": {
     "canonical": "/optin-page",
     "languages": {
-      "en": "/optin-page",
-      "es": "/es/optin-page",
+      "en-US": "/optin-page",
+      "es-US": "/es/optin-page",
       "x-default": "/optin-page"
     }
   },

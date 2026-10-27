@@ -7,7 +7,7 @@ const c = PAGE.copy.es;
 export const metadata: Metadata = {
   title: c.title,
   description: c.description,
-  alternates: { canonical: '/es/mattresses-for-back-pain', languages: { en: '/mattresses-for-back-pain', es: '/es/mattresses-for-back-pain', 'x-default': '/mattresses-for-back-pain' } },
+  alternates: { canonical: '/es/mattresses-for-back-pain', languages: { 'en-US': '/mattresses-for-back-pain', 'es-US': '/es/mattresses-for-back-pain', 'x-default': '/mattresses-for-back-pain' } },
   openGraph: { title: c.title, description: c.description, url: '/es/mattresses-for-back-pain', type: 'website', images: ['/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4e747464c6b3a3be10.png.webp'], locale: 'es_US' },
   twitter: { card: 'summary_large_image', images: ['/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a90ca4e747464c6b3a3be10.png.webp'] },
   icons: { icon: '/assets/filesafe/qR8peonBlnjGI3ZuLHQP/media/695b9e7d17768458ae206a19.png' },
