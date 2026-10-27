@@ -65,7 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
   for (const p of POSTS) {
     const path = `/blog/${p.slug}`;
-    const date = new Date((p as { dateModified?: string }).dateModified || p.datePublished);
+    const date = new Date(p.dateModified || p.datePublished);
     for (const locale of ['en', 'es'] as const) {
       out.push({ url: abs(localizeHref(path, locale)), lastModified: date, changeFrequency: 'yearly', priority: 0.6, alternates: { languages: languages(path) } });
     }

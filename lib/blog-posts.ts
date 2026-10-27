@@ -30,6 +30,7 @@ export type BlogPost = {
   metaDescription: string; // < 160 chars
   keywords: string[];
   datePublished: string; // ISO date
+  dateModified?: string; // ISO date of the last content refresh (BlogPosting.dateModified, og:modified_time, sitemap lastmod)
   dateDisplay: string; // as given by the client
   readTime: string; // as given by the client
   featured: BlogImage;
@@ -132,12 +133,13 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'pressure-mapping-for-sleep',
-    title: 'Pressure Maps For Sleep',
-    metaTitle: 'Pressure Mapping for Better Sleep | Snooze McAllen',
+    title: 'Dream Mapping: Pressure Maps for Better Sleep',
+    metaTitle: 'Dream Mapping: Pressure Mapping for Better Sleep | McAllen',
     metaDescription:
-      'What pressure mapping reveals about sleep positions, mattress materials and body weight, and how it helps you choose the right mattress in McAllen.',
-    keywords: ['pressure mapping', 'pressure map mattress', 'better sleep', 'spinal alignment', 'custom mattress', 'McAllen'],
+      'What Dream Mapping, our pressure mapping fitting, reveals about sleep positions, mattress materials and body weight, and how it helps you choose.',
+    keywords: ['Dream Mapping', 'pressure mapping', 'pressure map mattress', 'better sleep', 'spinal alignment', 'custom mattress', 'McAllen'],
     datePublished: '2025-01-25',
+    dateModified: '2026-10-27', // refreshed for the SEO report: Dream Mapping named in the title and intro, softened wording, sources
     dateDisplay: 'January 25, 2025',
     readTime: '7 min read',
     featured: { ...IMG.pressureMap, alt: 'Pressure mapping diagram showing high, medium and light pressure zones across the body' },
@@ -146,7 +148,7 @@ export const POSTS: BlogPost[] = [
     sections: [
       {
         paragraphs: [
-          'When it comes to understanding how well a sleep surface supports your body, [pressure mapping](/dream-mapping) technology has revolutionized the way we analyze comfort and [spinal alignment](/blog/mattresses-that-relieve-aches). These sophisticated tools provide visual representations of how weight distributes across a mattress, revealing critical insights that were once invisible to the naked eye.',
+          'When it comes to understanding how well a sleep surface supports your body, pressure mapping technology has revolutionized the way we analyze comfort and [spinal alignment](/blog/mattresses-that-relieve-aches). At Snooze Mattress + Wellness in McAllen, that fitting is called [Dream Mapping](/dream-mapping). These sophisticated tools provide visual representations of how weight distributes across a mattress, revealing critical insights that were once invisible to the naked eye.',
         ],
       },
       {
@@ -168,7 +170,7 @@ export const POSTS: BlogPost[] = [
         heading: 'Side Sleeping Insights',
         paragraphs: [
           'For [side sleepers](/mattresses-for-back-pain), pressure maps reveal particularly important information. When someone lies on their side, their body weight naturally concentrates at the shoulders and hips, which are the widest points of the body. A pressure map of an inadequate sleep surface will show intense pressure concentrations at these two points, with significant gaps at the waist where the body receives no support.',
-          "Quality sleep surfaces designed for side sleeping demonstrate a different pattern. The pressure map shows the shoulders and hips sinking in appropriately to maintain spinal alignment, while the waist receives gentle support to prevent the spine from bowing. This balanced distribution prevents the numbness and pain that many side sleepers experience when their mattress cannot accommodate their body's natural curves.",
+          "Quality sleep surfaces designed for side sleeping demonstrate a different pattern. The pressure map shows the shoulders and hips sinking in appropriately to maintain spinal alignment, while the waist receives gentle support to prevent the spine from bowing. This balanced distribution can help reduce the pressure that leads to the numbness and pain many side sleepers experience when their mattress cannot accommodate their body's natural curves.",
         ],
       },
       {
@@ -196,14 +198,14 @@ export const POSTS: BlogPost[] = [
       {
         heading: 'Temperature and Pressure Connection',
         paragraphs: [
-          'An often-overlooked insight from pressure mapping studies involves the relationship between pressure points and temperature regulation. Areas of high pressure concentration not only cause discomfort but also trap body heat. The reduced airflow at these pressure points can create localized hot spots that disrupt sleep quality.',
+          'An often-overlooked insight from pressure mapping involves the relationship between pressure points and temperature regulation. Areas of high pressure concentration not only cause discomfort but also trap body heat. The reduced airflow at these pressure points can create localized hot spots that disrupt sleep quality.',
           'Sleep surfaces that distribute pressure more evenly also tend to allow better air circulation around the body. This connection between pressure distribution and temperature management explains why some people find that [upgrading their mattress](/mattress-financing) improves both comfort and temperature regulation simultaneously.',
         ],
       },
       {
         heading: 'Dynamic Pressure Changes During Sleep',
         paragraphs: [
-          'Static pressure maps taken when someone first lies down tell only part of the story. Advanced pressure mapping studies that monitor sleepers throughout the night have revealed how pressure patterns shift as people change positions. These dynamic studies show that even in sleep, our bodies constantly make micro-adjustments in response to pressure buildup.',
+          'Static pressure maps taken when someone first lies down tell only part of the story. Pressure maps recorded throughout the night show how pressure patterns shift as people change positions: even in sleep, our bodies constantly make micro-adjustments in response to pressure buildup.',
           'A sleep surface that maintains good pressure distribution across multiple sleeping positions reduces the need for these frequent position changes, potentially leading to deeper, less interrupted sleep. This insight has influenced the design of mattresses that perform well regardless of whether you sleep on your back, side, or stomach.',
         ],
         image: { ...IMG.specialists, alt: 'Snooze sleep specialists helping a couple compare mattresses in the showroom', caption: 'Our sleep specialists walk you through your results and the mattresses that fit them.' },
