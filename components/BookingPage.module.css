@@ -35,10 +35,13 @@
    corrects the wide layout's over-report). Tablet/desktop: capped and centred so the appointment info, calendar and
    time slots sit together as one card instead of being spread across the whole viewport, with room under the sticky
    header; the "visit" section follows with its own spacing. The "Pick a Time Above" link scrolls here, clear of the
-   sticky header. Phones untouched. */
-.calendar { scroll-margin-top: 120px; }
+   sticky header. */
+/* No height, min-height, max-height or aspect-ratio on tablet/desktop: the height is the embed's own. Space below
+   (October 28, 2026): the widget's card ends 21px above the iframe's bottom in its wide layout and 5px above it on
+   phones, so these margins put the card's bottom edge about 56px above the "visit" section at every width. */
+.calendar { display: block; margin-bottom: 51px; scroll-margin-top: 120px; }
 @media (min-width: 768px) {
-  .calendar { display: block; max-width: 1080px; margin: 32px auto 0; }
+  .calendar { max-width: 1080px; margin: 32px auto 35px; }
 }
 /* Until form_embed.js gives the calendar its height (inline style), the iframe sits at the browser's 150px default
    and the "visit" section below jumped down when the height arrived (CLS 0.3). Phones only (October 27, 2026):

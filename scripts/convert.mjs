@@ -1205,9 +1205,13 @@ function shimSource() {
   // widget also ships the iframe-resizer child script: once the page answers its "Ready" with the parent handshake,
   // it reports its real content height on every change ("[iFrameSizer]<id>:<height>:<width>:<type>"). That channel
   // wins; setHeight is only used until it is live. The iframe never scrolls itself: it just gets taller.
+  // A frame marked data-snz-resizer="form_embed" (the /booking page, which loads the real form_embed.js) is left to that
+  // script alone (October 28, 2026): a second handshake from here asked the widget for "lowestElement" heights, which in
+  // its wide layout count the internally scrolled time-slot list (1,400-2,700px reports, a white band under the calendar),
+  // and a second writer here fought form_embed.js over the height.
   function bookingFrames(win) {
     var frames = document.querySelectorAll('iframe[src*="/widget/booking/"], iframe[src*="/widget/bookings/"]'), out = [];
-    for (var i = 0; i < frames.length; i++) if (!win || frames[i].contentWindow === win) out.push(frames[i]);
+    for (var i = 0; i < frames.length; i++) if ((!win || frames[i].contentWindow === win) && frames[i].getAttribute('data-snz-resizer') !== 'form_embed') out.push(frames[i]);
     return out;
   }
   function sizeBookingFrame(f, h) {

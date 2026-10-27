@@ -77,26 +77,39 @@ const VISIT_ICONS: IconName[] = ['sensor-bed', 'clock', 'user', 'badge-check', '
 export const BOOKING_CALENDAR_ID = 'lrAns7Z8j3vEJW3DC0Yr';
 const BOOKING_EMBED_ID = `${BOOKING_CALENDAR_ID}_1788459899479`;
 
-/* Height guard for the calendar iframe (October 27, 2026). The widget reports its height two ways: its own
-   "highlevel.setHeight" message and iframe-resizer messages ("[iFrameSizer]<id>:<height>:<width>:<trigger>") that
-   form_embed.js applies. In the widget's wide layout (iframe 1024px and wider) the time slots scroll inside the widget,
-   but the resizer still measures its lowest element, so after the slots render it reports 2,100–2,700px for a widget
-   whose body is about 800px — the iframe grew to that and the page showed a tall white gap under the calendar. The
-   narrow and medium layouts (phones, tablets) stack the slots and report correctly, including the tall slot lists.
-   So: in the wide layout only, a resizer report above 1,200px is that over-report; the last accepted height (the
-   widget's own 830 at first) is put back once form_embed.js has applied the bad one. The listener is registered at
-   parse time, before form_embed.js, so it sees every message; it never touches the narrow layouts. It is also the
-   fallback when form_embed.js has not set any height a moment after the widget reported one. */
-const CALENDAR_HEIGHT_GUARD = `(function(){var ID=${JSON.stringify(BOOKING_EMBED_ID)},WIDE=1024,MAX_WIDE=1200,last=0;
+/* Height guard for the calendar iframe (October 27, 2026; made deterministic October 28, 2026).
+   The widget reports its height two ways: iframe-resizer messages ("[iFrameSizer]<id>:<height>:<width>:<trigger>"), which
+   form_embed.js applies (the reported height + 5px), and its own "highlevel.setHeight" message (sent at load only, the
+   widget body + 50px), which form_embed.js ignores. In the widget's wide layout (iframe 1024px and wider) the time slots
+   and the details form scroll inside the widget and its body stays about 780px, but after the slots render the resizer
+   sometimes reports the slot list's full length (1,400–2,700px); applied, that left a tall white band under the calendar.
+   The first version put the good height back with a zero-delay timer, but form_embed.js applies every resize after the
+   first inside a requestAnimationFrame, which normally runs after that timer, so in a real browser the bad height stuck.
+   Now the listener (registered at parse time, so before form_embed.js's) stops such a report before form_embed.js sees it
+   (stopImmediatePropagation): the bad height is never applied, nothing to race. Resizer reports above 1,200px in the
+   wide layout are stopped, except the very first "init" before any good report: form_embed.js needs that one (its first
+   resize reveals the iframe), so it is let through and corrected once form_embed.js has applied it. Every other
+   report, and every report in the narrow and medium layouts (phones, tablets: stacked slots and forms are legitimately
+   1,200–2,400px), passes untouched, so form_embed.js stays what sizes the calendar. The site's offline shim (lib/ghl-shim.ts)
+   leaves this frame alone (data-snz-resizer="form_embed"): its own handshake asked the widget for "lowestElement" heights,
+   the source of those over-reports, and it applied every report a second time. form_embed.js also switches the
+   iframe to scrolling="yes"; the guard puts back the embed's scrolling="no", so the frame never shows a scrollbar of
+   its own (it is always as tall as the widget; the wide layout's slot list scrolls inside the widget, by design).
+   Fallbacks: if no height has been set 1.5 s after the widget's own message, the last good resizer height is applied,
+   else the widget's own figure in the same terms (−45px). If form_embed.js never loads (blocked, offline), the guard
+   makes the resizer handshake itself ("offset" heights, as form_embed.js asks) and applies the reports. */
+const CALENDAR_HEIGHT_GUARD = `(function(){var ID=${JSON.stringify(BOOKING_EMBED_ID)},WIDE=1024,MAX_WIDE=1200,good=0,own=0,sized=0,asks=0;
 function frame(){return document.getElementById(ID)}
-function apply(h){var f=frame();if(!f||!(h>0))return;f.style.height=h+'px';f.setAttribute('height',String(Math.round(h)))}
+function apply(h){var f=frame();if(!f||!(h>0))return;h=Math.round(h);if(f.style.height!==h+'px')f.style.height=h+'px'}
+function fallback(){return good||(own>100?own-45:0)}
+function vendor(){return typeof window.iFrameResize==='function'}
+function ask(){var f=frame();if(!f||sized||vendor()||asks>=4)return;asks++;try{f.contentWindow.postMessage('[iFrameSizer]'+ID+':8:false:false:32:true:true:0:offset:null:null:0:false:parent:scroll:false','*')}catch(x){}setTimeout(ask,1500)}
 window.addEventListener('message',function(e){if(!/^https:\\/\\/[a-z0-9.-]+\\.snoozesleep\\.com$/.test(e.origin||''))return;
-var d=e.data,h=0,sizer=false;
-if(typeof d==='string'){var m=d.match(/^\\[iFrameSizer\\]([^:]+):([\\d.]+):[\\d.]+:/);if(!m||m[1]!==ID)return;h=parseFloat(m[2]);sizer=true}
-else if(d&&d[0]==='highlevel.setHeight'&&d[1]&&d[1].height>0){h=+d[1].height}else return;
-var f=frame();if(!f)return;var wide=f.getBoundingClientRect().width>=WIDE;
-if(sizer&&wide&&h>MAX_WIDE){var keep=last||830;setTimeout(function(){apply(keep)},0);return}
-last=h;setTimeout(function(){var g=frame();if(g&&!g.style.height)apply(h)},1500)})})();`;
+var f=frame();if(!f)return;if(f.getAttribute('scrolling')!=='no')f.setAttribute('scrolling','no');var d=e.data,wide=f.getBoundingClientRect().width>=WIDE;
+if(typeof d==='string'){var m=d.match(/^\\[iFrameSizer\\]([^:]+):([\\d.]+):[\\d.]+:(\\w+)/);if(!m||m[1]!==ID)return;var h=parseFloat(m[2]);sized=1;
+if(wide&&h>MAX_WIDE){if(m[3]!=='init'||good){e.stopImmediatePropagation();apply(fallback());return}setTimeout(function(){apply(fallback()||785)},100);setTimeout(function(){apply(fallback()||785)},400);return}
+good=h+5;if(!vendor())apply(good);return}
+if(d&&d[0]==='highlevel.setHeight'&&d[1]&&d[1].height>0){own=+d[1].height;setTimeout(function(){var g=frame();if(g&&!g.style.height)apply(fallback())},1500);setTimeout(ask,4000)}})})();`;
 
 export function BookingPage({ locale = 'en' }: { locale?: Locale }) {
   const t = COPY[locale] || COPY.en;
@@ -127,6 +140,7 @@ export function BookingPage({ locale = 'en' }: { locale?: Locale }) {
         style={{ width: '100%', border: 'none', overflow: 'hidden' }}
         scrolling="no"
         id={BOOKING_EMBED_ID}
+        data-snz-resizer="form_embed"
       />
       <script dangerouslySetInnerHTML={{ __html: CALENDAR_HEIGHT_GUARD }} />
 
