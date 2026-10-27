@@ -2,6 +2,7 @@
 
 import { useId, useState } from 'react';
 import type { BlogFaq } from '@/lib/blog-posts';
+import { Rich } from './Rich';
 import styles from './blog.module.css';
 
 /* Accessible accordion: one <h3> per question, button with aria-expanded/aria-controls, the panel
@@ -27,7 +28,7 @@ export function Faq({ items }: { items: BlogFaq[] }) {
             </h3>
             <div id={panelId} role="region" aria-labelledby={btnId} className={styles.faqPanel}>
               <div className={styles.faqPanelInner}>
-                <p>{f.answer}</p>
+                <p><Rich text={f.answer} /></p>
               </div>
             </div>
           </div>

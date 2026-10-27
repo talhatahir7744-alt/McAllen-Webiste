@@ -118,7 +118,7 @@ export function PostPage({ slug, locale }: { slug: string; locale: Locale }) {
         '@type': 'FAQPage',
         '@id': `${url}#faq`,
         inLanguage: LANG[locale],
-        mainEntity: post.faqs.map((f) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })),
+        mainEntity: post.faqs.map((f) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: plain(f.answer) } })),
       },
       {
         '@type': 'BreadcrumbList',

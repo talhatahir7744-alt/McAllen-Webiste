@@ -4,7 +4,8 @@
  * section twice (desktop + mobile copies), in the static markup and again in the hydration payload (the accordion's
  * custom-code string, plus the builder's original FAQ element strings). This script rewrites each answer from the
  * table below wherever it occurs, keyed by the question text, so the accordion, the payload and the FAQPage schema
- * (regenerated afterwards by scripts/page-schema.mjs) all carry the same answer. Facts stay the ones already on the
+ * (regenerated afterwards by scripts/page-schema.mjs) all carry the same answer. The "What is Dream Mapping?" answer links
+ * to /dream-mapping (SEO report, October 27, 2026 — internal links; the schema text is tag-free). Facts stay the ones already on the
  * site: no new prices, terms or claims. Idempotent.  node scripts/faq-direct.mjs  (npm run faq:direct)  [--check]
  */
 import fs from 'node:fs';
@@ -21,7 +22,7 @@ const ANSWERS = {
   en: {
     'Why choose Snooze Mattress + Wellness in McAllen, TX?': '<p>Because you get the best mattress prices in town through our competitive sales and price matching, a one-of-a-kind Sleep Comfort Guarantee on your new mattress, and a family business that greets you with a smile in our Snooze Blues pajamas. We would be honored to serve you!</p>',
     'Why choose Snooze Mattress + Wellness in McAllen?': '<p>Because you get the best mattress prices in town through our competitive sales and price matching, a one-of-a-kind Sleep Comfort Guarantee on your new mattress, and a family business that greets you with a smile in our Snooze Blues pajamas. We would be honored to serve you!</p>',
-    'What is Dream Mapping?': '<p>Dream Mapping is a free five-minute pressure-mapping fitting: it analyzes your pressure points and preferences to recommend the mattress that fits your body.</p>',
+    'What is Dream Mapping?': '<p><a href="/dream-mapping">Dream Mapping</a> is a free five-minute pressure-mapping fitting: it analyzes your pressure points and preferences to recommend the mattress that fits your body.</p>',
     'How long does it take to complete the Dream Mapping process?': '<p>About five minutes. Then our Sleep Coaches take you to only the mattresses that match your body.</p>',
     'Can couples use Dream Mapping?': '<p>Yes. We tailor mattress recommendations for both individuals and couples.</p>',
     'Is there any pressure to buy?': '<p>No. Our Dream Mapping technology takes all of the guesswork out of finding the perfect mattress for you: after you have completed the Dream Map, the technology essentially eliminates around 85% of our products, so you get a true custom-fit mattress for your body.</p>',
@@ -43,7 +44,7 @@ const ANSWERS = {
   es: {
     '¿Por qué elegir Snooze Mattress + Wellness en McAllen, TX?': '<p>Porque tienes los mejores precios de colchones de la ciudad gracias a nuestras ofertas competitivas y a que igualamos precios, una Garantía de Confort de Sueño única para tu colchón nuevo, y un negocio familiar que te recibe con una sonrisa en nuestras pijamas Snooze Blues. ¡Sería un honor atenderte!</p>',
     '¿Por qué elegir Snooze Mattress + Wellness en McAllen?': '<p>Porque tienes los mejores precios de colchones de la ciudad gracias a nuestras ofertas competitivas y a que igualamos precios, una Garantía de Confort de Sueño única para tu colchón nuevo, y un negocio familiar que te recibe con una sonrisa en nuestras pijamas Snooze Blues. ¡Sería un honor atenderte!</p>',
-    '¿Qué es Dream Mapping?': '<p>Dream Mapping es un ajuste gratis de unos cinco minutos sobre una cama con sensores de presión: analiza tus puntos de presión y tus preferencias para recomendarte el colchón que va con tu cuerpo.</p>',
+    '¿Qué es Dream Mapping?': '<p><a href="/es/dream-mapping">Dream Mapping</a> es un ajuste gratis de unos cinco minutos sobre una cama con sensores de presión: analiza tus puntos de presión y tus preferencias para recomendarte el colchón que va con tu cuerpo.</p>',
     '¿Cuánto tiempo toma completar el proceso de Dream Mapping?': '<p>Unos cinco minutos. Después, nuestros Sleep Coaches te llevan únicamente a los colchones que coinciden con tu cuerpo.</p>',
     '¿Las parejas pueden usar Dream Mapping?': '<p>Sí. Personalizamos las recomendaciones de colchón tanto para personas que duermen solas como para parejas.</p>',
     '¿Hay presión para comprar?': '<p>No. Nuestra tecnología Dream Mapping elimina las adivinanzas al buscar el colchón perfecto para ti: una vez que completas tu Dream Map, la tecnología descarta prácticamente el 85% de nuestros productos, así que obtienes un colchón verdaderamente a la medida de tu cuerpo.</p>',

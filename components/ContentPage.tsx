@@ -1,11 +1,37 @@
 import { Faq } from '@/components/blog/Faq';
+import { Rich, plain } from '@/components/blog/Rich';
 import { CheckItem, Icon, iconFor } from '@/components/icons';
 import { PageSchema } from '@/components/PageSchema';
 import { SizeTypeGrid } from '@/components/SizeTypeGrid';
 import { LOCATION } from '@/lib/location';
 import { localizeHref, ui, type Locale } from '@/lib/i18n';
-import type { ContentPage as ContentPageData, ListStyle } from '@/lib/pages/types';
+import type { ContentPage as ContentPageData, ListStyle, PageCopy } from '@/lib/pages/types';
 import styles from './ContentPage.module.css';
+
+/* Copy strings may carry inline [text](href) links (components/blog/Rich.tsx; SEO report, October 27, 2026 — internal
+   links). The first "Dream Mapping" mention in the page body links to /dream-mapping (localized), unless the page is
+   /dream-mapping itself or the mention already sits inside a link; everything else in the copy is rendered as written. */
+function withDreamMappingLink(c: PageCopy, slug: string, locale: Locale): PageCopy {
+  if (slug === '/dream-mapping') return c;
+  const href = localizeHref('/dream-mapping', locale);
+  let done = false;
+  const link = (t: string) => {
+    if (done || !t.includes('Dream Mapping')) return t;
+    return t.split(/(\[[^\]]+\]\([^)]+\))/).map((seg) => {
+      if (done || /^\[[^\]]+\]\([^)]+\)$/.test(seg) || !seg.includes('Dream Mapping')) return seg;
+      done = true;
+      return seg.replace('Dream Mapping', `[Dream Mapping](${href})`);
+    }).join('');
+  };
+  const intro = c.intro.map(link);
+  const sections = c.sections.map((s) => ({
+    ...s,
+    paragraphs: s.paragraphs?.map(link),
+    bullets: s.bullets?.map(link),
+    h3s: s.h3s?.map((h) => ({ ...h, paragraphs: h.paragraphs?.map(link), bullets: h.bullets?.map(link) })),
+  }));
+  return { ...c, intro, sections };
+}
 
 /* Renders a hand-written content page (lib/pages/*) in one locale: breadcrumb, H1, copy, optional table, FAQ
    accordion (the blog's), CTA to /booking, plus FAQPage + BreadcrumbList JSON-LD (and any extra schema the page
@@ -19,7 +45,7 @@ function ListBlock({ items, style }: { items: string[]; style?: ListStyle }) {
   if (style === 'facts') {
     return (
       <div className="snz-facts">
-        <ul className={`${styles.list} snz-check-list`}>{items.map((b, j) => <CheckItem key={j}>{b}</CheckItem>)}</ul>
+        <ul className={`${styles.list} snz-check-list`}>{items.map((b, j) => <CheckItem key={j}><Rich text={b} /></CheckItem>)}</ul>
       </div>
     );
   }
@@ -29,7 +55,7 @@ function ListBlock({ items, style }: { items: string[]; style?: ListStyle }) {
         {items.map((b, j) => (
           <li key={j}>
             <span className="snz-badge snz-badge--num" aria-hidden="true">{String(j + 1).padStart(2, '0')}</span>
-            <p className="snz-steps__text">{b}</p>
+            <p className="snz-steps__text"><Rich text={b} /></p>
           </li>
         ))}
       </ol>
@@ -47,11 +73,11 @@ function ListBlock({ items, style }: { items: string[]; style?: ListStyle }) {
               <span className="snz-badge snz-badge--soft"><Icon name={iconFor(b)} /></span>
               {titled ? (
                 <>
-                  <span className="snz-card__title">{parts[j]![1]}</span>
-                  <span className="snz-card__text">{parts[j]![2]}</span>
+                  <span className="snz-card__title"><Rich text={parts[j]![1]} /></span>
+                  <span className="snz-card__text"><Rich text={parts[j]![2]} /></span>
                 </>
               ) : (
-                <span className="snz-card__text">{b}</span>
+                <span className="snz-card__text"><Rich text={b} /></span>
               )}
             </div>
           </li>
@@ -59,11 +85,11 @@ function ListBlock({ items, style }: { items: string[]; style?: ListStyle }) {
       </ul>
     );
   }
-  return <ul className={`${styles.list} snz-check-list`}>{items.map((b, j) => <CheckItem key={j}>{b}</CheckItem>)}</ul>;
+  return <ul className={`${styles.list} snz-check-list`}>{items.map((b, j) => <CheckItem key={j}><Rich text={b} /></CheckItem>)}</ul>;
 }
 
 export function ContentPage({ page, locale }: { page: ContentPageData; locale: Locale }) {
-  const c = page.copy[locale] || page.copy.en;
+  const c = withDreamMappingLink(page.copy[locale] || page.copy.en, page.slug, locale);
   const t = ui(locale);
   const home = locale === 'es' ? `${SITE_URL}/es` : SITE_URL;
   const url = `${SITE_URL}${localizeHref(page.slug, locale)}`;
@@ -72,7 +98,7 @@ export function ContentPage({ page, locale }: { page: ContentPageData; locale: L
       { '@type': 'ListItem', position: 1, name: t.blog.home, item: home },
       { '@type': 'ListItem', position: 2, name: c.crumb, item: url },
     ] },
-    ...(c.faqs.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: c.faqs.map((f) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }] : []),
+    ...(c.faqs.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: c.faqs.map((f) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: plain(f.answer) } })) }] : []),
     ...(page.extraSchema ? page.extraSchema(locale) : []),
   ];
   const L = LOCATION;
@@ -90,18 +116,18 @@ export function ContentPage({ page, locale }: { page: ContentPageData; locale: L
         <header className={styles.hero}>
           {c.eyebrow ? <p className={styles.eyebrow}>{c.eyebrow}</p> : null}
           <h1 className={styles.title}>{c.h1}</h1>
-          {c.intro.map((p, i) => <p key={i} className={styles.lede}>{p}</p>)}
+          {c.intro.map((p, i) => <p key={i} className={styles.lede}><Rich text={p} /></p>)}
         </header>
         <article className={styles.article}>
           {c.sections.map((s, i) => (
             <section key={i} className={styles.section}>
               <h2 className={styles.h2}>{s.h2}</h2>
-              {(s.paragraphs || []).map((p, j) => <p key={j} className={styles.p}>{p}</p>)}
+              {(s.paragraphs || []).map((p, j) => <p key={j} className={styles.p}><Rich text={p} /></p>)}
               {s.bullets ? <ListBlock items={s.bullets} style={s.listStyle} /> : null}
               {(s.h3s || []).map((sub, j) => (
                 <div key={j} className={styles.sub}>
                   <h3 className={styles.h3}>{sub.h3}</h3>
-                  {(sub.paragraphs || []).map((p, k) => <p key={k} className={styles.p}>{p}</p>)}
+                  {(sub.paragraphs || []).map((p, k) => <p key={k} className={styles.p}><Rich text={p} /></p>)}
                   {sub.bullets ? <ListBlock items={sub.bullets} style={sub.listStyle} /> : null}
                 </div>
               ))}

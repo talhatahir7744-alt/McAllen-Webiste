@@ -36,7 +36,7 @@ export function areaPage(city: string, slug: string): ContentPage {
           { h2: 'Before you drive over', listStyle: 'facts', bullets: [
             `Store hours: ${L.hours.en[0]}, ${L.hours.en[1]}.`,
             `Call ${L.phone} to ask about a specific brand or size, or book a Dream Mapping time online so a Sleep Coach is ready for you.`,
-            'Take the 60-second Sleep Fit Quiz at home first if you like; the in-store map confirms the result.',
+            'Take the 60-second [Sleep Fit Quiz](/sleep-quiz) at home first if you like; the in-store map confirms the result.',
             'Couples are mapped individually, so come together if you share the bed.',
           ] },
         ],
@@ -73,7 +73,7 @@ export function areaPage(city: string, slug: string): ContentPage {
           { h2: 'Antes de manejar para acá', listStyle: 'facts', bullets: [
             `Horario: ${L.hours.es[0]}, ${L.hours.es[1]}.`,
             `Llama al ${L.phone} para preguntar por una marca o un tamaño, o reserva tu Dream Mapping en línea para que un Sleep Coach te esté esperando.`,
-            'Si quieres, haz primero el Sleep Fit Quiz de 60 segundos en casa; el mapa en tienda confirma el resultado.',
+            'Si quieres, haz primero el [Sleep Fit Quiz](/es/sleep-quiz) de 60 segundos en casa; el mapa en tienda confirma el resultado.',
             'Las parejas se mapean por separado, así que vengan juntos si comparten la cama.',
           ] },
         ],
