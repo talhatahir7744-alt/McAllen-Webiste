@@ -325,10 +325,14 @@
 .overlayShow { opacity: 1; visibility: visible; transition-delay: 0s; }
 /* The overlay and the drawer are fixed, but they live inside the sticky header, whose z-index (1200) caps them, and the
    navy top bar (components/TopBar.tsx, z-index 1201) painted over the drawer's logo and close button whenever the bar was
-   on screen (page top). While the drawer is open the header is the top layer of the page, so the overlay dims the top
-   bar like the rest of the page and the drawer's head is fully visible and tappable. Mobile only (the drawer does not
-   exist from 1025px); a class rather than :has() so older iOS Safari gets it too. */
-@media (max-width: 1024px) { .header.menuOpen { z-index: 2147483646; } }
+   on screen (page top). While the drawer is open, and through its 300ms slide-out, the whole header is the top layer of
+   the page: above the top bar (the overlay dims it like the rest of the page) and above the chat widget's launcher
+   (99,999,999), so the drawer's head and its buttons are never covered. Mobile only (the drawer does not exist from
+   1025px); a class set by React rather than :has(), so older iOS Safari gets it too. Same rule as the other locations. */
+@media (max-width: 1024px) {
+  .header { transition: box-shadow 260ms var(--snz-ease), z-index 0s linear 300ms; }
+  .header.menuOpen { z-index: 2147483646; transition: box-shadow 260ms var(--snz-ease), z-index 0s; }
+}
 .drawer {
   position: fixed;
   top: 0;

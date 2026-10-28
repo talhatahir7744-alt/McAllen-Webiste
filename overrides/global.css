@@ -293,11 +293,10 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
 
 /* ---- Open mobile menu above the chat widget (components/ChatWidget.tsx). The widget is styled only in the client's CRM
    (position, look, copy, hours) and draws its bubble at z-index 99999999. The menu's overlay and drawer live inside the
-   sticky header (z-index 1200), so while the menu is open (its toggle button is aria-expanded) the header rises above the
-   widget. The top bar stays at its own 1201, below the open header, so the overlay covers it and the drawer's logo and
-   close button are never under it (it used to rise to 2147483647 with the header and hid them at the page top; the
-   header module also sets this z-index through its .menuOpen class, for browsers without :has()). Closed: 1200 / 1201. ---- */
-body:has([data-site-header] button[aria-controls$="-drawer"][aria-expanded="true"]) [data-site-header] { z-index: 2147483646; }
+   sticky header (z-index 1200), so while the menu is open the header rises above the widget and above the top bar, by a
+   class React sets on it (components/SiteHeader.module.css, .menuOpen; no :has()). The earlier body:has(…) rules here
+   also raised the top bar one above the header, which hid the drawer's logo and close button at the page top; they are
+   gone. Closed: 1200 / 1201. ---- */
 
 /* ---- Financing partner cards (/mattress-financing and /es, "Mattress Payment Plans"): Synchrony, Wells Fargo and Snap —
    desktop columns e6UhMdx0Cj / 5JX2mN7nt9 / fhV_DwS040, phone columns 6HMYAM9IgW / Vs2CXnLrvV / FmB8D540hm. The builder
