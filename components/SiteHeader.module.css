@@ -323,6 +323,12 @@
   transition: opacity 260ms var(--snz-ease), visibility 0s linear 260ms;
 }
 .overlayShow { opacity: 1; visibility: visible; transition-delay: 0s; }
+/* The overlay and the drawer are fixed, but they live inside the sticky header, whose z-index (1200) caps them, and the
+   navy top bar (components/TopBar.tsx, z-index 1201) painted over the drawer's logo and close button whenever the bar was
+   on screen (page top). While the drawer is open the header is the top layer of the page, so the overlay dims the top
+   bar like the rest of the page and the drawer's head is fully visible and tappable. Mobile only (the drawer does not
+   exist from 1025px); a class rather than :has() so older iOS Safari gets it too. */
+@media (max-width: 1024px) { .header.menuOpen { z-index: 2147483646; } }
 .drawer {
   position: fixed;
   top: 0;
@@ -338,7 +344,12 @@
   visibility: hidden;
   transition: transform 280ms var(--snz-ease), visibility 0s linear 280ms;
   overflow: hidden;
+  padding-top: env(safe-area-inset-top, 0px); /* clear of the status bar / notch if the page ever uses viewport-fit=cover */
 }
+/* the drawer is exactly the visible viewport: 100dvh follows Safari's and Chrome's toolbars, so the bottom buttons are
+   never under them (the list scrolls inside .drawerBody); browsers without dvh keep the top/bottom insets, which track the
+   visible area too (100vh would be the large viewport, taller than the screen while the toolbars show) */
+@supports (height: 100dvh) { .drawer { bottom: auto; height: 100dvh; } }
 .drawerShow { transform: translateX(0); visibility: visible; transition-delay: 0s; }
 .drawerHead {
   display: flex;

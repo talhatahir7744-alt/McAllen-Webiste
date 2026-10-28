@@ -279,7 +279,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
     ));
 
   return (
-    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''} ${compact ? styles.compact : ''}`} data-site-header="" data-locale={locale}>
+    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''} ${compact ? styles.compact : ''} ${mobileOpen ? styles.menuOpen : ''}`} data-site-header="" data-locale={locale}>
       <div ref={progressRef} className={styles.progress} aria-hidden="true" />
       <div className={styles.bar}>
         <a href={L('/')} className={styles.logo} aria-label={t.menu.homeAria}>
