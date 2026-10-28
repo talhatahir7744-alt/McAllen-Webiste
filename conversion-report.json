@@ -1378,7 +1378,7 @@
       ]
     },
     {
-      "route": "/optin-page",
+      "route": "/contact-us",
       "locale": "en",
       "source": "optin-page.html",
       "title": "Contact Us",
@@ -1398,7 +1398,7 @@
       ]
     },
     {
-      "route": "/es/optin-page",
+      "route": "/es/contact-us",
       "locale": "es",
       "source": "optin-page.html",
       "title": "Contáctanos",
@@ -4449,7 +4449,7 @@
     {
       "page": "optin-page.html",
       "locale": "es",
-      "route": "/es/optin-page",
+      "route": "/es/contact-us",
       "translated": 11,
       "payloadStrings": 18,
       "missing": []

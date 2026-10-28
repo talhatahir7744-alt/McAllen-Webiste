@@ -10,8 +10,8 @@ const SITE_URL = 'https://mcallen.snoozemattresscompany.com';
 
 /* Public, indexable pages of the converted site (hand-maintained; regeneration keeps this file). Every page exists in
    English and Spanish (/es/...); each sitemap entry lists both as hreflang alternates. Not listed on purpose: the
-   noindex pages (/optin-page contact form, the /thank/you and /dream/map/thank/you confirmation pages), the URLs that
-   redirect (/home-page, /main-page, the duplicate legal pages) and the /ghl-stub placeholders.
+   noindex pages (the /thank/you and /dream/map/thank/you confirmation pages), the URLs that redirect (/home-page,
+   /main-page, the duplicate legal pages, the builder's old contact-form URL) and the /ghl-stub placeholders.
    lastmod is per page: the date of the last commit that touched the page's own source (lib/lastmod.json, written by
    scripts/lastmod.mjs: run `npm run lastmod` before building whenever page content changed); blog posts carry their
    own dates from lib/blog-posts.ts. */
@@ -30,6 +30,7 @@ const PAGES: Array<[path: string, priority: number]> = [
   ['/mattress-financing', 0.8],
   ['/mattress-sales', 0.8],
   ['/booking', 0.8],
+  ['/contact-us', 0.7], // the contact page (indexable since October 29, 2026)
   ['/sleep-quiz', 0.8],
   ['/blog', 0.8],
   // hand-written content pages (lib/pages/*, build pass October 2026)

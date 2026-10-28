@@ -371,3 +371,8 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
   .hl_page-preview--content #row--kv3BRGUwz .c-column > .inner > .c-image, .hl_page-preview--content #row-SVc04VBjk3 .c-column > .inner > .c-image { height: 50px !important; margin: 0 0 20px !important; align-self: start; }
   .hl_page-preview--content #row--kv3BRGUwz .c-column > .inner > .c-paragraph, .hl_page-preview--content #row-SVc04VBjk3 .c-column > .inner > .c-paragraph { align-self: start; }
 }
+
+/* ---- Contact page store details (components/ContactDetails.tsx, /contact-us + /es/contact-us): the phone number is the
+   card's main line (tel: link), in the card-title navy, orange on hover. ---- */
+.snz-contact__phone { font-size: 20px; font-weight: 800; color: #001489; text-decoration: none; }
+.snz-contact__phone:hover, .snz-contact__phone:focus-visible { color: #F58433; text-decoration: underline; text-underline-offset: 3px; }

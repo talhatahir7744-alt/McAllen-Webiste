@@ -5,7 +5,7 @@
  *   - exactly ONE LocalBusiness (FurnitureStore) per page, with name, full postal address, telephone, url, image,
  *     geo, opening hours, priceRange and sameAs;
  *   - FAQPage: ≥1 Question with name + acceptedAnswer.text; BreadcrumbList: ListItems 1..n with name + item;
- *   - BlogPosting: headline, image, datePublished, author.name, publisher.name + logo; Service: name, provider,
+ *   - ContactPage: name, url, mainEntity; BlogPosting: headline, image, datePublished, author.name, publisher.name + logo; Service: name, provider,
  *     areaServed, offers;
  *   - no AggregateRating / Review anywhere (the audit forbids them for the store).
  *   node scripts/validate-schema.mjs [--live] [--verbose]      (npm run schema:check)
@@ -19,7 +19,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const LIVE = process.argv.includes('--live'); const VERBOSE = process.argv.includes('--verbose');
 const SITE_URL = 'https://mcallen.snoozemattresscompany.com';
-const TYPES = new Set(['FurnitureStore', 'LocalBusiness', 'Store', 'PostalAddress', 'GeoCoordinates', 'OpeningHoursSpecification', 'City', 'State', 'Country', 'ImageObject', 'Organization', 'FAQPage', 'Question', 'Answer', 'BreadcrumbList', 'ListItem', 'BlogPosting', 'Article', 'WebPage', 'Person', 'Service', 'Offer', 'ContactPoint', 'WebSite', 'AdministrativeArea']);
+const TYPES = new Set(['ContactPage', 'FurnitureStore', 'LocalBusiness', 'Store', 'PostalAddress', 'GeoCoordinates', 'OpeningHoursSpecification', 'City', 'State', 'Country', 'ImageObject', 'Organization', 'FAQPage', 'Question', 'Answer', 'BreadcrumbList', 'ListItem', 'BlogPosting', 'Article', 'WebPage', 'Person', 'Service', 'Offer', 'ContactPoint', 'WebSite', 'AdministrativeArea']);
 const FORBIDDEN = new Set(['AggregateRating', 'Review', 'Rating']);
 const BUSINESS = new Set(['FurnitureStore', 'LocalBusiness', 'Store']);
 
@@ -44,6 +44,7 @@ for (const f of htmlFiles) {
   for (const o of tops.filter((o) => typesOf(o).includes('FAQPage'))) { if (!Array.isArray(o.mainEntity) || !o.mainEntity.length) errs.push('FAQPage: empty mainEntity'); else o.mainEntity.forEach((q, i) => need(q, ['name', 'acceptedAnswer.text'], errs, `FAQ #${i + 1}`)); }
   for (const o of tops.filter((o) => typesOf(o).includes('BreadcrumbList'))) { const l = o.itemListElement || []; if (!l.length) errs.push('BreadcrumbList: empty'); l.forEach((it, i) => { if (it.position !== i + 1) errs.push(`Breadcrumb position ${it.position} ≠ ${i + 1}`); need(it, ['name', 'item'], errs, `Breadcrumb #${i + 1}`); }); }
   for (const o of tops.filter((o) => typesOf(o).some((t) => t === 'BlogPosting' || t === 'Article'))) need(o, ['headline', 'image', 'datePublished', 'author.name', 'publisher.name', 'publisher.logo', 'mainEntityOfPage'], errs, 'BlogPosting');
+  for (const o of tops.filter((o) => typesOf(o).includes('ContactPage'))) need(o, ['name', 'url', 'mainEntity'], errs, 'ContactPage');
   for (const o of tops.filter((o) => typesOf(o).includes('Service'))) need(o, ['name', 'description', 'provider', 'areaServed', 'offers', 'url'], errs, 'Service');
   const kinds = tops.map((o) => typesOf(o).join('+')).join(', ');
   summary[kinds] = (summary[kinds] || 0) + 1;

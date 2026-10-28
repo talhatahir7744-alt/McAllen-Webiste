@@ -5,8 +5,8 @@ export const dynamic = 'force-static';
 
 const SITE_URL = 'https://mcallen.snoozemattresscompany.com';
 
-/* /robots.txt: everything is crawlable except the offline placeholders under /ghl-stub. The booking and Dream
-   Mapping thank-you pages (/thank/you, /dream/map/thank/you) and the contact opt-in form (/optin-page) are
+/* /robots.txt: everything is crawlable except the offline placeholders under /ghl-stub (the contact page, /contact-us,
+   included: it is indexable). The booking and Dream Mapping thank-you pages (/thank/you, /dream/map/thank/you) are
    deliberately NOT disallowed: they carry a noindex,follow robots meta tag (scripts/convert.mjs NOINDEX_ROUTES),
    and Google can only honour it if it is allowed to fetch the page. */
 export default function robots(): MetadataRoute.Robots {

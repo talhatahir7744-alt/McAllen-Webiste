@@ -74,7 +74,7 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
             </div>
             <div className={styles.ctas}>
               <a href={L('/booking')} className={styles.btn}>{f.book}</a>
-              <a href={L('/optin-page')} className={`${styles.btn} ${styles.btnOutline}`}>{f.contact}</a>
+              <a href={L('/contact-us')} className={`${styles.btn} ${styles.btnOutline}`}>{f.contact}</a>
             </div>
           </div>
 

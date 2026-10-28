@@ -3,23 +3,24 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
+import { ContactDetails } from '@/components/ContactDetails';
 
 export const metadata: Metadata = {
-  "robots": { "index": false, "follow": true },
-  "title": "Contáctanos",
-  "description": "¿Tienes preguntas? Escríbenos y nuestro equipo te responderá muy pronto.",
+  "robots": { "index": true, "follow": true },
+  "title": "Contacta a Snooze Mattress en McAllen, TX | Snooze Mattress",
+  "description": "Contacta a Snooze Mattress + Wellness en McAllen: llama al (956) 586-5646, visita 7913 N 10th St, Suite 130 o escríbenos y agenda tu Dream Mapping gratis.",
   "alternates": {
-    "canonical": "/es/optin-page",
+    "canonical": "/es/contact-us",
     "languages": {
-      "en-US": "/optin-page",
-      "es-US": "/es/optin-page",
-      "x-default": "/optin-page"
+      "en-US": "/contact-us",
+      "es-US": "/es/contact-us",
+      "x-default": "/contact-us"
     }
   },
   "openGraph": {
-    "title": "Contáctanos",
-    "description": "¿Tienes preguntas? Escríbenos y nuestro equipo te responderá muy pronto.",
-    "url": "/es/optin-page",
+    "title": "Contacta a Snooze Mattress en McAllen, TX | Snooze Mattress",
+    "description": "Contacta a Snooze Mattress + Wellness en McAllen: llama al (956) 586-5646, visita 7913 N 10th St, Suite 130 o escríbenos y agenda tu Dream Mapping gratis.",
+    "url": "/es/contact-us",
     "type": "website",
     "images": [
       "/assets/filesafe/BljrSmLCnm4gF9LpsTRZ/media/6a7c8daffe4291bd100eddea.png.webp"
@@ -46,6 +47,8 @@ export default function Page() {
       {/* page-level JSON-LD (scripts/page-schema.mjs) */}
       <PageSchema items={PAGE_SCHEMA} />
       <PageClient />
+      {/* the store's address, phone and hours from lib/location.ts (same as the top bar and footer) */}
+      <ContactDetails locale="es" />
     </>
   );
 }

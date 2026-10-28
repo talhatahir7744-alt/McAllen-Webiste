@@ -36,6 +36,9 @@ const PRODUCT_NAMES = {
   '/at-home-sleep-test-kit-by-sleepcorner': { en: 'At-Home Sleep Test Kit', es: 'Kit de Prueba de Sueño en Casa' },
 };
 const HOME = { en: 'Home', es: 'Inicio' };
+/* the contact page (/contact-us, October 29, 2026): ContactPage about the store (the site-wide LocalBusiness record,
+   @id …/#store, rendered by the footer and unchanged) + BreadcrumbList Home › Contact Us; name = the page's H1 */
+const CONTACT = { '/contact-us': { en: { name: 'Contact Snooze Mattress in McAllen', crumb: 'Contact Us' }, es: { name: 'Contacta a Snooze Mattress en McAllen', crumb: 'Contáctanos' } } };
 
 const pages = []; (function walk(d) { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walk(p); else if (e.name === 'content.ts' && fs.existsSync(path.join(d, 'page.tsx'))) pages.push(d); } })(path.join(ROOT, 'app'));
 const rel = (f) => path.relative(ROOT, f).split(path.sep).join('/');
@@ -61,6 +64,13 @@ for (const dir of pages) {
     { '@type': 'ListItem', position: 1, name: HOME[locale], item: locale === 'es' ? `${SITE_URL}/es` : SITE_URL },
     { '@type': 'ListItem', position: 2, name: PRODUCT_NAMES[base][locale], item: `${SITE_URL}${route}` },
   ] });
+  if (CONTACT[base]) {
+    items.push({ '@context': 'https://schema.org', '@type': 'ContactPage', '@id': `${SITE_URL}${route}#webpage`, url: `${SITE_URL}${route}`, name: CONTACT[base][locale].name, inLanguage: locale === 'es' ? 'es-US' : 'en-US', about: { '@id': `${SITE_URL}/#store` }, mainEntity: { '@id': `${SITE_URL}/#store` } });
+    items.push({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: HOME[locale], item: locale === 'es' ? `${SITE_URL}/es` : SITE_URL },
+      { '@type': 'ListItem', position: 2, name: CONTACT[base][locale].crumb, item: `${SITE_URL}${route}` },
+    ] });
+  }
   // ---- the builder's schemaMarkup leaves the payload (devalue array: pageData.schemaMarkup -> -1 = undefined)
   const $p = $('script#__NUXT_DATA__').first(); let payloadChanged = false;
   if ($p.length) {
@@ -78,9 +88,9 @@ for (const dir of pages) {
     else page = page.replace('      <PageClient />', '      {/* page-level JSON-LD (scripts/page-schema.mjs) */}\n      <PageSchema items={PAGE_SCHEMA} />\n      <PageClient />');
     if (!page.includes('<PageSchema items={PAGE_SCHEMA} />')) throw new Error(`${rel(pageFile)}: could not place <PageSchema>`);
   }
-  const line = `${route.padEnd(44)} FAQ ${String(faqs.length).padStart(2)}  breadcrumb ${PRODUCT_NAMES[base] ? 'yes' : 'no '}  builder block ${payloadChanged ? 'removed' : 'absent '}`;
+  const line = `${route.padEnd(44)} FAQ ${String(faqs.length).padStart(2)}  breadcrumb ${PRODUCT_NAMES[base] || CONTACT[base] ? 'yes' : 'no '}  builder block ${payloadChanged ? 'removed' : 'absent '}`;
   console.log(line);
-  totals.pages++; totals.faq += faqs.length; if (PRODUCT_NAMES[base]) totals.crumbs++;
+  totals.pages++; totals.faq += faqs.length; if (PRODUCT_NAMES[base] || CONTACT[base]) totals.crumbs++;
   if (CHECK) continue;
   if (!fs.existsSync(schemaFile) || fs.readFileSync(schemaFile, 'utf8') !== schemaTs) fs.writeFileSync(schemaFile, schemaTs);
   if (page !== pageBefore) fs.writeFileSync(pageFile, page);

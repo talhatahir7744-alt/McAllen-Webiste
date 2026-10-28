@@ -3,7 +3,7 @@
 // Usage: node scripts/check-es.mjs [baseUrl]
 import puppeteer from 'puppeteer-core';
 const BASE = process.argv[2] || 'http://localhost:3000';
-const ROUTES = ['/', '/about-us', '/mattress-financing', '/mattress-sales', '/mattresses', '/adjustable-mattress-bases', '/massage-chairs', '/pillows', '/mattress-protectors', '/premium-sheets', '/sleep-recliner', '/at-home-sleep-test-kit-by-sleepcorner', '/booking', '/optin-page', '/blog', '/blog/pressure-mapping-for-sleep', '/privacy-policy-page', '/terms-conditions-page'];
+const ROUTES = ['/', '/about-us', '/mattress-financing', '/mattress-sales', '/mattresses', '/adjustable-mattress-bases', '/massage-chairs', '/pillows', '/mattress-protectors', '/premium-sheets', '/sleep-recliner', '/at-home-sleep-test-kit-by-sleepcorner', '/booking', '/contact-us', '/blog', '/blog/pressure-mapping-for-sleep', '/privacy-policy-page', '/terms-conditions-page'];
 const ENGLISH = /\b(the|and|with|your|our|for|you|from|mattress|mattresses|sleep|book|appointment|financing|available|learn more|get in touch|read article|visit us|home|about us|frequently asked)\b/i;
 const browser = await puppeteer.launch({ executablePath: 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe', headless: true, args: ['--no-first-run', '--disable-gpu', '--hide-scrollbars'] });
 let problems = 0;
