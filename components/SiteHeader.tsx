@@ -205,7 +205,9 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
     document.body.style.top = `-${scrollY}px`;
     document.body.style.width = '100%';
     document.body.style.overflow = 'hidden';
-    window.setTimeout(() => closeBtnRef.current?.focus(), 60);
+    /* cancelled on close: otherwise closing within 60ms of opening moved focus into the closing drawer, and it fell to <body>
+       once the drawer hid, instead of staying on the menu button */
+    const focusTimer = window.setTimeout(() => closeBtnRef.current?.focus(), 60);
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') { e.preventDefault(); closeMobile(); return; }
       if (e.key !== 'Tab' || !drawerRef.current) return;
@@ -217,6 +219,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
     };
     document.addEventListener('keydown', onKey);
     return () => {
+      window.clearTimeout(focusTimer);
       document.body.style.position = prev.position; document.body.style.top = prev.top; document.body.style.width = prev.width; document.body.style.overflow = prev.overflow;
       window.scrollTo({ top: scrollY, behavior: 'instant' }); // position restore after the drawer's body lock must not animate
       document.removeEventListener('keydown', onKey);
