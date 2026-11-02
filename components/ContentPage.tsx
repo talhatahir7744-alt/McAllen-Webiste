@@ -1,8 +1,9 @@
 import { Faq } from '@/components/blog/Faq';
 import { Rich, plain } from '@/components/blog/Rich';
-import { CheckItem, Icon, iconFor } from '@/components/icons';
+import { Icon, iconFor } from '@/components/icons';
 import { PageSchema } from '@/components/PageSchema';
 import { SizeTypeGrid } from '@/components/SizeTypeGrid';
+import { BodyText, CheckList, CtaButton, LeadIn, SectionHeading } from '@/components/TypeSystem';
 import { LOCATION } from '@/lib/location';
 import { localizeHref, ui, type Locale } from '@/lib/i18n';
 import type { ContentPage as ContentPageData, ListStyle, PageCopy } from '@/lib/pages/types';
@@ -45,7 +46,7 @@ function ListBlock({ items, style }: { items: string[]; style?: ListStyle }) {
   if (style === 'facts') {
     return (
       <div className="snz-facts">
-        <ul className={`${styles.list} snz-check-list`}>{items.map((b, j) => <CheckItem key={j}><Rich text={b} /></CheckItem>)}</ul>
+        <CheckList items={items.map((b, j) => <Rich key={j} text={b} />)} />
       </div>
     );
   }
@@ -85,7 +86,18 @@ function ListBlock({ items, style }: { items: string[]; style?: ListStyle }) {
       </ul>
     );
   }
-  return <ul className={`${styles.list} snz-check-list`}>{items.map((b, j) => <CheckItem key={j}><Rich text={b} /></CheckItem>)}</ul>;
+  return <CheckList items={items.map((b, j) => <Rich key={j} text={b} />)} />;
+}
+
+/* a paragraph is the list's lead-in when it is the last one before a list and ends with a colon; otherwise body copy */
+function Paragraphs({ items, list }: { items: string[]; list: boolean }) {
+  return (
+    <>
+      {items.map((p, j) => (list && j === items.length - 1 && /:\s*$/.test(plain(p))
+        ? <LeadIn key={j}><Rich text={p} /></LeadIn>
+        : <BodyText key={j}><Rich text={p} /></BodyText>))}
+    </>
+  );
 }
 
 export function ContentPage({ page, locale }: { page: ContentPageData; locale: Locale }) {
@@ -118,16 +130,16 @@ export function ContentPage({ page, locale }: { page: ContentPageData; locale: L
           <h1 className={styles.title}>{c.h1}</h1>
           {c.intro.map((p, i) => <p key={i} className={styles.lede}><Rich text={p} /></p>)}
         </header>
-        <article className={styles.article}>
+        <article className={`${styles.article} snz-ts-stack`}>
           {c.sections.map((s, i) => (
             <section key={i} className={styles.section}>
-              <h2 className={styles.h2}>{s.h2}</h2>
-              {(s.paragraphs || []).map((p, j) => <p key={j} className={styles.p}><Rich text={p} /></p>)}
+              <SectionHeading>{s.h2}</SectionHeading>
+              <Paragraphs items={s.paragraphs || []} list={!!s.bullets} />
               {s.bullets ? <ListBlock items={s.bullets} style={s.listStyle} /> : null}
               {(s.h3s || []).map((sub, j) => (
                 <div key={j} className={styles.sub}>
                   <h3 className={styles.h3}>{sub.h3}</h3>
-                  {(sub.paragraphs || []).map((p, k) => <p key={k} className={styles.p}><Rich text={p} /></p>)}
+                  <Paragraphs items={sub.paragraphs || []} list={!!sub.bullets} />
                   {sub.bullets ? <ListBlock items={sub.bullets} style={sub.listStyle} /> : null}
                 </div>
               ))}
@@ -144,23 +156,23 @@ export function ContentPage({ page, locale }: { page: ContentPageData; locale: L
           ) : null}
           {c.faqGroups ? c.faqGroups.map((g, i) => (
             <section key={i} className={styles.faq} aria-labelledby={`content-faq-${i}`}>
-              <h2 id={`content-faq-${i}`} className={styles.h2}>{g.h2}</h2>
+              <SectionHeading id={`content-faq-${i}`}>{g.h2}</SectionHeading>
               <Faq items={g.faqs} />
             </section>
           )) : c.faqs.length ? (
             <section className={styles.faq} aria-labelledby="content-faq-title">
-              <h2 id="content-faq-title" className={styles.h2}>{c.faqTitle}</h2>
+              <SectionHeading id="content-faq-title">{c.faqTitle}</SectionHeading>
               <Faq items={c.faqs} />
             </section>
           ) : null}
           {sizeGrid ? <SizeTypeGrid locale={locale} current={page.slug} inline /> : null}
         </article>
-        <section className={styles.cta} aria-labelledby="content-cta-title">
-          <h2 id="content-cta-title" className={styles.ctaTitle}>{c.cta.title}</h2>
-          <p className={styles.ctaText}>{c.cta.text}</p>
+        <section className={`${styles.cta} snz-ts-section--dark`} aria-labelledby="content-cta-title">
+          <SectionHeading id="content-cta-title" center>{c.cta.title}</SectionHeading>
+          <LeadIn className={styles.ctaText}>{c.cta.text}</LeadIn>
           <div className={styles.ctaBtns}>
-            <a className={styles.btn} href={localizeHref('/booking', locale)}>{c.cta.button}</a>
-            <a className={`${styles.btn} ${styles.btnGhost}`} href={L.phoneHref}>{t.menu.call(L.phone)}</a>
+            <CtaButton href={localizeHref('/booking', locale)} label={c.cta.button} center />
+            <CtaButton href={L.phoneHref} label={t.menu.call(L.phone)} variant="ghost" center />
           </div>
           <p className={styles.ctaAddr}>{L.street}, {L.city}, {L.region} {L.postalCode} · {(L.hours[locale] || L.hours.en).join(', ')}</p>
         </section>
