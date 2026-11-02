@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
-import { AccessoryGuide } from '@/components/AccessoryGuide';
 
 export const metadata: Metadata = {
   "title": "Protectores de Colchón en McAllen, TX | Snooze Mattress",
@@ -46,8 +45,6 @@ export default function Page() {
       {/* page-level JSON-LD (scripts/page-schema.mjs) */}
       <PageSchema items={PAGE_SCHEMA} />
       <PageClient />
-      {/* buying guide built from the page's own claims (SEO audit build pass, D4) */}
-      <AccessoryGuide page="mattress-protectors" locale="es" />
     </>
   );
 }

@@ -558,7 +558,6 @@ function metaFromHead($, route, pageDir) {
   return meta;
 }
 
-const GUIDE_PAGES = new Set(['/pillows', '/mattress-protectors', '/premium-sheets']); // accessory buying guides (components/AccessoryGuide.tsx, SEO audit build pass D4)
 const HANDWRITTEN_ROUTES = new Set(['/booking', '/dream-mapping', '/queen-mattresses', '/king-mattresses', '/full-twin-mattresses', '/memory-foam-mattresses', '/mattresses-for-back-pain', '/cooling-mattresses', '/mattress-store-edinburg', '/mattress-store-mission', '/mattress-store-pharr', '/faq', '/how-to-choose-a-mattress']); // app/(en)/booking + app/es/booking (components/BookingPage.tsx) and the content pages of lib/pages/* (components/ContentPage.tsx) are hand-written
 function convertPage(rel, loc = null) {
   const route = routeFromPage(rel);
@@ -889,7 +888,6 @@ function convertPage(rel, loc = null) {
   ].join('\n'));
   const isHome = outRoute === '/' || outRoute === '/es'; // the service-area block (components/AreaLinks.tsx) closes the home page
   const isSales = outRoute === '/mattress-sales' || outRoute === '/es/mattress-sales'; // the metadata names the sale while the offer is on (lib/offer.ts); the offer block itself is a builder section (scripts/sales-hero.mjs)
-  const guideKey = outRoute.replace(/^\/es(?=\/)/, ''); const isGuide = GUIDE_PAGES.has(guideKey);
   const isMattresses = outRoute === '/mattresses' || outRoute === '/es/mattresses'; // the two blog guides band (components/GuideLinks.tsx) closes the mattresses page (SEO report, October 27, 2026)
   const isContact = outRoute === '/contact-us' || outRoute === '/es/contact-us'; // the store's address, phone and hours (components/ContactDetails.tsx) close the contact page (October 29, 2026)
   write(path.join(dir, 'page.tsx'), [
@@ -897,7 +895,6 @@ function convertPage(rel, loc = null) {
     "import type { Metadata } from 'next';",
     "import PageClient from './client';",
     ...(isHome ? ["import { SizeTypeGrid } from '@/components/SizeTypeGrid';", "import { AreaLinks } from '@/components/AreaLinks';"] : []),
-    ...(isGuide ? ["import { AccessoryGuide } from '@/components/AccessoryGuide';"] : []),
     ...(isMattresses ? ["import { GuideLinks } from '@/components/GuideLinks';"] : []),
     ...(isContact ? ["import { ContactDetails } from '@/components/ContactDetails';"] : []),
     '',
@@ -914,8 +911,6 @@ function convertPage(rel, loc = null) {
           ? ['  return (', '    <>', '      <PageClient />', '      {/* "Not sure what size you need?" — the two blog guides (SEO report, October 27, 2026) */}', `      <GuideLinks locale="${loc ? loc.code : 'en'}" />`, '    </>', '  );']
         : isContact
           ? ['  return (', '    <>', '      <PageClient />', "      {/* the store's address, phone and hours from lib/location.ts (same as the top bar and footer) */}", `      <ContactDetails locale="${loc ? loc.code : 'en'}" />`, '    </>', '  );']
-        : isGuide
-          ? ['  return (', '    <>', '      <PageClient />', '      {/* buying guide built from the page\x27s own claims (SEO audit build pass, D4) */}', `      <AccessoryGuide page="${guideKey.slice(1)}" locale="${loc ? loc.code : 'en'}" />`, '    </>', '  );']
           : ['  return <PageClient />;']),
     '}',
     '',
