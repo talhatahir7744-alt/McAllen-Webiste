@@ -10,7 +10,10 @@
  *     it); a sub-heading / paragraph / demoted heading -> .snz-ts-r-lead when it follows the H2 or introduces a list
  *     (not after one), else .snz-ts-r-body; a button -> .snz-ts-r-cta (+ --center); bullet lists are styled by scope;
  *   - two-column blocks: a row of exactly two columns, one holding only images, the other text -> .snz-ts-r-twocol with
- *     .snz-ts-r-media / .snz-ts-r-text on the columns.
+ *     .snz-ts-r-media / .snz-ts-r-text on the columns;
+ *   - a lead-in whose list starts in another builder row (the builder's row / column paddings and its negative "join"
+ *     margins would sit between them): the rows the lead-in closes -> .snz-ts-join-end, the rows the list opens ->
+ *     .snz-ts-join-start, the outermost of those -> .snz-ts-join-gap (it carries the lead-in's 12px).
  * Out of scope (never tagged): heroes, offer / guarantee bands, reviews, location cards, the financing partner cards and
  * the about-us feature cards (only their section heading and button take the roles).
  * Idempotent (old snz-ts* classes are removed first).  node scripts/type-roles.mjs  (npm run type:roles)  [--check]
@@ -75,7 +78,15 @@ for (const [page, groups] of Object.entries(SCOPE)) {
         // roles in document order
         const skip = (el) => (g.skipColumns || []).some((c) => $(el).closest(`#col-${c}`).length); // location cards are never in a target (FAQ rows only)
         const wrappers = targets.find('.c-wrapper').toArray().filter((el) => kindOf($(el)) && !skip(el));
-        let prev = null;
+        let prev = null, prevEl = null;
+        // lead-in -> list across builder rows: mark the rows between the two up to their common ancestor
+        const joinRows = (a, b) => {
+          const ancA = $(a).parents().toArray(); const common = $(b).parents().toArray().find((p) => ancA.includes(p));
+          const rowsBelow = (el) => $(el).parentsUntil(common).filter('.c-row').toArray(); // nearest first
+          rowsBelow(a).forEach((r) => $(r).addClass('snz-ts-join-end'));
+          const open = rowsBelow(b); if (!open.length) return;
+          open.forEach((r) => $(r).addClass('snz-ts-join-start')); $(open[open.length - 1]).addClass('snz-ts-join-gap'); bump('lead joins');
+        };
         wrappers.forEach((el, i) => {
           const $w = $(el); const kind = kindOf($w); const id = $w.attr('id') || ''; // e.g. heading-W6Zb9D4tyD: its text box is .cheading-W6Zb9D4tyD, a button's box is .button-…
           const next = wrappers[i + 1] ? kindOf($(wrappers[i + 1])) : null;
@@ -90,7 +101,8 @@ for (const [page, groups] of Object.entries(SCOPE)) {
           if (role === 'h2') { $w.addClass('snz-ts-r-h2'); if (centred(`c${id}`)) $w.addClass('snz-ts-r-h2--center'); }
           if (role === 'lead' || role === 'body') $w.addClass(`snz-ts-r-${role}`);
           if (role === 'cta') { $w.addClass('snz-ts-r-cta'); if (!id || centred(id)) $w.addClass('snz-ts-r-cta--center'); } // the FAQ's quiz button (no builder id) is centred
-          if (role) { bump(role); prev = role; }
+          if (role === 'list' && prev === 'lead' && prevEl.parent !== el.parent) joinRows(prevEl, el);
+          if (role) { bump(role); prev = role; prevEl = el; }
         });
         // two-column blocks: image-only column + text column
         if (!g.only) targets.find('.c-row').each((_, row) => {
