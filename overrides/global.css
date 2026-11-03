@@ -418,15 +418,6 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
 .hl_page-preview--content .snz-ts :is(.snz-ts-r-h2, .snz-ts-r-lead, .snz-ts-r-body, .c-bullet-list) .text-output { padding-top: 0 !important; padding-bottom: 0 !important; }
 .hl_page-preview--content .snz-ts .c-wrapper + .snz-ts-r-lead { margin-top: var(--snz-ts-h2-after) !important; }
 .hl_page-preview--content .snz-ts .c-wrapper + .snz-ts-r-body, .hl_page-preview--content .snz-ts .c-wrapper + .snz-ts-r-h2 { margin-top: var(--snz-ts-body-before) !important; }
-/* a lead-in whose list starts in the next builder row (scripts/type-roles.mjs .snz-ts-join-*): the rows' and columns'
-   paddings and the builder's negative join margins between the two go, and the row the list opens carries the 12px as
-   padding (inside a card split over two rows, so the halves still meet); a stacked two-column row puts its image first,
-   so there the space is the two-column gap */
-.hl_page-preview--content .snz-ts .c-row.snz-ts-join-end, .hl_page-preview--content .snz-ts .c-row.snz-ts-join-end > .inner > .c-column { padding-bottom: 0 !important; }
-.hl_page-preview--content .snz-ts .c-row.snz-ts-join-start { margin-top: 0 !important; padding-top: 0 !important; }
-.hl_page-preview--content .snz-ts .c-row.snz-ts-join-start > .inner > .c-column { padding-top: 0 !important; }
-.hl_page-preview--content .snz-ts .c-row.snz-ts-join-gap { padding-top: var(--snz-ts-lead-after) !important; }
-@media (max-width: 767px) { .hl_page-preview--content .snz-ts .c-row.snz-ts-join-gap.snz-ts-r-twocol { padding-top: var(--snz-ts-twocol-gap) !important; } }
 
 /* -- Section H2: Poppins 800, black with the key phrase (<u>, or the builder's orange span) in orange -- */
 .snz-ts-h2,
