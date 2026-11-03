@@ -6,7 +6,6 @@ import { localizeHref, ui, type Locale } from '@/lib/i18n';
 import { Faq } from './Faq';
 import { Rich } from './Rich';
 import { ArrowRightIcon } from '@/components/icons';
-import { SectionHeading } from '@/components/TypeSystem';
 import styles from './blog.module.css';
 
 /* Orange brush-stroke divider used under the site's own headings (same SVG as the GHL pages). */
@@ -125,7 +124,7 @@ export function BlogArticle({ post, related, locale = 'en' }: { post: BlogPost; 
       <main className={styles.article} id="article">
         {post.sections.map((s, i) => (
           <section key={i} className={styles.section}>
-            {s.heading && <SectionHeading>{s.heading}</SectionHeading>}
+            {s.heading && <h2 className={styles.h2}>{s.heading}</h2>}
             {s.paragraphs.map((p, j) => (
               <p key={j} className={styles.p}>
                 <Rich text={p} />
@@ -153,13 +152,13 @@ export function BlogArticle({ post, related, locale = 'en' }: { post: BlogPost; 
         ))}
 
         <section className={styles.faq} aria-labelledby="faq-title">
-          <SectionHeading id="faq-title">{t.faq}</SectionHeading>
+          <h2 id="faq-title" className={styles.h2}>{t.faq}</h2>
           <Faq items={post.faqs} />
         </section>
 
         {post.visit && (
           <section className={styles.visit} aria-labelledby="visit-title">
-            <SectionHeading id="visit-title">{post.visit.heading}</SectionHeading>
+            <h2 id="visit-title" className={styles.h2}>{post.visit.heading}</h2>
             <div className={styles.visitCard}>
               {post.visit.lines.map((l, i) => <p key={i} className={styles.visitLine}><Rich text={l} /></p>)}
               {post.visit.fine && <p className={styles.fine}>{post.visit.fine}</p>}
@@ -169,7 +168,7 @@ export function BlogArticle({ post, related, locale = 'en' }: { post: BlogPost; 
 
         {post.sources?.length ? (
           <section className={styles.sources} aria-labelledby="sources-title">
-            <SectionHeading id="sources-title">{t.sources}</SectionHeading>
+            <h2 id="sources-title" className={styles.h2}>{t.sources}</h2>
             <ol className={styles.sourceList}>
               {post.sources.map((src) => (
                 <li key={src.href}><a href={src.href} target="_blank" rel="noopener noreferrer">{src.label}</a></li>
@@ -183,7 +182,7 @@ export function BlogArticle({ post, related, locale = 'en' }: { post: BlogPost; 
         <QuizCta locale={locale} />
         <BlogCta locale={locale} />
         <section className={styles.related} aria-labelledby="related-title">
-          <SectionHeading id="related-title" center>{t.related}</SectionHeading>
+          <h2 id="related-title" className={styles.h2Center}>{t.related}</h2>
           <div className={styles.cards}>
             {related.map((r) => (
               <PostCard key={r.slug} post={r} locale={locale} />

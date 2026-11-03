@@ -32,15 +32,15 @@ input::placeholder, textarea::placeholder { font-family: var(--font-poppins-stac
    and below them. One scale, declared here and used by both kinds of list. The builder's per-element values live in
    each page's generated <style> and are overridden here rather than edited (overrides/site.css keeps the few
    page-level nudges that fought this rhythm on the financing page). */
-/* The values come from the shared type & spacing system (end of this file, November 3, 2026): items 14px apart, icon
-   12px from the text, line-height 1.5, a lead-in line 12px above its list, 24px after a list. */
 :root {
-  --snz-list-item-gap: var(--snz-ts-li-gap);
-  --snz-list-before-gap: var(--snz-ts-lead-after);  /* a lead-in / heading / paragraph -> its list */
-  --snz-list-block-gap: var(--snz-ts-list-after);   /* a list -> whatever follows it */
-  --snz-list-lead-gap: var(--snz-ts-list-after);    /* a lead-in line between two lists opens a new block */
-  --snz-list-icon-gap: var(--snz-ts-icon-gap);
-  --snz-list-line-height: var(--snz-ts-li-line);
+  --snz-list-item-gap: 13px;     /* between items (12-14px on desktop) */
+  --snz-list-block-gap: 22px;    /* above and below a list (20-24px) */
+  --snz-list-lead-gap: 34px;     /* a lead-in line between two lists opens a new block (32-40px) */
+  --snz-list-icon-gap: 11px;     /* icon to text (10-12px) */
+  --snz-list-line-height: 1.6;
+}
+@media (max-width: 767px) {
+  :root { --snz-list-item-gap: 12px; --snz-list-block-gap: 20px; --snz-list-lead-gap: 32px; --snz-list-icon-gap: 10px; }
 }
 /* GoHighLevel bullet lists: the element's own padding and margins go, the <li> carries the rhythm */
 .hl_page-preview--content .c-bullet-list { margin-top: 0 !important; margin-bottom: 0 !important; }
@@ -56,7 +56,7 @@ input::placeholder, textarea::placeholder { font-family: var(--font-poppins-stac
 .hl_page-preview--content .c-bullet-list .text-output li + li { margin-top: var(--snz-list-item-gap) !important; }
 .hl_page-preview--content .c-bullet-list.c-wrapper + .c-bullet-list.c-wrapper { margin-top: var(--snz-list-item-gap) !important; }
 /* a list is its own block: room above its first item and below its last */
-.hl_page-preview--content .c-wrapper:not(.c-bullet-list) + .c-bullet-list.c-wrapper { margin-top: var(--snz-list-before-gap) !important; }
+.hl_page-preview--content .c-wrapper:not(.c-bullet-list) + .c-bullet-list.c-wrapper { margin-top: var(--snz-list-block-gap) !important; }
 .hl_page-preview--content .c-bullet-list.c-wrapper + .c-wrapper:not(.c-bullet-list) { margin-top: var(--snz-list-block-gap) !important; }
 /* a heading, sub-heading or paragraph sandwiched between two lists introduces the next block */
 .hl_page-preview--content .c-bullet-list.c-wrapper + .c-wrapper:is(.c-heading, .c-sub-heading, .c-paragraph):has(+ .c-bullet-list) { margin-top: var(--snz-list-lead-gap) !important; }
@@ -65,13 +65,34 @@ input::placeholder, textarea::placeholder { font-family: var(--font-poppins-stac
 .snz-quiz ul.why > li { gap: var(--snz-list-icon-gap); line-height: var(--snz-list-line-height); text-align: left; }
 
 /* ---- Financing page copy (desktop section #section-XBz7r5mHB5, phone #section-s9jzFpVhnj; both languages share
-   the element ids). The list rhythm is the rule set above; this is the builder setting on this one page that fought it. They sit here, not in overrides/site.css, because site.css is copied
+   the element ids). The list rhythm is the rule set above; these are the builder settings on this one page that
+   fought it, plus the two hierarchy fixes. They sit here, not in overrides/site.css, because site.css is copied
    into every generated page by the converter and only changes with a re-conversion; this file is bundled on every
    build. ---- */
 /* the nested row that holds the lists was pulled 13px up into the intro line */
 .hl_page-preview--content #row-uijtZft2ja, .hl_page-preview--content #row-EKTHi8EX0l { margin-top: 0 !important; }
-/* (the page's one-off sizes and margins — the lead-in's 14px, the body line set at 20px / 16px, the headline's
-   container-query size and two-line split — are gone: those elements take the shared type & spacing system, November 3, 2026) */
+/* "Qualified buyers may access:" sat 6px under the headline */
+.hl_page-preview--content #sub-heading-HP5QvF-Stn, .hl_page-preview--content #sub-heading-x65IKvSzlY { margin-top: 14px !important; }
+/* "These options are ideal for customers…" is body copy the builder set as an H1 in the headline face: the list
+   items' size (20px desktop, 16px phone) at weight 400 and the lists' 1.6 line-height; inline <strong>/<b> stays bold */
+.hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) :is(h1, p),
+.hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) :is(h1, p) [style*="Visby"] { font-family: var(--font-poppins-stack) !important; font-size: 20px !important; font-weight: 400 !important; line-height: 1.6 !important; }
+.hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) :is(h1, p) :is(strong, b) { font-weight: 700 !important; }
+@media (max-width: 767px) {
+  .hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) :is(h1, p),
+  .hl_page-preview--content :is(.cheading-0Ke59u-Zyv, .cheading-LvWh8ejTgG) :is(h1, p) [style*="Visby"] { font-size: 16px !important; }
+}
+/* Headline "Traditional Mattress Financing (Synchrony & Wells Fargo)" (desktop #heading-nh1OX4OVP9, phone
+   #heading-9UhGiuQIC6): the highlighted title phrase and the parenthesis are two lines (the span stacks its <u> and
+   the text after it), and the size follows the column (container query on the text-output) so the title phrase never
+   breaks mid-phrase. English fits at the builder's 42px on desktop and needs 18px on a 390px phone; Spanish
+   ("Financiamiento Tradicional para Colchones") fits at 34px on desktop and keeps three clean lines on phones. */
+.hl_page-preview--content :is(.cheading-nh1OX4OVP9, .cheading-9UhGiuQIC6) { container-type: inline-size; }
+.hl_page-preview--content :is(.cheading-nh1OX4OVP9, .cheading-9UhGiuQIC6) h2 > span { display: flex !important; flex-direction: column; align-items: flex-start; }
+.hl_page-preview--content :is(.cheading-nh1OX4OVP9, .cheading-9UhGiuQIC6) h2 u { line-height: 1.15 !important; }
+html[lang="en"] .hl_page-preview--content :is(.cheading-nh1OX4OVP9, .cheading-9UhGiuQIC6) h2 { font-size: clamp(18px, 6.1cqw, 42px) !important; }
+html[lang="es"] .hl_page-preview--content .cheading-nh1OX4OVP9 h2 { font-size: clamp(18px, 4.3cqw, 42px) !important; }
+html[lang="es"] .hl_page-preview--content .cheading-9UhGiuQIC6 h2 { font-size: clamp(18px, 6.8cqw, 25px) !important; }
 /* the financing band's two paragraphs ("Get 0% Financing…" / "Upgrade your mattress…") read as two */
 #section-FVn4UvdYfr .c-paragraph p + p, #section-KI-fCuyF5S .c-paragraph p + p, #section-yWefy4dO1- .c-paragraph p + p { margin-top: 16px !important; }
 
@@ -170,13 +191,10 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
 .snz-ico { display: inline-block; width: 1.1em; height: 1.1em; vertical-align: -0.18em; flex: 0 0 auto; }
 .snz-ico--orange { color: #F58433; } .snz-ico--navy { color: #001489; } .snz-ico--white { color: #fff; }
 .snz-ico--arrow { margin-left: 0.1em; }
-/* the check icon beside every list item (shared type system: 20px orange circle outline with an orange check), centred
-   on the first line of text: (line-height × 1em − 20px) / 2 */
-.snz-li-ico { width: var(--snz-ts-icon) !important; height: var(--snz-ts-icon) !important; color: var(--snz-ts-icon-ink); margin-top: calc((var(--snz-list-line-height) * 1em - var(--snz-ts-icon)) / 2); vertical-align: 0; }
-.snz-li-ico circle { fill: none; stroke: currentColor; stroke-width: 2; }
-.snz-li-ico path { stroke: currentColor; }
+/* the orange check-circle beside every list item: centred on the first line of text (line-height 1.6 -> (1.6em - 1.15em) / 2) */
+.snz-li-ico { width: 20px !important; height: 20px !important; color: #F58433; margin-top: calc((var(--snz-list-line-height) * 1em - 20px) / 2); vertical-align: 0; }
 /* hand-written lists (new pages, accessory guides) share the builder lists' rhythm */
-.snz-check-list { list-style: none !important; margin: 0 0 var(--snz-ts-list-after); padding: 0 !important; display: grid; gap: var(--snz-list-item-gap); }
+.snz-check-list { list-style: none !important; margin: 0 0 14px; padding: 0 !important; display: grid; gap: var(--snz-list-item-gap); }
 .snz-check-list > li { display: flex; align-items: flex-start; gap: var(--snz-list-icon-gap); line-height: var(--snz-list-line-height); margin: 0; text-align: left; }
 .snz-check-list > li > span { flex: 1 1 auto; min-width: 0; }
 /* Highlighted words in headings and copy: plain orange text, no box (one rule; replaces the builder's white-on-gradient
@@ -346,174 +364,3 @@ html[lang="es"] #heading-JQfUWePMYv h2 { max-width: none; font-size: min(46px, 5
    card's main line (tel: link), in the card-title navy, orange on hover. ---- */
 .snz-contact__phone { font-size: 20px; font-weight: 800; color: #001489; text-decoration: none; }
 .snz-contact__phone:hover, .snz-contact__phone:focus-visible { color: #F58433; text-decoration: underline; text-underline-offset: 3px; }
-
-/* ==== Shared type & spacing system (November 3, 2026) ===============================================================
-   One set of values for section headings, lead-in lines, check lists, body paragraphs, two-column blocks, CTA buttons
-   and the section rhythm, declared once here as tokens and used two ways:
-   - the site's own pages render the shared React components (components/TypeSystem.tsx: Section, SectionHeading,
-     LeadIn, BodyText, CheckList, TwoColumn, CtaButton), which put the .snz-ts-* classes below on their elements
-     (content pages, the booking visit flow, blog post bodies);
-   - the GoHighLevel pages in scope (/mattress-financing, /about-us, EN + ES) cannot render components: their wrappers
-     carry scope and role classes (scripts/type-roles.mjs: .snz-ts on a section or row, .snz-ts-r-h2 / -lead / -body /
-     -cta on headings, sub-headings, paragraphs and buttons, .snz-ts-r-twocol on image + text rows) and the selectors
-     below map them onto the same rules, overriding the builder's per-element sizes, inline fonts and margins
-     (!important: the builder's generated rules use it).
-   The check lists use the list rhythm at the top of this file, whose values come from these tokens.
-   Out of scope: heroes, navigation, footer, offer and guarantee banners, location cards. -------------------------- */
-:root {
-  --snz-ts-font: var(--font-poppins-stack);
-  --snz-ts-h2-ink: #000;                /* section headings: black … */
-  --snz-ts-accent: #d9661a;             /* … with the key phrase in brand orange (3.6:1 on white: AA for large text) */
-  --snz-ts-accent-text: #b85410;        /* orange emphasis inside normal-size copy (4.9:1 on white: AA) */
-  --snz-ts-lead-ink: #0d1b3e;           /* lead-in lines: navy-black */
-  --snz-ts-ink: #1a1a1a;                /* list items and body copy: near-black */
-  --snz-ts-icon-ink: #d9661a;           /* the check icon */
-  --snz-ts-h2-size: clamp(30px, calc(24px + 1.6vw), 42px); /* 30px at 375px, 42px from 1125px */
-  --snz-ts-h2-line: 1.15;
-  --snz-ts-h2-track: -0.01em;
-  --snz-ts-h2-measure: 22ch;
-  --snz-ts-h2-after: 16px;
-  --snz-ts-lead-size: 20px;
-  --snz-ts-lead-after: 12px;
-  --snz-ts-body-size: 20px;
-  --snz-ts-body-line: 1.5;
-  --snz-ts-body-before: 24px;
-  --snz-ts-body-after: 12px;
-  --snz-ts-li-size: 18px;
-  --snz-ts-li-line: 1.5;
-  --snz-ts-li-gap: 14px;
-  --snz-ts-icon: 20px;
-  --snz-ts-icon-gap: 12px;
-  --snz-ts-list-after: 24px;
-  --snz-ts-cta-before: 32px;
-  --snz-ts-cta-max: 520px;
-  --snz-ts-cta-shadow: 0 12px 24px -12px rgba(217, 102, 26, 0.6);
-  --snz-ts-twocol-gap: 48px;
-  --snz-ts-media-radius: 16px;
-  --snz-ts-section-pad: 72px;
-  --snz-ts-container: 1200px;
-  --snz-ts-measure: 860px;              /* reading width of long-form pages inside the container */
-}
-@media (max-width: 767px) {
-  :root { --snz-ts-lead-size: 18px; --snz-ts-body-size: 18px; --snz-ts-li-size: 17px; --snz-ts-twocol-gap: 24px; --snz-ts-section-pad: 48px; --snz-ts-cta-max: 100%; }
-}
-/* navy grounds (bands, cards): the same scale in white; the brand orange keeps 5.7:1 on navy */
-.snz-ts--dark, .snz-facts, .snz-ts-section--dark { --snz-ts-h2-ink: #fff; --snz-ts-lead-ink: #fff; --snz-ts-ink: #fff; --snz-ts-accent: #F58433; --snz-ts-accent-text: #F58433; --snz-ts-icon-ink: #F58433; }
-.snz-facts a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
-
-/* -- Section rhythm and container -- */
-.snz-ts-section { padding-block: var(--snz-ts-section-pad); }
-.snz-ts-container { max-width: var(--snz-ts-container); margin-inline: auto; padding-inline: 20px; }
-.snz-ts-stack > * + * { margin-top: var(--snz-ts-section-pad); }
-.hl_page-preview--content .c-section:is(.snz-ts, .snz-ts-pad) { padding-top: var(--snz-ts-section-pad) !important; padding-bottom: var(--snz-ts-section-pad) !important; }
-.hl_page-preview--content .c-section:is(.snz-ts, .snz-ts-pad) > .inner { max-width: var(--snz-ts-container) !important; }
-.hl_page-preview--content .c-section:is(.snz-ts, .snz-ts-pad) > .inner > .c-row:first-child { margin-top: 0 !important; }
-.hl_page-preview--content .c-section:is(.snz-ts, .snz-ts-pad) > .inner > .c-row:last-child { margin-bottom: 0 !important; }
-/* Builder elements in scope (their side paddings stay: the builder aligns a heading to the column of its list with
-   them): the spacing lives on the following element's margin-top with the values the shared margins give where they meet: 16px after the
-   H2, 12px from a lead-in or paragraph to its list and 14px between items (the list rhythm at the top of this file),
-   24px after a list and before a body paragraph, 32px before the CTA. The heading / paragraph inside keeps no margin of
-   its own, so the builder's nested wrappers (which stop margins from collapsing) add nothing. */
-.hl_page-preview--content .snz-ts :is(.snz-ts-r-h2, .snz-ts-r-lead, .snz-ts-r-body) { margin-top: 0 !important; margin-bottom: 0 !important; }
-.hl_page-preview--content .snz-ts :is(.snz-ts-r-h2, .snz-ts-r-lead, .snz-ts-r-body, .c-bullet-list) .text-output { padding-top: 0 !important; padding-bottom: 0 !important; }
-.hl_page-preview--content .snz-ts .c-wrapper + .snz-ts-r-lead { margin-top: var(--snz-ts-h2-after) !important; }
-.hl_page-preview--content .snz-ts .c-wrapper + .snz-ts-r-body, .hl_page-preview--content .snz-ts .c-wrapper + .snz-ts-r-h2 { margin-top: var(--snz-ts-body-before) !important; }
-
-/* -- Section H2: Poppins 800, black with the key phrase (<u>, or the builder's orange span) in orange -- */
-.snz-ts-h2,
-.hl_page-preview--content .snz-ts .snz-ts-r-h2 h2 {
-  font-family: var(--snz-ts-font) !important; font-weight: 800 !important; font-size: var(--snz-ts-h2-size) !important;
-  line-height: var(--snz-ts-h2-line) !important; letter-spacing: var(--snz-ts-h2-track) !important; text-transform: none !important;
-  color: var(--snz-ts-h2-ink) !important; max-width: var(--snz-ts-h2-measure); margin: 0 0 var(--snz-ts-h2-after); text-wrap: balance;
-}
-.snz-ts-h2--center, .hl_page-preview--content .snz-ts .snz-ts-r-h2--center h2 { margin-inline: auto; text-align: center; }
-.hl_page-preview--content .snz-ts .snz-ts-r-h2 h2:not(:last-child) { margin-bottom: 0; } /* one heading the builder split over two h2 lines */
-.snz-ts-h2 :is(span, strong, b, em),
-.hl_page-preview--content .snz-ts .snz-ts-r-h2 h2 :is(span, strong, b, em) { font: inherit !important; color: inherit !important; letter-spacing: inherit !important; }
-.snz-ts-h2 :is(u, ins, .snz-ts-accent),
-.hl_page-preview--content .snz-ts .snz-ts-r-h2 h2 :is(u, ins, [style*="--color-m6a8t67b"], [style*="--color-hxkylqlh"]) { color: var(--snz-ts-accent) !important; text-decoration: none !important; }
-
-/* -- Lead-in line before a list: Poppins 400, 20px (18px phones), navy-black -- */
-.snz-ts-lead,
-.hl_page-preview--content .snz-ts .snz-ts-r-lead :is(p, h2, h3) {
-  font-family: var(--snz-ts-font) !important; font-weight: 400 !important; font-size: var(--snz-ts-lead-size) !important; line-height: 1.5 !important;
-  letter-spacing: normal !important; text-transform: none !important; color: var(--snz-ts-lead-ink) !important; margin: 0 0 var(--snz-ts-lead-after);
-}
-/* -- Body paragraph between lists: Poppins 400, 20px (18px phones), line-height 1.5, 24px above, 12px below -- */
-.snz-ts-body,
-.hl_page-preview--content .snz-ts .snz-ts-r-body :is(p, h2, h3) {
-  font-family: var(--snz-ts-font) !important; font-weight: 400 !important; font-size: var(--snz-ts-body-size) !important; line-height: var(--snz-ts-body-line) !important;
-  letter-spacing: normal !important; text-transform: none !important; color: var(--snz-ts-ink) !important; margin: var(--snz-ts-body-before) 0 var(--snz-ts-body-after);
-}
-:is(.snz-ts-lead, .snz-ts-body) :is(span, em),
-.hl_page-preview--content .snz-ts :is(.snz-ts-r-lead, .snz-ts-r-body) :is(p, h2, h3) :is(span, em) { font-family: inherit !important; font-size: inherit !important; font-weight: inherit !important; color: inherit !important; letter-spacing: inherit !important; }
-:is(.snz-ts-lead, .snz-ts-body) :is(strong, b),
-.hl_page-preview--content .snz-ts :is(.snz-ts-r-lead, .snz-ts-r-body) :is(strong, b) { font-family: inherit !important; font-size: inherit !important; font-weight: 700 !important; }
-:is(.snz-ts-lead, .snz-ts-body) :is(u, ins, .snz-ts-accent),
-.hl_page-preview--content .snz-ts :is(.snz-ts-r-lead, .snz-ts-r-body) :is(u, ins, [style*="--color-m6a8t67b"], [style*="--color-hxkylqlh"]) { color: var(--snz-ts-accent-text) !important; text-decoration: none !important; }
-
-/* -- Check list: items Poppins 400 18px (17px phones), line-height 1.5, near-black; bold runs 700, same colour; the
-   icon, gaps and spacing come from the list rhythm at the top of this file -- */
-.snz-check-list > li,
-.hl_page-preview--content .snz-ts .c-bullet-list .text-output li { font-family: var(--snz-ts-font) !important; font-size: var(--snz-ts-li-size) !important; font-weight: 400 !important; line-height: var(--snz-ts-li-line) !important; color: var(--snz-ts-ink) !important; }
-.snz-check-list > li :is(span, em, p),
-.hl_page-preview--content .snz-ts .c-bullet-list .text-output li :is(span, em, p) { font-family: inherit !important; font-size: inherit !important; font-weight: inherit !important; font-style: normal !important; color: inherit !important; }
-.snz-check-list > li :is(strong, b),
-.hl_page-preview--content .snz-ts .c-bullet-list .text-output li :is(strong, b) { font-family: inherit !important; font-size: inherit !important; font-weight: 700 !important; font-style: normal !important; color: inherit !important; }
-
-/* -- Two-column block: media 45% / text 55%, 48px gap, image radius 16px, vertically centred; phones: image first, 24px -- */
-.snz-ts-twocol { display: grid; grid-template-columns: minmax(0, 45fr) minmax(0, 55fr); gap: var(--snz-ts-twocol-gap); align-items: center; }
-.snz-ts-twocol__media img { display: block; width: 100%; height: auto; border-radius: var(--snz-ts-media-radius); }
-.hl_page-preview--content .snz-ts .snz-ts-r-twocol > .inner { gap: var(--snz-ts-twocol-gap) !important; align-items: center !important; }
-/* the builder's 15px column gutters go (the 48px gap is the whole distance), except on a column that is itself a card,
-   whose padding is the card's inside; a media column whose picture is its own background keeps the text column's height */
-.hl_page-preview--content .snz-ts .snz-ts-r-twocol > .inner > .c-column:not(.snz-card) { padding-left: 0 !important; padding-right: 0 !important; }
-.hl_page-preview--content .snz-ts .snz-ts-r-twocol > .inner > .c-column { margin-left: 0 !important; margin-right: 0 !important; max-width: none !important; }
-.hl_page-preview--content .snz-ts .snz-ts-r-twocol > .inner > .snz-ts-r-media:not(:has(img)) { align-self: stretch !important; }
-.hl_page-preview--content .snz-ts .snz-ts-r-twocol > .inner > .snz-ts-r-media { flex: 0 0 calc(45% - var(--snz-ts-twocol-gap) / 2) !important; width: auto !important; }
-.hl_page-preview--content .snz-ts .snz-ts-r-twocol > .inner > .snz-ts-r-text { flex: 0 0 calc(55% - var(--snz-ts-twocol-gap) / 2) !important; width: auto !important; }
-.hl_page-preview--content .snz-ts .snz-ts-r-media :is(img, .bg) { border-radius: var(--snz-ts-media-radius) !important; }
-.hl_page-preview--content .snz-ts .snz-ts-r-media > .inner { border-radius: var(--snz-ts-media-radius) !important; }
-@media (max-width: 767px) {
-  .snz-ts-twocol { grid-template-columns: minmax(0, 1fr); }
-  .snz-ts-twocol__media { order: -1; }
-  .hl_page-preview--content .snz-ts .snz-ts-r-twocol > .inner > .c-column { flex: 0 0 auto !important; width: 100% !important; }
-  .hl_page-preview--content .snz-ts .snz-ts-r-twocol > .inner > .snz-ts-r-media { order: -1; }
-}
-
-/* -- CTA button: orange gradient, radius 10px, 18px 28px; line 1 Poppins 800 18px uppercase, line 2 Poppins 400 14px;
-   soft shadow; at most 520px wide (the full width on phones); 32px above -- */
-.snz-ts-cta,
-.hl_page-preview--content .snz-ts .snz-ts-r-cta a.custom {
-  display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 2px !important;
-  box-sizing: border-box; width: 100% !important; max-width: var(--snz-ts-cta-max) !important; min-height: 0 !important; padding: 18px 28px !important;
-  border-radius: 10px !important; box-shadow: var(--snz-ts-cta-shadow) !important; text-align: center !important; text-decoration: none !important;
-}
-.snz-ts-cta { margin-top: var(--snz-ts-cta-before); background: linear-gradient(135deg, #d96a1a 0%, #f58433 100%); color: #fff; font-family: var(--snz-ts-font); transition: background 200ms ease, transform 120ms ease; }
-.snz-ts-cta:hover, .snz-ts-cta:focus-visible { background: linear-gradient(135deg, #c85f14 0%, #d96a1a 100%); }
-.snz-ts-cta:focus-visible { outline: 2px solid #f58433; outline-offset: 3px; }
-/* block-level, so its 32px meets the margin above it the way the other margins do; centred where its context is */
-.snz-ts-cta--center { margin-left: auto; margin-right: auto; }
-.snz-ts-cta--ghost { background: transparent; border: 2px solid currentColor; box-shadow: none !important; }
-.snz-ts-cta--ghost + .snz-ts-cta, .snz-ts-cta + .snz-ts-cta--ghost { margin-top: 12px; }
-.snz-ts-cta--ghost:hover, .snz-ts-cta--ghost:focus-visible { background: rgba(255, 255, 255, 0.12); }
-.snz-ts-cta__main,
-.hl_page-preview--content .snz-ts .snz-ts-r-cta :is(.main-heading-button, .button-icon-start, .button-icon-end) { font-family: var(--snz-ts-font) !important; font-weight: 800 !important; font-size: 18px !important; line-height: 1.25 !important; letter-spacing: 0.02em !important; text-transform: uppercase !important; }
-.snz-ts-cta__sub,
-.hl_page-preview--content .snz-ts .snz-ts-r-cta .sub-heading-button { font-family: var(--snz-ts-font) !important; font-weight: 400 !important; font-size: 14px !important; line-height: 1.3 !important; letter-spacing: normal !important; text-transform: none !important; }
-.hl_page-preview--content .snz-ts .snz-ts-r-cta :is(.main-heading-group, .sub-heading-group) { margin: 0 !important; }
-/* the label wraps inside the button (the builder set it to one line, which overflowed at 18px on phones) */
-.snz-ts-cta, .snz-ts-cta *, .hl_page-preview--content .snz-ts .snz-ts-r-cta a.custom, .hl_page-preview--content .snz-ts .snz-ts-r-cta a.custom * { white-space: normal !important; overflow-wrap: anywhere; }
-.hl_page-preview--content .snz-ts .snz-ts-r-cta :is(.main-heading-group, .sub-heading-group) { display: block !important; max-width: 100%; text-align: center !important; }
-/* the button's wrapper is a flex row (no text line box around the button, so nothing adds to the 32px above it) */
-.hl_page-preview--content .snz-ts .c-wrapper.snz-ts-r-cta, .hl_page-preview--content .snz-ts .c-bullet-list.c-wrapper + .c-wrapper.snz-ts-r-cta { display: flex !important; justify-content: flex-start !important; margin-top: var(--snz-ts-cta-before) !important; margin-bottom: 0 !important; }
-.hl_page-preview--content .snz-ts .c-wrapper.snz-ts-r-cta--center { justify-content: center !important; }
-.hl_page-preview--content .snz-ts .snz-ts-r-cta a.custom { margin: 0 !important; }
-/* in the builder scope the spacing sits on the wrappers (above): the heading / paragraph itself has no margin */
-.hl_page-preview--content .snz-ts .snz-ts-r-h2 h2, .hl_page-preview--content .snz-ts :is(.snz-ts-r-lead, .snz-ts-r-body) :is(p, h2, h3) { margin: 0 !important; }
-.hl_page-preview--content .snz-ts :is(.snz-ts-r-lead, .snz-ts-r-body) :is(p, h2, h3) + :is(p, h2, h3) { margin-top: var(--snz-ts-body-after) !important; }
-.hl_page-preview--content .snz-ts .snz-ts-r-h2--center h2 { margin-left: auto !important; margin-right: auto !important; }
-
-/* -- FAQ rows in scope: the answers are body copy (they rendered bold) -- */
-.hl_page-preview--content .snz-ts .snz-faq__a :is(p, li) { font-weight: 400 !important; }
-.hl_page-preview--content .snz-ts .snz-faq__a :is(strong, b) { font-weight: 700 !important; }

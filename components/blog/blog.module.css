@@ -84,10 +84,20 @@
 
 /* ── article body ─────────────────────────────────────────────── */
 .article { width: min(780px, calc(100% - 40px)); margin: clamp(36px, 5vw, 56px) auto 0; }
-/* the shared section rhythm between the post's sections (72px, 48px on phones) */
-.section { margin: 0; }
-.section + .section { margin-top: var(--snz-ts-section-pad); }
-/* section headings: the shared SectionHeading (components/TypeSystem.tsx; tokens in overrides/global.css) */
+.section { margin: 0 0 clamp(28px, 4vw, 40px); }
+.h2 {
+  position: relative;
+  margin: clamp(30px, 4vw, 44px) 0 18px;
+  padding-bottom: 14px;
+  font-family: var(--head);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 2.8vw, 2.05rem);
+  line-height: 1.22;
+  color: var(--navy);
+}
+/* orange accent underline under every section heading */
+.h2::after { content: ''; position: absolute; left: 0; bottom: 0; width: 56px; height: 4px; border-radius: 4px; background: linear-gradient(90deg, var(--orange), var(--orange-2)); }
+.section:first-child .h2 { margin-top: 0; }
 .p { margin: 0 0 1.15em; font-size: clamp(1.02rem, 1.1vw, 1.12rem); line-height: 1.85; color: var(--ink-soft); }
 .p:last-child { margin-bottom: 0; }
 .figure { margin: 26px 0 0; }
@@ -95,7 +105,7 @@
 .figure figcaption { margin-top: 10px; font: 500 0.86rem/1.5 var(--ui); color: var(--muted); text-align: center; }
 
 /* ── FAQ accordion ────────────────────────────────────────────── */
-.faq { margin-top: var(--snz-ts-section-pad); }
+.faq { margin-top: clamp(36px, 5vw, 56px); }
 .faqList { display: grid; gap: 12px; }
 .faqItem {
   border-radius: 18px;
@@ -160,6 +170,8 @@
 
 /* ── related posts / cards ────────────────────────────────────── */
 .related { margin-top: clamp(44px, 6vw, 72px); padding-bottom: clamp(48px, 6vw, 80px); }
+.h2Center { composes: h2; text-align: center; margin-bottom: 28px; }
+.h2Center::after { left: 50%; transform: translateX(-50%); }
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; max-width: 900px; margin: 0 auto; }
 .cards:has(> :nth-child(3)) { max-width: none; }
 .card {
@@ -210,20 +222,20 @@
 .quizCtaLine { margin: 0 0 14px; font: 600 clamp(17px, 2.2vw, 21px)/1.35 var(--ui); color: var(--navy); }
 
 /* Cited sources under the article (SEO audit build pass, D3) */
-.sources { margin-top: var(--snz-ts-section-pad); }
+.sources { margin-top: clamp(28px, 4vw, 40px); }
 .sourceList { margin: 0; padding-left: 22px; display: grid; gap: 8px; font-size: 0.98rem; line-height: 1.6; color: var(--ink-soft); }
 .sourceList a { color: #001489; text-decoration: underline; text-underline-offset: 3px; }
 .sourceList a:hover { color: var(--orange); }
 
 /* ── Size table and store block (the October 27, 2026 posts) ──────────── */
-.tableWrap { margin: var(--snz-ts-body-before) 0 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(0, 20, 137, 0.12); border-radius: 16px; background: #fff; box-shadow: 0 18px 40px -30px rgba(0, 20, 137, 0.35); }
+.tableWrap { margin: 18px 0 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(0, 20, 137, 0.12); border-radius: 16px; background: #fff; box-shadow: 0 18px 40px -30px rgba(0, 20, 137, 0.35); }
 .table { width: 100%; min-width: 720px; border-collapse: collapse; font: 500 0.95rem/1.5 var(--ui); color: var(--ink-soft); }
 .table caption { caption-side: top; text-align: left; padding: 14px 16px 6px; font: 700 0.95rem/1.4 var(--ui); color: #001489; }
 .table th, .table td { padding: 12px 16px; text-align: left; vertical-align: top; border-top: 1px solid rgba(0, 20, 137, 0.1); }
 .table thead th { background: #001489; color: #fff; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase; border-top: 0; }
 .table tbody th { font-weight: 700; color: #001489; white-space: nowrap; }
 .tableNote { margin: 10px 0 0; font: italic 500 0.9rem/1.5 var(--ui); color: var(--muted); }
-.visit { margin-top: var(--snz-ts-section-pad); }
+.visit { margin-top: clamp(28px, 4vw, 40px); }
 .visitCard { padding: 22px 24px; border-radius: 20px; background: #fff; border: 1px solid rgba(0, 20, 137, 0.12); box-shadow: 0 18px 40px -30px rgba(0, 20, 137, 0.35); }
 .visitLine { margin: 0 0 0.55em; font-size: 1.02rem; line-height: 1.7; color: var(--ink-soft); }
 .visitLine:last-of-type { margin-bottom: 0; }
