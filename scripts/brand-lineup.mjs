@@ -5,7 +5,9 @@
  *      sub-heading and banner, desktop + phone; the banner file stays in public/), and payload strings that still
  *      name it but nothing reaches any more (the removed deal's records, the sales hero's previous intro, which
  *      scripts/sales-hero.mjs re-points rather than overwrites) are emptied on every page;
- *   2. /mattresses shows one brand block per approved brand, in the client's order (LINEUP, = lib/brands.json):
+ *   2. (OFF by default: the client took these block changes back on November 4, 2026, and the page keeps its earlier
+ *      blocks; --mattresses-blocks runs the step) /mattresses shows one brand block per approved brand, in the client's
+ *      order (LINEUP, = lib/brands.json):
  *      - the existing blocks keep their copy; "Copper Collection by Spring Air" is the client's "Copper by Spring Air"
  *        (same line: the heading is renamed); the SmartLife by King Koil block is not in the lineup and leaves;
  *      - brands with no block get one (BLOCK_COPY): a copy of a block of the same tone (Helix for the light blocks,
@@ -17,7 +19,7 @@
  *      - the blocks alternate navy / light as the builder laid them out: a block whose place in the new order needs
  *        the other tone is restyled (section background, heading / intro / feature text colours).
  * The logo strip follows scripts/logo-marquee-patch.mjs (LINEUP); the hand-written pages carry the lineup in their
- * own copy (lib/pages/*); scripts/page-schema.mjs builds the /mattresses ItemList from these blocks (run it after
+ * own copy (lib/pages/*); scripts/page-schema.mjs builds the /mattresses ItemList from the page's blocks (run it after
  * this script). Idempotent.  node scripts/brand-lineup.mjs   (npm run brand:lineup, after section:sales-hero)  [--check]
  */
 import fs from 'node:fs';
@@ -28,6 +30,8 @@ import { devalueDecode, devalueEncode, extractCssRules } from './insert-sections
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CHECK = process.argv.includes('--check');
+/* step 2 (the /mattresses blocks) only with --mattresses-blocks: the client reverted it on November 4, 2026 */
+const MATTRESSES_BLOCKS = process.argv.includes('--mattresses-blocks');
 
 /* ---- 1. the dropped brand ---- */
 /* /mattress-sales: its deal — heading, sub-heading, banner image (desktop column, then the phone twin) */
@@ -228,7 +232,7 @@ for (const file of listContentFiles(ROOT)) {
     notes.push(removed.length ? `deal removed (${removed.length} elements)` : 'deal already gone');
   }
   let headLine = null, head = null;
-  if (/^app\/(\(en\)|es)\/mattresses\/content\.ts$/.test(rel)) {
+  if (MATTRESSES_BLOCKS && /^app\/(\(en\)|es)\/mattresses\/content\.ts$/.test(rel)) {
     headLine = page.s.split(/\r?\n/).find((l) => l.startsWith('export const HEAD_HTML = '));
     const headHtml = JSON.parse(headLine.replace(/^export const HEAD_HTML = /, '').replace(/;\s*$/, ''));
     head = { css: headHtml };

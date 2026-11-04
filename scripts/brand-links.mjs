@@ -3,8 +3,7 @@
  * Each brand heading on the mattresses page (EN + /es; `<h2 class="snz-h"><span style=…>Tempur-Pedic® Mattresses</span></h2>`,
  * desktop + mobile copies, in the static markup and the hydration payload) becomes a link to the brand's own site,
  * opened in a new tab with rel="noopener noreferrer". Snooze-O-Pedic is the store's own line and keeps no link. The
- * blocks scripts/brand-lineup.mjs added on November 4, 2026 (Serta, FLOWT by King Koil, BedTech, BedGear, Sleeptone,
- * DreamFit) keep plain headings too: no brand-site URLs were supplied for them (FLOWT would otherwise match King Koil).
+ * heading of a FLOWT by King Koil block, if one is ever added, stays plain too (it would otherwise match King Koil).
  * Idempotent; run after scripts/heading-structure.mjs.  node scripts/brand-links.mjs  (npm run brand:links)  [--check]
  */
 import fs from 'node:fs';

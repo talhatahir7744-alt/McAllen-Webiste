@@ -141,8 +141,8 @@ for (const file of listContentFiles(ROOT)) {
       if (setText(b.heading, headingHtml)) notes.push(`${b.heading} text`);
       const hEl = $(`#${b.heading} .text-output > div`); if (hEl.length && hEl.html() !== headingHtml) { hEl.html(headingHtml); notes.push(`${b.heading} markup`); }
       // intro
-      // the block's tone: scripts/brand-lineup.mjs (later in the pipeline) alternates the /mattresses blocks and may
-      // have made this one navy (white heading); the intro and features then take its navy colours, as it writes them
+      // the block's tone, read from its heading: should a later step restyle the block navy (white heading), the intro
+      // and features take the navy colours
       const navy = /color:\s*var\(--white\)/.test(style);
       const introHtml = `<p class="snz-h" style="font-weight:400"><span style="${navy ? 'color: var(--white); ' : ''}font-family: Montserrat">${t.intro}</span></p>`;
       if (setText(b.intro, introHtml)) notes.push(`${b.intro} text`);

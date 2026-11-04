@@ -6,8 +6,9 @@
  *   - BreadcrumbList (Home › page) on the product pages;
  *   - CollectionPage on the category pages (schema review, November 3, 2026): @id …#webpage, name and description
  *     from the page's metadata, part of #website, about #store; on /mattresses its mainEntity is an ItemList of
- *     Brand from the page's brand blocks (h2 headings, page order), which must equal lib/brands.json (the store's
- *     brand[]); a mismatch stops the script;
+ *     Brand from the page's own brand blocks (PAGE_BRANDS: h2 headings, page order; a mismatch stops the script).
+ *     The page kept its earlier blocks when the client took the lineup's block changes back (November 4, 2026), so
+ *     this list may differ from lib/brands.json (the store's brand[]);
  *   - the builder's own "schemaMarkup" is removed from the page payload: the GoHighLevel runtime used to inject it
  *     into <head> after hydration (a second FurnitureStore block with an incomplete address, next to the site's own
  *     #store node), so every page now carries exactly one LocalBusiness.
@@ -48,12 +49,16 @@ const CONTACT = { '/contact-us': { en: { name: 'Contact Snooze Mattress in McAll
 const CATEGORY = new Set(['/mattresses', '/pillows', '/mattress-protectors', '/premium-sheets', '/adjustable-mattress-bases', '/massage-chairs', '/sleep-recliner']);
 const STORE_ID = `${SITE_URL}/#store`; const WEBSITE_ID = `${SITE_URL}/#website`;
 const BRANDS = JSON.parse(fs.readFileSync(path.join(ROOT, 'lib/brands.json'), 'utf8')).mattressBrands;
+/* the brands the /mattresses blocks name, in page order: the page kept its earlier blocks when the client took the
+   lineup's block changes back (November 4, 2026), so its ItemList follows the page, not lib/brands.json (the store's
+   brand[]). King Koil covers the SmartLife and Snooze Handcrafted blocks, Spring Air the Copper Collection block. */
+const PAGE_BRANDS = ['Tempur-Pedic', 'Sealy', 'Stearns & Foster', 'Beautyrest', 'King Koil', 'Brooklyn Bedding', 'Spring Air', 'Snooze-O-Pedic', 'Helix'];
 const norm = (s) => s.replace(/[®™]/g, '').replace(/\s+/g, ' ').toLowerCase();
 /* the brands of /mattresses in page order: the brand each section's headings name (a heading may be split over two h2s,
    "Snooze Handcrafted®" / "by King Koil Mattresses"), each brand once */
 const brandBlocks = ($) => {
   const found = [];
-  $('.c-section').each((_, s) => { const t = norm($(s).find('h2').toArray().map((h) => $(h).text()).join(' ')); for (const b of BRANDS) if (t.includes(norm(b)) && !found.includes(b)) found.push(b); });
+  $('.c-section').each((_, s) => { const t = norm($(s).find('h2').toArray().map((h) => $(h).text()).join(' ')); for (const b of PAGE_BRANDS) if (t.includes(norm(b)) && !found.includes(b)) found.push(b); });
   return found;
 };
 /* the page's title and description as its metadata states them (the generated page.tsx) */
@@ -98,7 +103,8 @@ for (const dir of pages) {
     const node = { '@context': 'https://schema.org', '@type': 'CollectionPage', '@id': `${SITE_URL}${route}#webpage`, url: `${SITE_URL}${route}`, name, ...(description ? { description } : {}), inLanguage: locale === 'es' ? 'es-US' : 'en-US', isPartOf: { '@id': WEBSITE_ID }, about: { '@id': STORE_ID } };
     if (base === '/mattresses') {
       const brands = brandBlocks($);
-      if (brands.join('|') !== BRANDS.join('|')) throw new Error(`${route}: brand blocks ${JSON.stringify(brands)} differ from lib/brands.json ${JSON.stringify(BRANDS)}`);
+      if (brands.join('|') !== PAGE_BRANDS.join('|')) throw new Error(`${route}: brand blocks ${JSON.stringify(brands)} differ from PAGE_BRANDS ${JSON.stringify(PAGE_BRANDS)}`);
+      if (brands.join('|') !== BRANDS.join('|')) console.log(`  ${route}: ItemList = the page's ${brands.length} brand blocks (lib/brands.json, the store's brand[], lists ${BRANDS.length})`);
       node.mainEntity = { '@type': 'ItemList', name: locale === 'es' ? 'Marcas de colchones' : 'Mattress brands', numberOfItems: brands.length, itemListElement: brands.map((b, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': 'Brand', name: b } })) };
     }
     items.push(node);
