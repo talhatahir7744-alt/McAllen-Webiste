@@ -9,12 +9,12 @@ export const PAGE: ContentPage = {
   copy: {
     en: {
       title: 'Memory Foam Mattresses in McAllen, TX | Snooze Mattress',
-      description: 'Memory foam mattresses in McAllen, TX: Tempur-Pedic, Puffy and Snooze-O-Pedic at Snooze Mattress + Wellness, fitted to your pressure points for free.',
+      description: 'Memory foam mattresses in McAllen, TX: Tempur-Pedic and Snooze-O-Pedic at Snooze Mattress + Wellness, fitted to your pressure points for free.',
       crumb: 'Memory Foam Mattresses',
       eyebrow: 'Mattresses by type',
       h1: 'Memory foam mattresses in McAllen, TX',
       intro: [
-        'Memory foam shapes itself to the body lying on it, which is why it is the first thing many people picture when they think of pressure relief. At Snooze Mattress + Wellness in McAllen you can try memory foam from Tempur-Pedic, Puffy and the Snooze-O-Pedic line, and a free Dream Mapping fitting tells you whether foam is the right answer for your pressure points or whether a hybrid or an innerspring suits you better.',
+        'Memory foam shapes itself to the body lying on it, which is why it is the first thing many people picture when they think of pressure relief. At Snooze Mattress + Wellness in McAllen you can try memory foam from Tempur-Pedic and the Snooze-O-Pedic line, and a free Dream Mapping fitting tells you whether foam is the right answer for your pressure points or whether a hybrid or an innerspring suits you better.',
       ],
       sections: [
         { h2: 'How memory foam feels', paragraphs: [
@@ -23,7 +23,6 @@ export const PAGE: ContentPage = {
         ] },
         { h2: 'The memory foam brands at Snooze', h3s: [
           { h3: 'Tempur-Pedic', paragraphs: ['The Tempur-Pedic line on the McAllen floor includes models with the brand’s all-night cooling technology for sleepers who like the contouring of foam without the warmth.'] },
-          { h3: 'Puffy', paragraphs: ['Puffy mattresses are foam beds built for a soft, pressure-relieving feel; the Puffy Lux is one of the models featured in the current sales.'] },
           { h3: 'Snooze-O-Pedic', paragraphs: ['Snooze-O-Pedic is the store’s own line: a premium knit cover over HD quilt foam and a comfort foam layer, on a pocketed-coil support core with a reinforced edge. It pairs foam comfort with coil support at a budget-friendly price.'] },
         ] },
         { h2: 'Is memory foam right for you? Let the map decide', paragraphs: [
@@ -39,7 +38,7 @@ export const PAGE: ContentPage = {
       ],
       faqTitle: 'Memory foam questions',
       faqs: [
-        { question: 'Which memory foam brands does Snooze carry?', answer: 'Tempur-Pedic, Puffy and the store’s own Snooze-O-Pedic line are on the McAllen showroom floor.' },
+        { question: 'Which memory foam brands does Snooze carry?', answer: 'Tempur-Pedic and the store’s own Snooze-O-Pedic line are on the McAllen showroom floor.' },
         { question: 'Is memory foam good for side sleepers?', answer: 'Often, yes: it lets shoulders and hips sink in, which relieves the pressure points side sleepers feel most; the Dream Mapping fitting confirms it for your body.' },
         { question: 'Does memory foam sleep hot?', answer: 'Dense foam can hold warmth, which is why Tempur-Pedic offers cooling technology and why some sleepers choose a hybrid; try both in the showroom.' },
         { question: 'Can I put a memory foam mattress on an adjustable base?', answer: 'Yes. Foam mattresses bend well, and adjustable bases with customizable head and foot positioning are available in the store.' },
@@ -49,12 +48,12 @@ export const PAGE: ContentPage = {
     },
     es: {
       title: 'Colchones de Memory Foam en McAllen, TX | Snooze Mattress',
-      description: 'Colchones de memory foam en McAllen, TX: Tempur-Pedic, Puffy y Snooze-O-Pedic en Snooze Mattress + Wellness, ajustados gratis a tus puntos de presión.',
+      description: 'Colchones de memory foam en McAllen, TX: Tempur-Pedic y Snooze-O-Pedic en Snooze Mattress + Wellness, ajustados gratis a tus puntos de presión.',
       crumb: 'Colchones de Memory Foam',
       eyebrow: 'Colchones por tipo',
       h1: 'Colchones de memory foam en McAllen, TX',
       intro: [
-        'El memory foam se amolda al cuerpo que se recuesta encima, y por eso es lo primero que muchos imaginan cuando piensan en alivio de presión. En Snooze Mattress + Wellness en McAllen puedes probar memory foam de Tempur-Pedic, Puffy y la línea Snooze-O-Pedic, y una sesión gratis de Dream Mapping te dice si la espuma es la respuesta correcta para tus puntos de presión o si te conviene más un híbrido o un colchón de resortes.',
+        'El memory foam se amolda al cuerpo que se recuesta encima, y por eso es lo primero que muchos imaginan cuando piensan en alivio de presión. En Snooze Mattress + Wellness en McAllen puedes probar memory foam de Tempur-Pedic y la línea Snooze-O-Pedic, y una sesión gratis de Dream Mapping te dice si la espuma es la respuesta correcta para tus puntos de presión o si te conviene más un híbrido o un colchón de resortes.',
       ],
       sections: [
         { h2: 'Cómo se siente el memory foam', paragraphs: [
@@ -63,7 +62,6 @@ export const PAGE: ContentPage = {
         ] },
         { h2: 'Las marcas de memory foam en Snooze', h3s: [
           { h3: 'Tempur-Pedic', paragraphs: ['La línea Tempur-Pedic en el piso de McAllen incluye modelos con la tecnología de enfriamiento para toda la noche de la marca, para quienes quieren el contorno de la espuma sin el calor.'] },
-          { h3: 'Puffy', paragraphs: ['Los colchones Puffy son camas de espuma hechas para una sensación suave que alivia la presión; el Puffy Lux es uno de los modelos que aparecen en las ofertas actuales.'] },
           { h3: 'Snooze-O-Pedic', paragraphs: ['Snooze-O-Pedic es la línea propia de la tienda: una funda de tejido premium sobre espuma acolchada HD y una capa de espuma de confort, sobre un núcleo de resortes ensacados con borde reforzado. Combina la comodidad de la espuma con el soporte de los resortes a un precio accesible.'] },
         ] },
         { h2: '¿El memory foam es para ti? Que lo decida el mapa', paragraphs: [
@@ -79,7 +77,7 @@ export const PAGE: ContentPage = {
       ],
       faqTitle: 'Preguntas sobre memory foam',
       faqs: [
-        { question: '¿Qué marcas de memory foam tiene Snooze?', answer: 'Tempur-Pedic, Puffy y la línea propia Snooze-O-Pedic están en la sala de exhibición de McAllen.' },
+        { question: '¿Qué marcas de memory foam tiene Snooze?', answer: 'Tempur-Pedic y la línea propia Snooze-O-Pedic están en la sala de exhibición de McAllen.' },
         { question: '¿El memory foam es bueno para dormir de lado?', answer: 'Muchas veces sí: deja que hombros y caderas se hundan, lo que alivia los puntos de presión que más sienten quienes duermen de lado; el ajuste de Dream Mapping lo confirma para tu cuerpo.' },
         { question: '¿El memory foam da calor?', answer: 'La espuma densa puede guardar calor, por eso Tempur-Pedic ofrece tecnología de enfriamiento y por eso algunas personas eligen un híbrido; prueba ambos en la sala de exhibición.' },
         { question: '¿Puedo poner un colchón de memory foam en una base ajustable?', answer: 'Sí. Los colchones de espuma se doblan bien, y en la tienda hay bases ajustables con posición de cabeza y pies personalizable.' },

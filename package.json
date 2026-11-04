@@ -25,6 +25,7 @@
     "contact:page": "node scripts/contact-page.mjs",
     "ribbon": "node scripts/ribbon-band.mjs",
     "section:sales-hero": "node scripts/sales-hero.mjs",
+    "brand:lineup": "node scripts/brand-lineup.mjs",
     "embeds:async": "node scripts/async-embeds.mjs",
     "images:hydration": "node scripts/image-hydration-match.mjs",
     "css:baked": "node scripts/sync-baked-css.mjs",

@@ -23,7 +23,6 @@ const BRANDS = [
   [/Brooklyn Bedding/i, 'https://brooklynbedding.com/'],
   [/Spring Air/i, 'https://www.springair.com/'],
   [/Helix/i, 'https://helixsleep.com/'],
-  [/Puffy/i, 'https://puffy.com/'],
 ];
 const H2 = /<h2 class="snz-h"><span style="([^"]*)">([^<]*)<\/span><\/h2>/g;
 const linkHeadings = (html, stats) => html.replace(H2, (m, style, text) => {

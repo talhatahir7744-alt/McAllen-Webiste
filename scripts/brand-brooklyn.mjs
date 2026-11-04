@@ -46,8 +46,8 @@ const BANNER_PATH = 'ARD47WoZpqaZSQ9MSxLD/media/6adfc5b336aa4a07e8efaab0.webp';
 const BANNER = `/assets/lcimg/image/f_webp/q_80/r_1200/u/filesafe/${BANNER_PATH}`;
 const BANNER_IDS = ['vy3csFO5NT', 'pPrmy32EsW', 'qb2gUzQNgin', 'dreuIkARcM'];
 const OLD_BANNER_ALT = {
-  en: 'Mattress brands at Snooze: Tempur-Pedic, Stearns & Foster, Sealy, Spring Air, King Koil, Puffy, Beautyrest, Brooklyn Bedding, Bedgear, Serta, DreamFit, Helix and BedTech',
-  es: 'Marcas de colchones en Snooze: Tempur-Pedic, Stearns & Foster, Sealy, Spring Air, King Koil, Puffy, Beautyrest, Brooklyn Bedding, Bedgear, Serta, DreamFit, Helix y BedTech',
+  en: 'Mattress brands at Snooze: Tempur-Pedic, Stearns & Foster, Sealy, Spring Air, King Koil, Beautyrest, Brooklyn Bedding, Bedgear, Serta, DreamFit, Helix and BedTech',
+  es: 'Marcas de colchones en Snooze: Tempur-Pedic, Stearns & Foster, Sealy, Spring Air, King Koil, Beautyrest, Brooklyn Bedding, Bedgear, Serta, DreamFit, Helix y BedTech',
 };
 /* the block's element ids on /mattresses: the desktop copy, then the mobile copy */
 const BLOCKS = [

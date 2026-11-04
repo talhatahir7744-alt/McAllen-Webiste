@@ -26,7 +26,7 @@ export const PAGE: ContentPage = {
           'As a rule of thumb, side sleepers need shoulders and hips to sink in, so they map toward Plush and Medium-Soft; back sleepers sit in the middle; stomach sleepers need the firmest support so the hips do not sag. Weight and age move the answer too, which is why a measurement beats a rule of thumb.',
         ] },
         { h2: '3. Choose the construction', h3s: [
-          { h3: 'Memory foam', paragraphs: ['Contours closely, relieves pressure points and absorbs a partner’s movement; dense foam can hold warmth, so cooling versions exist. Tempur-Pedic, Puffy and Snooze-O-Pedic are the foam names on the McAllen floor.'] },
+          { h3: 'Memory foam', paragraphs: ['Contours closely, relieves pressure points and absorbs a partner’s movement; dense foam can hold warmth, so cooling versions exist. Tempur-Pedic and Snooze-O-Pedic are the foam names on the McAllen floor.'] },
           { h3: 'Hybrid', paragraphs: ['Comfort layers over pocketed coils: a cushioned top with the airflow and bounce of a coil core. Most of the Sealy, Stearns & Foster, Beautyrest, Helix and King Koil models in the showroom are hybrids.'] },
           { h3: 'Innerspring', paragraphs: ['A coil core with a thinner comfort layer: the firmest, most breathable feel, and usually the most budget-friendly.'] },
         ] },
@@ -83,7 +83,7 @@ export const PAGE: ContentPage = {
           'Como regla general, quienes duermen de lado necesitan que hombros y caderas se hundan, así que quedan hacia Plush y Medio-Suave; quienes duermen boca arriba quedan en medio; quienes duermen boca abajo necesitan el soporte más firme para que las caderas no se hundan. El peso y la edad también mueven la respuesta, por eso una medición le gana a una regla general.',
         ] },
         { h2: '3. Elige la construcción', h3s: [
-          { h3: 'Memory foam', paragraphs: ['Se amolda de cerca, alivia los puntos de presión y absorbe el movimiento de la pareja; la espuma densa puede guardar calor, por eso existen versiones frescas. Tempur-Pedic, Puffy y Snooze-O-Pedic son los nombres de espuma en el piso de McAllen.'] },
+          { h3: 'Memory foam', paragraphs: ['Se amolda de cerca, alivia los puntos de presión y absorbe el movimiento de la pareja; la espuma densa puede guardar calor, por eso existen versiones frescas. Tempur-Pedic y Snooze-O-Pedic son los nombres de espuma en el piso de McAllen.'] },
           { h3: 'Híbrido', paragraphs: ['Capas de confort sobre resortes ensacados: una superficie acolchada con la ventilación y el rebote de un núcleo de resortes. La mayoría de los modelos de Sealy, Stearns & Foster, Beautyrest, Helix y King Koil en la sala de exhibición son híbridos.'] },
           { h3: 'De resortes', paragraphs: ['Un núcleo de resortes con una capa de confort más delgada: la sensación más firme y más fresca, y normalmente la más económica.'] },
         ] },
