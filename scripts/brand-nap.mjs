@@ -9,6 +9,8 @@
  * override templates and the Spanish dictionary VALUES (overrides/i18n/es*.json: the keys are the builder's
  * original English and must stay as they are for scripts/convert.mjs to find them). URLs, e-mail addresses
  * and tel: links are never touched (the domain carries no spaces, so no rule can match it).
+ * The one exception is the blog's author, the Organization "Snooze Mattress Company" (client decision, October 27,
+ * 2026): it lives in lib/blog-author.ts, which this script does not read — keep it out of FILES.
  *
  *   node scripts/brand-nap.mjs            (npm run brand)   — run after `npm run convert` and the other post-convert scripts
  *   node scripts/brand-nap.mjs --check                      — dry run: counts and sample matches per rule, writes nothing

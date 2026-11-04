@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { BlogArticle, BlogCta, BlogShell, Divider, PostCard } from '@/components/blog/BlogLayout';
 import { plain } from '@/components/blog/Rich';
 import { PageSchema } from '@/components/PageSchema';
+import { BLOG_AUTHOR } from '@/lib/blog-author';
 import styles from '@/components/blog/blog.module.css';
 import { altBlogPath, getPost, postsFor, relatedPosts, type BlogPost } from '@/lib/blog-posts';
 import { localizeHref, ui, type Locale } from '@/lib/i18n';
@@ -86,7 +87,7 @@ export function postMetadata(slug: string, locale: Locale): Metadata {
       siteName: 'Snooze Mattress + Wellness',
       publishedTime: post.datePublished,
       modifiedTime: post.dateModified || post.datePublished,
-      authors: [t.org],
+      authors: [BLOG_AUTHOR.name],
       images: [{ url: post.featured.src, width: post.featured.width, height: post.featured.height, alt: post.featured.alt }],
     },
     twitter: { card: 'summary_large_image', title: post.metaTitle, description: post.metaDescription, images: [post.featured.src] },
@@ -115,8 +116,9 @@ export function PostPage({ slug, locale }: { slug: string; locale: Locale }) {
         image: { '@type': 'ImageObject', url: `${SITE_URL}${post.featured.src}`, width: post.featured.width, height: post.featured.height },
         datePublished: post.datePublished,
         dateModified: post.dateModified || post.datePublished,
-        author: { '@type': 'Organization', name: t.org, url: SITE_URL },
-        /* author: the Organization the client named (October 27, 2026); publisher: the site's #organization node */
+        author: { '@type': 'Organization', name: BLOG_AUTHOR.name, url: BLOG_AUTHOR.url },
+        /* author: the Organization the client named for the blog (October 27, 2026; its name and url are in
+           lib/blog-author.ts); publisher: the site's #organization node */
         publisher: { '@id': ORG_ID },
         keywords: post.keywords.join(', '),
         wordCount,
