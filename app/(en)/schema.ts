@@ -11,7 +11,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "Why choose Snooze Mattress + Wellness in McAllen, TX?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Because you get the best mattress prices in town through our competitive sales and price matching, a one-of-a-kind Sleep Comfort Guarantee on your new mattress, and a family business that greets you with a smile in our Snooze Blues pajamas. We would be honored to serve you!"
+          "text": "Because you get the best mattress prices in town through our competitive sales and price matching, the 365-Night Sleep Guarantee on major brands, and a family business that greets you with a smile in our Snooze Blues pajamas. We would be honored to serve you!"
         }
       },
       {
@@ -76,14 +76,6 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "It depends on who sleeps in the bed, how they sleep and the room. A queen (60 x 80 inches) suits most couples, a king (76 x 80) gives each sleeper 38 inches, and a full (54 x 75) fits one adult or a small guest room. See our mattress size guide, then let Dream Mapping confirm the support you need."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Why choose Snooze Mattress + Wellness in McAllen?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Because you get the best mattress prices in town through our competitive sales and price matching, a one-of-a-kind Sleep Comfort Guarantee on your new mattress, and a family business that greets you with a smile in our Snooze Blues pajamas. We would be honored to serve you!"
         }
       }
     ]

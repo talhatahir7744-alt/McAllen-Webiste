@@ -11,7 +11,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Por qué elegir Snooze Mattress + Wellness en McAllen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Porque tienes los mejores precios de colchones de la ciudad gracias a nuestras ofertas competitivas y a que igualamos precios, una Garantía de Confort de Sueño única para tu colchón nuevo, y un negocio familiar que te recibe con una sonrisa en nuestras pijamas Snooze Blues. ¡Sería un honor atenderte!"
+          "text": "Porque tienes los mejores precios de colchones de la ciudad gracias a nuestras ofertas competitivas y a que igualamos precios, la Garantía de Sueño de 365 Noches en las marcas principales, y un negocio familiar que te recibe con una sonrisa en nuestras pijamas Snooze Blues. ¡Sería un honor atenderte!"
         }
       },
       {
@@ -68,14 +68,6 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Sí. Entregamos e instalamos tu colchón nuevo, gratis en compras mayores de $999, y nos llevamos tu colchón viejo si ya no lo necesitas."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Por qué elegir Snooze Mattress + Wellness en McAllen, TX?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Porque tienes los mejores precios de colchones de la ciudad gracias a nuestras ofertas competitivas y a que igualamos precios, una Garantía de Confort de Sueño única para tu colchón nuevo, y un negocio familiar que te recibe con una sonrisa en nuestras pijamas Snooze Blues. ¡Sería un honor atenderte!"
         }
       }
     ]

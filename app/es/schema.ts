@@ -11,7 +11,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "¿Por qué elegir Snooze Mattress + Wellness en McAllen, TX?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Porque tienes los mejores precios de colchones de la ciudad gracias a nuestras ofertas competitivas y a que igualamos precios, una Garantía de Confort de Sueño única para tu colchón nuevo, y un negocio familiar que te recibe con una sonrisa en nuestras pijamas Snooze Blues. ¡Sería un honor atenderte!"
+          "text": "Porque tienes los mejores precios de colchones de la ciudad gracias a nuestras ofertas competitivas y a que igualamos precios, la Garantía de Sueño de 365 Noches en las marcas principales, y un negocio familiar que te recibe con una sonrisa en nuestras pijamas Snooze Blues. ¡Sería un honor atenderte!"
         }
       },
       {
@@ -76,14 +76,6 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Depende de quién duerme en la cama, cómo duerme y del espacio de la recámara. Un queen (60 x 80 pulgadas) le queda a la mayoría de las parejas, un king (76 x 80) le da 38 pulgadas a cada persona y un full (54 x 75) es para un adulto o un cuarto de visitas pequeño. Consulta nuestra guía de tamaños de colchón y deja que Dream Mapping confirme el soporte que necesitas."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Por qué elegir Snooze Mattress + Wellness en McAllen?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Porque tienes los mejores precios de colchones de la ciudad gracias a nuestras ofertas competitivas y a que igualamos precios, una Garantía de Confort de Sueño única para tu colchón nuevo, y un negocio familiar que te recibe con una sonrisa en nuestras pijamas Snooze Blues. ¡Sería un honor atenderte!"
         }
       }
     ]

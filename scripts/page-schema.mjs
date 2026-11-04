@@ -71,10 +71,12 @@ for (const dir of pages) {
   const body = JSON.parse(bodyM[1]);
   const $ = cheerio.load(body, { decodeEntities: false }, false);
   // ---- FAQPage from the accordion (deduplicated by question; the builder exports every section twice)
-  const seen = new Set(); const faqs = [];
+  // (also by answer: the desktop and phone copies word one question two ways — "…in McAllen, TX?" / "…in McAllen?" —
+  // with the same answer, and the FAQPage lists it once; schema review, November 3, 2026)
+  const seen = new Set(); const seenAnswers = new Set(); const faqs = [];
   $('.snz-faq__item').each((_, it) => {
     const q = text($(it).find('.snz-faq__btn').first()); const a = text($(it).find('.snz-faq__a').first());
-    if (!q || !a) return; const key = q.toLowerCase(); if (seen.has(key)) return; seen.add(key); faqs.push({ q, a });
+    if (!q || !a) return; const key = q.toLowerCase(); const akey = a.toLowerCase(); if (seen.has(key) || seenAnswers.has(akey)) return; seen.add(key); seenAnswers.add(akey); faqs.push({ q, a });
   });
   const items = [];
   if (faqs.length) items.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) });

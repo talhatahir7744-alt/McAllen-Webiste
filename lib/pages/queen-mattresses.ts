@@ -33,7 +33,7 @@ export const PAGE: ContentPage = {
         { h2: 'Delivery, financing and what comes with your queen', listStyle: 'facts', bullets: [
           'Free delivery and setup on orders over $999, with haul-away of your old mattress if you no longer need it.',
           'Financing through Synchrony and Wells Fargo, and a lease-to-own option through Snap Finance.',
-          'Every purchase at Snooze Mattress + Wellness is backed by the Sleep Comfort Guarantee; ask a Sleep Coach for the details.',
+          'Snooze Mattress + Wellness offers the 365-Night Sleep Guarantee on major brands; ask a Sleep Coach for the details.',
           `Try them in person at ${L.street}, ${L.city}, ${L.region} ${L.postalCode}, ${L.hours.en[0]}, ${L.hours.en[1]}.`,
         ] },
       ],
@@ -73,7 +73,7 @@ export const PAGE: ContentPage = {
         { h2: 'Entrega, financiamiento y lo que incluye tu queen', listStyle: 'facts', bullets: [
           'Entrega e instalación gratis en compras mayores de $999, y nos llevamos tu colchón viejo si ya no lo necesitas.',
           'Financiamiento con Synchrony y Wells Fargo, y una opción de renta con opción a compra con Snap Finance.',
-          'Toda compra en Snooze Mattress + Wellness está respaldada por la Sleep Comfort Guarantee; pide los detalles a un Sleep Coach.',
+          'Snooze Mattress + Wellness ofrece la Garantía de Sueño de 365 Noches en las marcas principales; pide los detalles a un Sleep Coach.',
           `Pruébalos en persona en ${L.street}, ${L.city}, ${L.region} ${L.postalCode}, ${L.hours.es[0]}, ${L.hours.es[1]}.`,
         ] },
       ],

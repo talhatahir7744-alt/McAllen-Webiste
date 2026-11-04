@@ -11,7 +11,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "name": "Why choose Snooze Mattress + Wellness in McAllen, TX?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Because you get the best mattress prices in town through our competitive sales and price matching, a one-of-a-kind Sleep Comfort Guarantee on your new mattress, and a family business that greets you with a smile in our Snooze Blues pajamas. We would be honored to serve you!"
+          "text": "Because you get the best mattress prices in town through our competitive sales and price matching, the 365-Night Sleep Guarantee on major brands, and a family business that greets you with a smile in our Snooze Blues pajamas. We would be honored to serve you!"
         }
       },
       {
@@ -68,14 +68,6 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes. We deliver and set up your new mattress, free on orders over $999, and haul away your old mattress if you no longer need it."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Why choose Snooze Mattress + Wellness in McAllen?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Because you get the best mattress prices in town through our competitive sales and price matching, a one-of-a-kind Sleep Comfort Guarantee on your new mattress, and a family business that greets you with a smile in our Snooze Blues pajamas. We would be honored to serve you!"
         }
       }
     ]
