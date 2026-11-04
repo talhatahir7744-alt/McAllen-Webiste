@@ -42,7 +42,11 @@ const BRAND_LINK = '<a class="snz-brand-link" href="https://brooklynbedding.com/
    place in every size variant, with the alt the agency supplied */
 const OLD_BANNER_ID = '80d3f6fe-5f3c-43ea-97c2-104bb74a7f69';
 const OLD_BANNER_PATH = `qR8peonBlnjGI3ZuLHQP/media/${OLD_BANNER_ID}.png`;
-const BANNER_PATH = 'ARD47WoZpqaZSQ9MSxLD/media/6adfc5b336aa4a07e8efaab0.webp';
+/* the composite: the shared file (other locations' sites use it too, so it stays in public/ untouched) still shows the
+   logo of a brand this location no longer carries; McAllen's copy has that logo taken out (row 2 re-centred, the other
+   rows untouched, same 1110x357 size, November 5, 2026) and is the one this site shows */
+const SHARED_BANNER_PATH = 'ARD47WoZpqaZSQ9MSxLD/media/6adfc5b336aa4a07e8efaab0.webp';
+const BANNER_PATH = 'ARD47WoZpqaZSQ9MSxLD/media/snz-brand-composite-mcallen.webp';
 const BANNER = `/assets/lcimg/image/f_webp/q_80/r_1200/u/filesafe/${BANNER_PATH}`;
 const BANNER_IDS = ['vy3csFO5NT', 'pPrmy32EsW', 'qb2gUzQNgin', 'dreuIkARcM'];
 const OLD_BANNER_ALT = {
@@ -126,10 +130,10 @@ for (const file of listContentFiles(ROOT)) {
 
   // 1c. the brands composite in the "Trusted by Major Brands" card: new file (same path form, every size variant), the
   // agency's alt, and width/height so the box is reserved before it loads
-  const banners = $(`img[src*="${OLD_BANNER_ID}"]`);
-  if (banners.length) { banners.each((_, el) => { $(el).attr('src', String($(el).attr('src')).split(OLD_BANNER_PATH).join(BANNER_PATH)); $(el).attr('alt', t.bannerAlt); $(el).attr('width', String(bannerMeta.width)); $(el).attr('height', String(bannerMeta.height)); }); notes.push(`brands banner ×${banners.length} (markup)`); }
+  const banners = $(`img[src*="${OLD_BANNER_ID}"], img[src*="${SHARED_BANNER_PATH}"]`);
+  if (banners.length) { banners.each((_, el) => { $(el).attr('src', String($(el).attr('src')).split(OLD_BANNER_PATH).join(BANNER_PATH).split(SHARED_BANNER_PATH).join(BANNER_PATH)); $(el).attr('alt', t.bannerAlt); $(el).attr('width', String(bannerMeta.width)); $(el).attr('height', String(bannerMeta.height)); }); notes.push(`brands banner ×${banners.length} (markup)`); }
   let bannerPayload = 0;
-  for (let i = 0; i < nodes.length; i++) if (typeof nodes[i] === 'string') { if (nodes[i].includes(OLD_BANNER_PATH)) { nodes[i] = nodes[i].split(OLD_BANNER_PATH).join(BANNER_PATH); bannerPayload++; } else if (nodes[i] === OLD_BANNER_ALT[locale]) { nodes[i] = t.bannerAlt; bannerPayload++; } }
+  for (let i = 0; i < nodes.length; i++) if (typeof nodes[i] === 'string') { if (nodes[i].includes(OLD_BANNER_PATH) || nodes[i].includes(SHARED_BANNER_PATH)) { nodes[i] = nodes[i].split(OLD_BANNER_PATH).join(BANNER_PATH).split(SHARED_BANNER_PATH).join(BANNER_PATH); bannerPayload++; } else if (nodes[i] === OLD_BANNER_ALT[locale]) { nodes[i] = t.bannerAlt; bannerPayload++; } }
   if (bannerPayload) notes.push(`brands banner ×${bannerPayload} (payload)`);
 
   // 2. the /mattresses block
