@@ -58,7 +58,7 @@ const T = {
   en: {
     logoAlt: `Brooklyn Bedding mattresses at Snooze ${CITY}`,
     imageAlt: `Brooklyn Bedding Sedona hybrid mattress at Snooze ${CITY}`,
-    bannerAlt: `Mattress brands at Snooze Mattress + Wellness ${CITY} including Tempur-Pedic, Stearns & Foster, Sealy, Brooklyn Bedding, and more`,
+    bannerAlt: `Mattress brands at Snooze Mattress + Wellness ${CITY} including Tempur-Pedic, Sealy, Stearns & Foster, Serta and more`,
     heading: `${BRAND_LINK} Sedona Mattress`,
     intro: 'The Brooklyn Bedding Sedona combines cooling comfort, pressure relief, and responsive support in a premium hybrid design. Thoughtful comfort layers and a dual-coil system help create a comfortable, supportive night\'s sleep.',
     features: [
@@ -76,7 +76,7 @@ const T = {
   es: {
     logoAlt: `Colchones Brooklyn Bedding en Snooze ${CITY}`,
     imageAlt: `Colchón híbrido Brooklyn Bedding Sedona en Snooze ${CITY}`,
-    bannerAlt: `Marcas de colchones en Snooze Mattress + Wellness ${CITY}, incluyendo Tempur-Pedic, Stearns & Foster, Sealy, Brooklyn Bedding y más`,
+    bannerAlt: `Marcas de colchones en Snooze Mattress + Wellness ${CITY}, incluyendo Tempur-Pedic, Sealy, Stearns & Foster, Serta y más`,
     heading: `Colchón Sedona de ${BRAND_LINK}`,
     intro: 'El Brooklyn Bedding Sedona combina confort fresco, alivio de presión y soporte con respuesta en un diseño híbrido premium. Sus capas de confort bien pensadas y su sistema de doble resorte ayudan a lograr una noche de sueño cómoda y con buen soporte.',
     features: [
@@ -141,12 +141,15 @@ for (const file of listContentFiles(ROOT)) {
       if (setText(b.heading, headingHtml)) notes.push(`${b.heading} text`);
       const hEl = $(`#${b.heading} .text-output > div`); if (hEl.length && hEl.html() !== headingHtml) { hEl.html(headingHtml); notes.push(`${b.heading} markup`); }
       // intro
-      const introHtml = `<p class="snz-h" style="font-weight:400"><span style="font-family: Montserrat">${t.intro}</span></p>`;
+      // the block's tone: scripts/brand-lineup.mjs (later in the pipeline) alternates the /mattresses blocks and may
+      // have made this one navy (white heading); the intro and features then take its navy colours, as it writes them
+      const navy = /color:\s*var\(--white\)/.test(style);
+      const introHtml = `<p class="snz-h" style="font-weight:400"><span style="${navy ? 'color: var(--white); ' : ''}font-family: Montserrat">${t.intro}</span></p>`;
       if (setText(b.intro, introHtml)) notes.push(`${b.intro} text`);
       const iEl = $(`#${b.intro} .text-output > div`); if (iEl.length && iEl.html() !== introHtml) { iEl.html(introHtml); notes.push(`${b.intro} markup`); }
       // features: the <p> inside the check-icon list item
       b.bullets.forEach((id, j) => {
-        const [title, text] = t.features[j]; const pHtml = `<strong><span style="color: var(--black)">${title}</span></strong><span style="color: var(--black)"> – ${text}</span>`;
+        const [title, text] = t.features[j]; const pHtml = navy ? `<strong><span>${title}</span></strong><span> – ${text}</span>` : `<strong><span style="color: var(--black)">${title}</span></strong><span style="color: var(--black)"> – ${text}</span>`;
         const v = textIdx(id); const next = nodes[v].replace(/<p>[\s\S]*?<\/p>/, `<p>${pHtml}</p>`); if (next !== nodes[v]) { nodes[v] = next; notes.push(`${id} text`); }
         const pEl = $(`#${id} li > p`); if (pEl.length && pEl.html() !== pHtml) { pEl.html(pHtml); notes.push(`${id} markup`); }
       });

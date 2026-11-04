@@ -6,7 +6,8 @@
  *     eager as soon as the marquee comes within one viewport of the screen, so the moving strip never shows a blank
  *     gap (a lazy image that enters the strip's visible window loads too late) while nothing is fetched for a marquee
  *     far below the fold;
- *   - alt text "<Brand> mattresses at Snooze McAllen" (bedding brands: "<Brand> at Snooze McAllen"), Spanish on /es;
+ *   - the logos in the order of the client's lineup (LINEUP = lib/brands.json, November 4, 2026), alt text "<Brand> logo"
+ *     ("Logotipo de <Brand>" on /es);
  *   - the logos the client dropped for this location (DROPPED, November 4, 2026) leave both copies of the strip;
  *   - the second (loop) copy of the strip uses the same URLs as the first, so the browser makes one request per logo.
  *   node scripts/logo-marquee-patch.mjs            (npm run marquee)   — after `npm run convert`
@@ -21,29 +22,44 @@ const CHECK = process.argv.includes('--check');
 const BS = String.fromCharCode(92);
 const escapeJsonForScript = (json) => json.split('<').join(BS + 'u003C').split(String.fromCharCode(0x2028)).join(BS + 'u2028').split(String.fromCharCode(0x2029)).join(BS + 'u2029');
 
-/* media id -> brand (the order of the strip); `bedding: true` for brands whose products here are not mattresses */
-const BRANDS = {
-  '6a7f503a84abba640bb0b486': { name: 'BedTech' },
-  '6a7f5039dc6b0a15e53bc0be': { name: 'Helix' },
-  '6a7f503999074f5ef6d34d4b': { name: 'Bedgear', bedding: true },
-  '6adfbe1967528ab60776dea7': { name: 'Brooklyn Bedding' }, // in Englander's place since October 27, 2026 (scripts/brand-brooklyn.mjs)
-  '6a7f5039fe4291bd1091759a': { name: 'Beautyrest' },
-  '6a7f5039cf50f900f2814ec2': { name: 'DreamFit', bedding: true },
-  '6a7f5039fe4291bd109175a0': { name: 'Serta' },
-  '6a7f50372b48e84b4fa8ae5d': { name: 'Stearns & Foster' },
-  '6a7f5037a6a03cda06a1d795': { name: 'Tempur-Pedic' },
-  '6a7f50378921ecbd9ca94ef2': { name: 'Spring Air' },
-  '6a7f5037f762745222a0f1d5': { name: 'Sealy' },
-  '6a7f5037f762745222a0f1da': { name: 'King Koil' },
-  '6a7f502ddc6b0a15e53b8cba': { name: 'Snooze-O-Pedic' },
-  '6a7f502da6a03cda06a1aa88': { name: 'Sleeptone', bedding: true },
-  '6a7f502df762745222a0f105': { name: 'Flowt by King Koil' },
+/* the strip: the client's approved lineup (November 4, 2026; lib/brands.json, the same order) -> the logo shown for it.
+   Two brands have no logo of their own in the repo yet and show their parent brand's (NEEDS CLIENT INPUT): Snooze
+   Handcrafted by King Koil (the King Koil logo) and Copper by Spring Air (the Spring Air logo). */
+const LOGO = {
+  'Tempur-Pedic': '6a7f5037a6a03cda06a1d795',
+  Sealy: '6a7f5037f762745222a0f1d5',
+  'Stearns & Foster': '6a7f50372b48e84b4fa8ae5d',
+  Serta: '6a7f5039fe4291bd109175a0',
+  Beautyrest: '6a7f5039fe4291bd1091759a',
+  Helix: '6a7f5039dc6b0a15e53bc0be',
+  'Brooklyn Bedding': '6adfbe1967528ab60776dea7', // in Englander's place since October 27, 2026 (scripts/brand-brooklyn.mjs)
+  'FLOWT by King Koil': '6a7f502df762745222a0f105',
+  'Snooze Handcrafted by King Koil': '6a7f5037f762745222a0f1da', // King Koil logo
+  'Copper by Spring Air': '6a7f50378921ecbd9ca94ef2', // Spring Air logo
+  'Snooze-O-Pedic': '6a7f502ddc6b0a15e53b8cba',
+  BedTech: '6a7f503a84abba640bb0b486',
+  BedGear: '6a7f503999074f5ef6d34d4b',
+  Sleeptone: '6a7f502da6a03cda06a1aa88',
+  DreamFit: '6a7f5039cf50f900f2814ec2',
 };
+const LINEUP = JSON.parse(fs.readFileSync(path.join(ROOT, 'lib/brands.json'), 'utf8')).mattressBrands;
+for (const b of LINEUP) if (!LOGO[b]) throw new Error(`no logo for ${b}`);
+const BRANDS = Object.fromEntries(LINEUP.map((name) => [LOGO[name], { name }])); // media id -> brand
 /* logos this location no longer shows (the client's decision, November 4, 2026): their item leaves both copies of the
    strip; the image file stays in public/ (the brand asset is shared) */
 const DROPPED = ['6a7f50378921ecbd9ca94ef7'];
 const DROPPED_ITEM = new RegExp(`<div class="snz-logo-marquee__item">\\s*<img\\b[^>]*\\/media\\/(?:${DROPPED.join('|')})[^>]*>\\s*<\\/div>\\s*`, 'g');
-const altFor = (id, locale) => { const b = BRANDS[id]; if (!b) return null; const n = b.name.replace(/&/g, '&amp;'); if (locale === 'es') return b.bedding ? `${n} en Snooze McAllen` : `Colchones ${n} en Snooze McAllen`; return b.bedding ? `${n} at Snooze McAllen` : `${n} mattresses at Snooze McAllen`; };
+const altFor = (id, locale) => { const b = BRANDS[id]; if (!b) return null; const n = b.name.replace(/&/g, '&amp;'); return locale === 'es' ? `Logotipo de ${n}` : `${n} logo`; };
+/* each copy of the strip (a run of logo items) in the lineup's order: every item is the strip's own, re-ordered */
+const ITEM = /[ \t]*<div class="snz-logo-marquee__item">\s*<img\b[^>]*>\s*<\/div>/g;
+function orderSets(html) {
+  return html.replace(/(?:[ \t]*<div class="snz-logo-marquee__item">\s*<img\b[^>]*>\s*<\/div>[ \t]*\r?\n?)+/g, (run) => {
+    const items = run.match(ITEM); const byMedia = new Map(items.map((it) => [(it.match(/media\/([a-f0-9]{24})/) || [])[1], it.trim()]));
+    const indent = (items[0].match(/^[ \t]*/) || [''])[0]; const eol = /\r?\n$/.test(run) ? run.match(/\r?\n$/)[0] : '';
+    const missing = LINEUP.filter((b) => !byMedia.has(LOGO[b])); if (missing.length) throw new Error(`strip has no logo item for ${missing.join(', ')}`);
+    return LINEUP.map((b) => indent + byMedia.get(LOGO[b])).join(eol || '\n') + eol;
+  });
+}
 
 /* the eager switch: runs once per document, armed only after the window load event (so the logo fetches never compete
    with the hero image / LCP: measured on the mattresses page, switching at DOMContentLoaded pushed the LCP from 3.4 s
@@ -54,15 +70,17 @@ const EAGER_RE = /<script>\(function\(\)\{if\(window\.__snzMarqueeEager\)[\s\S]*
 function patchBlock(html, locale) {
   let n = 0;
   let out = html.replace(DROPPED_ITEM, () => { n++; return ''; });
-  out = out.replace(/<img\b[^>]*>/g, (tag) => {
-    if (!/snz-logo-marquee|snz-scrubbed|\/media\/6a7f50/.test(tag) && !/snz-scrubbed/.test(tag)) return tag;
+  const ordered = orderSets(out); if (ordered !== out) { n++; out = ordered; }
+  // only the strip's own logos: the /mattresses brand blocks reuse some of these media ids as builder images, which
+  // image-hydration-match owns (patching them here would make the two steps undo each other)
+  out = out.replace(/(<div class="snz-logo-marquee__item">\s*)(<img\b[^>]*>)/g, (whole, pre, tag) => {
     const id = (tag.match(/media\/([a-f0-9]{24})/) || [])[1]; const alt = id ? altFor(id, locale) : null;
     let t = tag.replace(/\bloading="eager"/, 'loading="lazy"');
     if (!/\bloading=/.test(t)) t = t.replace(/^<img\b/, '<img loading="lazy"');
     if (!/\bdecoding=/.test(t)) t = t.replace(/^<img\b/, '<img decoding="async"');
     if (!/\bfetchpriority=/.test(t)) t = t.replace(/^<img\b/, '<img fetchpriority="low"'); // never ahead of the hero image
     if (alt !== null) t = /\balt="[^"]*"/.test(t) ? t.replace(/\balt="[^"]*"/, `alt="${alt}"`) : t.replace(/^<img\b/, `<img alt="${alt}"`);
-    if (t !== tag) n++; return t;
+    if (t !== tag) n++; return pre + t;
   });
   if (EAGER_RE.test(out)) { const cur = out.match(EAGER_RE)[0]; if (cur !== EAGER_SCRIPT) { out = out.replace(EAGER_RE, () => EAGER_SCRIPT); n++; } }
   else out = out.replace(/(<div class="snz-logo-marquee"[^>]*>)/, EAGER_SCRIPT + '$1');

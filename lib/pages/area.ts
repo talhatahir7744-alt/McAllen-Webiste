@@ -5,8 +5,8 @@ import { LOCATION } from '@/lib/location';
    cities — NAP, Dream Mapping, the brands, delivery on orders over $999, financing partners — with local FAQs. No
    drive times (the client has not supplied them) and no claims about the cities beyond their names. */
 const L = LOCATION;
-const BRANDS = 'Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, King Koil, Brooklyn Bedding, Spring Air and Snooze-O-Pedic';
-const BRANDS_ES = 'Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, King Koil, Brooklyn Bedding, Spring Air y Snooze-O-Pedic';
+const BRANDS = 'Tempur-Pedic, Sealy, Stearns & Foster, Serta, Beautyrest, Helix, Brooklyn Bedding, FLOWT by King Koil, Snooze Handcrafted by King Koil, Copper by Spring Air, Snooze-O-Pedic, BedTech, BedGear, Sleeptone and DreamFit';
+const BRANDS_ES = 'Tempur-Pedic, Sealy, Stearns & Foster, Serta, Beautyrest, Helix, Brooklyn Bedding, FLOWT by King Koil, Snooze Handcrafted by King Koil, Copper by Spring Air, Snooze-O-Pedic, BedTech, BedGear, Sleeptone y DreamFit';
 
 export function areaPage(city: string, slug: string): ContentPage {
   return {

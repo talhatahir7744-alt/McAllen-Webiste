@@ -107,7 +107,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
     "mainEntity": {
       "@type": "ItemList",
       "name": "Mattress brands",
-      "numberOfItems": 9,
+      "numberOfItems": 15,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -138,7 +138,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
           "position": 4,
           "item": {
             "@type": "Brand",
-            "name": "Beautyrest"
+            "name": "Serta"
           }
         },
         {
@@ -146,7 +146,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
           "position": 5,
           "item": {
             "@type": "Brand",
-            "name": "King Koil"
+            "name": "Beautyrest"
           }
         },
         {
@@ -154,7 +154,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
           "position": 6,
           "item": {
             "@type": "Brand",
-            "name": "Brooklyn Bedding"
+            "name": "Helix"
           }
         },
         {
@@ -162,7 +162,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
           "position": 7,
           "item": {
             "@type": "Brand",
-            "name": "Spring Air"
+            "name": "Brooklyn Bedding"
           }
         },
         {
@@ -170,7 +170,7 @@ export const PAGE_SCHEMA: JsonLd[] = [
           "position": 8,
           "item": {
             "@type": "Brand",
-            "name": "Snooze-O-Pedic"
+            "name": "FLOWT by King Koil"
           }
         },
         {
@@ -178,7 +178,55 @@ export const PAGE_SCHEMA: JsonLd[] = [
           "position": 9,
           "item": {
             "@type": "Brand",
-            "name": "Helix"
+            "name": "Snooze Handcrafted by King Koil"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "Brand",
+            "name": "Copper by Spring Air"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "Brand",
+            "name": "Snooze-O-Pedic"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@type": "Brand",
+            "name": "BedTech"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "item": {
+            "@type": "Brand",
+            "name": "BedGear"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "item": {
+            "@type": "Brand",
+            "name": "Sleeptone"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "item": {
+            "@type": "Brand",
+            "name": "DreamFit"
           }
         }
       ]

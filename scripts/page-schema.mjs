@@ -49,10 +49,11 @@ const CATEGORY = new Set(['/mattresses', '/pillows', '/mattress-protectors', '/p
 const STORE_ID = `${SITE_URL}/#store`; const WEBSITE_ID = `${SITE_URL}/#website`;
 const BRANDS = JSON.parse(fs.readFileSync(path.join(ROOT, 'lib/brands.json'), 'utf8')).mattressBrands;
 const norm = (s) => s.replace(/[®™]/g, '').replace(/\s+/g, ' ').toLowerCase();
-/* the brands of /mattresses in page order: every brand named in an h2 of the desktop copy of a brand block */
+/* the brands of /mattresses in page order: the brand each section's headings name (a heading may be split over two h2s,
+   "Snooze Handcrafted®" / "by King Koil Mattresses"), each brand once */
 const brandBlocks = ($) => {
   const found = [];
-  $('h2').each((_, h) => { const t = norm($(h).text()); for (const b of BRANDS) if (t.includes(norm(b)) && !found.includes(b)) found.push(b); });
+  $('.c-section').each((_, s) => { const t = norm($(s).find('h2').toArray().map((h) => $(h).text()).join(' ')); for (const b of BRANDS) if (t.includes(norm(b)) && !found.includes(b)) found.push(b); });
   return found;
 };
 /* the page's title and description as its metadata states them (the generated page.tsx) */

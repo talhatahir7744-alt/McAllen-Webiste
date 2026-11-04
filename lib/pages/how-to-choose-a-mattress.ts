@@ -38,7 +38,7 @@ export const PAGE: ContentPage = {
         ] },
         { h2: '5. Try it the measured way', paragraphs: [
           'Lying on a few beds for thirty seconds each tells you which one feels nice in the moment, not which one will hold your spine level for eight hours. The Dream Mapping bed records your pressure points in about five minutes; a Sleep Coach reads the map with you and walks you only to the mattresses that match it. It is free, there is no obligation, and nobody at Snooze is on commission.',
-          `Snooze Mattress + Wellness is at ${L.street}, ${L.city}, ${L.region} ${L.postalCode}, open ${L.hours.en[0]} and ${L.hours.en[1]}. Delivery and setup are free on orders over $999, financing is available through Synchrony, Wells Fargo and Snap, and the store offers the 365-Night Sleep Guarantee on major brands.`,
+          `Snooze Mattress + Wellness is at ${L.street}, ${L.city}, ${L.region} ${L.postalCode}, open ${L.hours.en[0]} and ${L.hours.en[1]}. Delivery and setup are free on orders over $999, financing is available through Synchrony, Wells Fargo and Snap, and the store offers the 365-Night Sleep Guarantee on major brands. The showroom carries Tempur-Pedic, Sealy, Stearns & Foster, Serta, Beautyrest, Helix, Brooklyn Bedding, FLOWT by King Koil, Snooze Handcrafted by King Koil, Copper by Spring Air, Snooze-O-Pedic, BedTech, BedGear, Sleeptone and DreamFit.`,
         ] },
       ],
       table: {
@@ -95,7 +95,7 @@ export const PAGE: ContentPage = {
         ] },
         { h2: '5. Pruébalo con una medición', paragraphs: [
           'Acostarse treinta segundos en varias camas te dice cuál se siente rica en el momento, no cuál mantendrá tu columna nivelada ocho horas. La cama de Dream Mapping registra tus puntos de presión en unos cinco minutos; un Sleep Coach lee el mapa contigo y te lleva solo a los colchones que coinciden. Es gratis, no hay obligación y nadie en Snooze trabaja por comisión.',
-          `Snooze Mattress + Wellness está en ${L.street}, ${L.city}, ${L.region} ${L.postalCode}, abierto ${L.hours.es[0]} y ${L.hours.es[1]}. La entrega e instalación son gratis en compras mayores de $999, hay financiamiento con Synchrony, Wells Fargo y Snap, y la tienda ofrece la Garantía de Sueño de 365 Noches en las marcas principales.`,
+          `Snooze Mattress + Wellness está en ${L.street}, ${L.city}, ${L.region} ${L.postalCode}, abierto ${L.hours.es[0]} y ${L.hours.es[1]}. La entrega e instalación son gratis en compras mayores de $999, hay financiamiento con Synchrony, Wells Fargo y Snap, y la tienda ofrece la Garantía de Sueño de 365 Noches en las marcas principales. La sala de exhibición tiene Tempur-Pedic, Sealy, Stearns & Foster, Serta, Beautyrest, Helix, Brooklyn Bedding, FLOWT by King Koil, Snooze Handcrafted by King Koil, Copper by Spring Air, Snooze-O-Pedic, BedTech, BedGear, Sleeptone y DreamFit.`,
         ] },
       ],
       table: {

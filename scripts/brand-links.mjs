@@ -2,7 +2,9 @@
  * Brand links on /mattresses (SEO audit build pass, October 2026 — section D1).
  * Each brand heading on the mattresses page (EN + /es; `<h2 class="snz-h"><span style=…>Tempur-Pedic® Mattresses</span></h2>`,
  * desktop + mobile copies, in the static markup and the hydration payload) becomes a link to the brand's own site,
- * opened in a new tab with rel="noopener noreferrer". Snooze-O-Pedic is the store's own line and keeps no link.
+ * opened in a new tab with rel="noopener noreferrer". Snooze-O-Pedic is the store's own line and keeps no link. The
+ * blocks scripts/brand-lineup.mjs added on November 4, 2026 (Serta, FLOWT by King Koil, BedTech, BedGear, Sleeptone,
+ * DreamFit) keep plain headings too: no brand-site URLs were supplied for them (FLOWT would otherwise match King Koil).
  * Idempotent; run after scripts/heading-structure.mjs.  node scripts/brand-links.mjs  (npm run brand:links)  [--check]
  */
 import fs from 'node:fs';
@@ -26,7 +28,7 @@ const BRANDS = [
 ];
 const H2 = /<h2 class="snz-h"><span style="([^"]*)">([^<]*)<\/span><\/h2>/g;
 const linkHeadings = (html, stats) => html.replace(H2, (m, style, text) => {
-  if (/Snooze-o-Pedic/i.test(text)) return m;
+  if (/Snooze-o-Pedic|FLOWT/i.test(text)) return m;
   const hit = BRANDS.find(([re]) => re.test(text)); if (!hit) return m;
   stats.set(text, (stats.get(text) || 0) + 1);
   return `<h2 class="snz-h"><span style="${style}"><a class="snz-brand-link" href="${hit[1]}" target="_blank" rel="noopener noreferrer">${text}</a></span></h2>`;
