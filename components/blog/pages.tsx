@@ -117,7 +117,7 @@ export function PostPage({ slug, locale }: { slug: string; locale: Locale }) {
         datePublished: post.datePublished,
         dateModified: post.dateModified || post.datePublished,
         author: { '@type': 'Organization', name: BLOG_AUTHOR.name, url: BLOG_AUTHOR.url },
-        /* author: the Organization the client named for the blog (October 27, 2026; its name and url are in
+        /* author: the Organization the client named for the blog (November 4, 2026; its name and url are in
            lib/blog-author.ts); publisher: the site's #organization node */
         publisher: { '@id': ORG_ID },
         keywords: post.keywords.join(', '),

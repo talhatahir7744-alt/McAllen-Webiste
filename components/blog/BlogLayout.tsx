@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { SITE } from '@/components/site-config';
-import { BLOG_AUTHOR } from '@/lib/blog-author';
+import { BLOG_BYLINE_NAME } from '@/lib/blog-author';
 import type { BlogPost } from '@/lib/blog-posts';
 import { localizeHref, ui, type Locale } from '@/lib/i18n';
 import { Faq } from './Faq';
@@ -59,7 +59,7 @@ export function PostCard({ post, headingLevel = 'h3', locale = 'en' }: { post: B
         <Image src={post.featured.src} alt={post.featured.alt} width={post.featured.width} height={post.featured.height} sizes="(max-width: 720px) 100vw, 33vw" />
       </a>
       <div className={styles.cardBody}>
-        <Meta post={post} byline={`${t.by} ${BLOG_AUTHOR.name}`} />
+        <Meta post={post} byline={`${t.by} ${BLOG_BYLINE_NAME[locale]}`} />
         <H className={styles.cardTitle}>
           <a href={href}>{post.title}</a>
         </H>
@@ -113,7 +113,7 @@ export function BlogArticle({ post, related, locale = 'en' }: { post: BlogPost; 
           </nav>
           <p className={styles.eyebrow}>{t.eyebrow}</p>
           <h1 className={styles.title}>{post.title}</h1>
-          <Meta post={post} byline={`${t.by} ${BLOG_AUTHOR.name}`} />
+          <Meta post={post} byline={`${t.by} ${BLOG_BYLINE_NAME[locale]}`} />
           <Divider />
         </div>
       </header>
