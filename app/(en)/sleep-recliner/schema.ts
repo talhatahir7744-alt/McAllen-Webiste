@@ -97,5 +97,20 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "item": "https://mcallen.snoozemattresscompany.com/sleep-recliner"
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://mcallen.snoozemattresscompany.com/sleep-recliner#webpage",
+    "url": "https://mcallen.snoozemattresscompany.com/sleep-recliner",
+    "name": "Sleep Recliner (Zcliner) in McAllen, TX",
+    "description": "The SleepRecliner (Zcliner®) by Flexsteel, available at Snooze Mattress + Wellness in McAllen: advanced comfort technology with therapeutic positioning.",
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#website"
+    },
+    "about": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#store"
+    }
   }
 ];

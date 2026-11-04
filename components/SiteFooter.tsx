@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { SITE } from './site-config';
 import { LOCATION } from '@/lib/location';
-import { LocalBusinessJsonLd } from './LocalBusinessJsonLd';
 import { localizeHref, ui, PRODUCT_KEYS, type Locale } from '@/lib/i18n';
 import styles from './SiteFooter.module.css';
 
@@ -138,7 +137,6 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
           </span>
         </div>
       </div>
-      <LocalBusinessJsonLd locale={locale} />
     </footer>
   );
 }

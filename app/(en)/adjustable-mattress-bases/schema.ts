@@ -97,5 +97,20 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "item": "https://mcallen.snoozemattresscompany.com/adjustable-mattress-bases"
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://mcallen.snoozemattresscompany.com/adjustable-mattress-bases#webpage",
+    "url": "https://mcallen.snoozemattresscompany.com/adjustable-mattress-bases",
+    "name": "Adjustable Beds & Bases in McAllen, TX",
+    "description": "Adjustable beds and bases in McAllen, TX from Snooze Mattress + Wellness: more comfort, support and pressure relief, less snoring. Try one in store.",
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#website"
+    },
+    "about": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#store"
+    }
   }
 ];

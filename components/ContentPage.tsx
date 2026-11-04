@@ -4,6 +4,7 @@ import { CheckItem, Icon, iconFor } from '@/components/icons';
 import { PageSchema } from '@/components/PageSchema';
 import { SizeTypeGrid } from '@/components/SizeTypeGrid';
 import { LOCATION } from '@/lib/location';
+import { pageNode, SITE_URL } from '@/lib/schema';
 import { localizeHref, ui, type Locale } from '@/lib/i18n';
 import type { ContentPage as ContentPageData, ListStyle, PageCopy } from '@/lib/pages/types';
 import styles from './ContentPage.module.css';
@@ -34,9 +35,9 @@ function withDreamMappingLink(c: PageCopy, slug: string, locale: Locale): PageCo
 }
 
 /* Renders a hand-written content page (lib/pages/*) in one locale: breadcrumb, H1, copy, optional table, FAQ
-   accordion (the blog's), CTA to /booking, plus FAQPage + BreadcrumbList JSON-LD (and any extra schema the page
-   defines). Server-rendered; the FAQ accordion is the same client component the blog uses. */
-const SITE_URL = 'https://mcallen.snoozemattresscompany.com';
+   accordion (the blog's), CTA to /booking, plus FAQPage + BreadcrumbList JSON-LD, the page's own CollectionPage /
+   WebPage node when its data sets one (schemaPage) and any extra schema the page defines, in the page's one graph
+   (components/PageSchema.tsx). Server-rendered; the FAQ accordion is the same client component the blog uses. */
 
 /* A bullet list in the style its data asks for (lib/pages/types.ts listStyle; October 27, 2026): icon cards for
    benefits and features (an item written "Label: text" gets the label as its title), a numbered timeline for steps,
@@ -100,13 +101,17 @@ export function ContentPage({ page, locale }: { page: ContentPageData; locale: L
     ] },
     ...(c.faqs.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: c.faqs.map((f) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: plain(f.answer) } })) }] : []),
     ...(page.extraSchema ? page.extraSchema(locale) : []),
+    ...(page.schemaPage ? [pageNode(page.schemaPage.type, url, c.title.replace(/\s*\|\s*Snooze Mattress\s*$/, ''), locale, {
+      description: c.description,
+      ...(page.schemaPage.type === 'WebPage' ? { spatialCoverage: { '@type': 'City', name: page.schemaPage.city, containedInPlace: { '@type': 'State', name: 'Texas' } } } : {}),
+    })] : []),
   ];
   const L = LOCATION;
   /* the size/type cards on the size/type pages and the buying guide, without the page's own card */
   const sizeGrid = page.kind === 'product' || page.slug === '/how-to-choose-a-mattress';
   return (
     <main className={styles.page} data-content-page={page.slug}>
-      <PageSchema items={schema} />
+      <PageSchema items={schema} locale={locale} />
       <div className={styles.container}>
         <nav className={styles.crumbs} aria-label={locale === 'es' ? 'Ruta de navegación' : 'Breadcrumb'}>
           <a href={localizeHref('/', locale)}>{t.blog.home}</a>

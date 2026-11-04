@@ -5,6 +5,7 @@ const L = LOCATION;
 export const PAGE: ContentPage = {
   slug: '/queen-mattresses',
   kind: 'product',
+  schemaPage: { type: 'CollectionPage' },
   copy: {
     en: {
       title: 'Queen Mattresses in McAllen, TX | Snooze Mattress',

@@ -45,7 +45,7 @@ export default function Page() {
   return (
     <>
       {/* page-level JSON-LD (scripts/page-schema.mjs) */}
-      <PageSchema items={PAGE_SCHEMA} />
+      <PageSchema items={PAGE_SCHEMA} locale="es" />
       <PageClient />
       {/* the store's address, phone and hours from lib/location.ts (same as the top bar and footer) */}
       <ContactDetails locale="es" />

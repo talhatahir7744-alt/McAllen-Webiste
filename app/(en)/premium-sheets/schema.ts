@@ -97,5 +97,20 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "item": "https://mcallen.snoozemattresscompany.com/premium-sheets"
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://mcallen.snoozemattresscompany.com/premium-sheets#webpage",
+    "url": "https://mcallen.snoozemattresscompany.com/premium-sheets",
+    "name": "Premium Sheets in McAllen, TX",
+    "description": "The right sheets can transform your sleep. The premium sheets at Snooze Mattress + Wellness in McAllen combine softness, breathability and durability.",
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#website"
+    },
+    "about": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#store"
+    }
   }
 ];

@@ -97,5 +97,20 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "item": "https://mcallen.snoozemattresscompany.com/pillows"
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://mcallen.snoozemattresscompany.com/pillows#webpage",
+    "url": "https://mcallen.snoozemattresscompany.com/pillows",
+    "name": "Pillows in McAllen, TX for How You Sleep",
+    "description": "Pillows in McAllen, TX fitted to how you sleep: side, back and stomach sleepers. Premium pillows at Snooze Mattress + Wellness for your sleep style.",
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#website"
+    },
+    "about": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#store"
+    }
   }
 ];

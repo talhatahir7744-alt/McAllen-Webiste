@@ -97,5 +97,99 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "item": "https://mcallen.snoozemattresscompany.com/es/mattresses"
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://mcallen.snoozemattresscompany.com/es/mattresses#webpage",
+    "url": "https://mcallen.snoozemattresscompany.com/es/mattresses",
+    "name": "Colchones en McAllen, TX: Marcas Líderes",
+    "description": "Colchones en McAllen, TX: Tempur-Pedic, Sealy, Stearns & Foster, Beautyrest, Helix, King Koil y más, ajustados a ti en una sesión gratis de Dream Mapping.",
+    "inLanguage": "es-US",
+    "isPartOf": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#website"
+    },
+    "about": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#store"
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "Marcas de colchones",
+      "numberOfItems": 9,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Brand",
+            "name": "Tempur-Pedic"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Brand",
+            "name": "Sealy"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Brand",
+            "name": "Stearns & Foster"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Brand",
+            "name": "Beautyrest"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "Brand",
+            "name": "King Koil"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "Brand",
+            "name": "Brooklyn Bedding"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "Brand",
+            "name": "Spring Air"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "Brand",
+            "name": "Snooze-O-Pedic"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "Brand",
+            "name": "Helix"
+          }
+        }
+      ]
+    }
   }
 ];

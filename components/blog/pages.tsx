@@ -3,10 +3,11 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { BlogArticle, BlogCta, BlogShell, Divider, PostCard } from '@/components/blog/BlogLayout';
 import { plain } from '@/components/blog/Rich';
-import { SITE } from '@/components/site-config';
+import { PageSchema } from '@/components/PageSchema';
 import styles from '@/components/blog/blog.module.css';
 import { altBlogPath, getPost, postsFor, relatedPosts, type BlogPost } from '@/lib/blog-posts';
 import { localizeHref, ui, type Locale } from '@/lib/i18n';
+import { ORG_ID } from '@/lib/schema';
 
 const SITE_URL = 'https://mcallen.snoozemattresscompany.com';
 const FAVICON = '/assets/filesafe/qR8peonBlnjGI3ZuLHQP/media/695b9e7d17768458ae206a19.png';
@@ -43,6 +44,7 @@ export function BlogIndexPage({ locale }: { locale: Locale }) {
   const posts = [...postsFor(locale)].sort((a, b) => (a.datePublished < b.datePublished ? 1 : -1));
   return (
     <BlogShell>
+      <PageSchema items={[]} locale={locale} />
       <header className={styles.indexHero}>
         <div className={styles.container}>
           <p className={styles.eyebrow}>{t.eyebrow}</p>
@@ -102,7 +104,6 @@ export function PostPage({ slug, locale }: { slug: string; locale: Locale }) {
   const wordCount = post.sections.flatMap((s) => s.paragraphs).map(plain).join(' ').split(/\s+/).length;
 
   const graph = {
-    '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'BlogPosting',
@@ -115,7 +116,8 @@ export function PostPage({ slug, locale }: { slug: string; locale: Locale }) {
         datePublished: post.datePublished,
         dateModified: post.dateModified || post.datePublished,
         author: { '@type': 'Organization', name: t.org, url: SITE_URL },
-        publisher: { '@type': 'Organization', name: t.org, url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}${SITE.logo}` } },
+        /* author: the Organization the client named (October 27, 2026); publisher: the site's #organization node */
+        publisher: { '@id': ORG_ID },
         keywords: post.keywords.join(', '),
         wordCount,
         articleSection: t.section,
@@ -141,7 +143,7 @@ export function PostPage({ slug, locale }: { slug: string; locale: Locale }) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graph).replace(/</g, '\\u003c') }} />
+      <PageSchema items={graph['@graph']} locale={locale} />
       <BlogArticle post={post} related={related} locale={locale} />
     </>
   );

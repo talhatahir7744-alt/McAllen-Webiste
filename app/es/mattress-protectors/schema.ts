@@ -97,5 +97,20 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "item": "https://mcallen.snoozemattresscompany.com/es/mattress-protectors"
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://mcallen.snoozemattresscompany.com/es/mattress-protectors#webpage",
+    "url": "https://mcallen.snoozemattresscompany.com/es/mattress-protectors",
+    "name": "Protectores de Colchón en McAllen, TX",
+    "description": "Protectores de colchón en McAllen, TX de Snooze Mattress + Wellness: protección transpirable e impermeable contra derrames y alérgenos para tu inversión.",
+    "inLanguage": "es-US",
+    "isPartOf": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#website"
+    },
+    "about": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#store"
+    }
   }
 ];

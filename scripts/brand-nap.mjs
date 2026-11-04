@@ -37,6 +37,10 @@ const RULES = [
   // so both resolve to the store's own listing (same URLs as lib/location.ts mapLink / mapEmbed)
   { name: 'map embed → business-name query', re: /https:\/\/maps\.google\.com\/maps\?q=7913\+N\+10th\+St,\+Suite\+130,\+McAllen,\+TX\+78504(&amp;|&)z=15(?:&amp;|&)output=embed/g, to: 'https://www.google.com/maps?q=Snooze+Mattress+%2B+Wellness%2C+7913+N+10th+St%2C+Suite+130%2C+McAllen%2C+TX+78504$1output=embed' },
   { name: 'map link → business-name query', re: /https:\/\/maps\.google\.com\/\?q=7913\+N\+10th\+St,\+Suite\+130,\+McAllen,\+TX\+78504/g, to: 'https://www.google.com/maps?q=Snooze+Mattress+%2B+Wellness%2C+7913+N+10th+St%2C+Suite+130%2C+McAllen%2C+TX+78504' },
+  // the store's Google Business Profile listing (Place ID, lib/location.ts gbpUrl; schema review, November 3, 2026): the
+  // location cards' directions / "Open Maps" links open the listing itself; only a link ending at its attribute quote
+  // (markup, or the payload's escaped quote) matches, so the map embeds (…&output=embed) keep the business-name query
+  { name: 'map link → Google Business Profile listing (Place ID)', re: /https:\/\/www\.google\.com\/maps\?q=Snooze\+Mattress\+%2B\+Wellness%2C\+7913\+N\+10th\+St%2C\+Suite\+130%2C\+McAllen%2C\+TX\+78504(?=\\*")/g, to: 'https://www.google.com/maps/place/?q=place_id:ChIJBYBxOXChZYYR48f71GAS7YY' },
 ];
 
 const walk = (d, out = []) => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walk(p, out); else out.push(p); } return out; };

@@ -97,5 +97,20 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "item": "https://mcallen.snoozemattresscompany.com/es/sleep-recliner"
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://mcallen.snoozemattresscompany.com/es/sleep-recliner#webpage",
+    "url": "https://mcallen.snoozemattresscompany.com/es/sleep-recliner",
+    "name": "Sillón Reclinable Zcliner en McAllen, TX",
+    "description": "El SleepRecliner (Zcliner®) de Flexsteel, disponible en Snooze Mattress + Wellness en McAllen: tecnología de confort avanzada con posiciones terapéuticas.",
+    "inLanguage": "es-US",
+    "isPartOf": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#website"
+    },
+    "about": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#store"
+    }
   }
 ];

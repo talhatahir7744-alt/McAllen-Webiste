@@ -5,6 +5,7 @@ const L = LOCATION;
 export const PAGE: ContentPage = {
   slug: '/cooling-mattresses',
   kind: 'product',
+  schemaPage: { type: 'CollectionPage' },
   copy: {
     en: {
       title: 'Cooling Mattresses in McAllen, TX | Snooze Mattress',

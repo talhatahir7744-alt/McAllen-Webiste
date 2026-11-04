@@ -1,27 +1,13 @@
 import type { ContentPage } from './types';
 import { LOCATION } from '@/lib/location';
-
-const SITE_URL = 'https://mcallen.snoozemattresscompany.com';
-const service = (locale: 'en' | 'es') => ({
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  '@id': `${SITE_URL}/dream-mapping#service`,
-  name: 'Dream Mapping',
-  serviceType: locale === 'es' ? 'Ajuste de colchón por mapeo de presión' : 'Mattress fitting by pressure mapping',
-  description: locale === 'es'
-    ? 'Sesión gratuita de Dream Mapping en la tienda de McAllen: en unos 5 minutos, el mapeo de presión identifica el colchón que se ajusta a tu forma de dormir.'
-    : 'Free in-store Dream Mapping fitting at the McAllen store: in about 5 minutes, pressure mapping identifies the mattress that fits the way you sleep.',
-  url: `${SITE_URL}${locale === 'es' ? '/es' : ''}/dream-mapping`,
-  provider: { '@type': 'LocalBusiness', '@id': `${SITE_URL}/#store`, name: LOCATION.name },
-  areaServed: LOCATION.areaServed.map((city) => ({ '@type': 'City', name: city })),
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStoreOnly', url: `${SITE_URL}${locale === 'es' ? '/es' : ''}/booking` },
-  hoursAvailable: LOCATION.openingHours.map((h) => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: h.days.map((d) => `https://schema.org/${d}`), opens: h.opens, closes: h.closes })),
-});
+import { dreamMappingService } from '@/lib/schema';
 
 export const PAGE: ContentPage = {
   slug: '/dream-mapping',
   kind: 'guide',
-  extraSchema: (locale) => [service(locale)],
+  /* the Dream Mapping Service (lib/schema.ts: …/dream-mapping#service, provider the store, free offer, ReserveAction
+     to /booking); /booking renders the same node */
+  extraSchema: (locale) => [dreamMappingService(locale)],
   copy: {
     en: {
       title: 'Dream Mapping Fitting in McAllen, TX | Snooze Mattress',

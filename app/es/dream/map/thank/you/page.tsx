@@ -44,7 +44,7 @@ export default function Page() {
   return (
     <>
       {/* page-level JSON-LD (scripts/page-schema.mjs) */}
-      <PageSchema items={PAGE_SCHEMA} />
+      <PageSchema items={PAGE_SCHEMA} locale="es" />
       <PageClient />
     </>
   );

@@ -97,5 +97,20 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "item": "https://mcallen.snoozemattresscompany.com/massage-chairs"
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://mcallen.snoozemattresscompany.com/massage-chairs#webpage",
+    "url": "https://mcallen.snoozemattresscompany.com/massage-chairs",
+    "name": "Massage Chairs in McAllen, TX — Infinity",
+    "description": "Infinity massage chairs in McAllen, TX at Snooze Mattress + Wellness: advanced massage technology designed to help you relax and recover. Try one in store.",
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#website"
+    },
+    "about": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#store"
+    }
   }
 ];

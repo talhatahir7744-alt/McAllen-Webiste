@@ -97,5 +97,20 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "item": "https://mcallen.snoozemattresscompany.com/es/premium-sheets"
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://mcallen.snoozemattresscompany.com/es/premium-sheets#webpage",
+    "url": "https://mcallen.snoozemattresscompany.com/es/premium-sheets",
+    "name": "Sábanas Premium en McAllen, TX",
+    "description": "Las sábanas correctas pueden transformar tu descanso. Las sábanas premium de Snooze Mattress + Wellness en McAllen: suavidad, frescura y durabilidad.",
+    "inLanguage": "es-US",
+    "isPartOf": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#website"
+    },
+    "about": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#store"
+    }
   }
 ];

@@ -12,6 +12,7 @@ export function areaPage(city: string, slug: string): ContentPage {
   return {
     slug,
     kind: 'area',
+    schemaPage: { type: 'WebPage', city },
     copy: {
       en: {
         title: `Mattress Store Serving ${city}, TX | Snooze Mattress`,

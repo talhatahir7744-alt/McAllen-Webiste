@@ -44,7 +44,7 @@ export default function Page() {
   return (
     <>
       {/* page-level JSON-LD (scripts/page-schema.mjs) */}
-      <PageSchema items={PAGE_SCHEMA} />
+      <PageSchema items={PAGE_SCHEMA} locale="es" />
       <PageClient />
       {/* "Not sure what size you need?" — the two blog guides (SEO report, October 27, 2026) */}
       <GuideLinks locale="es" />

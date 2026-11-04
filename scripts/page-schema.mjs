@@ -4,12 +4,17 @@
  *   - FAQPage from the page's own FAQ accordion (overrides/faq-accordion.html markup: .snz-faq__item -> question in
  *     .snz-faq__btn, answer in .snz-faq__a), questions deduplicated (the builder exports every section twice);
  *   - BreadcrumbList (Home › page) on the product pages;
+ *   - CollectionPage on the category pages (schema review, November 3, 2026): @id …#webpage, name and description
+ *     from the page's metadata, part of #website, about #store; on /mattresses its mainEntity is an ItemList of
+ *     Brand from the page's brand blocks (h2 headings, page order), which must equal lib/brands.json (the store's
+ *     brand[]); a mismatch stops the script;
  *   - the builder's own "schemaMarkup" is removed from the page payload: the GoHighLevel runtime used to inject it
  *     into <head> after hydration (a second FurnitureStore block with an incomplete address, next to the site's own
- *     LocalBusiness block rendered by the footer), so every page now carries exactly one LocalBusiness.
- * Writes app/<route>/schema.ts (PAGE_SCHEMA) and adds <PageSchema items={PAGE_SCHEMA} /> to the route's page.tsx
- * (components/PageSchema.tsx renders the JSON-LD server-side). Idempotent; run after `npm run convert` and the
- * other post-convert scripts:  node scripts/page-schema.mjs   (npm run schema)   [--check: report only]
+ *     #store node), so every page now carries exactly one LocalBusiness.
+ * Writes app/<route>/schema.ts (PAGE_SCHEMA) and renders it with <PageSchema items={PAGE_SCHEMA} locale="…" /> from
+ * the route's page.tsx (components/PageSchema.tsx: one JSON-LD graph per page, the site nodes of lib/schema.ts first).
+ * Idempotent; run after `npm run convert` and the other post-convert scripts:
+ *   node scripts/page-schema.mjs   (npm run schema)   [--check: report only]
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -39,6 +44,19 @@ const HOME = { en: 'Home', es: 'Inicio' };
 /* the contact page (/contact-us, October 29, 2026): ContactPage about the store (the site-wide LocalBusiness record,
    @id …/#store, rendered by the footer and unchanged) + BreadcrumbList Home › Contact Us; name = the page's H1 */
 const CONTACT = { '/contact-us': { en: { name: 'Contact Snooze Mattress in McAllen', crumb: 'Contact Us' }, es: { name: 'Contacta a Snooze Mattress en McAllen', crumb: 'Contáctanos' } } };
+/* the category pages of the GoHighLevel export (the size/type category pages are hand-written: lib/pages/*.ts schemaPage) */
+const CATEGORY = new Set(['/mattresses', '/pillows', '/mattress-protectors', '/premium-sheets', '/adjustable-mattress-bases', '/massage-chairs', '/sleep-recliner']);
+const STORE_ID = `${SITE_URL}/#store`; const WEBSITE_ID = `${SITE_URL}/#website`;
+const BRANDS = JSON.parse(fs.readFileSync(path.join(ROOT, 'lib/brands.json'), 'utf8')).mattressBrands;
+const norm = (s) => s.replace(/[®™]/g, '').replace(/\s+/g, ' ').toLowerCase();
+/* the brands of /mattresses in page order: every brand named in an h2 of the desktop copy of a brand block */
+const brandBlocks = ($) => {
+  const found = [];
+  $('h2').each((_, h) => { const t = norm($(h).text()); for (const b of BRANDS) if (t.includes(norm(b)) && !found.includes(b)) found.push(b); });
+  return found;
+};
+/* the page's title and description as its metadata states them (the generated page.tsx) */
+const metaOf = (pageSrc) => { const m = pageSrc.match(/export const metadata: Metadata = (\{[\s\S]*?\n\});/); const meta = m ? JSON.parse(m[1]) : {}; return { name: String(meta.title || '').replace(/\s*\|\s*Snooze Mattress\s*$/, ''), description: meta.description }; };
 
 const pages = []; (function walk(d) { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walk(p); else if (e.name === 'content.ts' && fs.existsSync(path.join(d, 'page.tsx'))) pages.push(d); } })(path.join(ROOT, 'app'));
 const rel = (f) => path.relative(ROOT, f).split(path.sep).join('/');
@@ -71,6 +89,17 @@ for (const dir of pages) {
       { '@type': 'ListItem', position: 2, name: CONTACT[base][locale].crumb, item: `${SITE_URL}${route}` },
     ] });
   }
+  if (CATEGORY.has(base)) {
+    const { name, description } = metaOf(fs.readFileSync(path.join(dir, 'page.tsx'), 'utf8'));
+    if (!name) throw new Error(`${route}: no metadata title for the CollectionPage`);
+    const node = { '@context': 'https://schema.org', '@type': 'CollectionPage', '@id': `${SITE_URL}${route}#webpage`, url: `${SITE_URL}${route}`, name, ...(description ? { description } : {}), inLanguage: locale === 'es' ? 'es-US' : 'en-US', isPartOf: { '@id': WEBSITE_ID }, about: { '@id': STORE_ID } };
+    if (base === '/mattresses') {
+      const brands = brandBlocks($);
+      if (brands.join('|') !== BRANDS.join('|')) throw new Error(`${route}: brand blocks ${JSON.stringify(brands)} differ from lib/brands.json ${JSON.stringify(BRANDS)}`);
+      node.mainEntity = { '@type': 'ItemList', name: locale === 'es' ? 'Marcas de colchones' : 'Mattress brands', numberOfItems: brands.length, itemListElement: brands.map((b, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': 'Brand', name: b } })) };
+    }
+    items.push(node);
+  }
   // ---- the builder's schemaMarkup leaves the payload (devalue array: pageData.schemaMarkup -> -1 = undefined)
   const $p = $('script#__NUXT_DATA__').first(); let payloadChanged = false;
   if ($p.length) {
@@ -82,13 +111,15 @@ for (const dir of pages) {
   const schemaTs = `// Generated by scripts/page-schema.mjs — do not edit by hand (FAQ from the page's accordion, breadcrumb from the route).\nimport type { JsonLd } from '@/components/PageSchema';\n\nexport const PAGE_SCHEMA: JsonLd[] = ${JSON.stringify(items, null, 2)};\n`;
   const schemaFile = path.join(dir, 'schema.ts'); const pageFile = path.join(dir, 'page.tsx');
   let page = fs.readFileSync(pageFile, 'utf8'); const pageBefore = page;
+  const tag = `<PageSchema items={PAGE_SCHEMA} locale="${locale}" />`;
   if (!page.includes("from '@/components/PageSchema'")) {
     page = page.replace("import PageClient from './client';", "import PageClient from './client';\nimport { PageSchema } from '@/components/PageSchema';\nimport { PAGE_SCHEMA } from './schema';");
-    if (/return <PageClient \/>;/.test(page)) page = page.replace('return <PageClient />;', 'return (\n    <>\n      {/* page-level JSON-LD (scripts/page-schema.mjs) */}\n      <PageSchema items={PAGE_SCHEMA} />\n      <PageClient />\n    </>\n  );');
-    else page = page.replace('      <PageClient />', '      {/* page-level JSON-LD (scripts/page-schema.mjs) */}\n      <PageSchema items={PAGE_SCHEMA} />\n      <PageClient />');
-    if (!page.includes('<PageSchema items={PAGE_SCHEMA} />')) throw new Error(`${rel(pageFile)}: could not place <PageSchema>`);
+    if (/return <PageClient \/>;/.test(page)) page = page.replace('return <PageClient />;', `return (\n    <>\n      {/* page-level JSON-LD (scripts/page-schema.mjs) */}\n      ${tag}\n      <PageClient />\n    </>\n  );`);
+    else page = page.replace('      <PageClient />', `      {/* page-level JSON-LD (scripts/page-schema.mjs) */}\n      ${tag}\n      <PageClient />`);
   }
-  const line = `${route.padEnd(44)} FAQ ${String(faqs.length).padStart(2)}  breadcrumb ${PRODUCT_NAMES[base] || CONTACT[base] ? 'yes' : 'no '}  builder block ${payloadChanged ? 'removed' : 'absent '}`;
+  page = page.replace(/<PageSchema items=\{PAGE_SCHEMA\}(?: locale="[a-z]+")? \/>/, tag); // the page's locale (one graph per page)
+  if (!page.includes(tag)) throw new Error(`${rel(pageFile)}: could not place <PageSchema>`);
+  const line = `${route.padEnd(44)} FAQ ${String(faqs.length).padStart(2)}  breadcrumb ${PRODUCT_NAMES[base] || CONTACT[base] ? 'yes' : 'no '}  builder block ${payloadChanged ? 'removed' : 'absent '}${CATEGORY.has(base) ? '  CollectionPage' + (base === '/mattresses' ? ' + brand ItemList' : '') : ''}`;
   console.log(line);
   totals.pages++; totals.faq += faqs.length; if (PRODUCT_NAMES[base] || CONTACT[base]) totals.crumbs++;
   if (CHECK) continue;

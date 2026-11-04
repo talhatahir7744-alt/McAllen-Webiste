@@ -97,5 +97,20 @@ export const PAGE_SCHEMA: JsonLd[] = [
         "item": "https://mcallen.snoozemattresscompany.com/mattress-protectors"
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://mcallen.snoozemattresscompany.com/mattress-protectors#webpage",
+    "url": "https://mcallen.snoozemattresscompany.com/mattress-protectors",
+    "name": "Mattress Protectors in McAllen, TX",
+    "description": "Mattress protectors in McAllen, TX from Snooze Mattress + Wellness: breathable, waterproof protection from spills and allergens for your mattress.",
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#website"
+    },
+    "about": {
+      "@id": "https://mcallen.snoozemattresscompany.com/#store"
+    }
   }
 ];

@@ -5,6 +5,7 @@ const L = LOCATION;
 export const PAGE: ContentPage = {
   slug: '/king-mattresses',
   kind: 'product',
+  schemaPage: { type: 'CollectionPage' },
   copy: {
     en: {
       title: 'King Mattresses in McAllen: Room for Two | Snooze Mattress',

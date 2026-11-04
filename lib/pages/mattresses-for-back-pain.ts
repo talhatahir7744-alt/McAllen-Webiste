@@ -5,6 +5,7 @@ const L = LOCATION;
 export const PAGE: ContentPage = {
   slug: '/mattresses-for-back-pain',
   kind: 'guide',
+  schemaPage: { type: 'CollectionPage' },
   copy: {
     en: {
       title: 'Mattresses for Back Pain in McAllen, TX | Snooze Mattress',

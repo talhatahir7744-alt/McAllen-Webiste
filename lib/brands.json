@@ -1,0 +1,4 @@
+{
+  "_note": "The mattress brands the store carries: the brand blocks of /mattresses (EN + ES), in page order (client: the /mattresses page is the source of truth, November 3, 2026). King Koil covers the page's SmartLife and Snooze Handcrafted blocks. Read by lib/schema.ts (the store's brand[]) and scripts/page-schema.mjs, which checks the /mattresses headings still give this list and writes the page's ItemList of Brand from them.",
+  "mattressBrands": ["Tempur-Pedic", "Sealy", "Stearns & Foster", "Beautyrest", "King Koil", "Brooklyn Bedding", "Spring Air", "Snooze-O-Pedic", "Helix"]
+}

@@ -39,4 +39,7 @@ export type ContentPage = {
   copy: Record<Locale, PageCopy>;
   /** extra JSON-LD objects (e.g. the Dream Mapping Service) per locale */
   extraSchema?: (locale: Locale) => Record<string, unknown>[];
+  /** the page's own node in the graph (lib/schema.ts pageNode, November 3, 2026): CollectionPage on the size/type
+      category pages, WebPage covering the city on the service-area pages */
+  schemaPage?: { type: 'CollectionPage' } | { type: 'WebPage'; city: string };
 };
