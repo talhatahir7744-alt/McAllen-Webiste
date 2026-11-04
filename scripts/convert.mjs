@@ -1398,7 +1398,7 @@ One footer for the whole site: \`components/SiteFooter.tsx\` (+ module CSS), ren
 
 ## Blog (hand-written Next.js routes)
 
-\`/blog\` and the three posts (\`/blog/custom-mattresses-improving-health\`, \`/blog/pressure-mapping-for-sleep\`, \`/blog/mattresses-that-relieve-aches\`) are native App Router pages: content in \`lib/blog-posts.ts\` (client copy verbatim), template in \`components/blog/\` (hero → featured image → article → FAQ accordion → CTA → related posts → footer, one continuous lavender gradient), unique meta title/description, canonical, Open Graph + Twitter cards, JSON-LD BlogPosting + FAQPage + BreadcrumbList, \`app/sitemap.ts\` and \`app/robots.ts\`. Images are site assets served through \`next/image\`. The converter keeps \`app/blog\`, \`app/sitemap.ts\` and \`app/robots.ts\` when it regenerates \`app/\`.
+\`/blog\` and the three posts (\`/blog/custom-mattresses-improving-health\`, \`/blog/pressure-mapping-for-sleep\`, \`/blog/mattresses-that-relieve-aches\`) are native App Router pages: content in \`lib/blog-posts.ts\` (client copy verbatim), template in \`components/blog/\` (hero → featured image → article → FAQ accordion → CTA → related posts → footer, one continuous lavender gradient), unique meta title/description, canonical, Open Graph + Twitter cards, JSON-LD BlogPosting + FAQPage + BreadcrumbList, \`app/sitemap.ts\` and a static \`public/robots.txt\` (with \`public/llms.txt\`). Images are site assets served through \`next/image\`. The converter keeps \`app/blog\` and \`app/sitemap.ts\` when it regenerates \`app/\`.
 
 ## Sleep Fit Quiz (hand-written route)
 
@@ -1485,9 +1485,10 @@ Generated ${new Date().toISOString()} from \`${CLONE}\`.
 // ---------------------------------------------------------------- run
 console.log(`converting ${pageFiles.length} pages from ${SITE_DIR} → ${ROOT}`);
 // hand-written routes that must survive a regeneration (everything else under app/ is generated)
-// hand-written routes that must survive a regeneration: app/(en)/blog, app/es/blog, sitemap.ts, robots.ts (everything else under app/ is generated)
+// hand-written routes that must survive a regeneration: app/(en)/blog, app/es/blog, sitemap.ts (everything else under app/ is generated;
+// /robots.txt and /llms.txt are static files in public/ since November 3, 2026)
 const GEN_FILE = /^(page|client|layout|not-found)\.tsx$|^(content|scripts)\.ts$/;
-if (fs.existsSync(APP)) for (const e of fs.readdirSync(APP)) { if (['sitemap.ts', 'robots.ts', '(en)', 'es', 'ghl-stub' /* hand-written API stub route */].includes(e)) continue; const p = path.join(APP, e); if (fs.statSync(p).isDirectory() || GEN_FILE.test(e)) fs.rmSync(p, { recursive: true, force: true }); }
+if (fs.existsSync(APP)) for (const e of fs.readdirSync(APP)) { if (['sitemap.ts', '(en)', 'es', 'ghl-stub' /* hand-written API stub route */].includes(e)) continue; const p = path.join(APP, e); if (fs.statSync(p).isDirectory() || GEN_FILE.test(e)) fs.rmSync(p, { recursive: true, force: true }); }
 for (const g of ['(en)', ...LOCALES.filter((l) => l.code !== 'en').map((l) => l.code)]) { const d = path.join(APP, g); if (!fs.existsSync(d)) continue; for (const e of fs.readdirSync(d)) { if (e === 'blog' || e === 'booking' || e === 'sleep-quiz') continue; /* hand-written routes: blog, booking, the Sleep Fit Quiz */ const p = path.join(d, e); if (fs.statSync(p).isDirectory() || GEN_FILE.test(e)) fs.rmSync(p, { recursive: true, force: true }); } }
 // sections to copy into other pages are read once from their source page (raw clone, before any transform)
 const INSERT_PACKS = OVR.insertSections.map((cfg) => extractSections(SITE_DIR, cfg));

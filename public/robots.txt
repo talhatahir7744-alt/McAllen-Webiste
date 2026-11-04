@@ -1,0 +1,10 @@
+# Everything is crawlable except the offline placeholders under /ghl-stub. The thank-you pages are not disallowed:
+# they carry a noindex,follow robots meta tag, which Google can only honour on a page it may fetch.
+User-Agent: *
+Allow: /
+Disallow: /ghl-stub/
+Disallow: /ghl-stub.html
+
+Sitemap: https://mcallen.snoozemattresscompany.com/sitemap.xml
+
+# llms.txt, a plain-text guide to this site for AI assistants: https://mcallen.snoozemattresscompany.com/llms.txt
