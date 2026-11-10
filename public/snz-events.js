@@ -6,9 +6,6 @@
      optin_submit           — the contact opt-in confirmation page loaded (/thank/you, /es/thank/you); the form
                               itself is a LeadConnector iframe, so the redirect to its thank-you page is the hook
      booking_widget_message — best effort: a confirmation-like postMessage from the LeadConnector booking widget
-     promo_banner_click     — a home promo banner slide was clicked ([data-banner])  { banner_id }
-     promo_banner_view      — a single, static promo banner is on the page             { banner_id }
-                              (the carousel sends its own views, once per slide: components/PromoCarousel.tsx)
    The Sleep Fit Quiz already pushes quiz_start, quiz_answer, quiz_lead_form_view, quiz_completed and
    quiz_results_revisit (public/sleep-fit-quiz.js). */
 (function () {
@@ -19,15 +16,11 @@
   var MAPS = /(^|\/\/)(www\.)?(google\.[a-z.]+\/maps|maps\.google\.|maps\.app\.goo\.gl|goo\.gl\/maps)/i;
   document.addEventListener('click', function (e) {
     var t = e.target; if (!t || !t.closest) return;
-    var banner = t.closest('[data-banner]');
-    if (banner) push('promo_banner_click', { banner_id: banner.getAttribute('data-banner') || '' });
     var a = t.closest('a[href]'); if (!a) return;
     var href = a.getAttribute('href') || '';
     if (/^tel:/i.test(href)) push('phone_click', { phone_number: href.replace(/^tel:/i, ''), link_text: text(a) });
     else if (MAPS.test(href)) push('directions_click', { link_url: href, link_text: text(a) });
   }, true);
-  var staticBanner = document.querySelector('[data-promo-banner="static"] [data-banner]');
-  if (staticBanner) push('promo_banner_view', { banner_id: staticBanner.getAttribute('data-banner') || '' });
   if (/^(\/es)?\/dream\/map\/thank\/you$/.test(path)) push('booking_confirmation', {});
   if (/^(\/es)?\/thank\/you$/.test(path)) push('optin_submit', {});
   window.addEventListener('message', function (e) {
