@@ -1,8 +1,10 @@
 /* The shared promo banner feed (November 2026). One JSON for every Snooze store, published by the banner service at
    process.env.BANNERS_URL (set in the Vercel project's environment):
      { generatedAt, banners: [{ id, name, always, priority, rotateSeconds, href, start, end, stores,
-                               slides: [{ desktop, mobile, alt, href }] }] }
-   start/end are inclusive calendar days (YYYY-MM-DD) in the store's time zone; stores is ["*"] or store slugs.
+                               slides: [{ desktop, desktopW, desktopH, mobile, mobileW, mobileH, alt, href }] }] }
+   start/end are inclusive calendar days (YYYY-MM-DD) in the store's time zone; stores is ["*"] or store slugs; W/H
+   are each image's natural pixel size (any ratio). A slide needs a desktop image with its size; a phone image without
+   a usable size is replaced by the desktop image, so every image on the page has its true dimensions.
 
    This site is a static export (next.config.ts, output: 'export'): the feed is read when the site is BUILT, so a
    banner added to the feed, or a start/end date passing, shows on the next build (.github/workflows/
@@ -13,12 +15,18 @@
    (or the whole feed) is skipped and the page renders no banner, never an error. No imports, so the unit checks can
    load it in plain Node. */
 
-export type BannerSlide = { desktop?: unknown; mobile?: unknown; alt?: unknown; href?: unknown };
+export type BannerSlide = {
+  desktop?: unknown; desktopW?: unknown; desktopH?: unknown; mobile?: unknown; mobileW?: unknown; mobileH?: unknown;
+  alt?: unknown; href?: unknown;
+};
 export type Banner = {
   id?: unknown; name?: unknown; always?: unknown; priority?: unknown; rotateSeconds?: unknown; href?: unknown;
   start?: unknown; end?: unknown; stores?: unknown; slides?: unknown;
 };
-export type ActiveSlide = { bannerId: string; desktop: string; mobile: string; alt: string; href: string };
+export type ActiveSlide = {
+  bannerId: string; desktop: string; desktopW: number; desktopH: number; mobile: string; mobileW: number; mobileH: number;
+  alt: string; href: string;
+};
 export type ActiveSlides = { slides: ActiveSlide[]; interval: number };
 
 const MAX_SLIDES = 8;
@@ -53,6 +61,11 @@ const safeUrl = (v: unknown): string => {
 };
 const text = (v: unknown): string => (typeof v === 'string' ? v.trim() : '');
 const num = (v: unknown, fallback: number): number => (typeof v === 'number' && Number.isFinite(v) ? v : fallback);
+/* a natural pixel size: a positive number (or digit string), rounded; 0 = unusable */
+const px = (v: unknown): number => {
+  const n = typeof v === 'string' && /^\s*\d+(\.\d+)?\s*$/.test(v) ? Number(v) : v;
+  return typeof n === 'number' && Number.isFinite(n) && n >= 1 ? Math.round(n) : 0;
+};
 
 export function activeSlides(list: Banner[], slug: string, timeZone: string, now: Date = new Date()): ActiveSlides {
   const today = todayIn(timeZone, now);
@@ -75,8 +88,11 @@ export function activeSlides(list: Banner[], slug: string, timeZone: string, now
   for (const b of ordered) {
     for (const s of Array.isArray(b.slides) ? (b.slides as BannerSlide[]) : []) {
       if (!s || typeof s !== 'object') continue;
-      const desktop = safeUrl(s.desktop); if (!desktop) continue;
-      slides.push({ bannerId: String(b.id), desktop, mobile: safeUrl(s.mobile) || desktop, alt: text(s.alt), href: safeUrl(s.href) || safeUrl(b.href) });
+      const desktop = safeUrl(s.desktop), desktopW = px(s.desktopW), desktopH = px(s.desktopH);
+      if (!desktop || !desktopW || !desktopH) continue;
+      let mobile = safeUrl(s.mobile), mobileW = px(s.mobileW), mobileH = px(s.mobileH);
+      if (!mobile || !mobileW || !mobileH) { mobile = desktop; mobileW = desktopW; mobileH = desktopH; }
+      slides.push({ bannerId: String(b.id), desktop, desktopW, desktopH, mobile, mobileW, mobileH, alt: text(s.alt), href: safeUrl(s.href) || safeUrl(b.href) });
       if (slides.length === MAX_SLIDES) break;
     }
     if (slides.length === MAX_SLIDES) break;

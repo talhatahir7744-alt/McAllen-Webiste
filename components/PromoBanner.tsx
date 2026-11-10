@@ -1,7 +1,7 @@
 import { activeSlides, fetchBanners } from '@/lib/banners';
 import { LOCATION } from '@/lib/location';
 import type { Locale } from '@/lib/i18n';
-import { PromoSlide } from './PromoSlide';
+import { PromoSlide, frameStyle } from './PromoSlide';
 import { PromoCarousel } from './PromoCarousel';
 import styles from './PromoBanner.module.css';
 
@@ -18,7 +18,7 @@ export async function PromoBanner({ locale }: { locale: Locale }) {
   if (slides.length === 1) {
     return (
       <section className={styles.promo} aria-label={LABEL[locale] || LABEL.en} data-promo-banner="static">
-        <div className={styles.frame}>
+        <div className={styles.frame} style={frameStyle(slides[0])}>
           <PromoSlide slide={slides[0]} index={0} active />
         </div>
       </section>

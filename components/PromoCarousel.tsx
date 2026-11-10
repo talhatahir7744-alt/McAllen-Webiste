@@ -2,14 +2,15 @@
 import { useEffect, useRef, useState } from 'react';
 import type { ActiveSlide } from '@/lib/banners';
 import type { Locale } from '@/lib/i18n';
-import { PromoSlide } from './PromoSlide';
+import { PromoSlide, frameStyle } from './PromoSlide';
 import styles from './PromoBanner.module.css';
 
 /* The promo carousel (2–8 slides; components/PromoBanner.tsx decides). No library. Every slide is in the server HTML
    (the first one shows without JavaScript); they cross-fade in one fixed-ratio frame, so nothing moves.
    - advances every `interval` seconds and loops; stops while the pointer is over it, while anything in it has focus,
      while the tab is hidden, and entirely for people who prefer reduced motion (they still have dots, arrows, keys);
-   - dots under the art (orange = showing), prev/next arrows on desktop, ←/→ keys while focus is inside;
+   - a control row under the art (orange dot = showing; prev/next arrows beside the dots from 768px, never over the
+     art), ←/→ keys while focus is inside;
    - the polite live region reads "Banner N of M: <alt>" when someone changes the slide (not on the automatic advance,
      which would talk over the page every few seconds);
    - dataLayer: promo_banner_view { banner_id } the first time each slide is shown on a page view; the click event
@@ -84,15 +85,17 @@ export function PromoCarousel({ slides, interval, locale, label }: { slides: Act
         else if (e.key === 'ArrowRight') { e.preventDefault(); go(index + 1); }
       }}
     >
-      <div className={styles.frame}>
+      <div className={styles.frame} style={frameStyle(slides[0])}>
         {slides.map((s, i) => <PromoSlide key={i} slide={s} index={i} active={i === index} />)}
-        <button type="button" className={`${styles.arrow} ${styles.prev}`} aria-label={t.prev} onClick={() => go(index - 1)}><Chevron dir="left" /></button>
-        <button type="button" className={`${styles.arrow} ${styles.next}`} aria-label={t.next} onClick={() => go(index + 1)}><Chevron dir="right" /></button>
       </div>
+      {/* controls under the art, never over it (banner art carries its own text and buttons near the edges):
+          prev / dots / next from 768px, dots only on phones */}
       <div className={styles.dots}>
+        <button type="button" className={`${styles.arrow} ${styles.prev}`} aria-label={t.prev} onClick={() => go(index - 1)}><Chevron dir="left" /></button>
         {slides.map((_, i) => (
           <button key={i} type="button" className={styles.dot} aria-label={t.of(i + 1, n)} aria-current={i === index ? 'true' : undefined} onClick={() => go(i)} />
         ))}
+        <button type="button" className={`${styles.arrow} ${styles.next}`} aria-label={t.next} onClick={() => go(index + 1)}><Chevron dir="right" /></button>
       </div>
       <p className={styles.live} aria-live="polite" aria-atomic="true">{announce}</p>
     </section>
