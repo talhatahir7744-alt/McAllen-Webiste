@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import PageClient from './client';
 import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
+import { PromoBanner } from '@/components/PromoBanner';
 import { SizeTypeGrid } from '@/components/SizeTypeGrid';
 import { AreaLinks } from '@/components/AreaLinks';
 
@@ -50,6 +51,8 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      {/* promo banner slot from the shared banner feed, under the announcement ticker (components/PromoBanner.tsx) */}
+      <PromoBanner locale="es" />
       {/* page-level JSON-LD (scripts/page-schema.mjs) */}
       <PageSchema items={PAGE_SCHEMA} locale="es" />
       <PageClient />

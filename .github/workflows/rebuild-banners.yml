@@ -1,0 +1,36 @@
+# Nightly production rebuild so the home page's promo banners follow their schedule.
+#
+# The site is a static export (next.config.ts, output: 'export'): components/PromoBanner.tsx reads the shared banner
+# feed (BANNERS_URL) when the site BUILDS, so a banner's start/end date, or a banner added to the feed, only shows up
+# on the next build. A Vercel cron cannot do this here: Vercel cron jobs call a route of this deployment, and a static
+# export has no server routes (no ISR, no revalidatePath). So this workflow asks Vercel for a fresh production build
+# through a Deploy Hook every night at 06:05 UTC = 00:05 in McAllen (01:05 during daylight saving time), just after
+# the store's calendar day changes.
+#
+# Setup (once): Vercel → this project → Settings → Git → Deploy Hooks → create one for branch "main"; then GitHub →
+# this repository → Settings → Secrets and variables → Actions → New repository secret VERCEL_DEPLOY_HOOK_URL = that
+# URL. Until the secret exists the job does nothing and says so. "Run workflow" (workflow_dispatch) rebuilds on demand,
+# e.g. right after a banner is published.
+name: Rebuild for promo banners
+
+on:
+  schedule:
+    - cron: '5 6 * * *'
+  workflow_dispatch: {}
+
+permissions: {}
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Trigger the Vercel production build
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::warning::VERCEL_DEPLOY_HOOK_URL is not set, so no rebuild was triggered (see the setup note in this file)."
+            exit 0
+          fi
+          curl --fail --silent --show-error --max-time 30 -X POST "$HOOK"
