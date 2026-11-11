@@ -16,40 +16,31 @@ import styles from './PromoBanner.module.css';
    DOMContentLoaded and keeps the handle on the host element. This component then ADOPTS that handle (mounting a
    second time would clear the slot and refetch) and only loads + mounts the embed itself when the deferred script
    never arrived; destroy() runs on unmount either way, and a load that finishes after unmount is ignored. The API
-   base is passed explicitly: the script would otherwise take it from the <script> tag it was loaded by.
-
-   Spacing (home pages: header → this slot → announcement ticker → hero): while a banner shows, the slot gets 16px
-   above and the ticker 16px below it; with no banner the slot is 0px tall with no margins, so the ticker sits
-   directly under the header. Those margins, and the box reserved at the embed's ratio, come from one <style> the
-   inline script adds to <head>: before first paint on return visits (it remembers per visitor, localStorage, best
-   effort, whether a banner showed last time), otherwise once the embed has rendered; removed when there is no banner.
-   A first-ever visit cannot know and shifts once. Mounted on the home pages only (/ and /es), full-bleed. */
+   base is passed explicitly: the script would otherwise take it from the <script> tag it was loaded by. Mounted on
+   the home pages only (/ and /es), full-bleed directly under the announcement ticker. */
 const EMBED_ORIGIN = 'https://snooze-banner-self.vercel.app';
 const EMBED_SRC = `${EMBED_ORIGIN}/embed.js`;
 const IMAGE_ORIGIN = 'https://gfpw6bkqb3wzayp0.public.blob.vercel-storage.com'; // the banner app's image store (Vercel Blob)
 
 type BannerHandle = { ready: Promise<void>; destroy(): void };
-type Host = HTMLDivElement & { __snzBanner?: BannerHandle; __snzBannerDone?: () => void };
+type Host = HTMLDivElement & { __snzBanner?: BannerHandle };
 declare global {
   interface Window {
     BannerEmbed?: { mount(el: Element, opts: { site: string; api?: string }): BannerHandle; version: string };
   }
 }
 
-/* runs while the HTML parses (before React): see the note above. `show` adds the shown-state style (margins + the
-   reserved box), `hide` removes it; `done` runs once the embed has rendered (also reachable from the component's
-   fallback path as host.__snzBannerDone) */
-const EARLY_MOUNT = (site: string) => {
-  const S = `[data-promo-banner="${site}"]`;
-  const css = `${S}{margin:16px auto 0}${S}+.snooze-ticker-wrap{margin-top:16px}${S}>div{aspect-ratio:1920/500}@media(max-width:767px){${S}>div{aspect-ratio:800/600}}`;
-  return `(function(){var h=document.querySelector('${S}>div');if(!h)return;var K="snzPromoBanner",st=null;` +
-    `function show(){if(st)return;st=document.createElement("style");st.textContent='${css}';document.head.appendChild(st)}` +
-    `function hide(){if(st){st.remove();st=null}}` +
-    `try{if(localStorage.getItem(K)==="1")show()}catch(e){}` +
-    `function done(){var has=!!(h.shadowRoot&&h.shadowRoot.querySelector(".bm"));try{localStorage.setItem(K,has?"1":"0")}catch(e){}if(has)show();else hide()}h.__snzBannerDone=done;` +
-    `function go(){var E=window.BannerEmbed;if(E&&!h.__snzBanner){h.__snzBanner=E.mount(h,{site:"${site}",api:"${EMBED_ORIGIN}"});h.__snzBanner.ready.then(done,done)}else if(!E)hide()}` +
-    `if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go,{once:true});else go()})();`;
-};
+/* runs while the HTML parses (before React): mounts the embed at DOMContentLoaded, by which time the deferred embed
+   script has run; the handle lives on the host so the component below can adopt it. It also remembers (localStorage,
+   per visitor, best effort) whether the last visit showed a banner: if so, the box is reserved at the embed's ratio
+   before first paint with a <style> added to <head> (removed once the embed has rendered), so the page does not jump
+   when the banner arrives on return visits; a first-ever visit cannot know and shifts once. */
+const EARLY_MOUNT = (site: string) =>
+  `(function(){var h=document.querySelector('[data-promo-banner="${site}"]>div');if(!h)return;var K="snzPromoBanner",st=null;` +
+  `try{if(localStorage.getItem(K)==="1"){st=document.createElement("style");st.textContent='[data-promo-banner="${site}"]>div{aspect-ratio:1920/500}@media(max-width:767px){[data-promo-banner="${site}"]>div{aspect-ratio:800/600}}';document.head.appendChild(st)}}catch(e){}` +
+  `function done(){var has=!!(h.shadowRoot&&h.shadowRoot.querySelector(".bm"));try{localStorage.setItem(K,has?"1":"0")}catch(e){}if(st){st.remove();st=null}}` +
+  `function go(){var E=window.BannerEmbed;if(E&&!h.__snzBanner){h.__snzBanner=E.mount(h,{site:"${site}",api:"${EMBED_ORIGIN}"});h.__snzBanner.ready.then(done,done)}else if(!E&&st){st.remove();st=null}}` +
+  `if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go,{once:true});else go()})();`;
 
 /* the embed script is normally already on the page (the deferred tag); this only waits for it, and starts a fresh
    load when that tag failed (DOMContentLoaded has passed and window.BannerEmbed is still missing) */
@@ -79,7 +70,7 @@ export function PromoBanner({ site = 'mcallen' }: { site?: string }) {
         .then(() => {
           if (cancelled) return;
           handle = host.__snzBanner || (window.BannerEmbed ? window.BannerEmbed.mount(host, { site, api: EMBED_ORIGIN }) : undefined);
-          if (handle) { host.__snzBanner = handle; const done = () => { if (!cancelled) host.__snzBannerDone?.(); }; handle.ready.then(done, done); }
+          if (handle) { host.__snzBanner = handle; handle.ready.catch(() => {}); }
         })
         .catch(() => { /* the script did not load: the slot stays empty, nothing else on the page is affected */ });
     }

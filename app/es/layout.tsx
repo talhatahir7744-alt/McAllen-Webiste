@@ -3,7 +3,6 @@ import Script from 'next/script';
 import { TopBar } from '@/components/TopBar';
 import { SiteHeader } from '@/components/SiteHeader';
 import { AnnouncementTicker } from '@/components/AnnouncementTicker';
-import { ExceptHome } from '@/components/ExceptHome';
 import { SiteFooter } from '@/components/SiteFooter';
 import { PageLoader } from '@/components/PageLoader';
 import { TrackingHead, TrackingBody } from '@/components/Tracking';
@@ -57,9 +56,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* slim NAP + language strip above the sticky header, on every page (components/TopBar.tsx) */}
         <TopBar locale="es" />
         <SiteHeader locale="es" />
-        {/* announcement ticker directly under the sticky header, on every page (lib/announcements.ts) except the home
-            page, which renders it itself under the promo banner slot (components/ExceptHome.tsx) */}
-        <ExceptHome><AnnouncementTicker locale="es" /></ExceptHome>
+        {/* announcement ticker directly under the sticky header, on every page (lib/announcements.ts) */}
+        <AnnouncementTicker locale="es" />
         {children}
         <SiteFooter locale="es" />
         <Script src="/snz-motion.js?v=mv2keep" strategy="afterInteractive" />
