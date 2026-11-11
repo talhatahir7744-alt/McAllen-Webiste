@@ -1,0 +1,6 @@
+/* Promo banner slot on the home page (components/PromoBanner.tsx): the same width as the builder's content rows under
+   it (1170px, centred; a 16px gutter on narrower screens). The banner manager's embed renders into the inner div, or
+   renders nothing: while the slot is empty it has no height and no spacing, so the hero follows the announcement
+   ticker directly; once a banner rendered (data-filled) it gets 16px above and below. */
+.promo { width: min(100% - 32px, 1170px); margin: 0 auto; }
+.promo[data-filled] { padding: 16px 0; }
