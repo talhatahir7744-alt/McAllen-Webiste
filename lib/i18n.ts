@@ -46,7 +46,7 @@ export type UiStrings = {
   quizCta: { line: string; button: string; aria: string };
   footer: {
     about: string; book: string; contact: string; products: string; company: string; visit: string; hours1: string; hours2: string; location: string; directions: string; openMaps: string; mapTitle: string;
-    rights: string; madeWith: string; terms: string; privacy: string; facebook: string; instagram: string; youtube: string;
+    rights: string; madeWith: string; terms: string; privacy: string; facebook: string; instagram: string; youtube: string; linkedin: string;
     companyLinks: Array<[label: string, href: string]>;
     serving: string; areas: Array<[label: string, href: string]>;
   };
@@ -87,7 +87,7 @@ const en: UiStrings = {
     hours1: 'Mon–Sat 10 AM–7 PM', hours2: 'Sun 12–6 PM', location: 'Our Location', directions: 'Get Directions', openMaps: 'Open Maps',
     mapTitle: 'Map to Snooze Mattress + Wellness, 7913 N 10th St, Suite 130, McAllen, TX 78504',
     rights: 'Snooze Mattress + Wellness. All Rights Reserved', madeWith: 'Made with', terms: 'Terms & Conditions', privacy: 'Privacy Policy',
-    facebook: 'Snooze McAllen on Facebook', instagram: 'Snooze McAllen on Instagram', youtube: 'Snooze McAllen on YouTube',
+    facebook: 'Snooze McAllen on Facebook', instagram: 'Snooze McAllen on Instagram', youtube: 'Snooze McAllen on YouTube', linkedin: 'Snooze Mattress + Wellness McAllen on LinkedIn',
     companyLinks: [['About Us', '/about-us'], ['Financing', '/mattress-financing'], ['Sales', '/mattress-sales'], ['Sleep Blog', '/blog'], ['Sleep Fit Quiz', '/sleep-quiz'], ['Dream Mapping', '/dream-mapping'], ['How to Choose a Mattress', '/how-to-choose-a-mattress'], ['FAQ', '/faq'], ['Book a Dream Mapping Appointment', '/booking'], ['Get In Touch', '/contact-us']],
     serving: 'Also serving', areas: [['Edinburg', '/mattress-store-edinburg'], ['Mission', '/mattress-store-mission'], ['Pharr', '/mattress-store-pharr']],
   },
@@ -131,7 +131,7 @@ const es: UiStrings = {
     hours1: 'Lun–Sáb 10 AM–7 PM', hours2: 'Dom 12–6 PM', location: 'Nuestra Ubicación', directions: 'Cómo Llegar', openMaps: 'Abrir en Maps',
     mapTitle: 'Mapa para llegar a Snooze Mattress + Wellness, 7913 N 10th St, Suite 130, McAllen, TX 78504',
     rights: 'Snooze Mattress + Wellness. Todos los derechos reservados', madeWith: 'Hecho con', terms: 'Términos y Condiciones', privacy: 'Política de Privacidad',
-    facebook: 'Snooze McAllen en Facebook', instagram: 'Snooze McAllen en Instagram', youtube: 'Snooze McAllen en YouTube',
+    facebook: 'Snooze McAllen en Facebook', instagram: 'Snooze McAllen en Instagram', youtube: 'Snooze McAllen en YouTube', linkedin: 'Snooze Mattress + Wellness McAllen en LinkedIn',
     companyLinks: [['Nosotros', '/about-us'], ['Financiamiento', '/mattress-financing'], ['Ofertas', '/mattress-sales'], ['Blog del Sueño', '/blog'], ['Sleep Fit Quiz', '/sleep-quiz'], ['Dream Mapping', '/dream-mapping'], ['Cómo elegir un colchón', '/how-to-choose-a-mattress'], ['Preguntas frecuentes', '/faq'], ['Reserva tu cita de Dream Mapping', '/booking'], ['Contáctanos', '/contact-us']],
     serving: 'También atendemos', areas: [['Edinburg', '/mattress-store-edinburg'], ['Mission', '/mattress-store-mission'], ['Pharr', '/mattress-store-pharr']],
   },

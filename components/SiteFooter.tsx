@@ -70,6 +70,9 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
               <a href={LOCATION.social.youtube} target="_blank" rel="noopener noreferrer" aria-label={f.youtube}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinejoin="round" aria-hidden="true"><path d="M21.6 7.2a2.4 2.4 0 0 0-1.7-1.7C18.4 5 12 5 12 5s-6.4 0-7.9.5A2.4 2.4 0 0 0 2.4 7.2C2 8.7 2 12 2 12s0 3.3.4 4.8a2.4 2.4 0 0 0 1.7 1.7c1.5.5 7.9.5 7.9.5s6.4 0 7.9-.5a2.4 2.4 0 0 0 1.7-1.7c.4-1.5.4-4.8.4-4.8s0-3.3-.4-4.8Z" /><path d="m10 9.2 4.8 2.8-4.8 2.8V9.2Z" fill="currentColor" stroke="none" /></svg>
               </a>
+              <a href={LOCATION.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label={f.linkedin}>
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z" /></svg>
+              </a>
             </div>
             <div className={styles.ctas}>
               <a href={L('/booking')} className={styles.btn}>{f.book}</a>

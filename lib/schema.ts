@@ -36,13 +36,13 @@ function organization(): JsonLd {
     name: NAME,
     url: `${SITE_URL}/`,
     logo: { '@type': 'ImageObject', '@id': `${SITE_URL}/#logo`, url: `${SITE_URL}${SQUARE_LOGO.src}`, width: SQUARE_LOGO.width, height: SQUARE_LOGO.height },
-    sameAs: [L.social.facebook, L.social.instagram, L.social.youtube],
+    sameAs: [L.social.facebook, L.social.instagram, L.social.youtube, L.social.linkedin],
     parentOrganization: { '@type': 'Organization', name: 'Snooze Mattress + Wellness', url: 'https://snoozemattresscompany.com' },
   };
 }
 
 /* the store: name, full address, geo (the pin of the Google Business Profile listing, Place ID in lib/location.ts),
-   telephone, opening hours, priceRange, url, storefront photo + logo, sameAs (Facebook, Instagram, YouTube, the
+   telephone, opening hours, priceRange, url, storefront photo + logo, sameAs (Facebook, Instagram, YouTube, LinkedIn, the
    listing), hasMap, areaServed; the brands are the /mattresses brand blocks (lib/brands.json); the free Dream Mapping
    fitting is its offer (the Service on /dream-mapping) */
 function store(locale: Locale): JsonLd {
@@ -60,7 +60,7 @@ function store(locale: Locale): JsonLd {
     address: { '@type': 'PostalAddress', streetAddress: L.street, addressLocality: L.city, addressRegion: L.region, postalCode: L.postalCode, addressCountry: L.country },
     geo: { '@type': 'GeoCoordinates', latitude: L.geo.latitude, longitude: L.geo.longitude },
     hasMap: L.gbpUrl,
-    sameAs: [L.social.facebook, L.social.instagram, L.social.youtube, L.gbpUrl],
+    sameAs: [L.social.facebook, L.social.instagram, L.social.youtube, L.social.linkedin, L.gbpUrl],
     openingHoursSpecification: L.openingHours.map((h) => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: h.days.map((d) => `https://schema.org/${d}`), opens: h.opens, closes: h.closes })),
     areaServed: L.areaServed.map((city) => ({ '@type': 'City', name: city, containedInPlace: { '@type': 'State', name: 'Texas' } })),
     parentOrganization: { '@id': ORG_ID },

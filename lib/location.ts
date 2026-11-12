@@ -23,6 +23,7 @@ export const LOCATION = {
     facebook: 'https://www.facebook.com/p/Snooze-Mattress-Wellness-61575812121380/',
     instagram: 'https://www.instagram.com/snoozemcallen',
     youtube: 'https://www.youtube.com/@SnoozeMcAllen',
+    linkedin: 'https://www.linkedin.com/company/snooze-mattress-mcallen',
   },
   /* Google Maps: the query is the business name + the exact NAP, so the map and the directions link resolve to the
      store's own listing (SEO audit, October 2026 — section 6b; scripts/brand-nap.mjs writes the same URLs into the
