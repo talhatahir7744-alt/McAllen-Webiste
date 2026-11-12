@@ -92,3 +92,23 @@ test("isVisible: the kit's windows — sold shows for soldVisibleDays, stale lis
   assert.equal(isVisible({ ...base, status: 'sold', soldDate: '2026-11-01' }, NOW), false, 'sold 11 days ago → gone');
   assert.equal(isVisible({ ...base, status: 'hidden' }, NOW), false);
 });
+
+test('live sheet (fetched 2026-11-13): two real McAllen rows verbatim — CRLF, quoted description with commas, "" inside a quoted model, | photos, yes/no, en dash, hidden/available', () => {
+  // Copied unchanged from the published sheet CSV (CLEARANCE_URL), header row first.
+  const csv = 'location,id,category,brand,model,size,comfort,construction,condition,new_in_box,retail,sale,qty,listed,photos,description,status,sold_date\r\n'
+    + 'McAllen,MCA-1001,mattress,Tempur-Pedic,EMPUR-ProAdapt Medium Hybrid,King,Medium,Hybrid,Floor model,no,4000,2150,2,2026-11-11,https://lh3.googleusercontent.com/d/1fqHtVQlIAlAw5vmzDKvupSC48oomKUsE|https://lh3.googleusercontent.com/d/1cQCrryZjk52Ms8RZAsPHC1CkkIkUwJ4H|https://lh3.googleusercontent.com/d/1bEvJ4F0gxBOotwpZdsJVRQev3aCc5SM3,"great condition, never slept on... yada yada yada",hidden,\r\n'
+    + 'McAllen,MCA-1005,mattress,Snooze-O-Pedic,"Thrive 16""",Twin,Plush,Innerspring,Clearance – new in box,yes,999,699,1,2026-11-11,https://lh3.googleusercontent.com/d/1miWr4ZLQVLiUHuf0LWlLy74HSn5yA99F,Brand New in box,available,';
+  const { listings, skipped } = rowsToListings(parseCsv(csv), 'McAllen', NOW);
+  assert.deepEqual(skipped, []);
+  assert.deepEqual(listings.map((l) => l.id), ['MCA-1001', 'MCA-1005']);
+  const [a, b] = listings;
+  assert.equal(a.brand, 'Tempur-Pedic'); assert.equal(a.model, 'EMPUR-ProAdapt Medium Hybrid'); assert.equal(a.size, 'King'); assert.equal(a.comfort, 'Medium');
+  assert.equal(a.construction, 'Hybrid'); assert.equal(a.condition, 'Floor model'); assert.equal(a.newInBox, false);
+  assert.equal(a.retail, 4000); assert.equal(a.sale, 2150); assert.equal(a.qty, 2); assert.equal(a.listed, '2026-11-11');
+  assert.deepEqual(a.photos, ['https://lh3.googleusercontent.com/d/1fqHtVQlIAlAw5vmzDKvupSC48oomKUsE', 'https://lh3.googleusercontent.com/d/1cQCrryZjk52Ms8RZAsPHC1CkkIkUwJ4H', 'https://lh3.googleusercontent.com/d/1bEvJ4F0gxBOotwpZdsJVRQev3aCc5SM3'], '| separates photos');
+  assert.equal(a.description, 'great condition, never slept on... yada yada yada');
+  assert.equal(a.status, 'hidden'); assert.equal(a.soldDate, undefined); assert.equal(isVisible(a, NOW), false, 'hidden rows never show');
+  assert.equal(b.model, 'Thrive 16"', 'doubled quote inside a quoted field'); assert.equal(b.condition, 'Clearance – new in box'); assert.equal(b.newInBox, true);
+  assert.equal(b.retail, 999); assert.equal(b.sale, 699); assert.equal(b.qty, 1); assert.deepEqual(b.photos, ['https://lh3.googleusercontent.com/d/1miWr4ZLQVLiUHuf0LWlLy74HSn5yA99F']);
+  assert.equal(b.description, 'Brand New in box'); assert.equal(b.status, 'available'); assert.equal(isVisible(b, NOW), true);
+});
