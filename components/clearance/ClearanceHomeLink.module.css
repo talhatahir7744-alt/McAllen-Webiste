@@ -1,0 +1,8 @@
+/* Small home-page link to /clearance (components/clearance/ClearanceHomeLink.tsx): one slim navy line, centred,
+   full width, between the promo banner slot and the hero; appears only while clearance listings exist. */
+.bar { background: #001489; color: #fff; }
+.link { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 4px 12px; width: min(100% - 32px, 1170px); margin: 0 auto; padding: 10px 0; color: #fff; text-decoration: none; font-size: 15px; line-height: 1.4; text-align: center; }
+.link strong { color: #F58433; font-weight: 700; white-space: nowrap; }
+.link:hover strong, .link:focus-visible strong { text-decoration: underline; }
+.link:focus-visible { outline: 3px solid #F58433; outline-offset: -3px; }
+@media (max-width: 767px) { .link { font-size: 14px; padding: 9px 0; } }

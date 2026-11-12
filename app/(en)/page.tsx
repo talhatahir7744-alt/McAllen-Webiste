@@ -4,6 +4,7 @@ import PageClient from './client';
 import { PageSchema } from '@/components/PageSchema';
 import { PAGE_SCHEMA } from './schema';
 import { PromoBanner } from '@/components/PromoBanner';
+import { ClearanceHomeLink } from '@/components/clearance/ClearanceHomeLink';
 import { SizeTypeGrid } from '@/components/SizeTypeGrid';
 import { AreaLinks } from '@/components/AreaLinks';
 
@@ -53,6 +54,8 @@ export default function Page() {
     <>
       {/* promo banners from the banner manager (components/PromoBanner.tsx): the embed renders the store's live banners, or nothing */}
       <PromoBanner />
+      {/* small link to the Clearance & Floor Models page, only while clearance listings exist (components/clearance/) */}
+      <ClearanceHomeLink locale="en" />
       {/* page-level JSON-LD (scripts/page-schema.mjs) */}
       <PageSchema items={PAGE_SCHEMA} locale="en" />
       <PageClient />

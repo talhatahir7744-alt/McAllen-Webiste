@@ -19,6 +19,7 @@
     { "source": "/es/massage-chairs-402809", "destination": "/es/massage-chairs", "permanent": true },
     { "source": "/review", "destination": "/", "permanent": true },
     { "source": "/es/review", "destination": "/es", "permanent": true },
+    { "source": "/es/clearance", "destination": "/clearance", "permanent": true },
     { "source": "/optin-page", "destination": "/contact-us", "permanent": true },
     { "source": "/es/optin-page", "destination": "/es/contact-us", "permanent": true },
     { "source": "/optin-page/", "destination": "/contact-us", "permanent": true },
