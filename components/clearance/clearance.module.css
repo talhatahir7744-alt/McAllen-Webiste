@@ -109,7 +109,7 @@
 .error { color: #A12A00; font-size: 13px; font-weight: 600; }
 
 /* Modal (bottom sheet on phones) */
-.modal { position: fixed; inset: 0; z-index: 1000; background: rgba(0, 12, 70, .6); display: flex; align-items: center; justify-content: center; padding: 24px; overflow-y: auto; }
+.modal { position: fixed; inset: 0; z-index: 1301; /* kit: 1000 — McAllen's sticky header (1200), top bar (1201) and header progress bar (1300) painted over the dialog's title and close button */ background: rgba(0, 12, 70, .6); display: flex; align-items: center; justify-content: center; padding: 24px; overflow-y: auto; }
 .dialog { background: #fff; border-radius: 18px; width: 100%; max-width: 620px; max-height: calc(100vh - 48px); overflow-y: auto; box-shadow: 0 20px 60px rgba(0, 12, 70, .35); }
 .dialogHead { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid var(--line); }
 .dialogHead h2 { margin: 0; font-family: var(--display); font-weight: 500; font-size: 20px; color: var(--blue); }
