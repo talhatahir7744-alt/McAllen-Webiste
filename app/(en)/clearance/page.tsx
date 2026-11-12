@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   title: `Clearance & Floor Models | ${STORE.name}`,
   description: `In-stock floor model and clearance mattresses, adjustable bases and more at ${STORE.name}. Limited quantities. Request info and a Sleep Coach will call you.`,
   alternates: { canonical: '/clearance' },
+  // Same tab icon as every other page (the converted pages carry it in their head); without it the browser asks for
+  // /favicon.ico, which 404s and logs a console error.
+  icons: { icon: '/assets/filesafe/qR8peonBlnjGI3ZuLHQP/media/695b9e7d17768458ae206a19.png' },
 };
 
 export default async function ClearancePage() {
