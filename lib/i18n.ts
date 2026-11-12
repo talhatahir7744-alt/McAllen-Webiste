@@ -34,7 +34,7 @@ export function alternateHref(pathname: string, target: Locale): string {
 type ProductItem = { label: string; desc: string };
 export type UiStrings = {
   langName: string;
-  nav: { home: string; about: string; products: string; financing: string; sales: string; blog: string; quiz: string; allArticles: string };
+  nav: { home: string; about: string; products: string; financing: string; sales: string; clearance: string; blog: string; quiz: string; allArticles: string };
   menu: { products: string; accessories: string; latest: string; openMenu: (label: string) => string; closeMenu: (label: string) => string; openSite: string; closeSite: string; siteMenu: string; homeAria: string; call: (phone: string) => string; switchTo: string; sizes: string; sizeLinks: Array<[label: string, href: string]> };
   products: Record<string, ProductItem>;
   feature: { eyebrow: string; title: string; cta: string; imgAlt: string };
@@ -62,7 +62,7 @@ export type ProductKey = (typeof PRODUCT_KEYS)[number];
 
 const en: UiStrings = {
   langName: 'English',
-  nav: { home: 'Home', about: 'About Us', products: 'Our Products', financing: 'Financing', sales: 'Sales', blog: 'Blog', quiz: 'Sleep Quiz', allArticles: 'All articles' },
+  nav: { home: 'Home', about: 'About Us', products: 'Our Products', financing: 'Financing', sales: 'Sales', clearance: 'Clearance', blog: 'Blog', quiz: 'Sleep Quiz', allArticles: 'All articles' },
   menu: { products: 'Products', accessories: 'Sleep Accessories', latest: 'Latest articles', openMenu: (l) => `Open ${l} menu`, closeMenu: (l) => `Close ${l} menu`, openSite: 'Open menu', closeSite: 'Close menu', siteMenu: 'Site menu', homeAria: 'Snooze Mattress + Wellness — home', call: (p) => `Call ${p}`, switchTo: 'Ver en español',
     sizes: 'Mattresses by size & type',
     sizeLinks: [['Queen', '/queen-mattresses'], ['King', '/king-mattresses'], ['Full & Twin', '/full-twin-mattresses'], ['Memory Foam', '/memory-foam-mattresses'], ['Back Pain', '/mattresses-for-back-pain'], ['Cooling', '/cooling-mattresses']] },
@@ -106,7 +106,7 @@ const en: UiStrings = {
 
 const es: UiStrings = {
   langName: 'Español',
-  nav: { home: 'Inicio', about: 'Nosotros', products: 'Productos', financing: 'Financiamiento', sales: 'Ofertas', blog: 'Blog', quiz: 'Quiz de Sueño', allArticles: 'Todos los artículos' }, // nav label kept short so the desktop row fits on one line; the full 'Nuestros Productos' stays in the footer
+  nav: { home: 'Inicio', about: 'Nosotros', products: 'Productos', financing: 'Financiamiento', sales: 'Ofertas', clearance: 'Liquidación', blog: 'Blog', quiz: 'Quiz de Sueño', allArticles: 'Todos los artículos' }, // nav label kept short so the desktop row fits on one line; the full 'Nuestros Productos' stays in the footer
   menu: { products: 'Productos', accessories: 'Accesorios para Dormir', latest: 'Artículos recientes', openMenu: (l) => `Abrir menú ${l}`, closeMenu: (l) => `Cerrar menú ${l}`, openSite: 'Abrir menú', closeSite: 'Cerrar menú', siteMenu: 'Menú del sitio', homeAria: 'Snooze Mattress + Wellness — inicio', call: (p) => `Llamar al ${p}`, switchTo: 'View in English',
     sizes: 'Colchones por tamaño y tipo',
     sizeLinks: [['Queen', '/queen-mattresses'], ['King', '/king-mattresses'], ['Full y Twin', '/full-twin-mattresses'], ['Memory Foam', '/memory-foam-mattresses'], ['Dolor de espalda', '/mattresses-for-back-pain'], ['Frescos', '/cooling-mattresses']] },

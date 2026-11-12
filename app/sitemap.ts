@@ -72,5 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       out.push({ url: abs(localizeHref(own, locale)), lastModified: new Date(p.dateModified || p.datePublished), changeFrequency: 'yearly', priority: 0.6, alternates: { languages: { 'en-US': abs(en), 'es-US': abs(es), 'x-default': abs(en) } } });
     }
   }
+  // Clearance & Floor Models: English only (no /es twin; /es/clearance redirects here), listings change often
+  out.push({ url: abs('/clearance'), lastModified: lastmod('/clearance', now), changeFrequency: 'daily', priority: 0.7, alternates: { languages: { 'en-US': abs('/clearance'), 'x-default': abs('/clearance') } } });
   return out;
 }

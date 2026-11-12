@@ -8,7 +8,7 @@ import { BLOG_INDEX, blogNav } from '@/lib/blog-nav';
 import { alternateHref, localizeHref, splitLocale, ui, PRODUCT_KEYS, type Locale } from '@/lib/i18n';
 
 type MenuKey = 'products' | 'blog';
-type NavItem = { label: string; href: string; match?: string[]; menu?: MenuKey };
+type NavItem = { label: string; href: string; match?: string[]; menu?: MenuKey; noLocale?: boolean }; // noLocale: one URL for both languages (no /es twin)
 type MenuLink = { label: string; href: string; desc: string; icon: keyof typeof ICONS };
 
 const PRODUCT_HREFS: Record<(typeof PRODUCT_KEYS)[number], { href: string; icon: keyof typeof ICONS }> = {
@@ -31,6 +31,7 @@ function navTables(locale: Locale) {
     { label: t.nav.products, href: '/mattresses', menu: 'products' },
     { label: t.nav.financing, href: '/mattress-financing' },
     { label: t.nav.sales, href: '/mattress-sales' },
+    { label: t.nav.clearance, href: '/clearance', noLocale: true }, // Clearance & Floor Models (English page only; /es/clearance 308s to it)
     { label: t.nav.blog, href: BLOG_INDEX.href, menu: 'blog' },
     { label: t.nav.quiz, href: '/sleep-quiz' },
   ];
@@ -111,6 +112,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
   const pathname = splitLocale(rawPath).path; // English path used for the active states
   const { t, PRIMARY, PRODUCT_GROUPS, SIZE_GROUP, BLOG_GROUP, blogIndex } = navTables(locale);
   const L = (href: string) => localizeHref(href, locale);
+  const hrefOf = (item: NavItem) => (item.noLocale ? item.href : L(item.href));
   const langSwitch = (cls: string) => (
     <div className={cls} role="group" aria-label={t.menu.switchTo}>
       {(['en', 'es'] as const).map((l) => (
@@ -301,7 +303,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
                   onMouseLeave={onLeave}
                   onBlur={onItemBlur}
                 >
-                  <a href={L(item.href)} className={`${styles.link} ${isActive(item) ? styles.active : ''}`} aria-current={isActive(item) ? 'page' : undefined}>
+                  <a href={hrefOf(item)} className={`${styles.link} ${isActive(item) ? styles.active : ''}`} aria-current={isActive(item) ? 'page' : undefined}>
                     {item.label}
                   </a>
                   <button
@@ -358,7 +360,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
                 </li>
               ) : (
                 <li key={item.label} className={item.href === '/sleep-quiz' ? `${styles.item} ${styles.quizItem}` : styles.item}>
-                  <a href={L(item.href)} className={`${styles.link} ${isActive(item) ? styles.active : ''}`} aria-current={isActive(item) ? 'page' : undefined}>
+                  <a href={hrefOf(item)} className={`${styles.link} ${isActive(item) ? styles.active : ''}`} aria-current={isActive(item) ? 'page' : undefined}>
                     {item.label}
                   </a>
                 </li>
@@ -454,7 +456,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
                 </li>
               ) : (
                 <li key={item.label} className={styles.mItem} style={{ '--i': index } as React.CSSProperties}>
-                  <a href={L(item.href)} className={`${styles.mLink} ${isActive(item) ? styles.mActive : ''}`} aria-current={isActive(item) ? 'page' : undefined} onClick={closeMobile}>{item.label}</a>
+                  <a href={hrefOf(item)} className={`${styles.mLink} ${isActive(item) ? styles.mActive : ''}`} aria-current={isActive(item) ? 'page' : undefined} onClick={closeMobile}>{item.label}</a>
                 </li>
               ),
             )}

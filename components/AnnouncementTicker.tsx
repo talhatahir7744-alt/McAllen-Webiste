@@ -1,5 +1,6 @@
 import { TICKER_ITEMS } from '@/lib/announcements';
 import type { Locale } from '@/lib/i18n';
+import { ClearanceTickerItem } from '@/components/clearance/ClearanceTickerItem';
 
 /* The orange announcement ticker directly under the sticky header on every page (both root layouts render it, and
    scripts/convert.mjs writes it into the layout template). It is the client's original custom-code marquee from the
@@ -22,13 +23,16 @@ function Sparkle() {
 
 export function AnnouncementTicker({ locale }: { locale: Locale }) {
   const items = TICKER_ITEMS[locale] || TICKER_ITEMS.en;
-  const set = (key: string, hidden: boolean) =>
-    items.map((text, i) => (
+  const set = (key: string, hidden: boolean) => [
+    ...items.map((text, i) => (
       <div className="snooze-ticker-item" key={`${key}-${i}`} aria-hidden={hidden ? 'true' : undefined}>
         <span className="snooze-ticker-text">{text}</span>
         <Sparkle />
       </div>
-    ));
+    )),
+    // "Floor Model & Clearance Deals": only while the store has a visible clearance listing (components/clearance/)
+    <ClearanceTickerItem key={`${key}-clearance`} locale={locale} hidden={hidden} />,
+  ];
   return (
     <div className="snooze-ticker-wrap" role="marquee" aria-label={LABEL[locale] || LABEL.en} data-snz-ticker={locale}>
       <div className="snooze-ticker-track">
